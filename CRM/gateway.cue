@@ -22,10 +22,6 @@ manifest.#TailorManifest & {
 				url: {{ .Values.directory.graphqlEndpoint | quote }}
 			},
 			{
-				name: "workflow"
-				url: {{ .Values.workflow.graphqlEndpoint | quote }}
-			},
-			{
 				name: "tailordb"
 				url: {{ .Values.tailordb.graphqlEndpoint | quote }}
 			},
