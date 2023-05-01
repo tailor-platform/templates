@@ -48,7 +48,7 @@ addNewEmployee: pipelinev1.#Resolver & {
       id:          {{ generateUUID | quote }}
       name:        "createsEmployee"
       description: "creates an employee"
-      url:         settings.services.db
+      url:         settings.services.gateway
       preScript: """
        {
             "userID":context.pipeline.createsUser.id,

@@ -15,7 +15,7 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "createEmployment"
       description: "creates a new employment data"
-      url:         settings.services.db
+      url:         settings.services.gateway
       preScript: """
                 {
                   "employeeID": context.args.input.employeeID,
@@ -33,10 +33,10 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
                   $employeeID: ID!
                   $jobTitle: String!
                   $payRate: Int
-                  $payPeriod: PayPeriod
+                  $payPeriod: EmploymentPayPeriod
                   $payCurrency: String
                   $effectiveDate: Date
-                  $employmentType: EmploymentType
+                  $employmentType: EmploymentEmploymentType
                   ) {
                 createEmployment (input: {
                   employeeID: $employeeID
@@ -56,7 +56,7 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "addPerdonalDataToEmployee"
       description: "Adding personal data ID to employee"
-      url:         settings.services.db
+      url:         settings.services.gateway
       preScript: """
               {
                 "employmentID":args.id,
@@ -84,7 +84,7 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "ChangingPermissionEmployment"
       description: "Change permission of employment data for this employee"
-      url:         settings.services.db
+      url:         settings.services.gateway
       contextData: json.Marshal({settings.permissions})
       preScript: """
               {

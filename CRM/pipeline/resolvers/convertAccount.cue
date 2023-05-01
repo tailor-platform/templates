@@ -14,7 +14,7 @@ convertAccount: pipelinev1.#Resolver & {
 			id:          {{ generateUUID | quote }}
 			name:        "createsAccount"
 			description: "creates a new Account"
-			url:         settings.services.db
+			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery: """
 				  		mutation(
@@ -43,7 +43,7 @@ convertAccount: pipelinev1.#Resolver & {
 			id:          {{ generateUUID | quote }}
 			name:        "deleteLead"
 			description: "delete a lead"
-			url:         settings.services.db
+			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery:
 				"""

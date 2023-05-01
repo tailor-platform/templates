@@ -2,7 +2,6 @@ package invoiceReviewFlow
 
 import (
 	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-	"{{ .Values.cue.package }}/charts/common:constant"
 )
 
 manifest.#TailorManifest & {
@@ -29,7 +28,7 @@ manifest.#TailorManifest & {
 """
         variables: {
 		  states: invoiceReviewFlow
-		  id: constant.uuid & {_, #type: "reviewFlow", #value: "1"}
+		  id: {{ generateWorkspaceUUID "ReviewFlow1" | quote }}
         }
       },
     ]
@@ -40,12 +39,12 @@ manifest.#TailorManifest & {
 invoiceReviewFlow: [
         {
           name: "ManagerReview"
-          approvers: [{ id: constant.uuid & {_, #type: "role", #value: "manager"} }]
+          approvers: [{ id: {{ generateWorkspaceUUID "ManagerRole" | quote }} }]
           transitions: [{ action: "approve", destination: "CustomerReview" }]
         },
         {
           name: "CustomerReview"
-          approvers: [{ id: constant.uuid & {_, #type: "role", #value: "customer"} }]
+          approvers: [{ id: {{ generateWorkspaceUUID "CustomerRole" | quote }} }]
           transitions: [{ action: "approve", destination: "AllApproved" }]
         },
         {

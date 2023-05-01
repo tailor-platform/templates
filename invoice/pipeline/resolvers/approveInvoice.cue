@@ -4,7 +4,6 @@ import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
   "encoding/json"
-  "{{ .Values.cue.package }}/charts/common:constant"
 )
 
 approveInvoice: pipelinev1.#Resolver & {
@@ -41,9 +40,9 @@ approveInvoice: pipelinev1.#Resolver & {
             description: "change permisssion of the invoice record"
             url: settings.services.gateway
             contextData: json.Marshal({
-              managerRoleID: constant.uuid & {_, #type: "role", #value: "manager"}
-              staffRoleID: constant.uuid & {_, #type: "role", #value: "staff"}
-              customerRoleID: constant.uuid & {_, #type: "role", #value: "customer"}
+              managerRoleID: {{ generateWorkspaceUUID "ManagerRole" | quote }}
+              staffRoleID: {{ generateWorkspaceUUID "StaffRole" | quote }}
+              customerRoleID: {{ generateWorkspaceUUID "CustomerRole" | quote }}
             })  
             test: "!user.roles.exists(e, e == context.data.customerRoleID )"
             preScript: """

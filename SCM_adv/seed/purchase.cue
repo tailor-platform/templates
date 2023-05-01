@@ -2,7 +2,6 @@ package purchase
 
 import (
 	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-	"{{ .Values.cue.package }}/charts/common:constant"
 )
 
 manifest.#TailorManifest & {
@@ -48,15 +47,15 @@ purchases: {
 	order1: {
     quantity: 15
     placedDate: "2023-01-01"
-    productID: constant.uuid & {_, #type: "product", #value: "1"}
-    locationID: constant.uuid & {_, #type: "location", #value: "1"}
+    productID:  {{ generateWorkspaceUUID "Product1" | quote }}
+    locationID: {{ generateWorkspaceUUID "Location1" | quote }}
 	}
 
   order2: {
     quantity: 8
     placedDate: "2023-01-02"
-    productID: constant.uuid & {_, #type: "product", #value: "2"}
-    locationID: constant.uuid & {_, #type: "location", #value: "2"}
+    productID: {{ generateWorkspaceUUID "Product2" | quote }}
+    locationID: {{ generateWorkspaceUUID "Location2" | quote }}
   }
   
 

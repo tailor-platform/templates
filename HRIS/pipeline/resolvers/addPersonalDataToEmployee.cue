@@ -15,7 +15,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "createsPersonalData"
       description: "creates a new personal data"
-      url:         settings.services.db
+      url:         settings.services.gateway
       preScript: """
                 {
                   "employeeID": context.args.input.employeeID,
@@ -35,7 +35,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
                   $dateOfBirth: Date
                   $hireDate: Date!
                   $startDate: Date!
-                  $employmentStatus: EmploymentStatus!
+                  $employmentStatus: PersonalDataEmploymentStatus!
                   ) {
                 createPersonalData (input: {
                   employeeID: $employeeID
@@ -55,7 +55,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "addPerdonalDataToEmployee"
       description: "Adding personal data ID to employee"
-      url:         settings.services.db
+      url:         settings.services.gateway
       preScript: """
               {
                 "personalDataID":args.id,
@@ -82,7 +82,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
       id: {{generateUUID | quote}}
       name:        "ChangingPermissionPersonalData"
       description: "Change permission of personal data for this employee"
-      url:         settings.services.db
+      url:         settings.services.gateway
       contextData: json.Marshal({settings.permissions})
       preScript: """
               {

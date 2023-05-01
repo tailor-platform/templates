@@ -18,7 +18,7 @@ manifest.#TailorManifest & {
     manifests: [...tailordbv1.#Manifest] &
       [
         {
-          name:  "Task"
+          name:  "Todo"
           schema: task.Task
         },
       ]
