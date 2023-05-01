@@ -5,7 +5,7 @@ import (
 	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
 )
 
-gatewayUrl: {{ .Values.gateway.graphqlEndpoint | quote }}
+gatewayUrl: {{ {{ print "https://" .Values.gateway.domain "/query" | quote }} | quote }}
 
 manifest.#TailorManifest & {
 	version: "v1"
