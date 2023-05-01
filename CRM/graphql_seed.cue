@@ -2,11 +2,7 @@ package graphqlseed
 
 import (
   "github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-  "uuid"
-  "crypto/hmac"
 )
-
-#seed: uuid.FromInt(1680674)
 
 manifest.#TailorManifest & {
   version: "v1"
@@ -32,7 +28,7 @@ manifest.#TailorManifest & {
             }
           """,
         variables: {
-          accountID: uuid.SHA1(#seed, hmac.Sign("SHA1", "Account", "1"))
+          accountID: {{ generateWorkspaceUUID "Account1" | quote }}
         },
       },
       {
@@ -57,7 +53,7 @@ manifest.#TailorManifest & {
             }
           """
         variables: {
-          leadID: uuid.SHA1(#seed, hmac.Sign("SHA1", "Lead", "1"))
+          leadID: {{ generateWorkspaceUUID "Lead1" | quote }}
         },
       },
       {
@@ -110,7 +106,7 @@ manifest.#TailorManifest & {
           }
           """
         variables: {
-          accountID: uuid.SHA1(#seed, hmac.Sign("SHA1", "Account", "1"))
+          accountID: {{ generateWorkspaceUUID "Account1" | quote }}
         }
       },
     ]

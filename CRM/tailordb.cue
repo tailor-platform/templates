@@ -21,19 +21,19 @@ manifest.#TailorManifest & {
 		manifests: [...tailordbv1.#Manifest] &
 			[
 				{
-					table:  "CustomerAccount"
+					name:  "CustomerAccount"
 					schema: customerAccount.CustomerAccount
 				},
 				{
-					table:  "Engagement"
+					name:  "Engagement"
 					schema: engagement.Engagement
 				},
 				{
-					table:  "Lead"
+					name:  "Lead"
 					schema: lead.Lead
 				},
 				{
-					table:  "Transaction"
+					name:  "Transaction"
 					schema: transaction.Transaction
 				},
 			]

@@ -4,7 +4,6 @@ import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
   "encoding/json"
-  "{{ .Values.cue.package }}/charts/common:constant"
 )
 
 reviewInvoice: pipelinev1.#Resolver & {
@@ -18,7 +17,7 @@ reviewInvoice: pipelinev1.#Resolver & {
               description: "new state for invoice review"
               url: settings.services.gateway
               contextData: json.Marshal({
-                id: constant.uuid & {_, #type: "reviewFlow", #value: "1"}
+                id:  {{ generateWorkspaceUUID "ReviewFlow1" | quote }}
               })
               preScript: """
               {
@@ -68,8 +67,8 @@ reviewInvoice: pipelinev1.#Resolver & {
           description: "change permisssion of the invoice record"
           url: settings.services.gateway
           contextData: json.Marshal({
-            managerRoleID: constant.uuid & {_, #type: "role", #value: "manager"}
-            staffRoleID: constant.uuid & {_, #type: "role", #value: "staff"}
+            managerRoleID: {{ generateWorkspaceUUID "ManagerRole" | quote }}
+            staffRoleID: {{ generateWorkspaceUUID "StaffRole" | quote }}
           })
           preScript: """
           {

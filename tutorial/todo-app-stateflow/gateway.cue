@@ -24,17 +24,17 @@ manifest.#TailorManifest & {
         url: {{ .Values.tailordb.graphqlEndpoint | quote }}
       },
 
-//      // Directory service
-//      {
-//        name: "directory"
-//        url: {{ .Values.directory.graphqlEndpoint | quote }}
-//      },
+     // Directory service
+     {
+       name: "directory"
+       url: {{ .Values.directory.graphqlEndpoint | quote }}
+     },
 
-//      // StateFlow service
-//      {
-//        name: "stateflow"
-//        url:  {{ .Values.stateflow.graphqlEndpoint | quote }}
-//      },
+     // StateFlow service
+     {
+       name: "stateflow"
+       url:  {{ .Values.stateflow.graphqlEndpoint | quote }}
+     },
 
 //      // Pipeline Service
 //      {

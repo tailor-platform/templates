@@ -8,13 +8,17 @@ import (
 Task: tailordbv1.#TypeConfig & {
     description: "Task data schema"
     fields: {
-      "title": {
+      title: {
         type:        tailordb.#FieldTypeString
         description: "Title of the task"
       }
-      "priority": {
+      priority: {
         type:        tailordb.#FieldTypeInteger
         description: "Priority of the task"
+      }
+      assignedUserID: {
+        type:        tailordb.#FieldTypeUUID
+        description: "UUID of the User assigned to this task"
       }
     }
     permission: {

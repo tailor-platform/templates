@@ -22,19 +22,19 @@ manifest.#TailorManifest & {
 		manifests: [...tailordbv1.#Manifest] &
 			[
 				{
-					table:  "Employee"
+					name:  "Employee"
 					schema: employee.Employee
 				},
 				{
-					table:  "Employment"
+					name:  "Employment"
 					schema: employment.Employment
 				},
 				{
-					table:  "PersonalData"
+					name:  "PersonalData"
 					schema: personalData.PersonalData
 				},
 				{
-					table:  "User"
+					name:  "User"
 					schema: user.User
 				},
 			]

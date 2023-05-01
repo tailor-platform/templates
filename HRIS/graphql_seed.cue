@@ -2,12 +2,8 @@ package graphqlseed
 
 import (
   "github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-  "uuid"
-  "crypto/hmac"
   "{{ .Values.cue.package }}/charts/directory:directories"
 )
-
-#seed: uuid.FromInt(2)
 
 manifest.#TailorManifest & {
   version: "v1"
@@ -47,20 +43,20 @@ manifest.#TailorManifest & {
               }
             } """
         variables: {
-          id1: uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "1"))
-          id2: uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "2"))
-          id3: uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "3"))
+          id1: {{ generateWorkspaceUUID "Group1" | quote }}
+          id2: {{ generateWorkspaceUUID "Group2" | quote }}
+          id3: {{ generateWorkspaceUUID "Group3" | quote }}
         }
 
       },
       {
         query: """
-            mutation ($userID: ID, 
-            $gid1: ID!, 
+            mutation ($userID: ID,
+            $gid1: ID!,
             $gid2: ID!,
-            $gid3: ID!, 
-            $permanentID: ID!, 
-            $contractID: ID!, 
+            $gid3: ID!,
+            $permanentID: ID!,
+            $contractID: ID!,
             $adminID: ID!,
             $staffID: ID!,
             ) {
@@ -157,10 +153,10 @@ manifest.#TailorManifest & {
               }
             } """
         variables: {
-          userID:      uuid.SHA1(#seed, hmac.Sign("SHA1", "User", "1"))
-          gid1:        uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "1"))
-          gid2:        uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "2"))
-          gid3:        uuid.SHA1(#seed, hmac.Sign("SHA1", "Group", "3"))
+          userID:      {{ generateWorkspaceUUID "User1" | quote }}
+          gid1:        {{ generateWorkspaceUUID "Group1" | quote }}
+          gid2:        {{ generateWorkspaceUUID "Group2" | quote }}
+          gid3:        {{ generateWorkspaceUUID "Group3" | quote }}
           permanentID: directories.userTypeMap.Permanent.id
           contractID:  directories.userTypeMap.Contract.id
           adminID:     directories.roleMap.Admin.id
@@ -178,7 +174,7 @@ manifest.#TailorManifest & {
                   payRate: 9999
                   effectiveDate: "2022-01-25"
                   payCurrency: "USD"
-              }) 
+              })
                 personalDataA:addPersonalDataToEmployee(input: {
                   employeeID: $userID
                   hireDate: "2022-01-25"
@@ -187,10 +183,10 @@ manifest.#TailorManifest & {
                   socialSecurityNumber: "1111"
                   startDate: "2022-02-01"
                   employmentStatus: "ACTIVE"
-              }) 
+              })
             } """
         variables: {
-          userID: uuid.SHA1(#seed, hmac.Sign("SHA1", "User", "1"))
+          userID: {{ generateWorkspaceUUID "User1" | quote }}
         }
       },
     ]

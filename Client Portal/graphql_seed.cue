@@ -2,17 +2,16 @@ package graphqlseed
 
 import (
   "github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-  "{{ .Values.cue.package }}/charts/common:constant"
 )
 
 users: {
-  jdoe: constant.uuid & {_, #type: "User", #value: "1"}
-  mdavis: constant.uuid & {_, #type: "User", #value: "2"}
+  jdoe: {{ generateWorkspaceUUID "User1" | quote }}
+  mdavis: {{ generateWorkspaceUUID "User2" | quote }}
 }
 
 clients: {
-  jdoe: constant.uuid & {_, #type: "Client", #value: "1"}
-  mdavis: constant.uuid & {_, #type: "Client", #value: "2"}
+  jdoe: {{ generateWorkspaceUUID "Client1" | quote }}
+  mdavis: {{ generateWorkspaceUUID "Client2" | quote }}
 }
 
 manifest.#TailorManifest & {
@@ -126,7 +125,7 @@ manifest.#TailorManifest & {
         variables: {
           jDoeId: clients.jdoe,
           mDavisId: clients.mdavis,
-          completedServiceRequestId: constant.uuid & {_, #type: "ServiceRequest", #value: "2"}
+          completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest1" | quote }}
         }
       },
       {
@@ -145,7 +144,7 @@ manifest.#TailorManifest & {
         """
         variables: {
           jDoeId: clients.jdoe,
-          completedServiceRequestId: constant.uuid & {_, #type: "ServiceRequest", #value: "2"}
+          completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest2" | quote }}
         }
       }
     ]
