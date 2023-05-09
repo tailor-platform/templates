@@ -160,6 +160,6 @@ tailorctl app import -m charts/graphql_seed.cue
 
 ## Apps in Retool FIXME
 
-- [Client view](https://tailorinc.retool.com/apps/0b249efc-de53-11ed-a861-63b9cb6368eb/app%20templates/Client%20Portal%20(client%20view)
+- [Client view](https://tailorinc.retool.com/apps/0b249efc-de53-11ed-a861-63b9cb6368eb/app%20templates/Client%20Portal%20(client%20view))
 - [Manager view](https://tailorinc.retool.com/apps/68bcf0f0-c166-11ed-a96f-dbc7e6501446/app%20templates/Client%20Portal%20(manager%20view))
 
