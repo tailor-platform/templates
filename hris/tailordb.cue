@@ -16,7 +16,6 @@ manifest.#TailorManifest & {
 	spec:    manifest.#SpecTailorDB & {
 		namespace: tailordbv1.#Namespace & {
 			name:            {{ .Values.tailordb.namespace | quote }}
-			organizationId:  {{ generateUUID | quote }}
 			defaultTimezone: "UTC"
 		}
 		manifests: [...tailordbv1.#Manifest] &
