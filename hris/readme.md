@@ -135,5 +135,6 @@ tailorctl app login -u ${username} -p ${password}
 tailorctl app import -m charts
 ```
 
-## Apps in Retool FIXME, once publish the app, we have to update the link.  
-
+## Demo Apps in Retool
+- [HRIS retool demo app Admin-view](https://tailorinc.retool.com/embedded/public/55ba8391-57b5-4679-a1ce-844f33042c19)
+- [HRIS retool demo app Staff-view](https://tailorinc.retool.com/embedded/public/788dbc71-d0a6-4ab1-b93e-0fb0639cfbd2)
