@@ -18,7 +18,7 @@ let mutationList = [
 			query: """
       mutation (
         $id: ID
-        $ppu: Int
+        $ppu: Float
         $ean: String
         $uom: String
         $category: String
