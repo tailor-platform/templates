@@ -55,50 +55,51 @@ let mutationList = [
 products: {
 	product1: {
 		id:    {{ generateWorkspaceUUID "Product1" | quote }}
-    ppu: 10
-    ean: "0123456789101"
-    uom: "kg"
-    category: "Material"
-    name: "TEST1"
-    code: 1
+		ppu: 12.99
+		ean: "5012345678910"
+		uom: "pack"
+		category: "Office Supplies"
+		name: "Ballpoint Pens"
+		code: 1
 	}
 	product2: {
 		id:   {{ generateWorkspaceUUID "Product2" | quote }}
-    ppu: 20
-    ean: "0123456789101"
-    uom: "yd"
-    category: "Material"
-    name: "TEST2"
-    code: 2
+		ppu: 24.99
+		ean: "6012345678911"
+		uom: "box"
+		category: "Office Supplies"
+		name: "A4 Paper Reams"
+		code: 2
 	}
 	product3: {
 		id:   {{ generateWorkspaceUUID "Product3" | quote }}
-    ppu: 30
-    ean: "0123456789101"
-    uom: "m"
-    category: "Material"
-    name: "TEST3"
-    code: 3
+		ppu: 45.00
+		ean: "7012345678912"
+		uom: "piece"
+		category: "Office Equipment"
+		name: "Adjustable Office Chair"
+		code: 3
 	}
 	product4: {
 		id:   {{ generateWorkspaceUUID "Product4" | quote }}
-    ppu: 40
-    ean: "0123456789101"
-    uom: "kg"
-    category: "Material"
-    name: "TEST4"
-    code: 4
+		ppu: 8.50
+		ean: "8012345678913"
+		uom: "pack"
+		category: "Office Supplies"
+		name: "Sticky Notes"
+		code: 4
 	}
 	product5: {
 		id:   {{ generateWorkspaceUUID "Product5" | quote }}
-    ppu: 50
-    ean: "0123456789101"
-    uom: "mg"
-    category: "Material"
-    name: "TEST5"
-    code: 5
+		ppu: 14.75
+		ean: "9012345678914"
+		uom: "set"
+		category: "Office Supplies"
+		name: "Highlighters"
+		code: 5
 	}
 }
+
 
 
 
