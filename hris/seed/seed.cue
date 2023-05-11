@@ -62,14 +62,14 @@ manifest.#TailorManifest & {
             ) {
               salesStaffA: addNewEmployee(
                 input: {
-                  userID: $userID
+                  userID: $userID1
                   employeeCode: "0000001"
                   displayName: "John Doe"
                   username: "JohnDoe"
                   secret: "2525"
                   firstName: "John"
                   lastName: "Doe"
-                  roleInput: [{ id: $staffID }]
+                  roleInput: [{ id: $adminID }]
                   userTypeID: $permanentID
                   avatar: "https:\/\/picsum.photos/seed/a/200/200"
                   groupInput: [{ id: $gid1 }]
@@ -81,6 +81,7 @@ manifest.#TailorManifest & {
               }
               salesStaffB: addNewEmployee(
                 input: {
+                  userID: $userID2
                   employeeCode: "0000002"
                   displayName: "Jane Brake"
                   username: "JaneBrake"
@@ -141,7 +142,7 @@ manifest.#TailorManifest & {
                   secret: "2525"
                   firstName: "Taro"
                   lastName: "Okamoto"
-                  roleInput: [{ id: $adminID }]
+                  roleInput: [{ id: $staffID }]
                   userTypeID: $permanentID
                   avatar: "https:\/\/picsum.photos/seed/e/200/200"
                   groupInput: [{ id: $gid1 }]
@@ -153,7 +154,8 @@ manifest.#TailorManifest & {
               }
             } """
         variables: {
-          userID:      {{ generateWorkspaceUUID "User1" | quote }}
+          userID1:      {{ generateWorkspaceUUID "User1" | quote }}
+          userID2:      {{ generateWorkspaceUUID "User2" | quote }}
           gid1:        {{ generateWorkspaceUUID "Group1" | quote }}
           gid2:        {{ generateWorkspaceUUID "Group2" | quote }}
           gid3:        {{ generateWorkspaceUUID "Group3" | quote }}
@@ -167,26 +169,47 @@ manifest.#TailorManifest & {
         query: """
             mutation ($userID:ID!,) {
                 employmentA:addEmploymentToEmployee(input: {
-                  employeeID: $userID
+                  employeeID: $userID1
                   employmentType: "FULLTIME"
-                  jobTitle: "Product Manager"
+                  jobTitle: "System Administrator"
                   payPeriod: "YEAR"
                   payRate: 9999
                   effectiveDate: "2022-01-25"
                   payCurrency: "USD"
               })
                 personalDataA:addPersonalDataToEmployee(input: {
-                  employeeID: $userID
+                  employeeID: $userID1
                   hireDate: "2022-01-25"
                   dateOfBirth: "1990-01-25"
                   personalEmail: "test@test.com"
-                  socialSecurityNumber: "1111"
-                  startDate: "2022-02-01"
+                  socialSecurityNumber: "123456789"
                   employmentStatus: "ACTIVE"
               })
-            } """
+
+              employmentB:addEmploymentToEmployee(input: {
+                employeeID: $userID2
+                employmentType: "FULLTIME"
+                jobTitle: "Product Manager"
+                payPeriod: "YEAR"
+                payRate: 9999
+                effectiveDate: "2022-01-25"
+                payCurrency: "USD"
+            })
+              personalDataB:addPersonalDataToEmployee(input: {
+                employeeID: $userID2
+                hireDate: "2022-01-25"
+                dateOfBirth: "1995-01-25"
+                personalEmail: "test@test.com"
+                socialSecurityNumber: "987654321"
+                employmentStatus: "ACTIVE"
+            })
+
+
+
+              } """
         variables: {
-          userID: {{ generateWorkspaceUUID "User1" | quote }}
+          userID1: {{ generateWorkspaceUUID "User1" | quote }}
+          userID2: {{ generateWorkspaceUUID "User2" | quote }}
         }
       },
     ]

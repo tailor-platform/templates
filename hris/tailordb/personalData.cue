@@ -27,10 +27,6 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 		type:        tailordb.#FieldTypeDate
 		description: "The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field."
 	}
-	startDate: {
-		type:        tailordb.#FieldTypeDate
-		description: "The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date."
-	}
 	employmentStatus: {
 		type: tailordb.#FieldTypeEnum
 		description: """

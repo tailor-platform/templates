@@ -45,8 +45,7 @@ convertAccount: pipelinev1.#Resolver & {
 			description: "delete a lead"
 			url:         settings.services.gateway
 			preScript:   "context.args"
-			graphqlQuery:
-				"""
+			graphqlQuery: """
 				mutation ($leadID: ID!) {
 					deleteLead(id: $leadID)
 				}

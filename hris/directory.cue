@@ -13,7 +13,6 @@ manifest.#TailorManifest & {
 		roleClasses: directories.roleClassList
 		policies:    directories.policyList
 		roles:       directories.roleList
-		groups:      directories.groupList
 		userTypes:   directories.userTypeList
 		users:       directories.userList
 	}

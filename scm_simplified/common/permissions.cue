@@ -61,19 +61,24 @@ everyone: {
 
 employee: {
 	create: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
-		{id: directories.roleMap.Admin.id, 		   permit: tailordb.#Allow},
+		{id: directories.roleMap.Admin.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Staff.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Manager.id, permit: tailordb.#Allow},
 	]
 	read: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
+		{id: directories.roleMap.Admin.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Staff.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Manager.id, permit: tailordb.#Allow},
 	]
 	update: [
-		{id: tailordb.#CreatorUserID, permit: tailordb.#Allow},
-		{id: directories.roleMap.Admin.id, 		  permit: tailordb.#Allow},
+		{id: directories.roleMap.Admin.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Staff.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Manager.id, permit: tailordb.#Allow},
 	]
 	delete: [
-		{id: tailordb.#CreatorUserID, permit: tailordb.#Allow},
-		{id: directories.roleMap.Admin.id, 		  permit: tailordb.#Allow},
+		{id: directories.roleMap.Admin.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Staff.id, permit:   tailordb.#Allow},
+		{id: directories.roleMap.Manager.id, permit: tailordb.#Allow},
 	]
 	admin: [
 		{id: directories.roleMap.Admin.id, permit: tailordb.#Allow},

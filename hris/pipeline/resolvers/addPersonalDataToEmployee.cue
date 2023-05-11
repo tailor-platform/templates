@@ -23,7 +23,6 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
                   "socialSecurityNumber": context.args.input.socialSecurityNumber,
                   "dateOfBirth": date(context.args.input.dateOfBirth),
                   "hireDate": date(context.args.input.hireDate),
-                  "startDate": date(context.args.input.startDate),
                   "employmentStatus": context.args.input.employmentStatus
                 }
         """
@@ -34,7 +33,6 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
                   $socialSecurityNumber: String!
                   $dateOfBirth: Date
                   $hireDate: Date!
-                  $startDate: Date!
                   $employmentStatus: PersonalDataEmploymentStatus!
                   ) {
                 createPersonalData (input: {
@@ -43,7 +41,6 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
                   socialSecurityNumber: $socialSecurityNumber
                   dateOfBirth: $dateOfBirth
                   hireDate: $hireDate
-                  startDate: $startDate
                   employmentStatus: $employmentStatus
                 }) {
                   id}
