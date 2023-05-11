@@ -28,7 +28,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 			description: "Unit of measurement of the product. E.g, sheet, roll, etc."
 		}
 		"pricePerUnit": {
-			type:       tailordb.#FieldTypeInteger
+			type:       tailordb.#FieldTypeFloat
 			description: "Price per unit."
 		}
 
