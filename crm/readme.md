@@ -96,5 +96,5 @@ tailorctl app login -u ${username} -p ${password}
 tailorctl app import -m charts
 ```
 
-## Apps in Retool FIXME, once publish the app, we have to update the link.
-
+## Demo Apps in Retool
+- [CRM retool demo app](https://tailorinc.retool.com/embedded/public/ea42df32-d6f6-45c5-84c8-cac994586440)

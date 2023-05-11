@@ -108,5 +108,5 @@ tailorctl app login -u ${username} -p ${password}
 tailorctl app import -m charts
 ```
 
-## Apps in Retool FIXME, once publish the app, we have to update the link.  
-
+## Demo Apps in Retool
+- [Simple SCM retool demo app](https://tailorinc.retool.com/embedded/public/dcd12d76-f3b4-44fd-b0e9-8733e116cdac)
