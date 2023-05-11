@@ -39,7 +39,6 @@ pipeline: pipelinev1.#Manifests & {
         socialSecurityNumber: String!
         dateOfBirth: Date
         hireDate: Date!
-        startDate: Date!
         employmentStatus: String
       }
       input addEmploymentToEmployeeInput {

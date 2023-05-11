@@ -7,15 +7,6 @@ import (
 )
 
 _fields: {[string]: tailordbv1.#FieldConfig} & {
-	owner: {
-		type:        "Employee"
-		description: "The account's owner."
-		sourceId:    "ownerID"
-	}
-	ownerID: {
-		type:        tailordb.#FieldTypeUUID
-		description: "The account's owner."
-	}
 	leadSource: {
 		type:        tailordb.#FieldTypeString
 		description: "The lead's source."

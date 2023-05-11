@@ -107,17 +107,6 @@ roleList: [
 	roleMap.Manager,
 ]
 
-groupList: [...directoryv1.#Group] & [
-	{
-		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
-		name: "internal"
-	},
-	{
-		id: {{ generateWorkspaceUUID "ExternalGroup" | quote }}
-		name: "external"
-	},
-]
-
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateWorkspaceUUID "AdminUser" | quote }}
@@ -128,7 +117,7 @@ userList: [...directoryv1.#User] & [
 			userTypeId:   userTypeMap.Permanent.id
 		}
 		roles: [roleMap.Admin.id]
-		groups: [groupList[0].id]
+
 	},
 	{
 		id: {{ generateWorkspaceUUID "StaffUser" | quote }}
@@ -139,7 +128,7 @@ userList: [...directoryv1.#User] & [
 			userTypeId:   userTypeMap.Permanent.id
 		}
 		roles: [roleMap.Staff.id]
-		groups: [groupList[0].id]
+
 	},
 	{
 		id: {{ generateWorkspaceUUID "ManagerUser" | quote }}
@@ -150,6 +139,6 @@ userList: [...directoryv1.#User] & [
 			userTypeId:   userTypeMap.Permanent.id
 		}
 		roles: [roleMap.Manager.id]
-		groups: [groupList[0].id]
+
 	},
 ]
