@@ -51,7 +51,9 @@ manifest.#TailorManifest & {
       },
       {
         query: """
-            mutation ($userID: ID,
+            mutation (
+            $userID1: ID,
+            $userID2: ID,
             $gid1: ID!,
             $gid2: ID!,
             $gid3: ID!,
@@ -167,46 +169,51 @@ manifest.#TailorManifest & {
       },
       {
         query: """
-            mutation ($userID:ID!,) {
-                employmentA:addEmploymentToEmployee(input: {
-                  employeeID: $userID1
-                  employmentType: "FULLTIME"
-                  jobTitle: "System Administrator"
-                  payPeriod: "YEAR"
-                  payRate: 9999
-                  effectiveDate: "2022-01-25"
-                  payCurrency: "USD"
-              })
-                personalDataA:addPersonalDataToEmployee(input: {
-                  employeeID: $userID1
-                  hireDate: "2022-01-25"
-                  dateOfBirth: "1990-01-25"
-                  personalEmail: "test@test.com"
-                  socialSecurityNumber: "123456789"
-                  employmentStatus: "ACTIVE"
-              })
-
-              employmentB:addEmploymentToEmployee(input: {
-                employeeID: $userID2
-                employmentType: "FULLTIME"
-                jobTitle: "Product Manager"
-                payPeriod: "YEAR"
-                payRate: 9999
-                effectiveDate: "2022-01-25"
-                payCurrency: "USD"
-            })
-              personalDataB:addPersonalDataToEmployee(input: {
-                employeeID: $userID2
-                hireDate: "2022-01-25"
-                dateOfBirth: "1995-01-25"
-                personalEmail: "test@test.com"
-                socialSecurityNumber: "987654321"
-                employmentStatus: "ACTIVE"
-            })
-
-
-
-              } """
+        mutation ($userID1: ID!, $userID2: ID!) {
+          employmentA: addEmploymentToEmployee(
+            input: {
+              employeeID: $userID1
+              employmentType: "FULLTIME"
+              jobTitle: "System Administrator"
+              payPeriod: "YEAR"
+              payRate: 9999
+              effectiveDate: "2022-01-25"
+              payCurrency: "USD"
+            }
+          )
+          personalDataA: addPersonalDataToEmployee(
+            input: {
+              employeeID: $userID1
+              hireDate: "2022-01-25"
+              dateOfBirth: "1990-01-25"
+              personalEmail: "test@test.com"
+              socialSecurityNumber: "123456789"
+              employmentStatus: "ACTIVE"
+            }
+          )
+        
+          employmentB: addEmploymentToEmployee(
+            input: {
+              employeeID: $userID2
+              employmentType: "FULLTIME"
+              jobTitle: "Product Manager"
+              payPeriod: "YEAR"
+              payRate: 9999
+              effectiveDate: "2022-01-25"
+              payCurrency: "USD"
+            }
+          )
+          personalDataB: addPersonalDataToEmployee(
+            input: {
+              employeeID: $userID2
+              hireDate: "2022-01-25"
+              dateOfBirth: "1995-01-25"
+              personalEmail: "test@test.com"
+              socialSecurityNumber: "987654321"
+              employmentStatus: "ACTIVE"
+            }
+          )
+        } """
         variables: {
           userID1: {{ generateWorkspaceUUID "User1" | quote }}
           userID2: {{ generateWorkspaceUUID "User2" | quote }}
