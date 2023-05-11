@@ -52,20 +52,27 @@ let accountMutationList = [
 accounts: {
 	account1: {
 		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
-		companyName:  "Account1"
-		contactName:  "JOHN"
-		emailAddress: "john@1.com"
-		phoneNumber:  "123456"
+		companyName:  "Globex Corporation"
+		contactName:  "Hank Scorpio"
+		emailAddress: "hank.scorpio@globex.com"
+		phoneNumber:  "(212) 555-1234"
 	}
 	account2: {
 		accountID: {{ generateWorkspaceUUID "Account2" | quote }}
-		companyName:  "Account2"
-		contactName:  "JACK"
-		emailAddress: "jack@2.com"
-		phoneNumber:  "123456"
+		companyName:  "Initech"
+		contactName:  "Bill Lumbergh"
+		emailAddress: "bill.lumbergh@initech.com"
+		phoneNumber:  "(310) 555-5678"
 	}
-
+	account3: {
+		accountID: {{ generateWorkspaceUUID "Account3" | quote }}
+		companyName:  "Vandelay Industries"
+		contactName:  "Art Vandelay"
+		emailAddress: "art.vandelay@vandelay.com"
+		phoneNumber:  "(312) 555-9012"
+	}
 }
+
 
 let leadMutationList = [
 	for k, v in leads {
@@ -116,45 +123,46 @@ let leadMutationList = [
 leads: {
 	lead1: {
 		leadID: {{ generateWorkspaceUUID "Lead1" | quote }}
-		companyName:  "AAccount"
-		leadSource:   "Email"
+		companyName:  "Duff Beer"
+		leadSource:   "Trade Show"
 		stage:        "Open"
-		dealAmount:   "200"
-		contactName:  "AAAA"
-		emailAddress: "AAAA@test.com"
-		phoneNumber:  "123456"
+		dealAmount:   "4500"
+		contactName:  "Duffman"
+		emailAddress: "duffman@duffbeer.com"
+		phoneNumber:  "(702) 555-3456"
 	}
 	lead2: {
 		leadID: {{ generateWorkspaceUUID "Lead2" | quote }}
-		companyName:  "BAccount"
-		leadSource:   "Email"
+		companyName:  "Acme Corp"
+		leadSource:   "Referral"
 		stage:        "WIP"
-		dealAmount:   "200"
-		contactName:  "BBBB"
-		emailAddress: "BBBB@test.com"
-		phoneNumber:  "123456"
+		dealAmount:   "12000"
+		contactName:  "Wile E. Coyote"
+		emailAddress: "w.coyote@acme.com"
+		phoneNumber:  "(305) 555-7890"
 	}
 	lead3: {
 		leadID: {{ generateWorkspaceUUID "Lead3" | quote }}
-		companyName:  "CAccount"
-		leadSource:   "Email"
+		companyName:  "Bluth Company"
+		leadSource:   "Website"
 		stage:        "Won"
-		dealAmount:   "200"
-		contactName:  "CCCC"
-		emailAddress: "CCCC@test.com"
-		phoneNumber:  "123456"
+		dealAmount:   "25000"
+		contactName:  "Michael Bluth"
+		emailAddress: "michael@bluth.com"
+		phoneNumber:  "(512) 555-1234"
 	}
 	lead4: {
 		leadID: {{ generateWorkspaceUUID "Lead4" | quote }}
-		companyName:  "DAccount"
+		companyName:  "Wonka Industries"
 		leadSource:   "Email"
 		stage:        "Lost"
-		dealAmount:   "200"
-		contactName:  "DDDD"
-		emailAddress: "DDDD@test.com"
-		phoneNumber:  "123456"
+		dealAmount:   "6000"
+		contactName:  "Willy Wonka"
+		emailAddress: "w.wonka@wonka.com"
+		phoneNumber:  "(415) 555-5678"
 	}
 }
+
 
 let transactionMutationList = [
 	for k, v in transactions {

@@ -55,47 +55,47 @@ let mutationList = [
 products: {
 	product1: {
 		id:    {{ generateWorkspaceUUID "Product1" | quote }}
-		ppu: 12.99
+		ppu: 15.99
 		ean: "5012345678910"
 		uom: "pack"
-		category: "Office Supplies"
-		name: "Ballpoint Pens"
+		category: "Stationery"
+		name: "Premium Ballpoint Pens"
 		code: 1
 	}
 	product2: {
 		id:   {{ generateWorkspaceUUID "Product2" | quote }}
-		ppu: 24.99
+		ppu: 30.99
 		ean: "6012345678911"
 		uom: "box"
 		category: "Office Supplies"
-		name: "A4 Paper Reams"
+		name: "Recycled A4 Paper Reams"
 		code: 2
 	}
 	product3: {
 		id:   {{ generateWorkspaceUUID "Product3" | quote }}
-		ppu: 45.00
+		ppu: 55.00
 		ean: "7012345678912"
 		uom: "piece"
 		category: "Office Equipment"
-		name: "Adjustable Office Chair"
+		name: "Ergonomic Office Chair"
 		code: 3
 	}
 	product4: {
 		id:   {{ generateWorkspaceUUID "Product4" | quote }}
-		ppu: 8.50
+		ppu: 10.50
 		ean: "8012345678913"
 		uom: "pack"
-		category: "Office Supplies"
-		name: "Sticky Notes"
+		category: "Stationery"
+		name: "Colorful Sticky Notes"
 		code: 4
 	}
 	product5: {
 		id:   {{ generateWorkspaceUUID "Product5" | quote }}
-		ppu: 14.75
+		ppu: 18.75
 		ean: "9012345678914"
 		uom: "set"
-		category: "Office Supplies"
-		name: "Highlighters"
+		category: "Stationery"
+		name: "Fluorescent Highlighters"
 		code: 5
 	}
 }

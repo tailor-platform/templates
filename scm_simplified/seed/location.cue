@@ -59,32 +59,32 @@ locations: {
 	location1: {
 		id:    {{ generateWorkspaceUUID "Location1" | quote }}
 		code: 1
-		name: "Globex Corporation"
+		name: "Vandelay Industries"
 		country: "USA"
 		city: "New York"
-		address1: "123 Liberty St"
-		address2: "Floor 27"
-		zipcode: "10006"
+		address1: "129 West 81st Street"
+		address2: "Floor 5, Suite A"
+		zipcode: "10024"
 	}
 	location2: {
 		id:   {{ generateWorkspaceUUID "Location2" | quote }}
 		code: 2
-		name: "Soylent Corp"
+		name: "Satriale's Pork Store"
 		country: "USA"
-		city: "Los Angeles"
-		address1: "456 Sunset Blvd"
-		address2: "Suite 830"
-		zipcode: "90028"
+		city: "Kearny"
+		address1: "101 Kearny Ave"
+		address2: "Building B, Unit 3"
+		zipcode: "07032"
 	}
 	location3: {
 		id:   {{ generateWorkspaceUUID "Location3" | quote }}
 		code: 3
-		name: "Initech"
+		name: "Los Pollos Hermanos"
 		country: "USA"
-		city: "Chicago"
-		address1: "789 Michigan Ave"
-		address2: "Building B"
-		zipcode: "60611"
+		city: "Albuquerque"
+		address1: "308 98th St SW"
+		address2: "Building C, Unit 7"
+		zipcode: "87121"
 	}
 }
 
