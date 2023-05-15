@@ -1,14 +1,16 @@
-# Overview
+# Advanced SCM
+
+## Overview
 This SCM application has 5 types:
 - Delivery: This type stores delivery data.   A record will be created for each order.
 - Product: This type stores product master data.
 - Order: This type stores order data.
 - Location: This type stores location master data, which explains where to deliver the product.
-- InventoryEvent: This type records events that impact inventory status.  
-A record will be created when an order is placed or delivery status is changed.  
+- InventoryEvent: This type records events that impact inventory status.
+A record will be created when an order is placed or delivery status is changed.
 
 
-In this application, inventory status is managed by InventoryEvent records.  
+In this application, inventory status is managed by InventoryEvent records.
 The InventoryEvent are created at the events which change the inventory status.
 If you want to summarize the inventory data based on products, delivery status, etc. you can use `aggregateInventoryEvents`
 query.
@@ -18,10 +20,17 @@ query.
 flowchart LR
     UNDISPATCHED --> INTRANSIT --> DELIVERED
 ```
-When an order is created, its delivery status is set to UNDISPATCHED. When the order is shipped, we can change the status to INTRANSIT using the changeToINTRANSIT mutation.  
-Similarly, when the order is delivered, we can change the status to DELIVERED using the changeToDELIVERED mutation.  
-Each of these mutations is defined as a pipeline resolver, which means that multiple mutations are performed to update types based on the business logic.  
+When an order is created, its delivery status is set to UNDISPATCHED. When the order is shipped, we can change the status to INTRANSIT using the changeToINTRANSIT mutation.
+Similarly, when the order is delivered, we can change the status to DELIVERED using the changeToDELIVERED mutation.
+Each of these mutations is defined as a pipeline resolver, which means that multiple mutations are performed to update types based on the business logic.
 Therefore, when updating the delivery status, we must call these pipeline mutations instead of using the auto-generated mutations in Tailor DB, such as updateDelivery.
+
+
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/advancedscm).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
 
 
 ## Sample mutations
@@ -75,26 +84,6 @@ query aggregateInventoryEvents {
 }
 ```
 
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u ${username} -p ${password}
-tailorctl app import -m charts
-```
-
-## Apps in Retool FIXME, once publish the app, we have to update the link.  
-
-
-
-
 # Index of pipeline mutations
 * [cancelOrder](#cancelOrder)
 * [changeToDELIVERED](#changeToDELIVERED)
@@ -104,8 +93,9 @@ tailorctl app import -m charts
 * [placeOrder](#placeOrder)
 * [placePurchase](#placePurchase)
 * [transferInventory](#transferInventory)
+
 # cancelOrder
-cancel order
+Cancel order.
 
 ## Pipelines
 |Name|Description
@@ -121,44 +111,44 @@ context.args.input
 ```
 Query
 ```graphql
-               query getRecords($orderID: ID) {
-                 deliveries: deliveries(query: { orderID: { eq: $orderID } }) {
-                   collection {
-                     id
-                   }
-                 }
-                 inventoryEvents: inventoryEvents(query: { orderID: { eq: $orderID } }) {
-                   collection {
-                     id
-                   }
-                 }
-               } 
+query getRecords($orderID: ID) {
+  deliveries: deliveries(query: { orderID: { eq: $orderID } }) {
+    collection {
+      id
+    }
+  }
+  inventoryEvents: inventoryEvents(query: { orderID: { eq: $orderID } }) {
+    collection {
+      id
+    }
+  }
+}
 ```
 
 ### (2) deleteRecords
 PreScript
 ```cue
-             {
-               "orderID": context.args.input.orderID,
-               "deliveryID": args.deliveries.collection[0].id,
-               "inventoryEventID": args.inventoryEvents.collection[0].id
-             } 
+{
+  "orderID": context.args.input.orderID,
+  "deliveryID": args.deliveries.collection[0].id,
+  "inventoryEventID": args.inventoryEvents.collection[0].id
+}
 ```
 Query
 ```graphql
-               mutation deleteRecords(
-                 $deliveryID: ID!
-                 $inventoryEventID: ID!
-                 $orderID: ID!
-               ) {
-                 deleteDelivery: deleteDelivery(id: $deliveryID)
-                 deleteInventoryEvent: deleteInventoryEvent(id: $inventoryEventID)
-                 deleteOrder: deleteOrder(id: $orderID)
-               } 
+mutation deleteRecords(
+  $deliveryID: ID!
+  $inventoryEventID: ID!
+  $orderID: ID!
+) {
+  deleteDelivery: deleteDelivery(id: $deliveryID)
+  deleteInventoryEvent: deleteInventoryEvent(id: $inventoryEventID)
+  deleteOrder: deleteOrder(id: $orderID)
+}
 ```
 
 # changeToDELIVERED
-update delivery state to DELIVERED
+Update delivery state to DELIVERED.
 
 ## Pipelines
 |Name|Description
@@ -174,82 +164,82 @@ context.args.input
 ```
 Query
 ```graphql
-               query getInventoryEvents($deliveryID: ID!) {
-                 inventoryEvents(query: {deliveryID: {eq: $deliveryID}}) {
-                   collection {
-                     id
-                     delivery{
-                       id
-                       productID
-                       deliveryType
-                       locationID
-                       orderID
-                       quantity
-                     }
-                   }
-                 }
-               } 
+query getInventoryEvents($deliveryID: ID!) {
+  inventoryEvents(query: {deliveryID: {eq: $deliveryID}}) {
+    collection {
+      id
+      delivery{
+        id
+        productID
+        deliveryType
+        locationID
+        orderID
+        quantity
+      }
+    }
+  }
+}
 ```
 
 ### (2) updateInventoryEvent
 PreScript
 ```cue
-             {
-               "deliveryID": args.collection[0].delivery.id,
-               "orderID": args.collection[0].delivery.orderID,
-               "productID": args.collection[0].delivery.productID,
-               "locationID": args.collection[0].delivery.locationID,
-               "qty": args.collection[0].delivery.quantity,
-               "negativeQty": -args.collection[0].delivery.quantity,
-               "snapshotDate": context.args.input.deliveryDate
-             } 
+{
+  "deliveryID": args.collection[0].delivery.id,
+  "orderID": args.collection[0].delivery.orderID,
+  "productID": args.collection[0].delivery.productID,
+  "locationID": args.collection[0].delivery.locationID,
+  "qty": args.collection[0].delivery.quantity,
+  "negativeQty": -args.collection[0].delivery.quantity,
+  "snapshotDate": context.args.input.deliveryDate
+}
 ```
 Query
 ```graphql
-               mutation updateRecords(
-                 $deliveryID: ID!
-                 $negativeQty: Int!
-                 $orderID: ID
-                 $locationID: ID!
-                 $productID: ID!
-                 $snapshotDate: Date!
-                 $qty: Int!
-               ) {
-                 updateDelivery: updateDelivery(
-                   id: $deliveryID
-                   input: { deliveryState: DELIVERED }
-                 ) {
-                   id
-                 }
-                 revertInvEvents: createInventoryEvent(
-                   input: {
-                     quantity: $negativeQty
-                     deliveryState: INTRANSIT
-                     locationID: $locationID
-                     productID: $productID
-                     snapshotDate: $snapshotDate
-                     orderID: $orderID
-                   }
-                 ) {
-                   id
-                 }
-                 createInvEvents: createInventoryEvent(
-                   input: {
-                     quantity: $qty
-                     deliveryState: DELIVERED
-                     locationID: $locationID
-                     productID: $productID
-                     snapshotDate: $snapshotDate
-                     orderID: $orderID
-                   }
-                 ) {
-                   id
-                 }
-               } 
+mutation updateRecords(
+  $deliveryID: ID!
+  $negativeQty: Int!
+  $orderID: ID
+  $locationID: ID!
+  $productID: ID!
+  $snapshotDate: Date!
+  $qty: Int!
+) {
+  updateDelivery: updateDelivery(
+    id: $deliveryID
+    input: { deliveryState: DELIVERED }
+  ) {
+    id
+  }
+  revertInvEvents: createInventoryEvent(
+    input: {
+      quantity: $negativeQty
+      deliveryState: INTRANSIT
+      locationID: $locationID
+      productID: $productID
+      snapshotDate: $snapshotDate
+      orderID: $orderID
+    }
+  ) {
+    id
+  }
+  createInvEvents: createInventoryEvent(
+    input: {
+      quantity: $qty
+      deliveryState: DELIVERED
+      locationID: $locationID
+      productID: $productID
+      snapshotDate: $snapshotDate
+      orderID: $orderID
+    }
+  ) {
+    id
+  }
+}
 ```
 
 # changeToINTRANSIT
-update delivery state to INTRANSIT
+Update delivery state to INTRANSIT.
 
 ## Pipelines
 |Name|Description
@@ -265,82 +255,82 @@ context.args.input
 ```
 Query
 ```graphql
-               query getInventoryEvents($deliveryID: ID!) {
-                 inventoryEvents(query: {deliveryID: {eq: $deliveryID}}) {
-                   collection {
-                     id
-                     delivery{
-                       id
-                       productID
-                       deliveryType
-                       locationID
-                       orderID
-                       quantity
-                     }
-                   }
-                 }
-               } 
+query getInventoryEvents($deliveryID: ID!) {
+  inventoryEvents(query: {deliveryID: {eq: $deliveryID}}) {
+    collection {
+      id
+      delivery{
+        id
+        productID
+        deliveryType
+        locationID
+        orderID
+        quantity
+      }
+    }
+  }
+}
 ```
 
 ### (2) updateRecords
 PreScript
 ```cue
-             {
-               "deliveryID": args.collection[0].delivery.id,
-               "orderID": args.collection[0].delivery.orderID,
-               "productID": args.collection[0].delivery.productID,
-               "locationID": args.collection[0].delivery.locationID,
-               "qty": args.collection[0].delivery.quantity,
-               "negativeQty": -args.collection[0].delivery.quantity,
-               "snapshotDate": context.args.input.deliveryDate
-             } 
+{
+  "deliveryID": args.collection[0].delivery.id,
+  "orderID": args.collection[0].delivery.orderID,
+  "productID": args.collection[0].delivery.productID,
+  "locationID": args.collection[0].delivery.locationID,
+  "qty": args.collection[0].delivery.quantity,
+  "negativeQty": -args.collection[0].delivery.quantity,
+  "snapshotDate": context.args.input.deliveryDate
+}
 ```
 Query
 ```graphql
-               mutation updateRecords(
-                 $deliveryID: ID!
-                 $negativeQty: Int!
-                 $orderID: ID
-                 $locationID: ID!
-                 $productID: ID!
-                 $snapshotDate: Date!
-                 $qty: Int!
-               ) {
-                 updateDelivery: updateDelivery(
-                   id: $deliveryID
-                   input: { deliveryState: INTRANSIT }
-                 ) {
-                   id
-                 }
-                 revertInvEvents: createInventoryEvent(
-                   input: {
-                     quantity: $negativeQty
-                     deliveryState: UNDISPATCHED
-                     locationID: $locationID
-                     productID: $productID
-                     snapshotDate: $snapshotDate
-                     orderID: $orderID
-                   }
-                 ) {
-                   id
-                 }
-                 createInvEvents: createInventoryEvent(
-                   input: {
-                     quantity: $qty
-                     deliveryState: INTRANSIT
-                     locationID: $locationID
-                     productID: $productID
-                     snapshotDate: $snapshotDate
-                     orderID: $orderID
-                   }
-                 ) {
-                   id
-                 }
-               } 
+mutation updateRecords(
+  $deliveryID: ID!
+  $negativeQty: Int!
+  $orderID: ID
+  $locationID: ID!
+  $productID: ID!
+  $snapshotDate: Date!
+  $qty: Int!
+) {
+  updateDelivery: updateDelivery(
+    id: $deliveryID
+    input: { deliveryState: INTRANSIT }
+  ) {
+    id
+  }
+  revertInvEvents: createInventoryEvent(
+    input: {
+      quantity: $negativeQty
+      deliveryState: UNDISPATCHED
+      locationID: $locationID
+      productID: $productID
+      snapshotDate: $snapshotDate
+      orderID: $orderID
+    }
+  ) {
+    id
+  }
+  createInvEvents: createInventoryEvent(
+    input: {
+      quantity: $qty
+      deliveryState: INTRANSIT
+      locationID: $locationID
+      productID: $productID
+      snapshotDate: $snapshotDate
+      orderID: $orderID
+    }
+  ) {
+    id
+  }
+}
 ```
 
 # editOrder
-edit order
+Edit order.
 
 ## Pipelines
 |Name|Description
@@ -367,7 +357,7 @@ Query
                      id
                    }
                  }
-               } 
+               }
 ```
 
 ### (2) updateOrder
@@ -381,7 +371,7 @@ PreScript
                "qty": context.args.input.quantity,
                "negativeQty": -context.args.input.quantity,
                "inventoryEventID": args.inventoryEvents.collection[0].id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -414,11 +404,11 @@ Query
                  ) {
                    id
                  }
-               } 
+               }
 ```
 
 # editPurchase
-edit Purchase order
+Edit purchase order.
 
 ## Pipelines
 |Name|Description
@@ -445,7 +435,7 @@ Query
                      id
                    }
                  }
-               } 
+               }
 ```
 
 ### (2) updateOrder
@@ -458,7 +448,7 @@ PreScript
                "locationID": context.args.input.locationID,
                "qty": context.args.input.quantity,
                "inventoryEventID": args.inventoryEvents.collection[0].id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -490,11 +480,12 @@ Query
                  ) {
                    id
                  }
-               } 
+               }
 ```
 
 # placeOrder
-place order
+
+Place order.
 
 ## Pipelines
 |Name|Description
@@ -534,7 +525,7 @@ PreScript
                "productID": context.args.input.productID,
                "locationID": context.args.input.locationID,
                "orderID": args.id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -559,7 +550,7 @@ Query
                    id
                    orderID
                  }
-               } 
+               }
 ```
 
 ### (3) createInventoryEvent
@@ -572,7 +563,7 @@ PreScript
                "locationID": context.args.input.locationID,
                "orderID": args.orderID,
                "deliveryID": args.id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -597,11 +588,12 @@ Query
                  ) {
                    id
                  }
-               } 
+               }
 ```
 
 # placePurchase
-place order
+
+Place purchase.
 
 ## Pipelines
 |Name|Description
@@ -641,7 +633,7 @@ PreScript
                "productID": context.args.input.productID,
                "locationID": context.args.input.locationID,
                "orderID": args.id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -666,7 +658,7 @@ Query
                    id
                    orderID
                  }
-               } 
+               }
 ```
 
 ### (3) createInventoryEvent
@@ -679,7 +671,7 @@ PreScript
                "locationID": context.args.input.locationID,
                "orderID": args.orderID,
                "deliveryID": args.id
-             } 
+             }
 ```
 Query
 ```graphql
@@ -704,11 +696,12 @@ Query
                  ) {
                    id
                  }
-               } 
+               }
 ```
 
 # transferInventory
-transfer inventory between locations
+
+Transfer inventory between locations.
 
 ## Pipelines
 |Name|Description
@@ -724,90 +717,89 @@ context.args.input
 ```
 Query
 ```graphql
-               mutation createDelivery(
-                 $quantity: Int!
-                 $deliveryDate: Date
-                 $productID: ID!
-                 $transferOutID: ID!
-                 $transferInID: ID!
-               ) {
-                 transferIn:createDelivery(
-                   input: {
-                     quantity: $quantity
-                     deliveryType: TRANSFER
-                     deliveryDate: $deliveryDate
-                     productID: $productID
-                     locationID: $transferInID
-                     deliveryState:INTRANSIT
-                   }
-                 ) {
-                   id
-                 }
-                 transferOut:createDelivery(
-                   input: {
-                     quantity: $quantity
-                     deliveryType: TRANSFER
-                     deliveryDate: $deliveryDate
-                     productID: $productID
-                     locationID: $transferOutID
-                     deliveryState:INTRANSIT
-                   }
-                 ) {
-                   id
-                 }
-               } 
+mutation createDelivery(
+  $quantity: Int!
+  $deliveryDate: Date
+  $productID: ID!
+  $transferOutID: ID!
+  $transferInID: ID!
+) {
+  transferIn:createDelivery(
+    input: {
+      quantity: $quantity
+      deliveryType: TRANSFER
+      deliveryDate: $deliveryDate
+      productID: $productID
+      locationID: $transferInID
+      deliveryState:INTRANSIT
+    }
+  ) {
+    id
+  }
+  transferOut:createDelivery(
+    input: {
+      quantity: $quantity
+      deliveryType: TRANSFER
+      deliveryDate: $deliveryDate
+      productID: $productID
+      locationID: $transferOutID
+      deliveryState:INTRANSIT
+    }
+  ) {
+    id
+  }
+}
 ```
 
 ### (2) createInventoryEvents
 PreScript
 ```cue
-             {
-               "qty": context.args.input.quantity,
-               "negativeQty": -context.args.input.quantity,
-               "deliveryDate": context.args.input.deliveryDate,
-               "productID": context.args.input.productID,
-               "transferOutID": context.args.input.transferOutID,
-               "transferInID": context.args.input.transferInID,
-               "transferInDeliveryID": args.transferIn.id,
-               "transferOutDeliveryID": args.transferOut.id
-             } 
+{
+  "qty": context.args.input.quantity,
+  "negativeQty": -context.args.input.quantity,
+  "deliveryDate": context.args.input.deliveryDate,
+  "productID": context.args.input.productID,
+  "transferOutID": context.args.input.transferOutID,
+  "transferInID": context.args.input.transferInID,
+  "transferInDeliveryID": args.transferIn.id,
+  "transferOutDeliveryID": args.transferOut.id
+}
 ```
 Query
 ```graphql
-               mutation createInventory(
-                 $qty: Int!
-                 $negativeQty: Int!
-                 $deliveryDate: Date!
-                 $productID: ID!
-                 $transferOutID: ID!
-                 $transferInID: ID!
-                 $transferInDeliveryID:ID
-               	$transferOutDeliveryID:ID
-               ) {
-                 transferIn:createInventoryEvent(
-                   input: {
-                     deliveryID:$transferInDeliveryID
-                     quantity: $qty
-                     snapshotDate: $deliveryDate
-                     productID: $productID
-                     locationID: $transferInID
-                     deliveryState:INTRANSIT
-                   }
-                 ) {
-                   id
-                 }
-                 transferOut:createInventoryEvent(
-                   input: {
-                     deliveryID: $transferOutDeliveryID
-                     quantity: $negativeQty
-                     snapshotDate: $deliveryDate
-                     productID: $productID
-                     locationID: $transferOutID
-                     deliveryState:INTRANSIT
-                   }
-                 ) {
-                   id
-                 }
-               } 
+mutation createInventory(
+  $qty: Int!
+  $negativeQty: Int!
+  $deliveryDate: Date!
+  $productID: ID!
+  $transferOutID: ID!
+  $transferInID: ID!
+  $transferInDeliveryID:ID
+ $transferOutDeliveryID:ID
+) {
+  transferIn:createInventoryEvent(
+    input: {
+      deliveryID:$transferInDeliveryID
+      quantity: $qty
+      snapshotDate: $deliveryDate
+      productID: $productID
+      locationID: $transferInID
+      deliveryState:INTRANSIT
+    }
+  ) {
+    id
+  }
+  transferOut:createInventoryEvent(
+    input: {
+      deliveryID: $transferOutDeliveryID
+      quantity: $negativeQty
+      snapshotDate: $deliveryDate
+      productID: $productID
+      locationID: $transferOutID
+      deliveryState:INTRANSIT
+    }
+  ) {
+    id
+  }
+}
 ```
-

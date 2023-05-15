@@ -1,4 +1,6 @@
-# Overview
+# Simplified SCM
+
+## Overview
 This SCM application has 4 types:
 - Delivery: This type stores delivery data.
 - Product: This type stores product master data.
@@ -6,10 +8,21 @@ This SCM application has 4 types:
 - Location: This type stores location master data, which explains where to deliver the product.
 
 
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/simplescm).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
+
+
+## Demo application
+
+A demo application that utilizes this template is available [here](https://tailorinc.retool.com/embedded/public/dcd12d76-f3b4-44fd-b0e9-8733e116cdac).
 
 
 ## Sample mutations
-Create new product
+
+Create a new product:
 ```graphql
 mutation createProduct(
   $productName: String
@@ -21,7 +34,7 @@ mutation createProduct(
 ) {
   createProduct(
     input: {
-    	productName: $productName
+      productName: $productName
       pricePerUnit: $pricePerUnit
       eanCode: $eanCode
       productCode: $productCode
@@ -32,9 +45,9 @@ mutation createProduct(
     id
   }
 }
-
 ```
-Create new sales order
+
+Create a new sales order:
 ```graphql
 mutation createOrderSales(
   $productID: ID,
@@ -59,7 +72,7 @@ mutation createOrderSales(
 }
 ```
 
-Create new delivery
+Create a new delivery:
 ```graphql
 mutation createDelivery(
   $orderID: ID,
@@ -89,24 +102,4 @@ mutation createDelivery(
     versions
   }
 }
-
 ```
-
-
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u ${username} -p ${password}
-tailorctl app import -m charts
-```
-
-## Demo Apps in Retool
-- [Simple SCM retool demo app](https://tailorinc.retool.com/embedded/public/dcd12d76-f3b4-44fd-b0e9-8733e116cdac)

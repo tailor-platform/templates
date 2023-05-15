@@ -1,16 +1,15 @@
 package resolvers
 
 import (
-	"{{ .Values.cue.package }}/charts/pipeline:settings"
-	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
-
+  "{{ .Values.cue.package }}/charts/pipeline:settings"
+  "github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
 )
 
 placePurchase: pipelinev1.#Resolver & {
-	authorization: "true"
+  authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "placePurchase"
-        description: "place order"
+        description: "place purchase"
         pipeline: [
           {
               id: {{ generateUUID | quote }}
