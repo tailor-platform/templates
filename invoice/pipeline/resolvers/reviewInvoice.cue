@@ -9,10 +9,34 @@ import (
 reviewInvoice: pipelinev1.#Resolver & {
 	authorization: "true"
         id:          {{ generateUUID | quote }}
+        authorization: "true"
         name:        "createInvoice"
         description: "create invoice"
         pipeline: [
         {
+          id: {{ generateUUID | quote }}
+          name: "createInvoice"
+          description: "create invoice for a review"
+          url: settings.services.gateway
+          preScript: "context.args.input"
+          graphqlQuery: """
+          mutation (
+            $invoiceCode: Int,
+            $invoiceName: String!,
+            $quote: Int!) {
+            createInvoice(
+              input: {
+                invoiceCode: $invoiceCode
+                invoiceName: $invoiceName
+                quote: $quote
+              }
+            ) {
+              id
+            }
+          } """
+          postScript: "args.createInvoice"
+          },
+          {
               id: {{ generateUUID | quote }}
               name: "newState"
               description: "new state for invoice review"
@@ -22,7 +46,7 @@ reviewInvoice: pipelinev1.#Resolver & {
               })
               preScript: """
               {
-                "resourceId": context.args.input.invoiceID,
+                "resourceId": args.id,
                 "stateFlowId": context.data.id
               }
               """
@@ -49,7 +73,7 @@ reviewInvoice: pipelinev1.#Resolver & {
             preScript: """
             {
               "stateID": args.id,
-              "invoiceID": context.args.input.invoiceID,
+              "invoiceID": context.pipeline.createInvoice.id
             }
             """
             graphqlQuery: """
@@ -73,7 +97,7 @@ reviewInvoice: pipelinev1.#Resolver & {
           })
           preScript: """
           {
-            "invoiceID": context.args.input.invoiceID,
+            "invoiceID": context.pipeline.createInvoice.id,
             "read": [{ "id": context.data.managerRoleID, "permit": "allow" }, { "id": context.data.staffRoleID, "permit": "allow" }],
             "update": [{ "id": context.data.managerRoleID, "permit": "allow" }]
           }

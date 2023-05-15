@@ -12,7 +12,9 @@ pipeline: pipelinev1.#Manifests & {
 	description: "Invoice pipeline resolver"
 	sdl: """
 	input reviewInvoiceInput {
-		invoiceID: ID!
+		invoiceCode: Int
+		invoiceName: String!
+		quote: Int!
 	}
 	type reviewInvoiceResult {
 		id: ID
