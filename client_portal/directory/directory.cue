@@ -4,97 +4,91 @@ import (
 	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/directory/v1:directoryv1"
 )
 
-userTypeMap: {[string]: directoryv1.#UserType } &  {
-  Admin: {
-    id:   {{ generateUUID | quote }}
-    name: "Admin"
-  }
-  Staff: {
-    id:   {{ generateUUID | quote }}
-    name: "Staff"
-  }
-}
-
-userTypeList: [...directoryv1.#UserType] & [
-  userTypeMap.Admin,
-  userTypeMap.Staff,
-]
-
-roleClassMap: {[string]: directoryv1.#Role } & {
+roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
-		id:   {{ generateUUID | quote }}
+		id: {{ generateWorkspaceUUID "AdminRoleClass" | quote }}
 		name: "Admin"
-	}
+	},
 	Staff: {
-		id:   {{ generateUUID | quote }}
+		id: {{ generateWorkspaceUUID "StaffRoleClass" | quote }}
 		name: "Staff"
-	}
+	},
 }
 
 roleClassList: [...directoryv1.#RoleClass] & [
-  roleClassMap.Admin,
-  roleClassMap.Staff,
+		roleClassMap.Admin,
+		roleClassMap.Staff,
 ]
 
-roleMap: {[string]: directoryv1.#Role } & {
-  Admin: directoryv1.#Role & {
-    id:   {{ generateUUID | quote }}
-    name: "Admin"
+roleMap: {[string]: directoryv1.#Role} & {
+	Admin: directoryv1.#Role & {
+		id: {{ generateWorkspaceUUID "AdminRole" | quote }}
+		name:        "Admin"
 		roleClassId: roleClassMap.Admin.id
-  }
-  Staff: directoryv1.#Role & {
-    id:   {{ generateUUID | quote }}
-    name: "Staff"
- 		roleClassId: roleClassMap.Staff.id
-  }
+		policies: [policyList[0].id]
+	},
+	Staff: directoryv1.#Role & {
+		id: {{ generateWorkspaceUUID "StaffRole" | quote }}
+		name:        "Staff"
+		roleClassId: roleClassMap.Staff.id
+		policies: [policyList[1].id]
+	},
 }
 
 policyList: [...directoryv1.#Policy] & [
-	{
-		id:     {{ generateUUID | quote }}
+		{
+		id: {{ generateWorkspaceUUID "AdminPolicy" | quote }}
 		name:   "admin"
 		permit: "allow"
 		actions: ["*"]
 		resources: ["*"]
-		priority: 1
-		roleId: roleMap.Admin.id
-		passwordRule: 2
+		priority:     1
+		roleId:       roleMap.Admin.id
+		passwordRule: 4
 	},
 	{
-		id:     {{ generateUUID | quote }}
-		name:   "staff"
+		id: {{ generateWorkspaceUUID "StaffPolicy" | quote }}
+		name:   "default"
 		permit: "allow"
-		actions: ["*"]
+		actions: ["get", "list"]
 		resources: ["*"]
-		priority: 4
-		roleId: roleMap.Staff.id
-		passwordRule: 2
+		priority:     1
+		roleId:       roleMap.Staff.id
+		passwordRule: 4
 	},
 ]
 
 roleList: [
-  roleMap.Admin,
-  roleMap.Staff,
+	roleMap.Admin,
+	roleMap.Staff,
 ]
 
 groupList: [...directoryv1.#Group] & [
 	{
-		id:                 {{ generateUUID | quote }}
-		name:               "代表"
+		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
+		name: "internal"
+	},
+	{
+		id: {{ generateWorkspaceUUID "ExternalGroup" | quote }}
+		name: "external"
 	},
 ]
 
 userList: [...directoryv1.#User] & [
 		{
-		id:          {{ generateUUID | quote }}
-		username:    "9000002"
-		displayName: "test"
-		secret:      "9000002"
-		userProfile: directoryv1.#UserProfile & {
-			employeeCode: "9000002"
-			userTypeId: userTypeMap.Admin.id
-		}
+		id: {{ generateWorkspaceUUID "AdminUser" | quote }}
+		username:    "adminadmin"
+		displayName: "admin"
+		secret:      "adminadmin"
 		roles: [roleMap.Admin.id]
+		groups: [groupList[0].id]
+	},
+	{
+		id: {{ generateWorkspaceUUID "StaffUser" | quote }}
+		username:    "staffstaff"
+		displayName: "staff"
+		secret:      "staffstaff"
+		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},
 ]

@@ -125,7 +125,7 @@ manifest.#TailorManifest & {
         variables: {
           jDoeId: clients.jdoe,
           mDavisId: clients.mdavis,
-          completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest1" | quote }}
+          completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest2" | quote }}
         }
       },
       {
