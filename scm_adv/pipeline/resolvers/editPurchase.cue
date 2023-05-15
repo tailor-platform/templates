@@ -7,6 +7,7 @@ import (
 )
 
 editPurchase: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "editPurchase"
         description: "edit Purchase order"

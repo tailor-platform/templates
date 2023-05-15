@@ -7,6 +7,7 @@ import (
 )
 
 transferInventory: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "transferInventory"
         description: "transfer inventory between locations"

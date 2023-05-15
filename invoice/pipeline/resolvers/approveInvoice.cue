@@ -7,6 +7,7 @@ import (
 )
 
 approveInvoice: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "approveInvoice"
         description: "approve invoice review to move state"

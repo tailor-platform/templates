@@ -7,6 +7,7 @@ import (
 )
 
 cancelOrder: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "cancelOrder"
         description: "cancel order"

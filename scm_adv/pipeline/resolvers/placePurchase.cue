@@ -7,6 +7,7 @@ import (
 )
 
 placePurchase: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "placePurchase"
         description: "place order"

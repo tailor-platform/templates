@@ -7,6 +7,7 @@ import (
 )
 
 addPersonalDataToEmployee: pipelinev1.#Resolver & {
+	authorization: "true"
   id: {{generateUUID | quote}}
   name:        "addPersonalDataToEmployee"
   description: "creates a new personal data"
