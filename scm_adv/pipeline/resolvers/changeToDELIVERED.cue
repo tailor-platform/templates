@@ -7,6 +7,7 @@ import (
 )
 
 changeToDELIVERED: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "changeToDELIVERED"
         description: "update delivery state to DELIVERED"

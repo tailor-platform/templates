@@ -7,6 +7,7 @@ import (
 )
 
 placeOrder: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "placeOrder"
         description: "place order"

@@ -7,6 +7,7 @@ import (
 )
 
 changeToINTRANSIT: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "changeToINTRANSIT"
         description: "update delivery state to INTRANSIT"

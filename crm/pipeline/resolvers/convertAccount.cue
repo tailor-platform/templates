@@ -6,6 +6,7 @@ import (
 )
 
 convertAccount: pipelinev1.#Resolver & {
+	authorization: "true"
 	id:          {{ generateUUID | quote }}
 	name:        "convertAccount"
 	description: "convert a Lead to an Account"

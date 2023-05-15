@@ -6,6 +6,7 @@ import (
 )
 
 addNewEmployee: pipelinev1.#Resolver & {
+	authorization: "true"
   id:          {{ generateUUID | quote }}
   name:        "addNewEmployee"
   description: "creates a new employee"

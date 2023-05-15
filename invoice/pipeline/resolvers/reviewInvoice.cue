@@ -7,6 +7,7 @@ import (
 )
 
 reviewInvoice: pipelinev1.#Resolver & {
+	authorization: "true"
         id:          {{ generateUUID | quote }}
         name:        "createInvoice"
         description: "create invoice"

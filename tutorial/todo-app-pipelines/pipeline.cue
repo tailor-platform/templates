@@ -38,6 +38,7 @@ manifest.#TailorManifest & {
 			"""
 			resolverMap: {
 				onboardNewUser: pipelinev1.#Resolver & {
+	authorization: "true"
 					id: {{ generateUUID | quote }} @ignoreChange()
 					name: "onboardNewUser"
 					description: "Creates a user and assign them an initial task"
