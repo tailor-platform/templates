@@ -10,12 +10,28 @@ This invoice application has 2 types:
 flowchart LR
     ManagerReview --> CustomerReview --> AllApproved
 ```
-Once you create an invoice, you can initiate the business operation to let the manager and customer review the invoice with the `reviewInvoice` mutation. When the review process is initiated, the review state becomes `ManagerReview`.  
-At this state, users who have either a Manager or Staff role can read the invoice, and only users who have a Manager role can update the invoice. Also, the manager can only approve the invoice with the `approveInvoice` mutation.  
+Once you create an invoice, you can initiate the business operation to let the manager and customer review the invoice with the `reviewInvoice` mutation. When the review process is initiated, the review state becomes `ManagerReview`.
+At this state, users who have either a Manager or Staff role can read the invoice, and only users who have a Manager role can update the invoice. Also, the manager can only approve the invoice with the `approveInvoice` mutation.
 If the manager approves the invoice, the state will be updated to `CustomerReview` from `ManagerReview`. At this state, users who have a customer role can approve the invoice. When the customer approves the invoice, the review process is done, and the state becomes `AllApproved`. At this state, the invoice record will be read-only, and no more updates are applicable.
 
 
-### Sample GraphQL queries and mutations
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/invoice).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
+
+
+## Demo application
+
+Access a demo application that utilizes this template and showcases various user views through the following links:
+
+- [Customer view](https://tailorinc.retool.com/embedded/public/bb7736b7-de9c-4f12-beb9-f2f5d5fbc003)
+- [Staff view](https://tailorinc.retool.com/embedded/public/d9fbb39c-a495-4fe4-9faf-a49976be6595)
+- [Manager view](https://tailorinc.retool.com/embedded/public/5a90ce9c-22a8-4c80-a7ba-3f486eda735d)
+
+
+## Sample GraphQL queries and mutations
 
 Create a new invoice record.
 ```graphql
@@ -43,21 +59,3 @@ mutation ($invoiceID: ID!, $stateID: ID!) {
   }
 }
 ```
-
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u ${username} -p ${password}
-tailorctl app import -m charts
-```
-
-## Apps in Retool FIXME, once publish the app, we have to update the link.  
-

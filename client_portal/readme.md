@@ -26,7 +26,22 @@ Note this template is intentionally kept very simple.
 For instance, for more advanced state and approval chain management you may want to leverage the [StateFlow](https://docs.tailor.tech/tutorials/setup-stateflow/overview) service.
 
 
-### Sample GraphQL queries and mutations
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/client-portal).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
+
+
+## Demo application
+
+Access a demo application that utilizes this template and showcases various user views through the following links:
+
+- [Client view](https://tailorinc.retool.com/embedded/public/2c3d2e8a-a0d6-4089-ab66-868027990c97)
+- [Manager view](https://tailorinc.retool.com/embedded/public/c8559c74-98e2-45aa-bd3d-56401c871458)
+
+
+## Sample GraphQL queries and mutations
 
 #### Client-facing pages
 
@@ -141,25 +156,3 @@ mutation($clientId: ID!, $requestId: ID!, $amount: Int) {
   }
 }
 ```
-
-
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u <username> -p <password>
-tailorctl app import -m charts/graphql_seed.cue
-```
-
-## Apps in Retool FIXME
-
-- [Client view](https://tailorinc.retool.com/apps/0b249efc-de53-11ed-a861-63b9cb6368eb/app%20templates/Client%20Portal%20(client%20view))
-- [Manager view](https://tailorinc.retool.com/apps/68bcf0f0-c166-11ed-a96f-dbc7e6501446/app%20templates/Client%20Portal%20(manager%20view))
-

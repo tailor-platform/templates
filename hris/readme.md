@@ -1,3 +1,5 @@
+# HRIS
+
 ## Overview
 This HRIS application basically has 4 types:
 
@@ -8,7 +10,23 @@ This HRIS application basically has 4 types:
 
 In addition to these 4 types in [Tailor DB](https://platform-frontend-services-docs.vercel.app/guides/tailordb/overview), there are other types such as `group`, `role`, etc. used to configure access management. These data are also managed in the [Directory service](https://platform-frontend-services-docs.vercel.app/guides/directory) in the same way as the `user` type.
 
-### Sample GraphQL queries and mutations
+
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/hris).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
+
+
+## Demo application
+
+Access a demo application that utilizes this template and showcases various user views through the following links:
+
+- [Admin view](https://tailorinc.retool.com/embedded/public/55ba8391-57b5-4679-a1ce-844f33042c19)
+- [Staff view](https://tailorinc.retool.com/embedded/public/788dbc71-d0a6-4ab1-b93e-0fb0639cfbd2)
+
+
+## Sample GraphQL queries and mutations
 
 Create a new employee record.
 ```graphql
@@ -116,25 +134,4 @@ query groups {
     }
   }
 }
-
 ```
-
-
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u ${username} -p ${password}
-tailorctl app import -m charts
-```
-
-## Demo Apps in Retool
-- [HRIS retool demo app Admin-view](https://tailorinc.retool.com/embedded/public/55ba8391-57b5-4679-a1ce-844f33042c19)
-- [HRIS retool demo app Staff-view](https://tailorinc.retool.com/embedded/public/788dbc71-d0a6-4ab1-b93e-0fb0639cfbd2)

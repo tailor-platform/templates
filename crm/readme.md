@@ -1,3 +1,5 @@
+# CRM
+
 ## Overview
 This CRM application has 5 types:
 
@@ -7,13 +9,25 @@ This CRM application has 5 types:
 - transaction: This type stores data about sales transactions made by the customer accounts.
 - user: This type stores data about the users of the tailor platform.
 
-In this application, the customer data is managed by the customerAccount records, while potencial customer data is managed by the lead records.  
+In this application, the customer data is managed by the customerAccount records, while potencial customer data is managed by the lead records.
 The engagement records store data about interactions between the business and its customers, while the transaction records store data about actual transactions of customer accounts.
 
-If you want to query the data to analyze customer behavior or sales performance, you can use appropriate queries on the respective record types.   
+If you want to query the data to analyze customer behavior or sales performance, you can use appropriate queries on the respective record types.
 
 
-### Sample GraphQL queries and mutations
+## Usage
+
+To deploy this template, please refer to the instructions [here](https://www.tailor.tech/templates/crm).
+
+To learn more about the files provided in this template, please refer to the [Tailor Platform documentation](https://docs.tailor.tech/).
+
+
+## Demo application
+
+A demo application that utilizes this template is available [here](https://tailorinc.retool.com/embedded/public/ea42df32-d6f6-45c5-84c8-cac994586440).
+
+
+## Sample GraphQL queries and mutations
 
 Create a lead record.
 ```graphql
@@ -79,22 +93,3 @@ mutation convertAccount(
   )
 }
 ```
-
-
-## Dev instructions
-
-### Deployment
-
-To create the application, see the [Quickstart](https://pf-services-docs-tailorinc.vercel.app/getting-started/quickstart)
-
-### Seeding
-
-To seed the data do:
-
-```sh
-tailorctl app login -u ${username} -p ${password}
-tailorctl app import -m charts
-```
-
-## Demo Apps in Retool
-- [CRM retool demo app](https://tailorinc.retool.com/embedded/public/ea42df32-d6f6-45c5-84c8-cac994586440)
