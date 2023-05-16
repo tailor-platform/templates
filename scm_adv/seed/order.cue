@@ -16,29 +16,29 @@ let mutationList = [
 	for k, v in orders {
 		{
 			query: """
-      mutation placeOrder(
-        $quantity: Int!
-        $placedDate: Date!
-        $productID: ID!
-        $locationID: ID!
-      ) {
-        placeOrder(
-          input: {
-            quantity: $quantity
-            locationID: $locationID
-            placedDate: $placedDate
-            productID: $productID
-          }
-        ) {
-          id
-        }
-      }
-      """
+				mutation placeOrder(
+				  $quantity: Int!
+				  $placedDate: Date!
+				  $productID: ID!
+				  $locationID: ID!
+				) {
+				  placeOrder(
+				    input: {
+				      quantity: $quantity
+				      locationID: $locationID
+				      placedDate: $placedDate
+				      productID: $productID
+				    }
+				  ) {
+				    id
+				  }
+				}
+				"""
 			variables: {
-        quantity: v.quantity
-        placedDate: v.placedDate
-        productID: v.productID
-        locationID: v.locationID
+				quantity:   v.quantity
+				placedDate: v.placedDate
+				productID:  v.productID
+				locationID: v.locationID
 			}
 		}
 	},
@@ -46,21 +46,17 @@ let mutationList = [
 
 orders: {
 	order1: {
-    quantity: 2
-    placedDate: "2023-01-01"
-    productID:  {{ generateWorkspaceUUID "Product1" | quote }}
-    locationID: {{ generateWorkspaceUUID "Location1" | quote }}
+		quantity:   2
+		placedDate: "2023-01-01"
+		productID:  {{ generateWorkspaceUUID "Product1" | quote }}
+		locationID: {{ generateWorkspaceUUID "Location1" | quote }}
 	}
 
-  order2: {
-    quantity: 3
-    placedDate: "2023-01-02"
-    productID: {{ generateWorkspaceUUID "Product2" | quote }}
-    locationID: {{ generateWorkspaceUUID "Location2" | quote }}
-  }
-  
+	order2: {
+		quantity:   3
+		placedDate: "2023-01-02"
+		productID: {{ generateWorkspaceUUID "Product2" | quote }}
+		locationID: {{ generateWorkspaceUUID "Location2" | quote }}
+	}
 
 }
-
-
-

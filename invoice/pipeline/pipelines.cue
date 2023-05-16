@@ -11,36 +11,36 @@ pipeline: pipelinev1.#Manifests & {
 	invoker:     directories.roleMap.Admin.id
 	description: "Invoice pipeline resolver"
 	sdl: """
-	input reviewInvoiceInput {
-		invoiceCode: Int
-		invoiceName: String!
-		quote: Int!
-	}
-	type reviewInvoiceResult {
-		id: ID
-		stateID: ID
-	}
-	input approveInvoiceInput {
-		stateID: ID!
-		invoiceID: ID!
-	}
+		input reviewInvoiceInput {
+			invoiceCode: Int
+			invoiceName: String!
+			quote: Int!
+		}
+		type reviewInvoiceResult {
+			id: ID
+			stateID: ID
+		}
+		input approveInvoiceInput {
+			stateID: ID!
+			invoiceID: ID!
+		}
 
-	type approveInvoiceResult {
-		success: Boolean
-		state: reviewState
-	}
+		type approveInvoiceResult {
+			success: Boolean
+			state: reviewState
+		}
 
-	type reviewState {
-		currentState: String
-	}
+		type reviewState {
+			currentState: String
+		}
 
-	type Mutation {
-		reviewInvoice(input: reviewInvoiceInput): reviewInvoiceResult
-		approveInvoice(input: approveInvoiceInput): approveInvoiceResult
-	}
-	"""
+		type Mutation {
+			reviewInvoice(input: reviewInvoiceInput): reviewInvoiceResult
+			approveInvoice(input: approveInvoiceInput): approveInvoiceResult
+		}
+		"""
 	resolverMap: {
-		"reviewInvoice": resolvers.reviewInvoice,
-		"approveInvoice": resolvers.approveInvoice,
+		"reviewInvoice":  resolvers.reviewInvoice
+		"approveInvoice": resolvers.approveInvoice
 	}
 }

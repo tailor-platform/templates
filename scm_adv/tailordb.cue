@@ -21,25 +21,25 @@ manifest.#TailorManifest & {
 		manifests: [...tailordbv1.#Manifest] &
 			[
 				{
-					name:  "Delivery"
+					name:   "Delivery"
 					schema: delivery.Delivery
 				},
 				{
-					name:  "Product"
+					name:   "Product"
 					schema: product.Product
 				},
 				{
-					name:  "Order"
+					name:   "Order"
 					schema: order.Order
 				},
 				{
-					name:  "Location"
+					name:   "Location"
 					schema: location.Location
 				},
 				{
-					name:  "InventoryEvent"
+					name:   "InventoryEvent"
 					schema: inventoryEvent.InventoryEvent
 				},
-				]
+			]
 	}
 }

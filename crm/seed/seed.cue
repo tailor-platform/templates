@@ -16,28 +16,28 @@ let accountMutationList = [
 	for k, v in accounts {
 		{
 			query: """
-			mutation (
-			  $accountID: ID
-			  $companyName: String
-			  $contactName: String
-			  $emailAddress: String
-			  $phoneNumber: String
-			  ) {
-			  CustomerAccount1: createCustomerAccount(
-			    input: {
-			      id: $accountID
-			      companyName: $companyName
-			      contact: {
-			        contactName: $contactName
-			        emailAddress: $emailAddress
-			        phoneNumber: $phoneNumber
-			      }
-			    }
-			  ) {
-			    id
-			  }
-			}
-			"""
+				mutation (
+				  $accountID: ID
+				  $companyName: String
+				  $contactName: String
+				  $emailAddress: String
+				  $phoneNumber: String
+				  ) {
+				  CustomerAccount1: createCustomerAccount(
+				    input: {
+				      id: $accountID
+				      companyName: $companyName
+				      contact: {
+				        contactName: $contactName
+				        emailAddress: $emailAddress
+				        phoneNumber: $phoneNumber
+				      }
+				    }
+				  ) {
+				    id
+				  }
+				}
+				"""
 			variables: {
 				accountID:    v.accountID
 				companyName:  v.companyName
@@ -72,7 +72,6 @@ accounts: {
 		phoneNumber:  "(312) 555-9012"
 	}
 }
-
 
 let leadMutationList = [
 	for k, v in leads {
@@ -162,7 +161,6 @@ leads: {
 		phoneNumber:  "(415) 555-5678"
 	}
 }
-
 
 let transactionMutationList = [
 	for k, v in transactions {

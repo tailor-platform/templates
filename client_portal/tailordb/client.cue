@@ -32,5 +32,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Client: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Client model"
-	permission: permissions.loggedinUser
+	permission:  permissions.loggedinUser
 }
