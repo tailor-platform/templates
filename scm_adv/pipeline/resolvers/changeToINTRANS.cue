@@ -33,7 +33,7 @@ changeToINTRANSIT: pipelinev1.#Resolver & {
 				                     }
 				                   }
 				                 }
-				               } """
+				               }"""
 			postScript: "args.inventoryEvents"
 		},
 		{
@@ -50,7 +50,7 @@ changeToINTRANSIT: pipelinev1.#Resolver & {
 				               "qty": args.collection[0].delivery.quantity,
 				               "negativeQty": -args.collection[0].delivery.quantity,
 				               "snapshotDate": context.args.input.deliveryDate
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation updateRecords(
 				                 $deliveryID: ID!
@@ -91,13 +91,13 @@ changeToINTRANSIT: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: """
 				             {
 				               "deliveryID": args.updateDelivery.id,
 				               "inventoryEventID": args.createInvEvents.id,
 				               "revertInventoryEventID": args.revertInvEvents.id
-				             } """
+				             }"""
 		},
 	]
 }

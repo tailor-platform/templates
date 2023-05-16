@@ -30,7 +30,7 @@ editPurchase: pipelinev1.#Resolver & {
 				                     id
 				                   }
 				                 }
-				               } """
+				               }"""
 			postScript: "args"
 		},
 		{
@@ -46,7 +46,7 @@ editPurchase: pipelinev1.#Resolver & {
 				               "locationID": context.args.input.locationID,
 				               "qty": context.args.input.quantity,
 				               "inventoryEventID": args.inventoryEvents.collection[0].id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation editOrder(
 				                 $deliveryID: ID!
@@ -76,13 +76,13 @@ editPurchase: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: """
 				             {
 				               "orderID": args.updateOrder.id,
 				               "deliveryID": args.updateDelivery.id,
 				               "inventoryEventID": args.updateInventoryEvent.id
-				             } """
+				             }"""
 		},
 	]
 }

@@ -33,7 +33,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 				           ) {
 				             id
 				           }
-				         } """
+				         }"""
 			postScript: "args.createInvoice"
 		},
 		{
@@ -48,8 +48,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 				{
 				  "resourceId": args.id,
 				  "stateFlowId": context.data.id
-				}
-				"""
+				}"""
 			graphqlQuery: """
 				mutation ($resourceId: ID!, $stateFlowId: ID!) {
 				  newState(
@@ -61,8 +60,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 				  ) {
 				    id
 				  }
-				}
-				"""
+				}"""
 			postScript: "args.newState"
 		},
 		{
@@ -74,16 +72,14 @@ reviewInvoice: pipelinev1.#Resolver & {
 				{
 				  "stateID": args.id,
 				  "invoiceID": context.pipeline.createInvoice.id
-				}
-				"""
+				}"""
 			graphqlQuery: """
 				mutation ($stateID: ID, $invoiceID: ID!) {
 				  updateInvoice(id: $invoiceID, input: { stateID: $stateID }) {
 				    id
 				    stateID
 				  }
-				}
-				"""
+				}"""
 			postScript: "args.updateInvoice"
 		},
 		{
@@ -100,8 +96,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 				  "invoiceID": context.pipeline.createInvoice.id,
 				  "read": [{ "id": context.data.managerRoleID, "permit": "allow" }, { "id": context.data.staffRoleID, "permit": "allow" }],
 				  "update": [{ "id": context.data.managerRoleID, "permit": "allow" }]
-				}
-				"""
+				}"""
 			graphqlQuery: """
 				mutation (
 				  $invoiceID: ID!
@@ -109,8 +104,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 				  $update: [PermissionItemInput!]
 				) {
 				  changeInvoice(id: $invoiceID, read: $read, update: $update)
-				}          
-				"""
+				}"""
 			postScript: "context.pipeline.updateInvoice"
 		},
 	]

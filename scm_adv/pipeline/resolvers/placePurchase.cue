@@ -45,7 +45,7 @@ placePurchase: pipelinev1.#Resolver & {
 				               "productID": context.args.input.productID,
 				               "locationID": context.args.input.locationID,
 				               "orderID": args.id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation createDelivery(
 				                 $quantity: Int!
@@ -68,7 +68,7 @@ placePurchase: pipelinev1.#Resolver & {
 				                   id
 				                   orderID
 				                 }
-				               } """
+				               }"""
 			postScript: "args.createDelivery"
 		},
 		{
@@ -84,7 +84,7 @@ placePurchase: pipelinev1.#Resolver & {
 				               "locationID": context.args.input.locationID,
 				               "orderID": args.orderID,
 				               "deliveryID": args.id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation createInventoryEvent(
 				                 $quantity: Int!
@@ -107,7 +107,7 @@ placePurchase: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: "args.createInventoryEvent"
 		},
 	]

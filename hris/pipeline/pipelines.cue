@@ -54,7 +54,7 @@ pipeline: pipelinev1.#Manifests & {
 		      addNewEmployee(input: CreateEmployeeInput): CreateEmployeeResult
 		      addPersonalDataToEmployee(input: addPersonalDataToEmployeeInput): Boolean
 		      addEmploymentToEmployee(input: addEmploymentToEmployeeInput): Boolean
-		    }  """
+		    }"""
 	resolverMap: {
 		"addEmploymentToEmployee":   resolvers.addEmploymentToEmployee
 		"addNewEmployee":            resolvers.addNewEmployee

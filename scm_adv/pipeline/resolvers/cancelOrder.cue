@@ -30,7 +30,7 @@ cancelOrder: pipelinev1.#Resolver & {
 				                     id
 				                   }
 				                 }
-				               } """
+				               }"""
 			postScript: "args"
 		},
 		{
@@ -43,7 +43,7 @@ cancelOrder: pipelinev1.#Resolver & {
 				               "orderID": context.args.input.orderID,
 				               "deliveryID": args.deliveries.collection[0].id,
 				               "inventoryEventID": args.inventoryEvents.collection[0].id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation deleteRecords(
 				                 $deliveryID: ID!
@@ -53,7 +53,7 @@ cancelOrder: pipelinev1.#Resolver & {
 				                 deleteDelivery: deleteDelivery(id: $deliveryID)
 				                 deleteInventoryEvent: deleteInventoryEvent(id: $inventoryEventID)
 				                 deleteOrder: deleteOrder(id: $orderID)
-				               } """
+				               }"""
 			postScript: "args"
 		},
 	]

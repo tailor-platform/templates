@@ -26,8 +26,7 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
 				          "payCurrency": context.args.input.payCurrency,
 				          "effectiveDate": date(context.args.input.effectiveDate),
 				          "employmentType": context.args.input.employmentType
-				        }
-						"""
+				        }"""
 			graphqlQuery: """
 				        mutation(
 				          $employeeID: ID!
@@ -48,8 +47,7 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
 				          employmentType: $employmentType
 				        }) {
 				          id }
-				        }
-						"""
+				        }"""
 			postScript: "args.createEmployment"
 		},
 		{
@@ -61,24 +59,18 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
 				      {
 				        "employmentID":args.id,
 				        "employeeID":context.args.input.employeeID
-				      }
-					  """
-			graphqlQuery:
-			"""
-					      mutation($employmentID: ID!, $employeeID: ID!) {
-					        updateEmployee(id: $employeeID, input: {
-					          employmentID:$employmentID
-					        }) {
-					                id
-					           }
-					        }
-					"""
+				      }"""
+			graphqlQuery: """
+			mutation ($employmentID: ID!, $employeeID: ID!) {
+				updateEmployee(id: $employeeID, input: { employmentID: $employmentID }) {
+				  id
+				}
+			}"""
 			postScript: """
 				      {
 				        "employeeReadPermission" : [{ "id":context.args.input.employeeID, "permit": "allow"}],
 				        "employeeUpdatePermission" : [{ "id":context.args.input.employeeID, "permit": "allow"}]
-				      }
-				"""
+				      }"""
 		},
 		{
 			id: {{generateUUID | quote}}
@@ -92,21 +84,21 @@ addEmploymentToEmployee: pipelinev1.#Resolver & {
 				        "read": context.data.read + args.employeeReadPermission,
 				        "update": context.data.update + args.employeeUpdatePermission,
 				        "delete": context.data.delete
-				      }
-				"""
+				      }"""
 			graphqlQuery: """
-				      mutation ($employmentID: ID!,
-				      $read: [PermissionItemInput],
-				      $update: [PermissionItemInput],
-				      $delete: [PermissionItemInput])
-				      {
-				        changeEmployment (id: $employmentID,
-				        read: $read,
-				        update: $update,
-				        delete: $delete
-				        )
-				      }
-				"""
+			mutation (
+				$employmentID: ID!
+				$read: [PermissionItemInput]
+				$update: [PermissionItemInput]
+				$delete: [PermissionItemInput]
+			  ) {
+				changeEmployment(
+				  id: $employmentID
+				  read: $read
+				  update: $update
+				  delete: $delete
+				)
+			  }"""
 			postScript: "args"
 		},
 	]

@@ -40,8 +40,7 @@ let mutationList = [
 						) {
 							id
 						}
-						}
-						"""
+						}"""
 			variables: {
 				id:       v.id
 				code:     v.code

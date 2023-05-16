@@ -18,26 +18,27 @@ convertAccount: pipelinev1.#Resolver & {
 			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery: """
-								  		mutation(
-									    	$companyName: String!
-									    	$leadID: ID!
-											$emailAddress: String
-								  			$phoneNumber: String
-											$contactName: String
-									  		) {
-								    	createCustomerAccount(input: {
-								      		companyName: $companyName,
-								      		leadID: $leadID,
-								        contact: {
-											emailAddress: $emailAddress
-								  			phoneNumber: $phoneNumber
-											contactName: $contactName
-								  			},
-								    	}) {
-								        id
-								    	}
-								  	}
-				"""
+			mutation (
+				$companyName: String!
+				$leadID: ID!
+				$emailAddress: String
+				$phoneNumber: String
+				$contactName: String
+			  ) {
+				createCustomerAccount(
+				  input: {
+					companyName: $companyName
+					leadID: $leadID
+					contact: {
+					  emailAddress: $emailAddress
+					  phoneNumber: $phoneNumber
+					  contactName: $contactName
+					}
+				  }
+				) {
+				  id
+				}
+			  }"""
 			postScript: "args.createCustomerAccount"
 		},
 		{
@@ -47,10 +48,9 @@ convertAccount: pipelinev1.#Resolver & {
 			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery: """
-								mutation ($leadID: ID!) {
-									deleteLead(id: $leadID)
-								}
-				"""
+			mutation ($leadID: ID!) {
+				deleteLead(id: $leadID)
+			}"""
 			postScript: "args"
 		},
 	]

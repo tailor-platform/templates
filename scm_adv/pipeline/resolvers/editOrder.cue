@@ -30,7 +30,7 @@ editOrder: pipelinev1.#Resolver & {
 				                     id
 				                   }
 				                 }
-				               } """
+				               }"""
 			postScript: "args"
 		},
 		{
@@ -47,7 +47,7 @@ editOrder: pipelinev1.#Resolver & {
 				               "qty": context.args.input.quantity,
 				               "negativeQty": -context.args.input.quantity,
 				               "inventoryEventID": args.inventoryEvents.collection[0].id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation editOrder(
 				                 $deliveryID: ID!
@@ -78,13 +78,13 @@ editOrder: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: """
 				             {
 				               "orderID": args.updateOrder.id,
 				               "deliveryID": args.updateDelivery.id,
 				               "inventoryEventID": args.updateInventoryEvent.id
-				             } """
+				             }"""
 		},
 	]
 }

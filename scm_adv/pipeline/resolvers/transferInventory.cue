@@ -50,7 +50,7 @@ transferInventory: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: "args"
 		},
 		{
@@ -68,7 +68,7 @@ transferInventory: pipelinev1.#Resolver & {
 				               "transferInID": context.args.input.transferInID,
 				               "transferInDeliveryID": args.transferIn.id,
 				               "transferOutDeliveryID": args.transferOut.id
-				             } """
+				             }"""
 			graphqlQuery: """
 				               mutation createInventory(
 				                 $qty: Int!
@@ -104,12 +104,12 @@ transferInventory: pipelinev1.#Resolver & {
 				                 ) {
 				                   id
 				                 }
-				               } """
+				               }"""
 			postScript: """
 				             {
 				               "transferInID": args.transferIn.id,
 				               "transferOutID": args.transferOut.id
-				             } """
+				             }"""
 		},
 	]
 }

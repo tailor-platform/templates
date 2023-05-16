@@ -11,28 +11,23 @@ manifest.#TailorManifest & {
 		mutations: [
 			{
 				query: """
-							mutation (
-								$states: [StateTransitionModelInput!]!
-								$id: ID
-							  ) {
-								newStateFlow(
-								  input: {
-									id: $id
-									name: "invoiceReviewFlow"
-									stateTransitionModels: $states
-								  }
-								) {
-								  id
-								}
-							  }
-					"""
+				mutation ($states: [StateTransitionModelInput!]!, $id: ID) {
+					newStateFlow(
+					  input: {
+						id: $id
+						name: "invoiceReviewFlow"
+						stateTransitionModels: $states
+					  }
+					) {
+					  id
+					}
+				  }"""
 				variables: {
 					states: invoiceReviewFlow
 					 id: {{ generateWorkspaceUUID "ReviewFlow1" | quote }}
 				}
 			},
 		]
-
 	}
 }
 

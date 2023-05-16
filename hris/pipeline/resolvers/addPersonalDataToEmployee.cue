@@ -25,8 +25,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
 				          "dateOfBirth": date(context.args.input.dateOfBirth),
 				          "hireDate": date(context.args.input.hireDate),
 				          "employmentStatus": context.args.input.employmentStatus
-				        }
-				"""
+				        }"""
 			graphqlQuery: """
 				        mutation(
 				          $employeeID: ID!
@@ -45,8 +44,7 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
 				          employmentStatus: $employmentStatus
 				        }) {
 				          id}
-				        }
-				"""
+				        }"""
 			postScript: "args.createPersonalData"
 		},
 		{
@@ -58,23 +56,18 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
 				      {
 				        "personalDataID":args.id,
 				        "employeeID":context.args.input.employeeID
-				      }
-				"""
+				      }"""
 			graphqlQuery: """
-				        mutation($personalDataID: ID!, $employeeID: ID!) {
-				          updateEmployee(id: $employeeID, input: {
-				            personalDataID:$personalDataID
-				          }) {
-				                 id
-				             }
-				          }
-				"""
+			mutation ($personalDataID: ID!, $employeeID: ID!) {
+				updateEmployee(id: $employeeID, input: { personalDataID: $personalDataID }) {
+				  id
+				}
+			  }"""
 			postScript: """
 				        {
 				          "employeeReadPermission" : [{ "id":context.args.input.employeeID, "permit": "allow"}],
 				          "employeeUpdatePermission" : [{ "id":context.args.input.employeeID, "permit": "allow"}]
-				        }
-				"""
+				        }"""
 		},
 		{
 			id: {{generateUUID | quote}}
@@ -88,21 +81,21 @@ addPersonalDataToEmployee: pipelinev1.#Resolver & {
 				        "read": context.data.read + args.employeeReadPermission,
 				        "update": context.data.update + args.employeeUpdatePermission,
 				        "delete": context.data.delete
-				      }
-				"""
+				      }"""
 			graphqlQuery: """
-				      mutation ($personalDataID: ID!,
-				      $read: [PermissionItemInput],
-				      $update: [PermissionItemInput],
-				      $delete: [PermissionItemInput])
-				      {
-				        changePersonalData (id: $personalDataID,
-				        read: $read,
-				        update: $update,
-				        delete: $delete
-				        )
-				      }
-				"""
+			mutation (
+				$personalDataID: ID!
+				$read: [PermissionItemInput]
+				$update: [PermissionItemInput]
+				$delete: [PermissionItemInput]
+			  ) {
+				changePersonalData(
+				  id: $personalDataID
+				  read: $read
+				  update: $update
+				  delete: $delete
+				)
+			  }"""
 			postScript: "args"
 		},
 	]

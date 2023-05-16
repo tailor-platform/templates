@@ -42,7 +42,7 @@ addNewEmployee: pipelinev1.#Resolver & {
 				    id
 				    displayName
 				  }
-				}        """
+				}"""
 			postScript: "args.createUser"
 		},
 		{
@@ -60,8 +60,9 @@ addNewEmployee: pipelinev1.#Resolver & {
 				          "avatar":context.args.input.avatar,
 				          "mobilePhoneNumber":context.args.input.mobilePhoneNumber,
 				          "workEmail":context.args.input.workEmail
-				    }  """
-			graphqlQuery: """
+				    }"""
+			graphqlQuery:
+				"""
 				       mutation (
 				         $userID: ID
 				         $displayName: String
@@ -87,7 +88,7 @@ addNewEmployee: pipelinev1.#Resolver & {
 				         ) {
 				           id
 				         }
-				       } """
+				       }"""
 			postScript: "args.createEmployee"
 		},
 	]

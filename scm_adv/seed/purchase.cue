@@ -32,7 +32,7 @@ let mutationList = [
 				       ) {
 				         id
 				       }
-				     } """
+				     }"""
 			variables: {
 				quantity:   v.quantity
 				placedDate: v.placedDate
