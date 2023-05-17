@@ -64,7 +64,7 @@ roleList: [
 ]
 
 groupList: [...directoryv1.#Group] & [
-		{
+	{
 		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
 		name: "internal"
 	},

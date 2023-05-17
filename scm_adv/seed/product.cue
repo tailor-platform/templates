@@ -54,7 +54,7 @@ let mutationList = [
 
 products: {
 	product1: {
-		id:    {{ generateWorkspaceUUID "Product1" | quote }}
+		id:       {{ generateWorkspaceUUID "Product1" | quote }}
 		ppu:      12.99
 		ean:      "5012345678910"
 		uom:      "pack"
@@ -63,7 +63,7 @@ products: {
 		code:     1
 	}
 	product2: {
-		id:   {{ generateWorkspaceUUID "Product2" | quote }}
+		id:      {{ generateWorkspaceUUID "Product2" | quote }}
 		ppu:      24.99
 		ean:      "6012345678911"
 		uom:      "box"
@@ -72,7 +72,7 @@ products: {
 		code:     2
 	}
 	product3: {
-		id:   {{ generateWorkspaceUUID "Product3" | quote }}
+		id:       {{ generateWorkspaceUUID "Product3" | quote }}
 		ppu:      45.00
 		ean:      "7012345678912"
 		uom:      "piece"
@@ -81,7 +81,7 @@ products: {
 		code:     3
 	}
 	product4: {
-		id:   {{ generateWorkspaceUUID "Product4" | quote }}
+		id:       {{ generateWorkspaceUUID "Product4" | quote }}
 		ppu:      8.50
 		ean:      "8012345678913"
 		uom:      "pack"
@@ -90,7 +90,7 @@ products: {
 		code:     4
 	}
 	product5: {
-		id:   {{ generateWorkspaceUUID "Product5" | quote }}
+		id:       {{ generateWorkspaceUUID "Product5" | quote }}
 		ppu:      14.75
 		ean:      "9012345678914"
 		uom:      "set"

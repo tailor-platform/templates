@@ -54,7 +54,7 @@ purchases: {
 	order2: {
 		quantity:   8
 		placedDate: "2023-01-02"
-		productID: {{ generateWorkspaceUUID "Product2" | quote }}
+		productID:  {{ generateWorkspaceUUID "Product2" | quote }}
 		locationID: {{ generateWorkspaceUUID "Location2" | quote }}
 	}
 
