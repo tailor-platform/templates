@@ -8,15 +8,15 @@ roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateWorkspaceUUID "AdminRoleClass" | quote }}
 		name: "Admin"
-	},
+	}
 	Staff: {
 		id: {{ generateWorkspaceUUID "StaffRoleClass" | quote }}
 		name: "Staff"
-	},
+	}
 	Manager: {
 		id: {{ generateWorkspaceUUID "ManagerRoleClass" | quote }}
 		name: "Manager"
-	},
+	}
 }
 
 roleClassList: [...directoryv1.#RoleClass] & [
@@ -31,19 +31,19 @@ roleMap: {[string]: directoryv1.#Role} & {
 		name:        "Admin"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
-	},
+	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateWorkspaceUUID "StaffRole" | quote }}
 		name:        "Staff"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
-	},
+	}
 	Manager: directoryv1.#Role & {
 		id: {{ generateWorkspaceUUID "ManagerRole" | quote }}
 		name:        "Manager"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
-	},
+	}
 }
 
 policyList: [...directoryv1.#Policy] & [
@@ -87,7 +87,7 @@ roleList: [
 ]
 
 groupList: [...directoryv1.#Group] & [
-	{
+		{
 		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
 		name: "internal"
 	},

@@ -9,7 +9,7 @@ manifest.#TailorManifest & {
 	version: "v1"
 	kind:    manifest.#KindGateway
 	spec:    gatewayv1.#Domain & {
-	name: {{ .Values.gateway.domain | quote }}
+		name: {{ .Values.gateway.domain | quote }}
 		cors: [
 			"https://*.tailor.business",
 			"http://localhost:3000",

@@ -8,11 +8,11 @@ roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateWorkspaceUUID "AdminRoleClass" | quote }}
 		name: "Admin"
-	},
+	}
 	Staff: {
 		id: {{ generateWorkspaceUUID "StaffRoleClass" | quote }}
 		name: "Staff"
-	},
+	}
 }
 
 roleClassList: [...directoryv1.#RoleClass] & [
@@ -26,13 +26,13 @@ roleMap: {[string]: directoryv1.#Role} & {
 		name:        "Admin"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
-	},
+	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateWorkspaceUUID "StaffRole" | quote }}
 		name:        "Staff"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
-	},
+	}
 }
 
 policyList: [...directoryv1.#Policy] & [

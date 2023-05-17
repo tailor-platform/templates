@@ -7,29 +7,29 @@ import (
 )
 
 _fields: {[string]: tailordbv1.#FieldConfig} & {
-		"invoiceName": {
-			type:       tailordb.#FieldTypeString
-			description: "invoice name."
-			required:    true
-		}
-		"invoiceCode": {
-			type:       tailordb.#FieldTypeInteger
-			description: "invoice code."
-		}
-		"quote": {
-			type:       tailordb.#FieldTypeInteger
-			description: "Price per unit."
-			required:    true
-		}
-		"state": {
-			type:        "State"
-			description: "state for this invoice"
-			sourceId:    "stateID"
-		}
-		"stateID": {
-			type:        tailordb.#FieldTypeUUID
-			description: "state ID for invoice"
-		}
+	"invoiceName": {
+		type:        tailordb.#FieldTypeString
+		description: "invoice name."
+		required:    true
+	}
+	"invoiceCode": {
+		type:        tailordb.#FieldTypeInteger
+		description: "invoice code."
+	}
+	"quote": {
+		type:        tailordb.#FieldTypeInteger
+		description: "Price per unit."
+		required:    true
+	}
+	"state": {
+		type:        "State"
+		description: "state for this invoice"
+		sourceId:    "stateID"
+	}
+	"stateID": {
+		type:        tailordb.#FieldTypeUUID
+		description: "state ID for invoice"
+	}
 
 }
 

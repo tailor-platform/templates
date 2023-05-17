@@ -10,15 +10,15 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	system: {
 		type:        tailordb.#FieldTypeEnum
 		description: "Type of the hardware"
-		values:			 ["PC", "MAC", "PRINTER", "SERVER", "OTHER"]
-		required:    true
+		values: ["PC", "MAC", "PRINTER", "SERVER", "OTHER"]
+		required: true
 	}
 
 	kind: {
 		type:        tailordb.#FieldTypeEnum
 		description: "The kind of service needed"
-		values:      ["TROUBLESHOOTING_AND_REPAIR", "NETWORKING", "SOFTWARE_INSTALLATION", "HARDWARE_SETUP", "PURCHASING", "OTHER"]
-		required:    true
+		values: ["TROUBLESHOOTING_AND_REPAIR", "NETWORKING", "SOFTWARE_INSTALLATION", "HARDWARE_SETUP", "PURCHASING", "OTHER"]
+		required: true
 	}
 
 	description: {
@@ -56,5 +56,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Request: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Request model"
-	permission: permissions.loggedinUser
+	permission:  permissions.loggedinUser
 }

@@ -7,50 +7,50 @@ import (
 
 convertAccount: pipelinev1.#Resolver & {
 	authorization: "true"
-	id:          {{ generateUUID | quote }}
+	id:			 {{generateUUID | quote}}
 	name:        "convertAccount"
 	description: "convert a Lead to an Account"
 	pipeline: [
 		{
-			id:          {{ generateUUID | quote }}
+			id: {{generateUUID | quote}}
 			name:        "createsAccount"
 			description: "creates a new Account"
 			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery: """
-				  		mutation(
-					    	$companyName: String!
-					    	$leadID: ID!
-							$emailAddress: String
-				  			$phoneNumber: String
-							$contactName: String
-					  		) {
-				    	createCustomerAccount(input: {
-				      		companyName: $companyName,
-				      		leadID: $leadID,
-				        contact: {
-							emailAddress: $emailAddress
-				  			phoneNumber: $phoneNumber
-							contactName: $contactName
-				  			},
-				    	}) {
-				        id
-				    	}
-				  	}
-"""
+			mutation (
+				$companyName: String!
+				$leadID: ID!
+				$emailAddress: String
+				$phoneNumber: String
+				$contactName: String
+			  ) {
+				createCustomerAccount(
+				  input: {
+					companyName: $companyName
+					leadID: $leadID
+					contact: {
+					  emailAddress: $emailAddress
+					  phoneNumber: $phoneNumber
+					  contactName: $contactName
+					}
+				  }
+				) {
+				  id
+				}
+			  }"""
 			postScript: "args.createCustomerAccount"
 		},
 		{
-			id:          {{ generateUUID | quote }}
+			id: {{generateUUID | quote}}
 			name:        "deleteLead"
 			description: "delete a lead"
 			url:         settings.services.gateway
 			preScript:   "context.args"
 			graphqlQuery: """
-				mutation ($leadID: ID!) {
-					deleteLead(id: $leadID)
-				}
-"""
+			mutation ($leadID: ID!) {
+				deleteLead(id: $leadID)
+			}"""
 			postScript: "args"
 		},
 	]

@@ -7,34 +7,34 @@ import (
 )
 
 _fields: {[string]: tailordbv1.#FieldConfig} & {
-		"locationName": {
-			type:        tailordb.#FieldTypeString
-			description: "Location name"
-		}
-		"locationCode": {
-			type:        tailordb.#FieldTypeInteger
-			description: "Location code"
-		}
-		"city": {
-			type:        tailordb.#FieldTypeString
-			description: "City"
-		}
-		"country": {
-			type:        tailordb.#FieldTypeString
-			description: "Country"
-		}
-		"address1": {
-			type:        tailordb.#FieldTypeString
-			description: "Address1"
-		}
-		"address2": {
-			type:        tailordb.#FieldTypeString
-			description: "Address2"
-		}
-		"zipcode": {
-			type:        tailordb.#FieldTypeString
-			description: "Zipcode"
-		}
+	"locationName": {
+		type:        tailordb.#FieldTypeString
+		description: "Location name"
+	}
+	"locationCode": {
+		type:        tailordb.#FieldTypeInteger
+		description: "Location code"
+	}
+	"city": {
+		type:        tailordb.#FieldTypeString
+		description: "City"
+	}
+	"country": {
+		type:        tailordb.#FieldTypeString
+		description: "Country"
+	}
+	"address1": {
+		type:        tailordb.#FieldTypeString
+		description: "Address1"
+	}
+	"address2": {
+		type:        tailordb.#FieldTypeString
+		description: "Address2"
+	}
+	"zipcode": {
+		type:        tailordb.#FieldTypeString
+		description: "Zipcode"
+	}
 
 }
 

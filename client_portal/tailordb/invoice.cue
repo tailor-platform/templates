@@ -52,5 +52,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Invoice: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Invoice model"
-	permission: permissions.loggedinUser
+	permission:  permissions.loggedinUser
 }
