@@ -19,19 +19,19 @@ Task: tailordbv1.#TypeConfig & {
 	}
 	permission: {
 		create: [
-			{id: tailordb.#EveryoneUserID, permit: tailordb.#Allow},
+			{id: tailordb.#Everyone, permit: tailordb.#Allow},
 		]
 		read: [
-			{id: tailordb.#EveryoneUserID, permit: tailordb.#Allow},
+			{id: tailordb.#Everyone, permit: tailordb.#Allow},
 		]
 		update: [
-			{id: tailordb.#EveryoneUserID, permit: tailordb.#Allow},
+			{id: tailordb.#Everyone, permit: tailordb.#Allow},
 		]
 		delete: [
-			{id: tailordb.#EveryoneUserID, permit: tailordb.#Allow},
+			{id: tailordb.#Everyone, permit: tailordb.#Allow},
 		]
 		admin: [
-			{id: tailordb.#EveryoneUserID, permit: tailordb.#Allow},
+			{id: tailordb.#Everyone, permit: tailordb.#Allow},
 		]
 	}
 }

@@ -7,16 +7,16 @@ import (
 
 loggedinUser: {
 	create: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
+		{id: tailordb.#LoggedInUser, permit: tailordb.#Allow},
 	]
 	read: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
+		{id: tailordb.#LoggedInUser, permit: tailordb.#Allow},
 	]
 	update: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
+		{id: tailordb.#LoggedInUser, permit: tailordb.#Allow},
 	]
 	delete: [
-		{id: tailordb.#LoggedInUserID, permit: tailordb.#Allow},
+		{id: tailordb.#LoggedInUser, permit: tailordb.#Allow},
 	]
 	admin: [
 		{id: directories.roleMap.Admin.id, permit: tailordb.#Allow},

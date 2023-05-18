@@ -10,7 +10,6 @@ specmanifest.#TailorManifest & {
 	kind:    specmanifest.#KindPipeline
 	spec:    specmanifest.#SpecPipeline & {
 		namespace: {
-			id:  {{ generateUUID | quote }}
 			name: {{ .Values.pipeline.namespace | quote }}
 		}
 		manifest: pipelines.pipeline
