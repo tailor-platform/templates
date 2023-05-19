@@ -12,7 +12,6 @@ manifest.#TailorManifest & {
 	kind:    manifest.#KindPipeline
 	spec:    manifest.#SpecPipeline & {
 		namespace: pipelinev1.#Namespace & {
-			id: {{ generateUUID | quote }} @ignoreChange()
 			name: {{ .Values.pipeline.namespace | quote }}
 		}
 		manifest: pipelinev1.#Manifests & {
