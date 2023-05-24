@@ -109,7 +109,7 @@ placeOrder: pipelinev1.#Resolver & {
 				                   id
 				                 }
 				               }"""
-			postScript: "args.createInventoryEvent"
+			postScript: "context.pipeline.createOrder"
 		},
 	]
 }
