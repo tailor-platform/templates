@@ -1,7 +1,7 @@
 package gateway
 
 import (
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/gateway/v1:gatewayv1"
 )
 

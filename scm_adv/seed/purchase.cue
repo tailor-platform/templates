@@ -1,7 +1,7 @@
 package purchase
 
 import (
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 )
 
 manifest.#TailorManifest & {

@@ -1,7 +1,7 @@
 package graphqlseed
 
 import (
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"{{ .Values.cue.package }}/charts/directory:directories"
 )
 
