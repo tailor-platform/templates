@@ -1,8 +1,8 @@
 package pipeline
 
 import (
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
-	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
+	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 )
 
 gatewayUrl: {{ .Values.gateway.graphqlEndpoint | quote }}
