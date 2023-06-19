@@ -1,7 +1,7 @@
 package graphqlseed
 
 import (
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:manifest"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 )
 
 manifest.#TailorManifest & {
@@ -103,7 +103,7 @@ let leadMutationList = [
 				  ) {
 				    id
 				  }
-				}      
+				}
 				"""
 			variables: {
 				leadID:       v.leadID
@@ -184,7 +184,7 @@ let transactionMutationList = [
 				  ) {
 				    id
 				  }
-				}      
+				}
 				"""
 			variables: {
 				accountID:         v.accountID

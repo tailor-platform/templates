@@ -3,7 +3,7 @@ package pipelines
 import (
 	"{{ .Values.cue.package }}/charts/directory:directories"
 	"{{ .Values.cue.package }}/charts/pipeline/resolvers"
-	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
+	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 )
 
 pipeline: pipelinev1.#Manifests & {
@@ -45,7 +45,7 @@ pipeline: pipelinev1.#Manifests & {
     productID: ID!
     locationID: ID!
     placedDate: Date!
-  }	
+  }
   input transferInventoryInput {
     quantity: Int!
     deliveryDate: Date!

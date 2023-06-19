@@ -2,7 +2,7 @@ package permissions
 
 import (
 	"{{ .Values.cue.package }}/charts/directory:directories"
-	"github.com/tailor-inc/platform-core-services/tailorctl/schema/v1:tailordb"
+	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:tailordb"
 )
 
 employee: {

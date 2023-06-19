@@ -1,7 +1,7 @@
 package directories
 
 import (
-	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/directory/v1:directoryv1"
+	"github.com/tailor-inc/platform-core-services/api/gen/go/directory/v1:directoryv1"
 )
 
 roleClassMap: {[string]: directoryv1.#Role} & {

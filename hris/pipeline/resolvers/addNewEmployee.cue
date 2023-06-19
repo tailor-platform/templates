@@ -2,7 +2,7 @@ package resolvers
 
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
-	"github.com/tailor-inc/platform-core-services/protobuf/gen/go/pipeline/v1:pipelinev1"
+	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 )
 
 addNewEmployee: pipelinev1.#Resolver & {
