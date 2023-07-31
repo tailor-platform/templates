@@ -1,0 +1,66 @@
+desc: addbranduser
+runners:
+  req: ${RUNNER_HOST:-http://localhost:8000}/query
+steps:
+  loginAdmin:
+    include:
+      path: steps/login.yaml
+      vars:
+        id: "adminadmin"
+        password: "adminadmin"
+
+  getBrand:
+    include:
+      path: steps/get-brand.yaml
+      vars:
+        token: "{{ steps.loginAdmin.token }}"
+
+  getRole:
+    include:
+      path: steps/get-role.yaml
+      vars:
+        token: "{{ steps.loginAdmin.token }}"
+
+  addBrandAUser:
+    include:
+      path: steps/add-brand-user.yaml
+      vars:
+        token: "{{ steps.loginAdmin.token }}"
+        roleInput: "{{ steps.getRole.staffRoleId }}"
+        groupInput: "{{ steps.getBrand.brandAGroupID }}"
+        brandID: "{{ steps.getBrand.brandAID }}"
+        brandName: "{{ steps.getBrand.brandAName }}"
+        username: "TESTA"
+        secret: "12345678"
+        displayName: "TESTA"
+
+  addBrandBUser:
+    include:
+      path: steps/add-brand-user.yaml
+      vars:
+        token: "{{ steps.loginAdmin.token }}"
+        roleInput: "{{ steps.getRole.staffRoleId }}"
+        groupInput: "{{ steps.getBrand.brandBGroupID }}"
+        brandID: "{{ steps.getBrand.brandBID }}"
+        brandName: "{{ steps.getBrand.brandBName }}"
+        username: "TESTB"
+        secret: "12345678"
+        displayName: "TESTB"
+
+  loginBrandAUser:
+    include:
+      path: steps/login.yaml
+      vars:
+        id: "TESTA"
+        password: "12345678"
+
+  addBrandAProduct:
+    include:
+      path: steps/add-brand-product.yaml
+      vars:
+        token: "{{ steps.loginBrandAUser.token }}"
+        brandID: "{{ steps.getBrand.brandAID }}"
+        productName: "TEST PRODUCT A"
+        productDescription: "TEST PRODUCT A"
+
+
