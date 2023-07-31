@@ -1,0 +1,28 @@
+desc: add brand User
+
+runners:
+  req: ${RUNNER_HOST:-http://localhost:8000}/query
+steps:
+  addBrandProduct:
+    req:
+      /:
+        post:
+          headers:
+            authorization: "bearer {{ vars.token }}"
+          body:
+            application/json:
+              query: |
+                mutation addBrandProduct {
+                  addBrandProduct(
+                    input: {
+                      brandID: "{{ vars.brandID }}"
+                      productName: "{{ vars.productName }}"
+                      productDescription: "{{ vars.productDescription }}"
+                    }
+                  ) {
+                    id
+                  }
+                }
+
+    bind:
+      userId: current.res.body.data.addBrandProduct.id
