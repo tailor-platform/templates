@@ -12,10 +12,4 @@ User: tailordbv1.#TypeConfig & {
 	directives:  commonextends.directives
 	description: "employee's user data"
 	permission:  permissions.employee
-	fields: {
-		"username": {
-			type:        tailordb.#FieldTypeString
-			description: "username"
-		}
-	}
 }
