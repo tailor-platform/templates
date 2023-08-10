@@ -9,28 +9,27 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"placedDate": {
 		type:        tailordb.#FieldTypeDate
-		description: "date for this order"
+		description: "Date the order was placed"
 	}
 	"product": {
 		type:        "Product"
-		description: "product "
+		description: "product"
 		sourceId:    "productID"
 	}
 	"productID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "CustomerID for this Order"
+		description: "productID for this Order"
 	}
 	"orderType": {
 		type: tailordb.#FieldTypeEnum
 		values: ["PURCHASE", "SALES"]
-		description: "Order type"
+		description: "Type of order"
 		required:    true
 	}
 	"quantity": {
 		type:        tailordb.#FieldTypeInteger
-		description: "delta of quantity. This value will be negative value if the event reduces inventory quantities"
+		description: "Delta of quantity. This value will be negative if the order reduces inventory quantities"
 	}
-
 }
 
 Order: tailordbv1.#TypeConfig & {
