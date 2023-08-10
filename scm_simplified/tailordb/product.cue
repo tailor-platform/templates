@@ -9,15 +9,15 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"productName": {
 		type:        tailordb.#FieldTypeString
-		description: "product name."
+		description: "Product name"
 	}
 	"productCode": {
 		type:        tailordb.#FieldTypeInteger
-		description: "product code."
+		description: "Product code"
 	}
 	"productCategory": {
 		type:        tailordb.#FieldTypeString
-		description: "category of the product"
+		description: "Category of the product"
 	}
 	"eanCode": {
 		type:        tailordb.#FieldTypeString
@@ -25,13 +25,12 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"uom": {
 		type:        tailordb.#FieldTypeString
-		description: "Unit of measurement of the product. E.g, sheet, roll, etc."
+		description: "Unit of measurement of the product, e.g. sheet, roll, etc."
 	}
 	"pricePerUnit": {
 		type:        tailordb.#FieldTypeFloat
-		description: "Price per unit."
+		description: "Price per unit"
 	}
-
 }
 
 Product: tailordbv1.#TypeConfig & {

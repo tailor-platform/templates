@@ -9,51 +9,50 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"order": {
 		type:        "Order"
-		description: "Order for this inventory record"
+		description: "Order associated with this delivery"
 		sourceId:    "orderID"
 	}
 	"orderID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "order ID for this inventory record"
+		description: "ID of the order associated with this delivery"
 	}
 	"product": {
 		type:        "Product"
-		description: "product "
+		description: "Product to be delivered"
 		sourceId:    "productID"
 	}
 	"productID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "CustomerID for this Order"
+		description: "ID of the product to be delivered"
 	}
 	"location": {
 		type:        "Location"
-		description: "Location to deliver"
+		description: "Location to deliver to"
 		sourceId:    "locationID"
 	}
 	"locationID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "Location ID id to deliver"
+		description: "ID of the location to deliver to"
 	}
 	"quantity": {
 		type:        tailordb.#FieldTypeInteger
-		description: "delta of quantity. This value will be negative value if the event reduces inventory quantities"
+		description: "Delta of the quantity. This value will be negative if the delivery reduces inventory quantities"
 	}
 	"deliveryDate": {
 		type:        tailordb.#FieldTypeDate
-		description: "inventory delivery date"
+		description: "Date set for the delivery"
 	}
 	"deliveryType": {
 		type: tailordb.#FieldTypeEnum
 		values: ["INCOMING", "OUTGOING"]
-		description: "Delivery type"
+		description: "Type of delivery"
 		required:    true
 	}
-
 }
 
 Delivery: tailordbv1.#TypeConfig & {
 	fields:      _fields
-	description: "InventoryEvent model"
+	description: "Delivery model"
 	permission:  permissions.employee
 	settings: {
 		bulkUpsert:  true
