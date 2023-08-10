@@ -25,15 +25,15 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"address1": {
 		type:        tailordb.#FieldTypeString
-		description: "Address1"
+		description: "First address line"
 	}
 	"address2": {
 		type:        tailordb.#FieldTypeString
-		description: "Address2"
+		description: "Second address line"
 	}
 	"zipcode": {
 		type:        tailordb.#FieldTypeString
-		description: "Zipcode"
+		description: "Zip code"
 	}
 
 }

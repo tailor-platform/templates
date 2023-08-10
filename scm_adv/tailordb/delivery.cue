@@ -9,41 +9,41 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"order": {
 		type:        "Order"
-		description: "Order for this delivery"
+		description: "Order associated with this delivery"
 		sourceId:    "orderID"
 	}
 	"orderID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "order ID for this delivery"
+		description: "ID of the order associated with this delivery"
 	}
 	"product": {
 		type:        "Product"
-		description: "product "
+		description: "Product to be delivered"
 		sourceId:    "productID"
 	}
 	"productID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "CustomerID for this Order"
+		description: "ID of the product to be delivered"
 		required:    true
 	}
 	"location": {
 		type:        "Location"
-		description: "Location to deliver"
+		description: "Location to deliver to"
 		sourceId:    "locationID"
 	}
 	"locationID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "Location ID id to deliver"
+		description: "ID of the location to deliver to"
 		required:    true
 	}
 	"quantity": {
 		type:        tailordb.#FieldTypeInteger
-		description: "delta of quantity. This value will be negative value if the event reduces inventory quantities"
+		description: "Delta of the quantity. This value will be negative if the delivery reduces inventory quantities"
 		required:    true
 	}
 	"deliveryDate": {
 		type:        tailordb.#FieldTypeDate
-		description: "inventory delivery date"
+		description: "Date set for the delivery"
 	}
 	"deliveryType": {
 		type: tailordb.#FieldTypeEnum

@@ -23,7 +23,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"productID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "CustomerID for this Order"
+		description: "productID for this inventory record"
 		required:    true
 	}
 	"delivery": {
@@ -33,7 +33,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"deliveryID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "CustomerID for this Order"
+		description: "deliveryID for this inventory record"
 	}
 	"location": {
 		type:        "Location"
@@ -42,7 +42,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"locationID": {
 		type:        tailordb.#FieldTypeUUID
-		description: "Location ID"
+		description: "Location ID for this inventory record"
 		required:    true
 	}
 	"quantity": {
