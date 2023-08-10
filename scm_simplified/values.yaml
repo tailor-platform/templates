@@ -1,0 +1,16 @@
+cue:
+  package: tailor.build/scm-pxxmksnj
+gateway:
+  domain: "scm-pxxmksnj.erp.dev"
+  graphqlEndpoint: "https://scm-pxxmksnj.erp.dev/query"
+tailordb:
+  namespace: "scm-pxxmksnj"
+  graphqlEndpoint: "https://sldb/graphql/scm-pxxmksnj"
+stateflow:
+  namespace: "scm-pxxmksnj"
+  graphqlEndpoint: "https://stateflow/graphql/scm-pxxmksnj"
+directory:
+  graphqlEndpoint: "https://directory-v2/graph"
+pipeline:
+  namespace: "scm-pxxmksnj"
+  graphqlEndpoint: "https://pipeline-resolver/graphql/scm-pxxmksnj"

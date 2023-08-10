@@ -7,6 +7,10 @@ This SCM application has 4 types:
 - Order: This type stores order data.
 - Location: This type stores location master data, which explains where to deliver the product.
 
+## How to apply the configuration changes of cue files
+rm -rf charts/
+tailorctl template generate -t ./template -o charts -f values.yaml
+tailorctl app apply -m charts
 
 ## Usage
 
