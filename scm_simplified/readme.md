@@ -1,16 +1,26 @@
 # Simplified SCM
 
-## Overview
+## Before you start
+If you haven't configured the workspace and application in tailorctl, please run these commands.
+```
+tailorctl config set workspaceId 0eb1171f-0b94-4a50-839c-a05f4a9b288d
+tailorctl config set applicationId e9532ad6-502b-4a0d-bd38-1092187504da
+```
+These workspace and application are created for your trial use.
+
+## How to apply the configuration changes of cue files
+rm -rf charts/
+tailorctl template generate -t ./template -o charts -f values.yaml
+tailorctl app apply -m charts
+
+
+## Application Overview
 This SCM application has 4 types:
 - Delivery: This type stores delivery data.
 - Product: This type stores product master data.
 - Order: This type stores order data.
 - Location: This type stores location master data, which explains where to deliver the product.
 
-## How to apply the configuration changes of cue files
-rm -rf charts/
-tailorctl template generate -t ./template -o charts -f values.yaml
-tailorctl app apply -m charts
 
 ## Usage
 
