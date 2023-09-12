@@ -42,9 +42,9 @@ approveInvoice: pipelinev1.#Resolver & {
 			description: "change permisssion of the invoice record"
 			url:         settings.services.gateway
 			contextData: json.Marshal({
-				managerRoleID: {{ generateWorkspaceUUID "ManagerRole" | quote }}
-				staffRoleID: {{ generateWorkspaceUUID "StaffRole" | quote }}
-				customerRoleID: {{ generateWorkspaceUUID "CustomerRole" | quote }}
+				managerRoleID: {{ generateApplicationUUID "ManagerRole" | quote }}
+				staffRoleID: {{ generateApplicationUUID "StaffRole" | quote }}
+				customerRoleID: {{ generateApplicationUUID "CustomerRole" | quote }}
 			})
 			test: "!user.roles.exists(e, e == context.data.customerRoleID )"
 			preScript: """

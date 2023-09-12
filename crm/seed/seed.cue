@@ -51,21 +51,21 @@ let accountMutationList = [
 
 accounts: {
 	account1: {
-		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
+		accountID: {{ generateApplicationUUID "Account1" | quote }}
 		companyName:  "Globex Corporation"
 		contactName:  "Hank Scorpio"
 		emailAddress: "hank.scorpio@globex.com"
 		phoneNumber:  "(212) 555-1234"
 	}
 	account2: {
-		accountID: {{ generateWorkspaceUUID "Account2" | quote }}
+		accountID: {{ generateApplicationUUID "Account2" | quote }}
 		companyName:  "Initech"
 		contactName:  "Bill Lumbergh"
 		emailAddress: "bill.lumbergh@initech.com"
 		phoneNumber:  "(310) 555-5678"
 	}
 	account3: {
-		accountID: {{ generateWorkspaceUUID "Account3" | quote }}
+		accountID: {{ generateApplicationUUID "Account3" | quote }}
 		companyName:  "Vandelay Industries"
 		contactName:  "Art Vandelay"
 		emailAddress: "art.vandelay@vandelay.com"
@@ -121,7 +121,7 @@ let leadMutationList = [
 
 leads: {
 	lead1: {
-		leadID: {{ generateWorkspaceUUID "Lead1" | quote }}
+		leadID: {{ generateApplicationUUID "Lead1" | quote }}
 		companyName:  "Duff Beer"
 		leadSource:   "Trade Show"
 		stage:        "Open"
@@ -131,7 +131,7 @@ leads: {
 		phoneNumber:  "(702) 555-3456"
 	}
 	lead2: {
-		leadID: {{ generateWorkspaceUUID "Lead2" | quote }}
+		leadID: {{ generateApplicationUUID "Lead2" | quote }}
 		companyName:  "Acme Corp"
 		leadSource:   "Referral"
 		stage:        "WIP"
@@ -141,7 +141,7 @@ leads: {
 		phoneNumber:  "(305) 555-7890"
 	}
 	lead3: {
-		leadID: {{ generateWorkspaceUUID "Lead3" | quote }}
+		leadID: {{ generateApplicationUUID "Lead3" | quote }}
 		companyName:  "Bluth Company"
 		leadSource:   "Website"
 		stage:        "Won"
@@ -151,7 +151,7 @@ leads: {
 		phoneNumber:  "(512) 555-1234"
 	}
 	lead4: {
-		leadID: {{ generateWorkspaceUUID "Lead4" | quote }}
+		leadID: {{ generateApplicationUUID "Lead4" | quote }}
 		companyName:  "Wonka Industries"
 		leadSource:   "Email"
 		stage:        "Lost"
@@ -199,28 +199,28 @@ let transactionMutationList = [
 
 transactions: {
 	transaction1: {
-		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
+		accountID: {{ generateApplicationUUID "Account1" | quote }}
 		transactionDate:   "2022-01-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction2: {
-		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
+		accountID: {{ generateApplicationUUID "Account1" | quote }}
 		transactionDate:   "2022-02-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction3: {
-		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
+		accountID: {{ generateApplicationUUID "Account1" | quote }}
 		transactionDate:   "2022-03-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction4: {
-		accountID: {{ generateWorkspaceUUID "Account1" | quote }}
+		accountID: {{ generateApplicationUUID "Account1" | quote }}
 		transactionDate:   "2022-04-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"

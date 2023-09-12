@@ -57,7 +57,7 @@ let mutationList = [
 
 locations: {
 	location1: {
-		id:    {{ generateWorkspaceUUID "Location1" | quote }}
+		id:    {{ generateApplicationUUID "Location1" | quote }}
 		code:     1
 		name:     "Globex Corporation"
 		country:  "USA"
@@ -67,7 +67,7 @@ locations: {
 		zipcode:  "10006"
 	}
 	location2: {
-		id:   {{ generateWorkspaceUUID "Location2" | quote }}
+		id:   {{ generateApplicationUUID "Location2" | quote }}
 		code:     2
 		name:     "Soylent Corp"
 		country:  "USA"
@@ -77,7 +77,7 @@ locations: {
 		zipcode:  "90028"
 	}
 	location3: {
-		id:   {{ generateWorkspaceUUID "Location3" | quote }}
+		id:   {{ generateApplicationUUID "Location3" | quote }}
 		code:     3
 		name:     "Initech"
 		country:  "USA"

@@ -34,12 +34,12 @@ let mutationList = [
 
 brands: {
 	brand1: {
-		id:    {{ generateWorkspaceUUID "brandA" | quote }}
+		id:    {{ generateApplicationUUID "brandA" | quote }}
 		name:     "BrandA"
 		description: "Brand A"
 	}
 	brand2: {
-		id:    {{ generateWorkspaceUUID "brandB" | quote }}
+		id:    {{ generateApplicationUUID "brandB" | quote }}
 		name:     "BrandB"
 		description: "Brand B"
 	}

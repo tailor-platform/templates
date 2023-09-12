@@ -5,13 +5,13 @@ import (
 )
 
 users: {
-	jdoe: {{ generateWorkspaceUUID "User1" | quote }}
-	mdavis: {{ generateWorkspaceUUID "User2" | quote }}
+	jdoe: {{ generateApplicationUUID "User1" | quote }}
+	mdavis: {{ generateApplicationUUID "User2" | quote }}
 }
 
 clients: {
-	jdoe: {{ generateWorkspaceUUID "Client1" | quote }}
-	mdavis: {{ generateWorkspaceUUID "Client2" | quote }}
+	jdoe: {{ generateApplicationUUID "Client1" | quote }}
+	mdavis: {{ generateApplicationUUID "Client2" | quote }}
 }
 
 manifest.#TailorManifest & {
@@ -125,7 +125,7 @@ manifest.#TailorManifest & {
 				variables: {
 					jDoeId:   clients.jdoe
 					mDavisId: clients.mdavis
-					completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest2" | quote }}
+					completedServiceRequestId: {{ generateApplicationUUID "ServiceRequest2" | quote }}
 				}
 			},
 			{
@@ -144,7 +144,7 @@ manifest.#TailorManifest & {
 					"""
 				variables: {
 					jDoeId: clients.jdoe
-					completedServiceRequestId: {{ generateWorkspaceUUID "ServiceRequest2" | quote }}
+					completedServiceRequestId: {{ generateApplicationUUID "ServiceRequest2" | quote }}
 				}
 			},
 		]

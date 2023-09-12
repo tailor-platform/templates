@@ -47,15 +47,15 @@ purchases: {
 	order1: {
 		quantity:   15
 		placedDate: "2023-01-01"
-		productID:  {{ generateWorkspaceUUID "Product1" | quote }}
-		locationID: {{ generateWorkspaceUUID "Location1" | quote }}
+		productID:  {{ generateApplicationUUID "Product1" | quote }}
+		locationID: {{ generateApplicationUUID "Location1" | quote }}
 	}
 
 	order2: {
 		quantity:   8
 		placedDate: "2023-01-02"
-		productID:  {{ generateWorkspaceUUID "Product2" | quote }}
-		locationID: {{ generateWorkspaceUUID "Location2" | quote }}
+		productID:  {{ generateApplicationUUID "Product2" | quote }}
+		locationID: {{ generateApplicationUUID "Location2" | quote }}
 	}
 
 }
