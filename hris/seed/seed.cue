@@ -49,9 +49,9 @@ manifest.#TailorManifest & {
 					}
 				  }"""
 				variables: {
-					id1: {{ generateWorkspaceUUID "Group1" | quote }}
-					id2: {{ generateWorkspaceUUID "Group2" | quote }}
-					id3: {{ generateWorkspaceUUID "Group3" | quote }}
+					id1: {{ generateApplicationUUID "Group1" | quote }}
+					id2: {{ generateApplicationUUID "Group2" | quote }}
+					id3: {{ generateApplicationUUID "Group3" | quote }}
 				}
 			},
 			{
@@ -161,11 +161,11 @@ manifest.#TailorManifest & {
 					}
 				  }"""
 				variables: {
-					userID1:      {{ generateWorkspaceUUID "User1" | quote }}
-					userID2:      {{ generateWorkspaceUUID "User2" | quote }}
-					gid1:        {{ generateWorkspaceUUID "Group1" | quote }}
-					gid2:        {{ generateWorkspaceUUID "Group2" | quote }}
-					gid3:        {{ generateWorkspaceUUID "Group3" | quote }}
+					userID1:      {{ generateApplicationUUID "User1" | quote }}
+					userID2:      {{ generateApplicationUUID "User2" | quote }}
+					gid1:        {{ generateApplicationUUID "Group1" | quote }}
+					gid2:        {{ generateApplicationUUID "Group2" | quote }}
+					gid3:        {{ generateApplicationUUID "Group3" | quote }}
 					permanentID: directories.userTypeMap.Permanent.id
 					contractID:  directories.userTypeMap.Contract.id
 					adminID:     directories.roleMap.Admin.id
@@ -220,8 +220,8 @@ manifest.#TailorManifest & {
 					)
 				  }"""
 				variables: {
-					  userID1: {{ generateWorkspaceUUID "User1" | quote }}
-					  userID2: {{ generateWorkspaceUUID "User2" | quote }}
+					  userID1: {{ generateApplicationUUID "User1" | quote }}
+					  userID2: {{ generateApplicationUUID "User2" | quote }}
 				}
 			},
 		]

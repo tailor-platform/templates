@@ -6,11 +6,11 @@ import (
 
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
-		id: {{ generateWorkspaceUUID "AdminRoleClass" | quote }}
+		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
 		name: "Admin"
 	}
 	Staff: {
-		id: {{ generateWorkspaceUUID "StaffRoleClass" | quote }}
+		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
 		name: "Staff"
 	}
 }
@@ -22,13 +22,13 @@ roleClassList: [...directoryv1.#RoleClass] & [
 
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
-		id: {{ generateWorkspaceUUID "AdminRole" | quote }}
+		id: {{ generateApplicationUUID "AdminRole" | quote }}
 		name:        "Admin"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
-		id: {{ generateWorkspaceUUID "StaffRole" | quote }}
+		id: {{ generateApplicationUUID "StaffRole" | quote }}
 		name:        "Staff"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
@@ -37,7 +37,7 @@ roleMap: {[string]: directoryv1.#Role} & {
 
 policyList: [...directoryv1.#Policy] & [
 		{
-		id: {{ generateWorkspaceUUID "AdminPolicy" | quote }}
+		id: {{ generateApplicationUUID "AdminPolicy" | quote }}
 		name:   "admin"
 		permit: "allow"
 		actions: ["*"]
@@ -47,7 +47,7 @@ policyList: [...directoryv1.#Policy] & [
 		passwordRule: 4
 	},
 	{
-		id: {{ generateWorkspaceUUID "StaffPolicy" | quote }}
+		id: {{ generateApplicationUUID "StaffPolicy" | quote }}
 		name:   "default"
 		permit: "allow"
 		actions: ["get", "list"]
@@ -65,18 +65,18 @@ roleList: [
 
 groupList: [...directoryv1.#Group] & [
 	{
-		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
+		id: {{ generateApplicationUUID "InternalGroup" | quote }}
 		name: "internal"
 	},
 	{
-		id: {{ generateWorkspaceUUID "ExternalGroup" | quote }}
+		id: {{ generateApplicationUUID "ExternalGroup" | quote }}
 		name: "external"
 	},
 ]
 
 userList: [...directoryv1.#User] & [
 		{
-		id: {{ generateWorkspaceUUID "AdminUser" | quote }}
+		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "adminadmin"
 		displayName: "admin"
 		secret:      "adminadmin"
@@ -84,7 +84,7 @@ userList: [...directoryv1.#User] & [
 		groups: [groupList[0].id]
 	},
 	{
-		id: {{ generateWorkspaceUUID "StaffUser" | quote }}
+		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "staffstaff"
 		displayName: "staff"
 		secret:      "staffstaff"

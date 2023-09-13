@@ -42,7 +42,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 			description: "new state for invoice review"
 			url:         settings.services.gateway
 			contextData: json.Marshal({
-				id:  {{ generateWorkspaceUUID "ReviewFlow1" | quote }}
+				id:  {{ generateApplicationUUID "ReviewFlow1" | quote }}
 			})
 			preScript: """
 				{
@@ -88,8 +88,8 @@ reviewInvoice: pipelinev1.#Resolver & {
 			description: "change permisssion of the invoice record"
 			url:         settings.services.gateway
 			contextData: json.Marshal({
-				managerRoleID: {{ generateWorkspaceUUID "ManagerRole" | quote }}
-				staffRoleID: {{ generateWorkspaceUUID "StaffRole" | quote }}
+				managerRoleID: {{ generateApplicationUUID "ManagerRole" | quote }}
+				staffRoleID: {{ generateApplicationUUID "StaffRole" | quote }}
 			})
 			preScript: """
 				{

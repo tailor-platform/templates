@@ -24,7 +24,7 @@ manifest.#TailorManifest & {
 				  }"""
 				variables: {
 					states: invoiceReviewFlow
-					 id: {{ generateWorkspaceUUID "ReviewFlow1" | quote }}
+					 id: {{ generateApplicationUUID "ReviewFlow1" | quote }}
 				}
 			},
 		]
@@ -34,12 +34,12 @@ manifest.#TailorManifest & {
 invoiceReviewFlow: [
 	{
 		name: "ManagerReview"
-		approvers: [{ id: {{ generateWorkspaceUUID "ManagerRole" | quote }} }]
+		approvers: [{ id: {{ generateApplicationUUID "ManagerRole" | quote }} }]
 		transitions: [{action: "approve", destination: "CustomerReview"}]
 	},
 	{
 		name: "CustomerReview"
-		approvers: [{ id: {{ generateWorkspaceUUID "CustomerRole" | quote }} }]
+		approvers: [{ id: {{ generateApplicationUUID "CustomerRole" | quote }} }]
 		transitions: [{action: "approve", destination: "AllApproved"}]
 	},
 	{
