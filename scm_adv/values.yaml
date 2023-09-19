@@ -5,12 +5,12 @@ gateway:
   graphqlEndpoint: "https://scm-adv-cygfedck.erp.dev/query"
 tailordb:
   namespace: "scm-adv-cygfedck"
-  graphqlEndpoint: "https://sldb/graphql/scm-adv-cygfedck"
+  graphqlEndpoint: "https://tailordb/graphql/scm-adv-cygfedck"
 stateflow:
   namespace: "scm-adv-cygfedck"
   graphqlEndpoint: "https://stateflow/graphql/scm-adv-cygfedck"
 directory:
-  graphqlEndpoint: "https://directory-v2/graph"
+  graphqlEndpoint: "https://directory/graph"
 pipeline:
   namespace: "scm-adv-cygfedck"
-  graphqlEndpoint: "https://pipeline-resolver/graphql/scm-adv-cygfedck"
+  graphqlEndpoint: "https://pipeline/graphql/scm-adv-cygfedck"
