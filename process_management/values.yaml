@@ -1,0 +1,16 @@
+cue:
+  package: tailor.build/alascop-process-mgmt-demo-ntldvzkd
+gateway:
+  domain: "alascop-process-mgmt-demo-ntldvzkd.erp.dev"
+  graphqlEndpoint: "https://alascop-process-mgmt-demo-ntldvzkd.erp.dev/query"
+tailordb:
+  namespace: "alascop-process-mgmt-demo-ntldvzkd"
+  graphqlEndpoint: "https://tailordb/graphql/alascop-process-mgmt-demo-ntldvzkd"
+stateflow:
+  namespace: "alascop-process-mgmt-demo-ntldvzkd"
+  graphqlEndpoint: "https://stateflow/graphql/alascop-process-mgmt-demo-ntldvzkd"
+directory:
+  graphqlEndpoint: "https://directory/graph"
+pipeline:
+  namespace: "alascop-process-mgmt-demo-ntldvzkd"
+  graphqlEndpoint: "https://pipeline/graphql/alascop-process-mgmt-demo-ntldvzkd"
