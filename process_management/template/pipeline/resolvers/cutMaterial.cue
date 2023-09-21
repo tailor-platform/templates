@@ -9,12 +9,12 @@ cutMaterial: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "cutMaterial"
-	description: "cut a material and create a product"
+	description: "Cut the material and create a new product"
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
 			name:        "getMaterial"
-			description: "get material data"
+			description: "Get the material's data"
 			url:         settings.services.gateway
 			preScript:   "context.args.input"
 			graphqlQuery: """
@@ -39,7 +39,7 @@ cutMaterial: pipelinev1.#Resolver & {
 		{
 			id: {{generateUUID | quote}}
 			name:        "checkIfProductExists"
-			description: "check if product already exists"
+			description: "Check whether the product already exists"
 			url:         settings.services.gateway
 			preValidation: """
 			context.pipeline.getMaterial.length >= context.args.input.cutLength ? "" : "The length of the material is not sufficient to produce the desired product."
@@ -75,7 +75,7 @@ cutMaterial: pipelinev1.#Resolver & {
 		{
 			id: {{generateUUID | quote}}
 			name:        "createProduct"
-			description: "create a product when the record does not exist"
+			description: "Create a new product if there's no existing record"
 			url:         settings.services.gateway
 			test: "context.pipeline.checkIfProductExists.productId == null"
 			preScript: """
@@ -116,7 +116,7 @@ cutMaterial: pipelinev1.#Resolver & {
 		{
 			id: {{generateUUID | quote}}
 			name:        "updateProduct"
-			description: "update a product quantity when the record exists"
+			description: "Increment the quantity if the product already exists"
 			url:         settings.services.gateway
 			test: "context.pipeline.checkIfProductExists.productId != null"
 			preScript: """

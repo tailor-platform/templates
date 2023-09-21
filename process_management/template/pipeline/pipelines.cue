@@ -9,7 +9,7 @@ import (
 pipeline: pipelinev1.#Manifests & {
 	namespace:   {{ .Values.pipeline.namespace | quote }}
 	invoker:     directories.roleMap.Admin.id
-	description: "pipeline resolver"
+	description: "Custom mutations to simplify the management of raw materials cutting"
 	sdl: """
   input cutMaterialInput {
     id: ID!
