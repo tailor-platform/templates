@@ -5,7 +5,6 @@ import (
 	"github.com/tailor-inc/platform-core-services/api/gen/go/tailordb/v1:tailordbv1"
 	"{{ .Values.cue.package }}/charts/tailordb:product"
 	"{{ .Values.cue.package }}/charts/tailordb:material"
-	"{{ .Values.cue.package }}/charts/tailordb:inventoryEvent"
 )
 
 manifest.#TailorManifest & {
@@ -25,10 +24,6 @@ manifest.#TailorManifest & {
 				{
 					name:   "Material"
 					schema: material.Material
-				},
-				{
-					name:   "InventoryEvent"
-					schema: inventoryEvent.InventoryEvent
 				},
 			]
 	}
