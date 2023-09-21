@@ -9,7 +9,7 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"sku": {
 		type:        tailordb.#FieldTypeString
-		description: "Product sku"
+		description: "Product SKU"
 		required:    true
 	}
 	"length": {
@@ -28,12 +28,12 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"cutFrom": {
 		type:        "Material"
-		description: "The original material that generates this product"
+		description: "The original material this product is cut from"
 		sourceId:    "cutFromId"
 	}
 	"cutFromId": {
 		type:        tailordb.#FieldTypeUUID
-		description: "The original material id that generates this product"
+		description: "The ID of the original material this product is cut from"
 		foreignKey:      true
 		foreignKeyType:  "Material"
 	}

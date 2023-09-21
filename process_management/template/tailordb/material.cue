@@ -9,7 +9,7 @@ import (
 _fields: {[string]: tailordbv1.#FieldConfig} & {
 	"sku": {
 		type:        tailordb.#FieldTypeString
-		description: "Material sku"
+		description: "Material SKU"
 		required:    true
 	}
 	"lotNum": {
@@ -44,7 +44,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"isScrap": {
 		type:        tailordb.#FieldTypeBool
-		description: "If true, this is managed as a scrap which is no longer used for production."
+		description: "Whether the material is a scrap. If true, it shouldn't be used for production."
 		defaultValue: {
 			boolValue: false
 		}
