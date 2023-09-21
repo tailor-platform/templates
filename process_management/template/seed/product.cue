@@ -13,10 +13,10 @@ manifest.#TailorManifest & {
 }
 
 let mutationList = [
-	for k, v in materials {
+	for k, v in cuts {
 		{
 			query: """
-			mutation cutMaterial($id:ID!, $cutLength:Float! $isScrap:Boolean) {
+			mutation cutMaterial($id:ID!, $cutLength:Int! $isScrap:Boolean) {
 				  cutMaterial(input:{
 				    id:$id
 					cutLength:$cutLength
@@ -36,11 +36,21 @@ let mutationList = [
 	},
 ]
 
-materials: {
+cuts: {
 	material1: {
 		id:       {{ generateWorkspaceUUID "Material1" | quote }}
-		cutLength:   2.5
-		isScrap: true
+		cutLength:   2
+		isScrap: false
+	}
+	material2: {
+		id:       {{ generateWorkspaceUUID "Material1" | quote }}
+		cutLength:   3
+		isScrap: false
+	}
+	material3: {
+		id:       {{ generateWorkspaceUUID "Material1" | quote }}
+		cutLength:   1
+		isScrap: false
 	}
 
 }

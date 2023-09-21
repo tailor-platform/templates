@@ -7,19 +7,19 @@ import (
 )
 
 _fields: {[string]: tailordbv1.#FieldConfig} & {
-	"productName": {
+	"sku": {
 		type:        tailordb.#FieldTypeString
-		description: "Product name"
-		required:    true
-	}
-	"productCode": {
-		type:        tailordb.#FieldTypeString
-		description: "Product code"
+		description: "Product sku"
 		required:    true
 	}
 	"length": {
-		type:        tailordb.#FieldTypeFloat
+		type:        tailordb.#FieldTypeInteger
 		description: "Length of the product"
+		required:    true
+	}
+	"lotNum": {
+		type:        tailordb.#FieldTypeString
+		description: "Lot number of the material"
 		required:    true
 	}
 	"productCategory": {
@@ -42,7 +42,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 		description: "Unit of measurement of the product, e.g. sheet, roll, etc."
 	}
 	"pricePerUnit": {
-		type:        tailordb.#FieldTypeFloat
+		type:        tailordb.#FieldTypeInteger
 		description: "Price per unit"
 	}
 	"quantity": {
@@ -60,5 +60,11 @@ Product: tailordbv1.#TypeConfig & {
 		bulkUpsert:  true
 		versioning:  true
 		aggregation: true
+	}
+	indexes:{
+		"productIndex":{
+			fieldNames: ["sku", "lotNum", "length"]
+			unique:     true
+		}
 	}
 }

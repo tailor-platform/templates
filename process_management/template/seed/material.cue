@@ -18,12 +18,12 @@ let mutationList = [
 			query: """
 			mutation (
 				$id: ID
-				$ppu: Float
+				$ppu: Int
 				$uom: String
 				$category: String
-				$name: String!
-				$code: String!
-				$length: Float!
+				$sku: String!
+				$lotNum: String!
+				$length: Int!
 				$quantity: Int
 				) {
 					createMaterial(
@@ -32,8 +32,8 @@ let mutationList = [
 							pricePerUnit: $ppu
 							uom: $uom
 							materialCategory: $category
-							materialName: $name
-							materialCode: $code
+							sku:$sku
+							lotNum:$lotNum
 							length: $length
 							quantity: $quantity
 						}
@@ -46,8 +46,8 @@ let mutationList = [
 				ppu:      v.ppu
 				uom:      v.uom
 				category: v.category
-				name:     v.name
-				code:     v.code
+				sku:     v.sku
+				lotNum:     v.lotNum
 				length:   v.length
 				quantity: v.quantity
 			}
@@ -58,22 +58,22 @@ let mutationList = [
 materials: {
 	material1: {
 		id:       {{ generateWorkspaceUUID "Material1" | quote }}
-		name:     "SKU-A"
-		code:     "001"
-		ppu:      12.99
+		sku:      "MR001"
+		lotNum:   "ABC123"
+		ppu:      12
 		uom:      "inch"
 		category: "Metal Rods"
-		length:   7.0
+		length:   7
 		quantity: 1
 	}
 	material2: {
 		id:       {{ generateWorkspaceUUID "Material2" | quote }}
-		name:     "SKU-A"
-		code:     "001"
+		sku:      "MR001"
+		lotNum:   "GHX334"
 		uom:      "inch"
 		category: "Metal Rods"
-		ppu:      12.99
-		length:   7.0
+		ppu:      12
+		length:   7
 		quantity: 1
 	}
 }

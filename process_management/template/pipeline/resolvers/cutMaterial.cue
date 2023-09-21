@@ -5,26 +5,6 @@ import (
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 )
 
-
-// cutMaterialInput: {
-// 	name: "cutMaterialInput"
-//     fields: [ 
-// 		{ name: "id", type: schema.ID, required: true },
-// 		{ name: "cutLength", type: schema.Float, required: true },
-// 		{ name: "isScrap", type: schema.ID},
-// 	]
-//   }
-
-// cutMaterialResult: {
-// 	name: "cutMaterialResult"
-//     fields: [ 
-// 		{ name: "productId", type: schema.ID},
-// 		{ name: "materialId", type: schema.ID},
-// 	]
-//   }
-
-
-
 cutMaterial: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
@@ -41,40 +21,78 @@ cutMaterial: pipelinev1.#Resolver & {
 			query ($id: ID!) {
 				  material(id: $id) {
 					id
-					materialCode
+					lotNum
 					length
 					pricePerUnit
 					width
-					materialName
+					sku
 					materialCategory
 					uom
+					isScrap
 			  }
 			}"""
 			postScript: "args.material"
+			postValidation: """
+			args.isScrap == false ? "" : "The material is already a scrap."
+			"""
+		},
+		{
+			id: {{generateUUID | quote}}
+			name:        "checkIfProductExists"
+			description: "check if product already exists"
+			url:         settings.services.gateway
+			preValidation: """
+			context.pipeline.getMaterial.length >= context.args.input.cutLength ? "" : "The length of the material is not sufficient to produce the desired product."
+			"""
+			preScript: """
+			{
+				"lotNum": "P-" + context.pipeline.getMaterial.lotNum,
+				"length": context.args.input.cutLength,
+				"sku": "P-" + context.pipeline.getMaterial.sku
+			}
+			"""
+			graphqlQuery: """
+			query ($lotNum:String $sku:String $length:Int) {
+				  products(query:{
+				    lotNum:{eq:$lotNum}
+					sku:{eq:$sku}
+					length:{eq:$length}
+			  }){
+				    collection{
+				      id
+					  quantity
+			    }
+			  }
+			}
+			"""
+			postScript: """
+			{
+				"productId": ifThen(args.products.collection == [], null, args.products.collection[0].id),
+				"quantity": ifThen(args.products.collection == [], null, args.products.collection[0].quantity)
+			}
+			"""
 		},
 		{
 			id: {{generateUUID | quote}}
 			name:        "createProduct"
-			description: "create a product"
+			description: "create a product when the record does not exist"
 			url:         settings.services.gateway
-			preValidation: """
-			context.pipeline.getMaterial.length > context.args.input.cutLength ? "" : "The length of the material is not sufficient to produce the desired product."
-			"""
+			test: "context.pipeline.checkIfProductExists.productId == null"
 			preScript: """
 			{
 				"productCreateInput": compact({
-					"productCode": "P-" + context.pipeline.getMaterial.materialCode,
-					"length": context.args.input.cutLength,
+					"lotNum": "P-" + context.pipeline.getMaterial.lotNum,
+					"length": int(context.args.input.cutLength),
 					"pricePerUnit": context.pipeline.getMaterial.pricePerUnit,
 					"uom": context.pipeline.getMaterial.uom,
 					"productCategory": context.pipeline.getMaterial.materialCategory,
-					"productName": "P-" + context.pipeline.getMaterial.materialName,
+					"sku": "P-" + context.pipeline.getMaterial.sku,
 					"cutFromId": context.pipeline.getMaterial.id,
-					"quantity": 1
+					"quantity": int(1)
 				}),
 				"materialId": context.pipeline.getMaterial.id,
 				"materialUpdateInput": compact({
-					"length": context.pipeline.getMaterial.length - context.args.input.cutLength,
+					"length": int(context.pipeline.getMaterial.length) - int(context.args.input.cutLength),
 					"isScrap": context.args.input.isScrap
 				})
 			}
@@ -91,6 +109,41 @@ cutMaterial: pipelinev1.#Resolver & {
 			postScript: """
 			{
 				"productId": args.createProduct.id,
+				"materialId": args.updateMaterial.id
+			}
+			"""
+		},
+		{
+			id: {{generateUUID | quote}}
+			name:        "updateProduct"
+			description: "update a product quantity when the record exists"
+			url:         settings.services.gateway
+			test: "context.pipeline.checkIfProductExists.productId != null"
+			preScript: """
+			{
+				"productId": context.pipeline.checkIfProductExists.productId,
+				"productUpdateInput": compact({
+					"quantity": int(context.pipeline.checkIfProductExists.quantity) + 1
+				}),
+				"materialId": context.pipeline.getMaterial.id,
+				"materialUpdateInput": compact({
+					"length": int(context.pipeline.getMaterial.length) - int(context.args.input.cutLength),
+					"isScrap": context.args.input.isScrap
+				})
+			}
+			"""
+			graphqlQuery: """
+			mutation ($productId: ID!, $productUpdateInput: ProductUpdateInput, $materialId: ID!, $materialUpdateInput: MaterialUpdateInput) {
+			  updateProduct: updateProduct(id: $productId, input: $productUpdateInput) {
+			    id
+			  }
+			  updateMaterial: updateMaterial(id: $materialId, input: $materialUpdateInput) {
+			    id
+			  }
+			}"""
+			postScript: """
+			{
+				"productId": args.updateProduct.id,
 				"materialId": args.updateMaterial.id
 			}
 			"""

@@ -13,7 +13,7 @@ pipeline: pipelinev1.#Manifests & {
 	sdl: """
   input cutMaterialInput {
     id: ID!
-    cutLength: Float!
+    cutLength: Int!
     isScrap: Boolean
   }
   type cutMaterialResult {
