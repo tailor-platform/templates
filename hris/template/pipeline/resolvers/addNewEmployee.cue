@@ -15,7 +15,7 @@ addNewEmployee: pipelinev1.#Resolver & {
 			id: {{generateUUID | quote}}
 			name:        "createsUser"
 			description: "creates a new user"
-			url:         settings.services.directory
+			url:         settings.services.gateway
 			preScript:   "context.args.input"
 			graphqlQuery: """
 				mutation (
