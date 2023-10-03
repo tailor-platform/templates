@@ -3,6 +3,7 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
+	"{{ .Values.cue.package }}/charts/directory:directories"
 	"encoding/json"
 )
 
@@ -90,11 +91,16 @@ reviewInvoice: pipelinev1.#Resolver & {
 			contextData: json.Marshal({
 				managerRoleID: {{ generateApplicationUUID "ManagerRole" | quote }}
 				staffRoleID: {{ generateApplicationUUID "StaffRole" | quote }}
+				adminRoleID: directories.roleMap.Admin.id
 			})
 			preScript: """
 				{
 				  "invoiceID": context.pipeline.createInvoice.id,
-				  "read": [{ "id": context.data.managerRoleID, "permit": "allow" }, { "id": context.data.staffRoleID, "permit": "allow" }],
+				  "read": [
+					{ "id": context.data.managerRoleID, "permit": "allow" }, 
+					{ "id": context.data.staffRoleID, "permit": "allow" },
+					{ "id": context.data.adminRoleID, "permit": "allow" }
+					],
 				  "update": [{ "id": context.data.managerRoleID, "permit": "allow" }]
 				}"""
 			graphqlQuery: """
