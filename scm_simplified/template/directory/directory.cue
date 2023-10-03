@@ -28,15 +28,15 @@ userTypeList: [...directoryv1.#UserType] & [
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
-		name: "Admin"
+		name: "AdminSCMSIM"
 	}
 	Staff: {
 		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
-		name: "Staff"
+		name: "StaffSCMSIM"
 	}
 	Manager: {
 		id: {{ generateApplicationUUID "ManagerRoleClass" | quote }}
-		name: "Manager"
+		name: "ManagerSCMSIM"
 	}
 }
 
@@ -49,19 +49,19 @@ roleClassList: [...directoryv1.#RoleClass] & [
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "Admin"
+		name:        "AdminSCMSIM"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "Staff"
+		name:        "StaffSCMSIM"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
 	Manager: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "ManagerRole" | quote }}
-		name:        "Manager"
+		name:        "ManagerSCMSIM"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
 	}
@@ -121,9 +121,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminadmin"
+		username:    "adminSCMSIM"
 		displayName: "admin"
-		secret:      "adminadmin"
+		secret:      "adminSCMSIM"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -132,9 +132,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffstaff"
+		username:    "staffSCMSIM"
 		displayName: "staff"
-		secret:      "staffstaff"
+		secret:      "staffSCMSIM"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -143,9 +143,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managermanager"
+		username:    "managerSCMSIM"
 		displayName: "manager"
-		secret:      "managermanager"
+		secret:      "managerSCMSIM"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

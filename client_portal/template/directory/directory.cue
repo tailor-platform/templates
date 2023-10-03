@@ -23,13 +23,13 @@ roleClassList: [...directoryv1.#RoleClass] & [
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "Admin"
+		name:        "AdminCSP"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "Staff"
+		name:        "StaffCSP"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
@@ -77,17 +77,17 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminadmin"
+		username:    "adminCSP"
 		displayName: "admin"
-		secret:      "adminadmin"
+		secret:      "adminCSP"
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffstaff"
+		username:    "staffCSP"
 		displayName: "staff"
-		secret:      "staffstaff"
+		secret:      "staffCSP"
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},

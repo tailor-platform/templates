@@ -28,15 +28,15 @@ userTypeList: [...directoryv1.#UserType] & [
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
-		name: "Admin"
+		name: "AdminHRIS"
 	}
 	Staff: {
 		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
-		name: "Staff"
+		name: "StaffHRIS"
 	}
 	Manager: {
 		id: {{ generateApplicationUUID "ManagerRoleClass" | quote }}
-		name: "Manager"
+		name: "ManagerHRIS"
 	}
 }
 
@@ -49,19 +49,19 @@ roleClassList: [...directoryv1.#RoleClass] & [
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "Admin"
+		name:        "AdminHRIS"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "Staff"
+		name:        "StaffHRIS"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
 	Manager: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "ManagerRole" | quote }}
-		name:        "Manager"
+		name:        "ManagerHRIS"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
 	}
@@ -110,9 +110,9 @@ roleList: [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminadmin"
+		username:    "adminHRIS"
 		displayName: "admin"
-		secret:      "adminadmin"
+		secret:      "adminHRIS"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -121,9 +121,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffstaff"
+		username:    "staffHRIS"
 		displayName: "staff"
-		secret:      "staffstaff"
+		secret:      "staffHRIS"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -132,9 +132,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managermanager"
+		username:    "managerHRIS"
 		displayName: "manager"
-		secret:      "managermanager"
+		secret:      "managerHRIS"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

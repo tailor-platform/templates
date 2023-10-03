@@ -7,15 +7,15 @@ import (
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
-		name: "Admin"
+		name: "AdminPIPE"
 	}
 	Staff: {
 		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
-		name: "Staff"
+		name: "StaffPIPE"
 	}
 	Manager: {
 		id: {{ generateApplicationUUID "ManagerRoleClass" | quote }}
-		name: "Manager"
+		name: "ManagerPIPE"
 	}
 }
 
@@ -28,19 +28,19 @@ roleClassList: [...directoryv1.#RoleClass] & [
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "Admin"
+		name:        "AdminPIPE"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "Staff"
+		name:        "StaffPIPE"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
 	Manager: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "ManagerRole" | quote }}
-		name:        "Manager"
+		name:        "ManagerPIPE"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
 	}
@@ -100,25 +100,25 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminadmin"
+		username:    "adminPIPE"
 		displayName: "admin"
-		secret:      "adminadmin"
+		secret:      "adminPIPE"
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffstaff"
+		username:    "staffPIPE"
 		displayName: "staff"
-		secret:      "staffstaff"
+		secret:      "staffPIPE"
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managermanager"
+		username:    "managerPIPE"
 		displayName: "manager"
-		secret:      "managermanager"
+		secret:      "managerPIPE"
 		roles: [roleMap.Manager.id]
 		groups: [groupList[0].id]
 	},

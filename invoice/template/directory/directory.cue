@@ -28,19 +28,19 @@ userTypeList: [...directoryv1.#UserType] & [
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
 		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
-		name: "Admin"
+		name: "AdminINV"
 	}
 	Staff: {
 		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
-		name: "Staff"
+		name: "StaffINV"
 	}
 	Manager: {
 		id: {{ generateApplicationUUID "ManagerRoleClass" | quote }}
-		name: "Manager"
+		name: "ManagerINV"
 	}
 	Customer: {
 		id: {{ generateApplicationUUID "CustomerRoleClass" | quote }}
-		name: "Customer"
+		name: "CustomerINV"
 	}
 }
 
@@ -54,25 +54,25 @@ roleClassList: [...directoryv1.#RoleClass] & [
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "Admin"
+		name:        "AdminINV"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "Staff"
+		name:        "StaffINV"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
 	Manager: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "ManagerRole" | quote }}
-		name:        "Manager"
+		name:        "ManagerINV"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
 	}
 	Customer: directoryv1.#Role & {
 		id: {{ generateApplicationUUID "CustomerRole" | quote }}
-		name:        "Customer"
+		name:        "CustomerINV"
 		roleClassId: roleClassMap.Customer.id
 		policies: [policyList[2].id]
 	}
@@ -132,9 +132,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminadmin"
+		username:    "adminINV"
 		displayName: "admin"
-		secret:      "adminadmin"
+		secret:      "adminINV"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -143,9 +143,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffstaff"
+		username:    "staffINV"
 		displayName: "staff"
-		secret:      "staffstaff"
+		secret:      "staffINV"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -154,9 +154,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managermanager"
+		username:    "managerINV"
 		displayName: "manager"
-		secret:      "managermanager"
+		secret:      "managerINV"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -165,9 +165,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "CustomerUser" | quote }}
-		username:    "customercustomer"
+		username:    "customerINV"
 		displayName: "customer"
-		secret:      "customercustomer"
+		secret:      "customerINV"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Other.id
 		}
