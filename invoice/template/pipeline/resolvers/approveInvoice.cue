@@ -3,6 +3,7 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
+	"{{ .Values.cue.package }}/charts/directory:directories"
 	"encoding/json"
 )
 
@@ -45,6 +46,7 @@ approveInvoice: pipelinev1.#Resolver & {
 				managerRoleID: {{ generateApplicationUUID "ManagerRole" | quote }}
 				staffRoleID: {{ generateApplicationUUID "StaffRole" | quote }}
 				customerRoleID: {{ generateApplicationUUID "CustomerRole" | quote }}
+				adminRoleID: directories.roleMap.Admin.id
 			})
 			test: "!user.roles.exists(e, e == context.data.customerRoleID )"
 			preScript: """
@@ -53,7 +55,8 @@ approveInvoice: pipelinev1.#Resolver & {
 				  "read": [
 				    { "id": context.data.managerRoleID, "permit": "allow" },
 				    { "id": context.data.staffRoleID, "permit": "allow" },
-				    { "id": context.data.customerRoleID, "permit": "allow" }
+				    { "id": context.data.customerRoleID, "permit": "allow" },
+					{ "id": context.data.adminRoleID, "permit": "allow" }
 				    ]
 				}
 				"""
