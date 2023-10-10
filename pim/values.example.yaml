@@ -1,5 +1,3 @@
-cue:
-  package: tailor.build/${app_name}
 gateway:
   domain: "${app_name}.erp.dev"
   graphqlEndpoint: "https://${app_name}.erp.dev/query"
