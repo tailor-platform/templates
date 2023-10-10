@@ -3,12 +3,12 @@ package tailordb
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/tailordb/v1:tailordbv1"
-	"{{ .Values.cue.package }}/charts/tailordb:attribute"
-	"{{ .Values.cue.package }}/charts/tailordb:brand"
-	"{{ .Values.cue.package }}/charts/tailordb:brandUser"
-	"{{ .Values.cue.package }}/charts/tailordb:category"
-	"{{ .Values.cue.package }}/charts/tailordb:product"
-	"{{ .Values.cue.package }}/charts/tailordb:user"
+	"tailor.build/pim/charts/tailordb:attribute"
+	"tailor.build/pim/charts/tailordb:brand"
+	"tailor.build/pim/charts/tailordb:brandUser"
+	"tailor.build/pim/charts/tailordb:category"
+	"tailor.build/pim/charts/tailordb:product"
+	"tailor.build/pim/charts/tailordb:user"
 	
 )
 

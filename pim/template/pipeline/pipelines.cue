@@ -1,8 +1,8 @@
 package pipelines
 
 import (
-	"{{ .Values.cue.package }}/charts/directory:directories"
-	"{{ .Values.cue.package }}/charts/pipeline/resolvers"
+	"tailor.build/pim/charts/directory:directories"
+	"tailor.build/pim/charts/pipeline/resolvers"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 )
 
