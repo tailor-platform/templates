@@ -2,7 +2,7 @@ package pipeline
 
 import (
 	specmanifest "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
-	"{{ .Values.cue.package }}/charts/pipeline:pipelines"
+	"tailor.build/crm/charts/pipeline:pipelines"
 )
 
 specmanifest.#TailorManifest & {
