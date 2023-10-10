@@ -1,7 +1,7 @@
 package settings
 
 import (
-	"{{ .Values.cue.package }}/charts/directory:directories"
+	"tailor.build/hris/charts/directory:directories"
 )
 
 services: {

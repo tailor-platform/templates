@@ -3,10 +3,10 @@ package tailordb
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/tailordb/v1:tailordbv1"
-	"{{ .Values.cue.package }}/charts/tailordb:employee"
-	"{{ .Values.cue.package }}/charts/tailordb:employment"
-	"{{ .Values.cue.package }}/charts/tailordb:personalData"
-	"{{ .Values.cue.package }}/charts/tailordb:user"
+	"tailor.build/hris/charts/tailordb:employee"
+	"tailor.build/hris/charts/tailordb:employment"
+	"tailor.build/hris/charts/tailordb:personalData"
+	"tailor.build/hris/charts/tailordb:user"
 
 )
 

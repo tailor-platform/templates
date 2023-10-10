@@ -2,7 +2,7 @@ package graphqlseed
 
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
-	"{{ .Values.cue.package }}/charts/directory:directories"
+	"tailor.build/hris/charts/directory:directories"
 )
 
 manifest.#TailorManifest & {
