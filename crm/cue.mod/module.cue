@@ -1,1 +1,1 @@
-module: "tailor.build/inv-jgokdree"
+module: "tailor.build/crm"
