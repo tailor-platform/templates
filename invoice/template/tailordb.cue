@@ -3,8 +3,8 @@ package tailordb
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/tailordb/v1:tailordbv1"
-	"{{ .Values.cue.package }}/charts/tailordb:invoice"
-	"{{ .Values.cue.package }}/charts/tailordb:state"
+	"tailor.build/invoice/charts/tailordb:invoice"
+	"tailor.build/invoice/charts/tailordb:state"
 )
 
 manifest.#TailorManifest & {

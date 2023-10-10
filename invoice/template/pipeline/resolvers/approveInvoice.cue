@@ -1,9 +1,9 @@
 package resolvers
 
 import (
-	"{{ .Values.cue.package }}/charts/pipeline:settings"
+	"tailor.build/invoice/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
-	"{{ .Values.cue.package }}/charts/directory:directories"
+	"tailor.build/invoice/charts/directory:directories"
 	"encoding/json"
 )
 
