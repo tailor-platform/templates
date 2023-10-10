@@ -3,7 +3,7 @@ package client
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:tailordb"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/tailordb/v1:tailordbv1"
-	"{{ .Values.cue.package }}/charts/common:permissions"
+	"tailor.build/client-portal/charts/common:permissions"
 )
 
 _fields: {[string]: tailordbv1.#FieldConfig} & {
