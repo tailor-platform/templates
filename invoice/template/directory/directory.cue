@@ -132,9 +132,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminINV"
+		username:    "invoiceadmin"
 		displayName: "admin"
-		secret:      "adminINV"
+		secret:      "invoiceadmin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -143,9 +143,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffINV"
+		username:    "invoicestaff"
 		displayName: "staff"
-		secret:      "staffINV"
+		secret:      "invoicestaff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -154,9 +154,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managerINV"
+		username:    "invoicemanager"
 		displayName: "manager"
-		secret:      "managerINV"
+		secret:      "invoicemanager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -165,9 +165,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "CustomerUser" | quote }}
-		username:    "customerINV"
+		username:    "invoicecustomer"
 		displayName: "customer"
-		secret:      "customerINV"
+		secret:      "invoicecustomer"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Other.id
 		}

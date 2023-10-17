@@ -121,9 +121,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminCRM"
+		username:    "crmadmin"
 		displayName: "admin"
-		secret:      "adminCRM"
+		secret:      "crmadmin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -132,9 +132,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffCRM"
+		username:    "crmstaff"
 		displayName: "staff"
-		secret:      "staffCRM"
+		secret:      "crmstaff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -143,9 +143,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managerCRM"
+		username:    "crmmanager"
 		displayName: "manager"
-		secret:      "managerCRM"
+		secret:      "crmmanager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

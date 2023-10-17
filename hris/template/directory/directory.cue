@@ -110,9 +110,9 @@ roleList: [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminHRIS"
+		username:    "hrisadmin"
 		displayName: "admin"
-		secret:      "adminHRIS"
+		secret:      "hrisadmin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -121,9 +121,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffHRIS"
+		username:    "hrisstaff"
 		displayName: "staff"
-		secret:      "staffHRIS"
+		secret:      "hrisstaff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -132,9 +132,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managerHRIS"
+		username:    "hrismanager"
 		displayName: "manager"
-		secret:      "managerHRIS"
+		secret:      "hrismanager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

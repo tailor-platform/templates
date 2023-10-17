@@ -77,17 +77,17 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminCP"
+		username:    "client_portaladmin"
 		displayName: "admin"
-		secret:      "adminCP"
+		secret:      "client_portaladmin"
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffCP"
+		username:    "client_portalstaff"
 		displayName: "staff"
-		secret:      "staffCP"
+		secret:      "client_portalstaff"
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},
