@@ -121,9 +121,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "scm_simplifiedadmin"
+		username:    "scm_simplified_admin"
 		displayName: "admin"
-		secret:      "scm_simplifiedadmin"
+		secret:      "scm_simplified_admin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -132,9 +132,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "scm_simplifiedstaff"
+		username:    "scm_simplified_staff"
 		displayName: "staff"
-		secret:      "scm_simplifiedstaff"
+		secret:      "scm_simplified_staff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -143,9 +143,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "scm_simplifiedmanager"
+		username:    "scm_simplified_manager"
 		displayName: "manager"
-		secret:      "scm_simplifiedmanager"
+		secret:      "scm_simplified_manager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

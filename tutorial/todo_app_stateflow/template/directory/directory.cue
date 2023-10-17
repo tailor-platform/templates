@@ -100,25 +100,25 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "todo_app_stateflowadmin"
+		username:    "todo_app_stateflow_admin"
 		displayName: "admin"
-		secret:      "todo_app_stateflowadmin"
+		secret:      "todo_app_stateflow_admin"
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "todo_app_stateflowstaff"
+		username:    "todo_app_stateflow_staff"
 		displayName: "staff"
-		secret:      "todo_app_stateflowstaff"
+		secret:      "todo_app_stateflow_staff"
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "todo_app_stateflowmanager"
+		username:    "todo_app_stateflow_manager"
 		displayName: "manager"
-		secret:      "todo_app_stateflowmanager"
+		secret:      "todo_app_stateflow_manager"
 		roles: [roleMap.Manager.id]
 		groups: [groupList[0].id]
 	},
