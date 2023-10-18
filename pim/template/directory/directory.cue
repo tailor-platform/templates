@@ -117,9 +117,9 @@ groupList: [...directoryv1.#Group] & [
 userList: [...directoryv1.#User] & [
 		{
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "adminPIM"
+		username:    "pim_admin"
 		displayName: "admin"
-		secret:      "adminPIM"
+		secret:      "pim_admin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -128,9 +128,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "staffPIM"
+		username:    "pim_staff"
 		displayName: "staff"
-		secret:      "staffPIM"
+		secret:      "pim_staff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -139,9 +139,9 @@ userList: [...directoryv1.#User] & [
 	},
 	{
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "managerPIM"
+		username:    "pim_manager"
 		displayName: "manager"
-		secret:      "managerPIM"
+		secret:      "pim_manager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
