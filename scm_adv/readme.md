@@ -33,7 +33,7 @@ To seed the initial data for your application, run these commands.
 ```bash
 tailorctl app login -u '$owner_username' -p '$owner_password' #your workspace owner name and password
 tailorctl app import -m charts --auto-approve
-tailorctl app login -u 'adminadmin' -p 'adminadmin'
+tailorctl app login -u 'scm_adv_admin' -p 'scm_adv_admin'
 tailorctl app import -m charts/seed --auto-approve
 ```
 
