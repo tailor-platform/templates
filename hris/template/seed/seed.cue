@@ -76,16 +76,14 @@ manifest.#TailorManifest & {
 						secret: "2525"
 						firstName: "John"
 						lastName: "Doe"
-						roleInput: [{ id: $adminID }]
+						roleIds: [{ id: $adminID }]
 						userTypeID: $permanentID
 						avatar: "https:\/\/picsum.photos/seed/a/200/200"
-						groupInput: [{ id: $gid1 }]
+						groupIds: [{ id: $gid1 }]
 						mobilePhoneNumber: "12345678"
 						workEmail: "AAAAA@AAAAA.com"
 					  }
-					) {
-					  id
-					}
+					) 
 					salesStaffB: addNewEmployee(
 					  input: {
 						userID: $userID2
@@ -95,16 +93,14 @@ manifest.#TailorManifest & {
 						secret: "2525"
 						firstName: "Jane"
 						lastName: "Brake"
-						roleInput: [{ id: $staffID }]
+						roleIds: [{ id: $staffID }]
 						userTypeID: $permanentID
 						avatar: "https:\/\/picsum.photos/seed/b/200/200"
-						groupInput: [{ id: $gid2 }]
+						groupIds: [{ id: $gid2 }]
 						mobilePhoneNumber: "12345678"
 						workEmail: "AAAAA@AAAAA.com"
 					  }
-					) {
-					  id
-					}
+					) 
 					salesStaffC: addNewEmployee(
 					  input: {
 						employeeCode: "0000003"
@@ -113,16 +109,14 @@ manifest.#TailorManifest & {
 						secret: "2525"
 						firstName: "Rogan"
 						lastName: "Hashimoto"
-						roleInput: [{ id: $staffID }]
+						roleIds: [{ id: $staffID }]
 						userTypeID: $permanentID
 						avatar: "https:\/\/picsum.photos/seed/c/200/200"
-						groupInput: [{ id: $gid3 }]
+						groupIds: [{ id: $gid3 }]
 						mobilePhoneNumber: "12345678"
 						workEmail: "AAAAA@AAAAA.com"
 					  }
-					) {
-					  id
-					}
+					) 
 					salesStaffD: addNewEmployee(
 					  input: {
 						employeeCode: "0000004"
@@ -131,16 +125,14 @@ manifest.#TailorManifest & {
 						secret: "2525"
 						firstName: "Grant"
 						lastName: "Hill"
-						roleInput: [{ id: $staffID }]
+						roleIds: [{ id: $staffID }]
 						userTypeID: $contractID
 						avatar: "https:\/\/picsum.photos/seed/d/200/200"
-						groupInput: [{ id: $gid3 }]
+						groupIds: [{ id: $gid3 }]
 						mobilePhoneNumber: "12345678"
 						workEmail: "AAAAA@AAAAA.com"
 					  }
-					) {
-					  id
-					}
+					)
 					salesStaffE: addNewEmployee(
 					  input: {
 						employeeCode: "0000005"
@@ -149,16 +141,14 @@ manifest.#TailorManifest & {
 						secret: "2525"
 						firstName: "Taro"
 						lastName: "Okamoto"
-						roleInput: [{ id: $staffID }]
+						roleIds: [{ id: $staffID }]
 						userTypeID: $permanentID
 						avatar: "https:\/\/picsum.photos/seed/e/200/200"
-						groupInput: [{ id: $gid1 }]
+						groupIds: [{ id: $gid1 }]
 						mobilePhoneNumber: "12345678"
 						workEmail: "AAAAA@AAAAA.com"
 					  }
-					) {
-					  id
-					}
+					)
 				  }"""
 				variables: {
 					userID1:      {{ generateApplicationUUID "User1" | quote }}

@@ -3,13 +3,44 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+Ids:{
+	name: "Ids"
+	fields: [
+	{ name: "id",          type: schema.ID, required: true },
+	]
+}
+
+addNewEmployeeInput: {
+	name: "addNewEmployeeInput"
+	fields: [
+		{ name: "userID",            type: schema.ID },
+		{ name: "userTypeID",        type: schema.ID, required: true },
+		{ name: "groupIds",          type: Ids, array: true },
+		{ name: "roleIds",           type: Ids, array: true },
+		{ name: "employeeCode",      type: schema.String, required: true },
+		{ name: "displayName",       type: schema.String, required: true },
+		{ name: "username",          type: schema.String, required: true },
+		{ name: "secret",            type: schema.String, required: true },
+		{ name: "firstName",         type: schema.String, required: true },
+		{ name: "lastName",          type: schema.String, required: true },
+		{ name: "avatar",            type: schema.String, required: true },
+		{ name: "mobilePhoneNumber", type: schema.String, required: true },
+		{ name: "workEmail",         type: schema.String, required: true },
+	]
+}
 
 addNewEmployee: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "addNewEmployee"
 	description: "creates a new employee"
+	inputs: [
+		{ name: "input", type:addNewEmployeeInput },
+	]
+	response: { type: schema.ID }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
@@ -22,8 +53,8 @@ addNewEmployee: pipelinev1.#Resolver & {
 				  $displayName: String!
 				  $username: String!
 				  $secret: String!
-				  $roleInput: [RoleInput!]
-				  $groupInput: [GroupInput!]
+				  $roleIds: [RoleInput!]
+				  $groupIds: [GroupInput!]
 				  $userTypeID: ID
 				  $employeeCode: String
 				  $userID: ID
@@ -34,8 +65,8 @@ addNewEmployee: pipelinev1.#Resolver & {
 				      username: $username
 				      secret: $secret
 				      displayName: $displayName
-				      roles: $roleInput
-				      groups: $groupInput
+				      roles: $roleIds
+				      groups: $groupIds
 				      profile: { employeeCode: $employeeCode, userTypeId: $userTypeID }
 				    }
 				  ) {
@@ -51,16 +82,16 @@ addNewEmployee: pipelinev1.#Resolver & {
 			description: "creates an employee"
 			url:         settings.services.gateway
 			preScript: """
-				     {
-				          "userID":context.pipeline.createsUser.id,
-				          "displayName":context.pipeline.createsUser.displayName,
-				          "employeeCode":context.args.input.employeeCode,
-				          "firstName":context.args.input.firstName,
-				          "lastName":context.args.input.lastName,
-				          "avatar":context.args.input.avatar,
-				          "mobilePhoneNumber":context.args.input.mobilePhoneNumber,
-				          "workEmail":context.args.input.workEmail
-				    }"""
+			compact({
+				"userID":context.pipeline.createsUser.id,
+				"displayName":context.pipeline.createsUser.displayName,
+				"employeeCode":context.args.input.employeeCode,
+				"firstName":context.args.input.firstName,
+				"lastName":context.args.input.lastName,
+				"avatar":context.args.input.avatar,
+				"mobilePhoneNumber":context.args.input.mobilePhoneNumber,
+				"workEmail":context.args.input.workEmail
+			})"""
 			graphqlQuery:
 				"""
 				       mutation (
@@ -89,7 +120,7 @@ addNewEmployee: pipelinev1.#Resolver & {
 				           id
 				         }
 				       }"""
-			postScript: "args.createEmployee"
+			postScript: "args.createEmployee.id"
 		},
 	]
 }
