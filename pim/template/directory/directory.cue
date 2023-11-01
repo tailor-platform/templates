@@ -119,7 +119,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "pim_admin"
 		displayName: "admin"
-		secret:      "pim_admin"
+		secret:      {{ generateApplicationUUID "pim_admin" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -130,7 +130,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "pim_staff"
 		displayName: "staff"
-		secret:      "pim_staff"
+		secret:      {{ generateApplicationUUID "pim_staff" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -141,7 +141,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
 		username:    "pim_manager"
 		displayName: "manager"
-		secret:      "pim_manager"
+		secret:      {{ generateApplicationUUID "pim_manager" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

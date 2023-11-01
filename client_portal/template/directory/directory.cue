@@ -79,7 +79,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "client_portal_admin"
 		displayName: "admin"
-		secret:      "client_portal_admin"
+		secret:      {{ generateApplicationUUID "client_portal_admin" | quote }}
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
@@ -87,7 +87,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "client_portal_staff"
 		displayName: "staff"
-		secret:      "client_portal_staff"
+		secret:      {{ generateApplicationUUID "client_portal_staff" | quote }}
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},

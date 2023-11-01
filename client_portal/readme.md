@@ -30,10 +30,11 @@ For instance, for more advanced state and approval chain management you may want
 To deploy this template, please refer to the instructions in the [console](https://console.tailor.tech/).
 
 To seed the initial data for your application, run these commands.
+As for the `$admin_password`, please check your `./charts/directory/directory.cue` file and see `secret` of `username:    "client_portal_admin"` in the `userList`.
 ```bash
 tailorctl app login -u '$owner_username' -p '$owner_password' #your workspace owner name and password
 tailorctl app import -m charts --auto-approve
-tailorctl app login -u 'todo_app_stateflow_admin' -p 'todo_app_stateflow_admin'
+tailorctl app login -u 'client_portal_admin' -p '$admin_password'
 tailorctl app import -m charts/seed --auto-approve
 ```
 

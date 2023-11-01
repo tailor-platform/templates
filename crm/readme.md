@@ -19,10 +19,11 @@ If you want to query the data to analyze customer behavior or sales performance,
 To deploy this template, please refer to the instructions in the [console](https://console.tailor.tech/).
 
 To seed the initial data for your application, run these commands.
+As for the `$admin_password`, please check your `./charts/directory/directory.cue` file and see `secret` of `username:    "crm_admin"` in the `userList`.
 ```bash
 tailorctl app login -u '$owner_username' -p '$owner_password' #your workspace owner name and password
 tailorctl app import -m charts --auto-approve
-tailorctl app login -u 'crm_admin' -p 'crm_admin'
+tailorctl app login -u 'crm_admin' -p '$admin_password'
 tailorctl app import -m charts/seed --auto-approve
 ```
 
