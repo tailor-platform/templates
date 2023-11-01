@@ -102,7 +102,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "todo_app_pipelines_admin"
 		displayName: "admin"
-		secret:      "todo_app_pipelines_admin"
+		secret:      {{ generateApplicationUUID "todo_app_pipelines_admin" | quote }}
 		roles: [roleMap.Admin.id]
 		groups: [groupList[0].id]
 	},
@@ -110,7 +110,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "todo_app_pipelines_staff"
 		displayName: "staff"
-		secret:      "todo_app_pipelines_staff"
+		secret:      {{ generateApplicationUUID "todo_app_pipelines_staff" | quote }}
 		roles: [roleMap.Staff.id]
 		groups: [groupList[0].id]
 	},
@@ -118,7 +118,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
 		username:    "todo_app_pipelines_manager"
 		displayName: "manager"
-		secret:      "todo_app_pipelines_manager"
+		secret:      {{ generateApplicationUUID "todo_app_pipelines_manager" | quote }}
 		roles: [roleMap.Manager.id]
 		groups: [groupList[0].id]
 	},

@@ -123,7 +123,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "crm_admin"
 		displayName: "admin"
-		secret:      "crm_admin"
+		secret:      {{ generateApplicationUUID "crm_admin" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -134,7 +134,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "crm_staff"
 		displayName: "staff"
-		secret:      "crm_staff"
+		secret:      {{ generateApplicationUUID "crm_staff" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -145,7 +145,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
 		username:    "crm_manager"
 		displayName: "manager"
-		secret:      "crm_manager"
+		secret:      {{ generateApplicationUUID "crm_manager" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
