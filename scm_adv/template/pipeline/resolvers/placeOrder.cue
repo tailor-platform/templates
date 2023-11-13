@@ -3,14 +3,28 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
-
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+placeOrderInput: {
+	name: "placeOrderInput"
+	fields: [
+		{ name: "quantity",   type: schema.Int, required: true },
+		{ name: "productID",  type: schema.ID, required: true },
+		{ name: "locationID", type: schema.ID, required: true },
+		{ name: "placedDate", type: schema.Date, required: true },
+	]
+}
 
 placeOrder: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "placeOrder"
 	description: "place order"
+	inputs: [
+		{ name: "input", type:placeOrderInput },
+	]
+	response: { type: schema.ID }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
