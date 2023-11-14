@@ -3,13 +3,26 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+addBrandInput: {
+	name: "addBrandInput"
+	fields: [
+		{ name: "brandName",        type: schema.String, required: true },
+		{ name: "brandDescription", type: schema.String, required: true },
+	]
+}
 
 addBrand: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "addBrand"
 	description: "creates a new brand"
+	inputs: [
+		{ name: "input", type:addBrandInput },
+	]
+	response: { type: schema.ID }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
