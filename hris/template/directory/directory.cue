@@ -112,7 +112,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "AdminUser" | quote }}
 		username:    "hris_admin"
 		displayName: "admin"
-		secret:      "hris_admin"
+		secret:      {{ generateApplicationUUID "hris_admin" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -123,7 +123,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "StaffUser" | quote }}
 		username:    "hris_staff"
 		displayName: "staff"
-		secret:      "hris_staff"
+		secret:      {{ generateApplicationUUID "hris_staff" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -134,7 +134,7 @@ userList: [...directoryv1.#User] & [
 		id: {{ generateApplicationUUID "ManagerUser" | quote }}
 		username:    "hris_manager"
 		displayName: "manager"
-		secret:      "hris_manager"
+		secret:      {{ generateApplicationUUID "hris_manager" | quote }}
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
