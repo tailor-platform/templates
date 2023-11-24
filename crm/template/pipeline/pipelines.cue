@@ -10,16 +10,6 @@ pipeline: pipelinev1.#Manifests & {
 	namespace:   {{ .Values.pipeline.namespace | quote }}
 	invoker:     directories.roleMap.Admin.id
 	description: "CRM pipeline resolver"
-	sdl: """
-		type Mutation {
-			convertAccount(
-			companyName: String!
-			leadID: ID!
-			emailAddress: String
-			phoneNumber: String
-			contactName: String): Boolean
-		}
-		"""
 	resolverMap: {
 		"convertAccount": resolvers.convertAccount,
 	}

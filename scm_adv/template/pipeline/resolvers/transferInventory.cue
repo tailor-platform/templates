@@ -3,14 +3,37 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
-
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+transferInventoryInput: {
+	name: "transferInventoryInput"
+	fields: [
+		{ name: "quantity",                 type: schema.Int, required: true },
+		{ name: "deliveryDate",             type: schema.Date, required: true },
+		{ name: "productID",                type: schema.ID, required: true },
+		{ name: "transferOutID",            type: schema.ID, required: true },
+		{ name: "transferInID",             type: schema.ID, required: true},
+	]
+}
+
+transferInventoryResult: {
+	name: "transferInventoryResult"
+	fields: [
+		{ name: "transferInID",             type: schema.ID },
+		{ name: "transferOutID",            type: schema.ID },
+	]
+}
 
 transferInventory: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "transferInventory"
 	description: "transfer inventory between locations"
+	inputs: [
+		{ name: "input", type:transferInventoryInput },
+	]
+	response: { type: transferInventoryResult }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}

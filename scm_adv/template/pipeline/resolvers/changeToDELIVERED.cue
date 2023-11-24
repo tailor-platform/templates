@@ -3,14 +3,35 @@ package resolvers
 import (
 	"{{ .Values.cue.package }}/charts/pipeline:settings"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
-
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+changeToDELIVEREDInput: {
+	name: "changeToDELIVEREDInput"
+	fields: [
+		{ name: "deliveryID",               type: schema.ID, required: true },
+		{ name: "deliveryDate",             type: schema.Date, required: true},
+	]
+}
+
+changeToDELIVEREDResult: {
+	name: "changeToDELIVEREDResult"
+	fields: [
+		{ name: "deliveryID",               type: schema.ID },
+		{ name: "inventoryEventID",         type: schema.ID },
+		{ name: "revertInventoryEventID",   type: schema.ID },
+	]
+}
 
 changeToDELIVERED: pipelinev1.#Resolver & {
 	authorization: "true"
 	id: {{generateUUID | quote}}
 	name:        "changeToDELIVERED"
 	description: "update delivery state to DELIVERED"
+	inputs: [
+		{ name: "input", type:changeToDELIVEREDInput },
+	]
+	response: { type: changeToDELIVEREDResult }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}

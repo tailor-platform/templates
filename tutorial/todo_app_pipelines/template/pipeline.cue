@@ -3,9 +3,29 @@ package pipeline
 import (
 	"github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:manifest"
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
 
 gatewayUrl: {{ .Values.gateway.graphqlEndpoint | quote }}
+
+OnboardNewUserInput: {
+	name: "OnboardNewUserInput"
+	fields: [
+		{ name: "username",    type: schema.String, required: true },
+		{ name: "displayName", type: schema.String, required: true },
+		{ name: "secret",      type: schema.String, required: true },
+	]
+}
+
+OnboardNewUserOutput: {
+	name: "OnboardNewUserOutput"
+	fields: [
+		{ name: "taskID",          type: schema.ID },
+		{ name: "title",           type: schema.String },
+		{ name: "priority",        type: schema.Int },
+		{ name: "assignedUserID",  type: schema.ID  },
+	]
+}
 
 manifest.#TailorManifest & {
 	version: "v1"
@@ -17,36 +37,27 @@ manifest.#TailorManifest & {
 		manifest: pipelinev1.#Manifests & {
 			namespace: {{ .Values.pipeline.namespace | quote }}
 			description: "Task mgmt app pipelines"
-			sdl: """
-					input OnboardNewUserInput {
-						username: String!
-						displayName: String!
-						secret: String!
-					}
-
-					type OnboardNewUserOutput {
-						taskID: ID
-						title: String
-						priority: Int
-						assignedUserID: ID
-					}
-
-					type Mutation {
-						onboardNewUser(input: OnboardNewUserInput): OnboardNewUserOutput
-					}
-				"""
 			resolverMap: {
 				onboardNewUser: pipelinev1.#Resolver & {
 					authorization: "true"
 					id: {{ generateUUID | quote }} @ignoreChange()
 					name:        "onboardNewUser"
 					description: "Creates a user and assign them an initial task"
+					inputs: [
+						{ name: "input", type:OnboardNewUserInput },
+						]
+					response: { type: OnboardNewUserOutput }
 					pipeline: [
 						{
 							id: {{ generateUUID | quote }} @ignoreChange()
 							name:        "createsUser"
 							description: "Creates a user"
 							url:         gatewayUrl
+							preScript:   """
+							{
+								"input": context.args.input
+							}
+							"""
 							graphqlQuery: """
 								mutation($input: CreateUserInput!) {
 									createUser(input: $input) {

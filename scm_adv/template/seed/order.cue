@@ -29,9 +29,7 @@ let mutationList = [
 				      placedDate: $placedDate
 				      productID: $productID
 				    }
-				  ) {
-				    id
-				  }
+				  )
 				}
 				"""
 			variables: {

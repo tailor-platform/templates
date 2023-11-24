@@ -5,14 +5,36 @@ import (
 	"github.com/tailor-inc/platform-core-services/api/gen/go/pipeline/v1:pipelinev1"
 	"{{ .Values.cue.package }}/charts/directory:directories"
 	"encoding/json"
+	schema "github.com/tailor-inc/platform-core-services/cmd/tailorctl/schema/v1:pipeline"
 )
+
+reviewInvoiceInput: {
+	name: "reviewInvoiceInput"
+	fields: [
+		{ name: "invoiceName",   type: schema.String, required: true},
+		{ name: "invoiceCode",   type: schema.Int },
+		{ name: "quote",         type: schema.Int, required: true },
+	]
+}
+
+reviewInvoiceResult: {
+	name: "reviewInvoiceResult"
+	fields: [
+		{ name: "id",            type: schema.ID },
+		{ name: "stateID",       type: schema.ID },
+	]
+}
 
 reviewInvoice: pipelinev1.#Resolver & {
 	authorization: "true"
 	id:          {{ generateUUID | quote }}
 	authorization: "true"
-	name:          "createInvoice"
+	name:          "reviewInvoice"
 	description:   "create invoice"
+	inputs: [
+		{ name: "input", type:reviewInvoiceInput },
+	]
+	response: { type: reviewInvoiceResult }
 	pipeline: [
 		{
 			id: {{ generateUUID | quote }}
