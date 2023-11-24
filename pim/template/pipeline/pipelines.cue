@@ -9,47 +9,7 @@ import (
 pipeline: pipelinev1.#Manifests & {
 	namespace:   {{ .Values.pipeline.namespace | quote }}
 	invoker:     directories.roleMap.Admin.id
-	description: "HRIS pipeline resolver"
-	sdl: """
-
-	input addBrandUserInput {
-		displayName: String!
-		username: String!
-		secret: String!
-		roleInput: [ids!]
-		groupInput: [ids!]
-		userID: ID
-		brandID: ID!
-		brandName: String!
-	}
-	type addBrandUserResult {
-		id: ID
-	}
-	input ids {
-		id: ID!
-	}
-	input addBrandProductInput {
-		productName: String!
-		productDescription: String!
-		brandID: ID!
-	}
-	type addBrandProductResult {
-		id: ID
-	}
-
-	input addBrandInput {
-		brandName: String!
-		brandDescription: String!
-	}
-	type addBrandResult {
-		id: ID
-	}
-	
-	type Mutation {
-		addBrand(input: addBrandInput!): addBrandResult
-		addBrandUser(input: addBrandUserInput!): addBrandUserResult
-		addBrandProduct(input: addBrandProductInput!): addBrandProductResult
-	}"""
+	description: "PIM pipeline resolver"
 	resolverMap: {
 		"addBrand":            resolvers.addBrand
 		"addBrandUser":        resolvers.addBrandUser
