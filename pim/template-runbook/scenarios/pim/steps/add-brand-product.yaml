@@ -19,10 +19,8 @@ steps:
                       productName: "{{ vars.productName }}"
                       productDescription: "{{ vars.productDescription }}"
                     }
-                  ) {
-                    id
-                  }
+                  )
                 }
 
     bind:
-      userId: current.res.body.data.addBrandProduct.id
+      userId: current.res.body.data.addBrandProduct

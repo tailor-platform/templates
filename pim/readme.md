@@ -20,3 +20,13 @@ tailorctl app import -m charts --auto-approve
 tailorctl app login -u 'pim_admin' -p '$admin_password'
 tailorctl app import -m charts/seed --auto-approve
 ```
+
+If you want to set up the test data, please use `runn`.
+```
+ORG_KEY=<<ORGKEY>> RUNNER_HOST=<<Deployed_APP_GW_HOST>> runn run template-runbook/scenarios/pim/*.yaml --debug
+
+sample
+ORG_KEY=pim-test-iimiyZ RUNNER_HOST=https://pim-bznkqutv.erp.dev runn run template-runbook/scenarios/pim/*.yaml --debug
+```
+
+It will create TESTA user and TESTB user, each of whom belongs to BrandA and BrandB, respectively. Also, it adds a new product to BrandA. Only TESTA user can see this product as it was added by TESTA user.
