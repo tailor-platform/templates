@@ -9,54 +9,22 @@ Features
 
 
 ## Usage
-WIP
+To deploy this template, please refer to the instructions in the [console](https://console.tailor.tech/).
 
 To seed the initial data for your application, run these commands.
+As for the `$admin_password`, please check your `./charts/directory/directory.cue` file and see `secret` of `username:    "inventory_tracker_admin"` in the `userList`.
+
 ```bash
 tailorctl app login -u '$owner_username' -p '$owner_password' #your workspace owner name and password
 tailorctl app import -m charts --auto-approve
+tailorctl app login -u 'inventory_tracker_admin' -p '$admin_password'
+sh seeding.sh
 ```
-
 
 ## Stock related Event
 
-### Purchase order (just create purchaes order)
-This happens to purchase the product to increase put away stock.
-Purchase order event can be triggered without Sales order.
+### Purchase order
 
-create
+### Sales Order
 
-### Ship in for Put away (pipeline resolver)
-When purchased product is shipped into the location, this happens.
-
-Create
-putaway
-stockEvent
-lot
-putAway_leadTimeCalc
-
-Supplier leadtime
-Replanish alert
-
-
-### Sales Order (just create Sales Order))
-
-
-### Ship out
-
-Create
-
-Stock event
-StockEvent sellOutCalc
-Demand Forecast
-Stock level
-Replanish alert
-
-
-Q&A
-- stock eventは stock out sellout 分けてる訳では無い？
-- Stock levelとDemand forecast一緒にしても問題ない？
-
-
-
-
+...
