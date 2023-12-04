@@ -19,9 +19,7 @@ let mutationList = [
                 mutation ($brandName: String!, $brandDescription: String!) {
                       addBrand(
                         input: {brandName: $brandName, brandDescription: $brandDescription}
-                  ) {
-                        id
-                  }
+                  )
                 }"""
 				variables: {
 					brandName: v.name

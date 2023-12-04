@@ -6,8 +6,8 @@ steps:
     include:
       path: steps/login.yaml
       vars:
-        id: "adminadmin"
-        password: "adminadmin"
+        id: "pim_admin"
+        password: "YourAdminPW"
 
   getBrand:
     include:

@@ -13,7 +13,7 @@ steps:
             application/json:
               query: |
                 {
-                  roles(query: {name: {eq: "Staff"}}) {
+                  roles(query: {name: {eq: "StaffPIM"}}) {
                     collection {
                       name
                       id

@@ -23,10 +23,8 @@ steps:
                       secret: "{{vars.secret}}"
                       displayName: "{{vars.displayName}}"
                     }
-                  ) {
-                    id
-                  }
+                  )
                 }
 
     bind:
-      userId: current.res.body.data.addBrandUser.id
+      userId: current.res.body.data.addBrandUser
