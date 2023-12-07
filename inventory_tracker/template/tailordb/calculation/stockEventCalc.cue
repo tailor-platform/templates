@@ -9,7 +9,7 @@ import (
 
 StockEventCalc: tailordbv1.#TypeConfig & {
 	fields:      stockEvent.StockEvent.fields & _additionalFields
-	description: "Intermidiate caluculating table of StockEvent. Flattens Lot, PutAway, PurchaseOrder, Product, Location, and StockEvent."
+	description: "Intermediate calculating table of StockEvent. Flattens Lot, PutAway, PurchaseOrder, Product, Location, and StockEvent."
 	permission:  permissions.#AllowEveryone
 	settings: {
 		aggregation: true

@@ -11,11 +11,11 @@ calculateDemandForecast: pipelinev1.#Resolver & {
 	id: {{generateUUID | quote}}
 	name:        "calculateDemandForecast"
 	description: """
-	The purpose of this Pipeline is to refresh DemandForecast table by aggregating the StockEventCalc table to caluculate the average demand for each product and location combination, then store the result to DemandForecast.
+	The purpose of this Pipeline is to refresh DemandForecast table by aggregating the StockEventCalc table to calculate the average demand for each product and location combination, then store the result to DemandForecast.
 	This Pipeline follows the following steps:
 	1. Get all the DemandForecast records. This old data will be deleted in the last step.
 	2. Refresh the StockEventCalc records by running calculateStockEventCalc pipeline.
-	3. Aggregate the StockEventCalc records to caluculate the average demand time for each product and location.
+	3. Aggregate the StockEventCalc records to calculate the average demand time for each product and location.
 	4. Create DemandForecast records based on the result of the aggregation.
 	5. Delete the DemandForecast records created prior to the the update.
 	"""
@@ -59,7 +59,7 @@ calculateDemandForecast: pipelinev1.#Resolver & {
 		{
 			id: {{generateUUID | quote}}
 			name:        "aggregateStockEventCalcs"
-			description: "Aggregate the StockEventCalc records to caluculate the average demand time for each product and location."
+			description: "Aggregate the StockEventCalc records to calculate the average demand time for each product and location."
 			url:         settings.services.gateway
 			graphqlQuery: """
 			query aggregateStockEventCalcs {

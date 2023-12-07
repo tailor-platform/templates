@@ -108,7 +108,7 @@ reviewInvoice: pipelinev1.#Resolver & {
 		{
 			id: {{ generateUUID | quote }}
 			name:        "changeInvoice"
-			description: "change permisssion of the invoice record"
+			description: "change permissions of the invoice record"
 			url:         settings.services.gateway
 			contextData: json.Marshal({
 				managerRoleID: {{ generateApplicationUUID "ManagerRole" | quote }}
