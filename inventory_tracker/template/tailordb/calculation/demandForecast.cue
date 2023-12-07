@@ -43,7 +43,7 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 	}
 	"sellingStartDate": {
 		type:		tailordb.#FieldTypeDate
-		description: "The date this product starts selling. This field is used to caluculate the sales velocity used for demand forecasting."
+		description: "The date this product starts selling. This field is used to calculate the sales velocity used for demand forecasting."
 	}
 	"today": {
 		type:        tailordb.#FieldTypeDate

@@ -11,7 +11,7 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 	id: {{generateUUID | quote}}
 	name:        "calculateStockEventCalc"
 	description: """
-	The purpose of this Pipeline is to create a caluculation table for StockEvents.
+	The purpose of this Pipeline is to create a calculation table for StockEvents.
 	This Pipeline follows the following steps:
 	1. Get all the StockEvent records. Also in the same query, get all the StockEventCalc records to be deleted in the last step.
 	2. Parse and flatten the StockEvent records in pre-script. Then store them in StockEventCalc.

@@ -3,13 +3,13 @@
 ## Overview
 This CRM application has 5 types:
 
-- customerAccount: This type stores data about the customer acounts.
+- customerAccount: This type stores data about the customer accounts.
 - engagement: This type stores data about interactions between the employees and the customers, such as calls or emails.
 - lead: This type stores data about potential customers who have shown interest in the business's products or services.
 - transaction: This type stores data about sales transactions made by the customer accounts.
 - user: This type stores data about the users of the tailor platform.
 
-In this application, the customer data is managed by the customerAccount records, while potencial customer data is managed by the lead records.
+In this application, the customer data is managed by the customerAccount records, while potential customer data is managed by the lead records.
 The engagement records store data about interactions between the business and its customers, while the transaction records store data about actual transactions of customer accounts.
 
 If you want to query the data to analyze customer behavior or sales performance, you can use appropriate queries on the respective record types.

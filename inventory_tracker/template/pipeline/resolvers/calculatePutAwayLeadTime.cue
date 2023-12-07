@@ -11,11 +11,11 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 	id: {{generateUUID | quote}}
 	name:        "calculatePutAwayLeadTime"
 	description: """
-	The purpose of this Pipeline is to create a caluculation table for PutAway, then aggregate the caluculation table to caluculate the average lead time for each product, location, supplier combination, then store the result to SupplierLeadTime.
+	The purpose of this Pipeline is to create a calculation table for PutAway, then aggregate the calculation table to calculate the average lead time for each product, location, supplier combination, then store the result to SupplierLeadTime.
 	This Pipeline follows the following steps:
 	1. Get all the putAway records. Also in the same query, get all the putAwayCalc records and supplierLeadTime records to be deleted in the last step.
 	2. Parse and flatten the putAway records in pre-script. Then store them in putAwayCalc.
-	3. Aggregate the putAwayCalc records to caluculate the average lead time for each product, location, supplier combination.
+	3. Aggregate the putAwayCalc records to calculate the average lead time for each product, location, supplier combination.
 	4. Create SupplierLeadTime records based on the result of the aggregation.
 	5. Delete the putAwayCalc records and supplierLeadTime records created prior to the step 3 and 4. Those are the result of the step 1.
 	"""
@@ -117,7 +117,7 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 		{
 			id: {{generateUUID | quote}}
 			name:        "aggregatePutAwayCalcs"
-			description: "Aggregate the putAwayCalc records to caluculate the average lead time for each product, location, supplier combination."
+			description: "Aggregate the putAwayCalc records to calculate the average lead time for each product, location, supplier combination."
 			url:         settings.services.gateway
 			graphqlQuery: """
 			query aggregatPputAwayCalcs	{
