@@ -62,5 +62,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Lead: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Lead model"
-	permission:  permissions.employee
+	permission:  permissions.everyone
 }

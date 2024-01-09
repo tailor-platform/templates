@@ -51,7 +51,7 @@ convertAccount: pipelinev1.#Resolver & {
 			mutation ($leadID: ID!) {
 				deleteLead(id: $leadID)
 			}"""
-			postScript: "args"
+			postScript: "args.deleteLead"
 		},
 	]
 }

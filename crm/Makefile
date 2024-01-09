@@ -8,12 +8,12 @@ ENV?=local
 apply: generate/local-config
 	$(call _run-containers)
 	@${MINITAILOR} init
-	${MINITAILOR} import -m /root/crm/charts/directory.cue
+	# ${MINITAILOR} import -m /root/crm/charts/directory.cue
 	${MINITAILOR} apply -m /root/crm/charts
 
 .PHONY: import
 import: generate/local-config
-	@${MINITAILOR} import -m ./charts/seed/seed.cue -t=${TOKEN} -T http://localhost:8000/query
+	@${MINITAILOR} import -m ./charts/seed/seed.cue -T http://localhost:8000/query
 
 .PHONY: generate/local-config
 generate/local-config:

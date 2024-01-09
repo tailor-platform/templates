@@ -43,5 +43,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 CustomerAccount: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "CustomerAccount model"
-	permission:  permissions.employee
+	permission:  permissions.everyone
 }

@@ -35,5 +35,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Transaction: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Transaction model"
-	permission:  permissions.employee
+	permission:  permissions.everyone
 }

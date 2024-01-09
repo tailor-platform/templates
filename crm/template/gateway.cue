@@ -17,10 +17,10 @@ manifest.#TailorManifest & {
 		]
 		defaultTimezone: "UTC"
 		subgraph: [
-			{
-				name: "directory"
-				url: {{ .Values.directory.graphqlEndpoint | quote }}
-			},
+			// {
+			// 	name: "directory"
+			// 	url: {{ .Values.directory.graphqlEndpoint | quote }}
+			// },
 			{
 				name: "tailordb"
 				url: {{ .Values.tailordb.graphqlEndpoint | quote }}

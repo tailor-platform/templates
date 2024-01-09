@@ -46,5 +46,5 @@ _fields: {[string]: tailordbv1.#FieldConfig} & {
 Engagement: tailordbv1.#TypeConfig & {
 	fields:      _fields
 	description: "Engagement model"
-	permission:  permissions.employee
+	permission:  permissions.everyone
 }
