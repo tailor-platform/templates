@@ -6,15 +6,15 @@ import (
 
 userTypeMap: {[string]: directoryv1.#UserType} & {
 	Permanent: {
-		id:  {{ generateApplicationUUID "PermanentUserType" | quote }}
+		id:  {{ generateWorkspaceUUID "PermanentUserType" | quote }}
 		name: "Permanent"
 	}
 	Contract: {
-		id: {{ generateApplicationUUID "ContractUserType" | quote }}
+		id: {{ generateWorkspaceUUID "ContractUserType" | quote }}
 		name: "Contract"
 	}
 	Other: {
-		id: {{ generateApplicationUUID "OtherUserType" | quote }}
+		id: {{ generateWorkspaceUUID "OtherUserType" | quote }}
 		name: "Other"
 	}
 }
@@ -27,16 +27,16 @@ userTypeList: [...directoryv1.#UserType] & [
 
 roleClassMap: {[string]: directoryv1.#Role} & {
 	Admin: {
-		id: {{ generateApplicationUUID "AdminRoleClass" | quote }}
-		name: "AdminCRM"
+		id: {{ generateWorkspaceUUID "AdminRoleClass" | quote }}
+		name: "Admin"
 	}
 	Staff: {
-		id: {{ generateApplicationUUID "StaffRoleClass" | quote }}
-		name: "StaffCRM"
+		id: {{ generateWorkspaceUUID "StaffRoleClass" | quote }}
+		name: "Staff"
 	}
 	Manager: {
-		id: {{ generateApplicationUUID "ManagerRoleClass" | quote }}
-		name: "ManagerCRM"
+		id: {{ generateWorkspaceUUID "ManagerRoleClass" | quote }}
+		name: "Manager"
 	}
 }
 
@@ -48,20 +48,20 @@ roleClassList: [...directoryv1.#RoleClass] & [
 
 roleMap: {[string]: directoryv1.#Role} & {
 	Admin: directoryv1.#Role & {
-		id: {{ generateApplicationUUID "AdminRole" | quote }}
-		name:        "AdminCRM"
+		id: {{ generateWorkspaceUUID "AdminRole" | quote }}
+		name:        "Admin"
 		roleClassId: roleClassMap.Admin.id
 		policies: [policyList[0].id]
 	}
 	Staff: directoryv1.#Role & {
-		id: {{ generateApplicationUUID "StaffRole" | quote }}
-		name:        "StaffCRM"
+		id: {{ generateWorkspaceUUID "StaffRole" | quote }}
+		name:        "Staff"
 		roleClassId: roleClassMap.Staff.id
 		policies: [policyList[1].id]
 	}
 	Manager: directoryv1.#Role & {
-		id: {{ generateApplicationUUID "ManagerRole" | quote }}
-		name:        "ManagerCRM"
+		id: {{ generateWorkspaceUUID "ManagerRole" | quote }}
+		name:        "Manager"
 		roleClassId: roleClassMap.Manager.id
 		policies: [policyList[1].id]
 	}
@@ -69,7 +69,7 @@ roleMap: {[string]: directoryv1.#Role} & {
 
 policyList: [...directoryv1.#Policy] & [
 		{
-		id: {{ generateApplicationUUID "AdminPolicy" | quote }}
+		id: {{ generateWorkspaceUUID "AdminPolicy" | quote }}
 		name:   "admin"
 		permit: "allow"
 		actions: ["*"]
@@ -79,7 +79,7 @@ policyList: [...directoryv1.#Policy] & [
 		passwordRule: 4
 	},
 	{
-		id: {{ generateApplicationUUID "StaffPolicy" | quote }}
+		id: {{ generateWorkspaceUUID "StaffPolicy" | quote }}
 		name:   "default"
 		permit: "allow"
 		actions: ["get", "list"]
@@ -89,7 +89,7 @@ policyList: [...directoryv1.#Policy] & [
 		passwordRule: 4
 	},
 	{
-		id: {{ generateApplicationUUID "ManagerPolicy" | quote }}
+		id: {{ generateWorkspaceUUID "ManagerPolicy" | quote }}
 		name:   "customer"
 		permit: "deny"
 		actions: []
@@ -109,21 +109,21 @@ roleList: [
 
 groupList: [...directoryv1.#Group] & [
 	{
-		id: {{ generateApplicationUUID "InternalGroup" | quote }}
+		id: {{ generateWorkspaceUUID "InternalGroup" | quote }}
 		name: "internal"
 	},
 	{
-		id: {{ generateApplicationUUID "ExternalGroup" | quote }}
+		id: {{ generateWorkspaceUUID "ExternalGroup" | quote }}
 		name: "external"
 	},
 ]
 
 userList: [...directoryv1.#User] & [
 		{
-		id: {{ generateApplicationUUID "AdminUser" | quote }}
-		username:    "crm_admin"
+		id: {{ generateWorkspaceUUID "AdminUser" | quote }}
+		username:    "adminadmin"
 		displayName: "admin"
-		secret:      {{ generateApplicationUUID "crm_admin" | quote }}
+		secret:      "adminadmin"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -131,10 +131,10 @@ userList: [...directoryv1.#User] & [
 		groups: [groupList[0].id]
 	},
 	{
-		id: {{ generateApplicationUUID "StaffUser" | quote }}
-		username:    "crm_staff"
+		id: {{ generateWorkspaceUUID "StaffUser" | quote }}
+		username:    "staffstaff"
 		displayName: "staff"
-		secret:      {{ generateApplicationUUID "crm_staff" | quote }}
+		secret:      "staffstaff"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}
@@ -142,10 +142,10 @@ userList: [...directoryv1.#User] & [
 		groups: [groupList[0].id]
 	},
 	{
-		id: {{ generateApplicationUUID "ManagerUser" | quote }}
-		username:    "crm_manager"
+		id: {{ generateWorkspaceUUID "ManagerUser" | quote }}
+		username:    "managermanager"
 		displayName: "manager"
-		secret:      {{ generateApplicationUUID "crm_manager" | quote }}
+		secret:      "managermanager"
 		userProfile: directoryv1.#UserProfile & {
 			userTypeId: userTypeMap.Permanent.id
 		}

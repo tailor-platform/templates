@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -eu
+cd `dirname $0`
+
+./check_tools
+
+LOGIN_QUERY=`cat << EOS
+mutation(\\$org: String!, \\$id: String!, \\$password: String!) {
+  login(orgKey:\\$org, id:\\$id, password:\\$password) {
+    token
+  }
+}
+EOS
+`
+
+QUERY=`echo ${LOGIN_QUERY} | tr '\n' ' '`
+JSON_PARAM=`cat <<EOS
+{
+  "query": "${QUERY}",
+  "variables": {
+    "org": "minitailor",
+    "id": "adminadmin",
+    "password": "adminadmin"
+  }
+}
+EOS
+`
+
+GRAPHQL_API_ENDPOINT="http://localhost:8000/query"
+echo $(curl -s -H 'Content-Type: application/json' -X POST -d "${JSON_PARAM}" ${GRAPHQL_API_ENDPOINT} | jq -r .data.login.token)

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eu
+
+TOOLS=(
+  "yq"
+  "jq"
+  "cue"
+  "curl"
+)
+
+for cmd in "${TOOLS[@]}"; do
+  if ! type $cmd &> /dev/null; then
+    echo "$cmd is required to be installed."
+    exit 1
+  fi
+done

@@ -14,8 +14,6 @@ manifest.#TailorManifest & {
 			"https://*.tailor.business",
 			"http://localhost:3000",
 			"https://*.vercel.app",
-			"https://*.tailor-console.pages.dev",
-			"https://console.tailor.tech"
 		]
 		defaultTimezone: "UTC"
 		subgraph: [
