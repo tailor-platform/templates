@@ -27,7 +27,7 @@ npm install
 ### Run backend
 
 ```
-pnpm run apply
+npm run apply
 ```
 
 ## Deployment
