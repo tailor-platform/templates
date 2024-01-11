@@ -14,8 +14,24 @@ The engagement records store data about interactions between the business and it
 
 If you want to query the data to analyze customer behavior or sales performance, you can use appropriate queries on the respective record types.
 
+## Run
 
-## Usage
+Install node.js and npm beforehand
+
+### Install packages
+
+```
+npm install
+```
+
+### Run backend
+
+```
+pnpm run apply
+```
+
+## Deployment
+
 To deploy this template, please refer to the instructions in the [console](https://console.tailor.tech/).
 
 To seed the initial data for your application, run these commands.
@@ -27,11 +43,9 @@ tailorctl app login -u 'crm_admin' -p '$admin_password'
 tailorctl app import -m charts/seed --auto-approve
 ```
 
-
 ## Demo application
 
 A demo application that utilizes this template is available [here](https://tailorinc.retool.com/embedded/public/ea42df32-d6f6-45c5-84c8-cac994586440).
-
 
 ## Sample GraphQL queries and mutations
 
@@ -81,6 +95,7 @@ query leads ($stage:Stage, $companyName:String) {
   }
 }
 ```
+
 Convert a lead record to Account record
 ```graphql
 mutation convertAccount(
