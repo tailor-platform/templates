@@ -40,15 +40,34 @@ import "google.golang.org/protobuf/types/known/structpb"
 	resolverMap?: {[string]: null | #Resolver} @go(ResolverMap,map[string]*Resolver) @protobuf(5,map[bytes]bytes,rep,name=resolver_map,json=resolverMap,proto3)
 }
 
+#Type: {
+	kind?: string @go(Kind) @protobuf(1,bytes,opt,proto3)
+	name?: string @go(Name) @protobuf(2,bytes,opt,proto3)
+	values?: [...string] @go(Values,[]string) @protobuf(3,bytes,rep,proto3)
+	fields?: [...null | #Field] @go(Fields,[]*Field) @protobuf(4,bytes,rep,proto3)
+	required?: bool @go(Required) @protobuf(5,varint,opt,proto3)
+}
+
+#Field: {
+	name?:     string       @go(Name) @protobuf(1,bytes,opt,proto3)
+	type?:     null | #Type @go(Type,*Type) @protobuf(2,bytes,opt,proto3)
+	array?:    bool         @go(Array) @protobuf(3,varint,opt,proto3)
+	required?: bool         @go(Required) @protobuf(4,varint,opt,proto3)
+}
+
 #Resolver: {
 	id?:            string        @go(Id) @protobuf(1,bytes,opt,proto3)
 	name?:          string        @go(Name) @protobuf(2,bytes,opt,proto3)
 	description?:   string        @go(Description) @protobuf(3,bytes,opt,proto3)
-	authorization?: null | string @go(Authorization,*string) @protobuf(4,bytes,opt,proto3,oneof)
+	authorization?: string        @go(Authorization) @protobuf(4,bytes,opt,proto3)
 	preScript?:     null | string @go(PreScript,*string) @protobuf(5,bytes,opt,name=pre_script,json=preScript,proto3,oneof)
 	postScript?:    null | string @go(PostScript,*string) @protobuf(6,bytes,opt,name=post_script,json=postScript,proto3,oneof)
 	pipeline?: [...null | #Pipeline] @go(Pipeline,[]*Pipeline) @protobuf(7,bytes,rep,proto3)
 	invoker?: null | string @go(Invoker,*string) @protobuf(8,bytes,opt,proto3,oneof)
+	onError?: null | string @go(OnError,*string) @protobuf(9,bytes,opt,name=on_error,json=onError,proto3,oneof)
+	inputs?: [...null | #Field] @go(Inputs,[]*Field) @protobuf(10,bytes,rep,proto3)
+	response?:      null | #Field @go(Response,*Field) @protobuf(11,bytes,opt,proto3,oneof)
+	operationType?: null | string @go(OperationType,*string) @protobuf(12,bytes,opt,name=operation_type,json=operationType,proto3,oneof)
 }
 
 #Pipeline: {
@@ -57,12 +76,14 @@ import "google.golang.org/protobuf/types/known/structpb"
 	description?:    string        @go(Description) @protobuf(3,bytes,opt,proto3)
 	url?:            null | string @go(Url,*string) @protobuf(5,bytes,opt,proto3,oneof)
 	graphqlQuery?:   null | string @go(GraphqlQuery,*string) @protobuf(6,bytes,opt,name=graphql_query,json=graphqlQuery,proto3,oneof)
-	test?:           null | string @go(Test,*string) @protobuf(7,bytes,opt,proto3,oneof)
-	preValidation?:  null | string @go(PreValidation,*string) @protobuf(8,bytes,opt,name=pre_validation,json=preValidation,proto3,oneof)
-	preScript?:      null | string @go(PreScript,*string) @protobuf(9,bytes,opt,name=pre_script,json=preScript,proto3,oneof)
-	postScript?:     null | string @go(PostScript,*string) @protobuf(10,bytes,opt,name=post_script,json=postScript,proto3,oneof)
-	postValidation?: null | string @go(PostValidation,*string) @protobuf(11,bytes,opt,name=post_validation,json=postValidation,proto3,oneof)
-	contextData?:    null | string @go(ContextData,*string) @protobuf(12,bytes,opt,name=context_data,json=contextData,proto3,oneof)
+	skipGqlError?:   null | bool   @go(SkipGqlError,*bool) @protobuf(7,varint,opt,name=skip_gql_error,json=skipGqlError,proto3,oneof)
+	test?:           null | string @go(Test,*string) @protobuf(8,bytes,opt,proto3,oneof)
+	preValidation?:  null | string @go(PreValidation,*string) @protobuf(9,bytes,opt,name=pre_validation,json=preValidation,proto3,oneof)
+	preScript?:      null | string @go(PreScript,*string) @protobuf(10,bytes,opt,name=pre_script,json=preScript,proto3,oneof)
+	postScript?:     null | string @go(PostScript,*string) @protobuf(11,bytes,opt,name=post_script,json=postScript,proto3,oneof)
+	postValidation?: null | string @go(PostValidation,*string) @protobuf(12,bytes,opt,name=post_validation,json=postValidation,proto3,oneof)
+	contextData?:    null | string @go(ContextData,*string) @protobuf(13,bytes,opt,name=context_data,json=contextData,proto3,oneof)
+	forEach?:        null | string @go(ForEach,*string) @protobuf(14,bytes,opt,name=for_each,json=forEach,proto3,oneof)
 }
 
 #PipelineExecuted: {

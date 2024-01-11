@@ -1,0 +1,5 @@
+{
+  "name": "crm",
+  "manifest": "manifest/config/template",
+  "target": ["gateway.cue", "pipelines.cue", "tailordb.cue"]
+}

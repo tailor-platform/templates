@@ -4,10 +4,7 @@
 
 package controlplane
 
-import (
-	v1 "github.com/tailor-inc/platform-core-services/api/gen/go/directory/v1:directoryv1"
-	"google.golang.org/protobuf/types/known/anypb"
-)
+import v1 "github.com/tailor-inc/platform-core-services/api/gen/go/directory/v1:directoryv1"
 
 #CreateOrganizationRequest: {
 	ownerUsername?:     string                  @go(OwnerUsername) @protobuf(1,bytes,opt,name=owner_username,json=ownerUsername,proto3)
@@ -16,6 +13,10 @@ import (
 }
 
 #CreateOrganizationResponse: {
-	organization?: null | v1.#Organization @go(Organization,*v1.Organization) @protobuf(1,bytes,opt,proto3)
-	result?:       null | anypb.#Any       @go(Result,*anypb.Any) @protobuf(2,bytes,opt,proto3)
+	organization?:  null | v1.#Organization @go(Organization,*v1.Organization) @protobuf(1,bytes,opt,proto3)
+	owner_user_id?: string                  @go(OwnerUserId) @protobuf(2,bytes,opt,json=ownerUserId,proto3)
+}
+
+#DeleteOrganizationRequest: {
+	name?: string @go(Name) @protobuf(1,bytes,opt,proto3)
 }

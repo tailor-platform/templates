@@ -1,0 +1,16 @@
+{
+  "name": "crm",
+  "private": true,
+  "description": "CRM application",
+  "scripts": {
+    "apply": "tailordev start --apply",
+    "reset": "tailordev reset",
+    "postinstall": "tailordev install:deps"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "devDependencies": {
+    "@tailor-platform/dev-cli": "link:../../frontend-packages/packages/dev-cli"
+  }
+}
