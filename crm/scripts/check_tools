@@ -3,9 +3,6 @@
 set -eu
 
 TOOLS=(
-  "yq"
-  "jq"
-  "cue"
   "curl"
 )
 

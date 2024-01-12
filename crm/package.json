@@ -1,0 +1,17 @@
+{
+  "name": "crm",
+  "private": true,
+  "description": "CRM application",
+  "scripts": {
+    "apply": "tailordev start --apply",
+    "reset": "tailordev reset",
+    "seed": "tailordev import --host http://localhost:8000/query manifest/seed",
+    "postinstall": "tailordev install:deps"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "devDependencies": {
+    "@tailor-platform/dev-cli": "0.1.0-preview.14"
+  }
+}

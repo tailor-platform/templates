@@ -66,9 +66,16 @@ import "google.golang.org/protobuf/types/known/timestamppb"
 	resourceId?:   string                        @go(ResourceId) @protobuf(3,bytes,opt,name=resource_id,json=resourceId,proto3)
 	currentState?: string                        @go(CurrentState) @protobuf(4,bytes,opt,name=current_state,json=currentState,proto3)
 	stateFlow?:    null | #StateFlow             @go(StateFlow,*StateFlow) @protobuf(5,bytes,opt,name=state_flow,json=stateFlow,proto3)
+	creatorMeta?:  null | #CreatorMeta           @go(CreatorMeta,*CreatorMeta) @protobuf(6,bytes,opt,name=creator_meta,json=creatorMeta,proto3)
 	createdAt?:    null | timestamppb.#Timestamp @go(CreatedAt,*timestamppb.Timestamp) @protobuf(100,bytes,opt,name=created_at,json=createdAt,proto3)
 	updatedAt?:    null | timestamppb.#Timestamp @go(UpdatedAt,*timestamppb.Timestamp) @protobuf(102,bytes,opt,name=updated_at,json=updatedAt,proto3,oneof)
 	expireAt?:     null | timestamppb.#Timestamp @go(ExpireAt,*timestamppb.Timestamp) @protobuf(101,bytes,opt,name=expire_at,json=expireAt,proto3)
+}
+
+#CreatorMeta: {
+	organizationId?: string @go(OrganizationId) @protobuf(1,bytes,opt,name=organization_id,json=organizationId,proto3)
+	roles?: [...string] @go(Roles,[]string) @protobuf(2,bytes,rep,proto3)
+	groups?: [...string] @go(Groups,[]string) @protobuf(3,bytes,rep,proto3)
 }
 
 // State Transition history
@@ -119,8 +126,6 @@ _#isStateFlowEvent_Detail: _
 #StateTransition: {
 	approverId?:    string @go(ApproverId) @protobuf(1,bytes,opt,name=approver_id,json=approverId,proto3)
 	action?:        string @go(Action) @protobuf(2,bytes,opt,proto3)
-	prevStateId?:   string @go(PrevStateId) @protobuf(3,bytes,opt,name=prev_state_id,json=prevStateId,proto3)
 	prevStateName?: string @go(PrevStateName) @protobuf(4,bytes,opt,name=prev_state_name,json=prevStateName,proto3)
-	newStateId?:    string @go(NewStateId) @protobuf(5,bytes,opt,name=new_state_id,json=newStateId,proto3)
 	newStateName?:  string @go(NewStateName) @protobuf(6,bytes,opt,name=new_state_name,json=newStateName,proto3)
 }

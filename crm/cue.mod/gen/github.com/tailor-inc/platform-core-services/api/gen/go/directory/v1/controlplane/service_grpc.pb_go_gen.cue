@@ -5,6 +5,7 @@
 package controlplane
 
 #DirectoryService_CreateOrganization_FullMethodName: "/directory.v1.controlplane.DirectoryService/CreateOrganization"
+#DirectoryService_DeleteOrganization_FullMethodName: "/directory.v1.controlplane.DirectoryService/DeleteOrganization"
 
 // DirectoryServiceClient is the client API for DirectoryService service.
 //

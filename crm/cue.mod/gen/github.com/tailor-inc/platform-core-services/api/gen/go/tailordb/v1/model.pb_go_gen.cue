@@ -47,6 +47,7 @@ package tailordbv1
 	extends?:     bool                @go(Extends) @protobuf(5,varint,opt,proto3)
 	directives?: {[string]: null | #Directive} @go(Directives,map[string]*Directive) @protobuf(6,map[bytes]bytes,rep,proto3)
 	indexes?: {[string]: null | #Index} @go(Indexes,map[string]*Index) @protobuf(7,map[bytes]bytes,rep,proto3)
+	recordPermission?: null | #Permission @go(RecordPermission,*Permission) @protobuf(8,bytes,opt,name=record_permission,json=recordPermission,proto3)
 }
 
 #TypeSetting: {
@@ -82,10 +83,17 @@ package tailordbv1
 	array?:        bool                      @go(Array) @protobuf(7,varint,opt,proto3)
 	validate?: [...null | #ValidateConfig] @go(Validate,[]*ValidateConfig) @protobuf(8,bytes,rep,proto3)
 	fields?: {[string]: null | #FieldConfig} @go(Fields,map[string]*FieldConfig) @protobuf(9,map[bytes]bytes,rep,proto3)
-	index?:          bool   @go(Index) @protobuf(10,varint,opt,proto3)
-	unique?:         bool   @go(Unique) @protobuf(11,varint,opt,proto3)
-	foreignKey?:     bool   @go(ForeignKey) @protobuf(12,varint,opt,name=foreign_key,json=foreignKey,proto3)
-	foreignKeyType?: string @go(ForeignKeyType) @protobuf(13,bytes,opt,name=foreign_key_type,json=foreignKeyType,proto3)
+	index?:           bool              @go(Index) @protobuf(10,varint,opt,proto3)
+	unique?:          bool              @go(Unique) @protobuf(11,varint,opt,proto3)
+	foreignKey?:      bool              @go(ForeignKey) @protobuf(12,varint,opt,name=foreign_key,json=foreignKey,proto3)
+	foreignKeyType?:  string            @go(ForeignKeyType) @protobuf(13,bytes,opt,name=foreign_key_type,json=foreignKeyType,proto3)
+	foreignKeyField?: string            @go(ForeignKeyField) @protobuf(14,bytes,opt,name=foreign_key_field,json=foreignKeyField,proto3)
+	hooks?:           null | #FieldHook @go(Hooks,*FieldHook) @protobuf(15,bytes,opt,proto3,oneof)
+}
+
+#FieldHook: {
+	createExpr?: null | string @go(CreateExpr,*string) @protobuf(1,bytes,opt,name=create_expr,json=createExpr,proto3,oneof)
+	updateExpr?: null | string @go(UpdateExpr,*string) @protobuf(2,bytes,opt,name=update_expr,json=updateExpr,proto3,oneof)
 }
 
 #FieldDefaultValue: {

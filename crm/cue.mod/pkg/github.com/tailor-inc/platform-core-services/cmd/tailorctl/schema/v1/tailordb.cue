@@ -13,7 +13,8 @@ package tailordb
 #FieldTypeNested:   "nested"
 
 #BaseFieldTypeEnum: #FieldTypeString | #FieldTypeText | #FieldTypeUUID | #FieldTypeInteger |
-	#FieldTypeFloat | #FieldTypeEnum | #FieldTypeBool | #FieldTypeDate | #FieldTypeTime | #FieldTypeDatetime | #FieldTypeNested
+	#FieldTypeFloat | #FieldTypeEnum | #FieldTypeBool | #FieldTypeDate | #FieldTypeTime |
+	#FieldTypeDatetime | #FieldTypeNested
 
 #Everyone:     "everyone"
 #LoggedInUser: "loggedinUser"
@@ -27,3 +28,20 @@ package tailordb
 #Allow: 1
 #Skip:  2
 #Deny:  3
+
+#CreatedAtField: {
+	type:        #FieldTypeDatetime
+	description: "createdAt"
+	index:       true
+	hooks: {
+		createExpr: "now()"
+	}
+}
+#UpdatedAtField: {
+	type:        #FieldTypeDatetime
+	description: "updatedAt"
+	index:       true
+	hooks: {
+		updateExpr: "now()"
+	}
+}
