@@ -11,6 +11,6 @@
     "node": "18.x"
   },
   "devDependencies": {
-    "@tailor-platform/dev-cli": "link:../../frontend-packages/packages/dev-cli"
+    "@tailor-platform/dev-cli": "0.1.0-preview.14"
   }
 }
