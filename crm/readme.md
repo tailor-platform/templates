@@ -14,7 +14,7 @@ The engagement records store data about interactions between the business and it
 
 If you want to query the data to analyze customer behavior or sales performance, you can use appropriate queries on the respective record types.
 
-## Run
+## Run locally
 
 Install node.js and npm beforehand
 
