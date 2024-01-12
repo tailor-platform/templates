@@ -36,7 +36,7 @@ npm run apply
 npm run seed
 ```
 
-Open http://localhost:8000/query on your browser.
+Open http://localhost:8000/playground on your browser.
 
 ## Demo application
 
