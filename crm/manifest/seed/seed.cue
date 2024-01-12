@@ -51,21 +51,21 @@ let accountMutationList = [
 
 accounts: {
 	account1: {
-		accountID: "{{ generateWorkspaceUUID 'Account1' }}"
+		accountID: "a28123c0-c729-4c3d-9385-5a4706869d9f"
 		companyName:  "Globex Corporation"
 		contactName:  "Hank Scorpio"
 		emailAddress: "hank.scorpio@globex.com"
 		phoneNumber:  "(212) 555-1234"
 	}
 	account2: {
-		accountID: "{{ generateWorkspaceUUID 'Account2' }}"
+		accountID: "c1dcfe3d-99b0-4f13-a50c-95103792df5b"
 		companyName:  "Initech"
 		contactName:  "Bill Lumbergh"
 		emailAddress: "bill.lumbergh@initech.com"
 		phoneNumber:  "(310) 555-5678"
 	}
 	account3: {
-		accountID: "{{ generateWorkspaceUUID 'Account3' }}"
+		accountID: "921f9e90-cf2f-47c9-b53f-ada75cfeeb6b"
 		companyName:  "Vandelay Industries"
 		contactName:  "Art Vandelay"
 		emailAddress: "art.vandelay@vandelay.com"
@@ -122,7 +122,7 @@ let leadMutationList = [
 
 leads: {
 	lead1: {
-		leadID: "{{ generateWorkspaceUUID 'Lead1' }}"
+		leadID: "241f3af8-b528-4c34-90d0-783075076cae"
 		companyName:  "Duff Beer"
 		leadSource:   "Trade Show"
 		stage:        "Open"
@@ -132,7 +132,7 @@ leads: {
 		phoneNumber:  "(702) 555-3456"
 	}
 	lead2: {
-		leadID: "{{ generateWorkspaceUUID 'Lead2' }}"
+		leadID: "ba3139f7-43b6-4cc5-bdf3-349ac2244b5b"
 		companyName:  "Acme Corp"
 		leadSource:   "Referral"
 		stage:        "WIP"
@@ -142,7 +142,7 @@ leads: {
 		phoneNumber:  "(305) 555-7890"
 	}
 	lead3: {
-		leadID: "{{ generateWorkspaceUUID 'Lead3' }}"
+		leadID: "c6ce35df-b2bf-4e3a-a49a-02016db17712"
 		companyName:  "Bluth Company"
 		leadSource:   "Website"
 		stage:        "Won"
@@ -152,7 +152,7 @@ leads: {
 		phoneNumber:  "(512) 555-1234"
 	}
 	lead4: {
-		leadID: "{{ generateWorkspaceUUID 'Lead4' }}"
+		leadID: "d0f24ab3-da70-4783-9f46-1825370a90df"
 		companyName:  "Wonka Industries"
 		leadSource:   "Email"
 		stage:        "Lost"
@@ -201,28 +201,28 @@ let transactionMutationList = [
 
 transactions: {
 	transaction1: {
-		accountID: "{{ generateWorkspaceUUID 'Transaction1' }}"
+		accountID: "bce38469-3d23-4411-ac09-02e417840f92"
 		transactionDate:   "2022-01-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction2: {
-		accountID: "{{ generateWorkspaceUUID 'Transaction1' }}"
+		accountID: "34d427d7-016d-4fc4-bf82-4caf35583f08"
 		transactionDate:   "2022-02-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction3: {
-		accountID: "{{ generateWorkspaceUUID 'Transaction1' }}"
+		accountID: "eb4dab8e-d577-4389-aa9f-66c0325063e0"
 		transactionDate:   "2022-03-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
 		transactionMethod: "Credit card"
 	}
 	transaction4: {
-		accountID: "{{ generateWorkspaceUUID 'Transaction1' }}"
+		accountID: "7ef0f1c2-3b69-49dc-93dd-c177a3eff600"
 		transactionDate:   "2022-04-25"
 		transactionAmt:    1500
 		transactionType:   "Monthly"
