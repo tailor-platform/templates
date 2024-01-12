@@ -5,7 +5,7 @@
   "scripts": {
     "apply": "tailordev start --apply",
     "reset": "tailordev reset",
-    "seed": "tailordev import --host http://crm.mini.tailor.tech:8000/query manifest/seed",
+    "seed": "tailordev import --host http://localhost:8000/query manifest/seed",
     "postinstall": "tailordev install:deps"
   },
   "engines": {
