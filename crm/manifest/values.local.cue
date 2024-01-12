@@ -2,7 +2,7 @@
 package manifest
 
 #app: {
-	domain:    "crm.mini.tailor.tech:8000"
+	domain:    "localhost:8000"
 	namespace: "crm"
 }
 
