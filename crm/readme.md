@@ -36,6 +36,8 @@ npm run apply
 npm run seed
 ```
 
+Open http://localhost:8000/query on your browser.
+
 ## Demo application
 
 A demo application that utilizes this template is available [here](https://tailorinc.retool.com/embedded/public/ea42df32-d6f6-45c5-84c8-cac994586440).
