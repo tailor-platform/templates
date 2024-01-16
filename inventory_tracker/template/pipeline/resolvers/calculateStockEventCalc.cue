@@ -19,7 +19,7 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 	"""
 	response: { type: schema.Boolean }
 	postScript: """
-	!isNull(context.pipeline.createStockEventCalc.result) || !isNull(context.pipeline.deleteStockEventCalc.result)
+	size(context.pipeline.createStockEventCalc)>0 || size(context.pipeline.deleteStockEventCalc)>0
 	"""
 	pipeline: [
 		{
@@ -116,9 +116,8 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 			  }
 			}"""
 			postScript: """
-			{
-				"result": args.createStockEventCalc
-			}"""
+				args.createStockEventCalc
+			"""
 		},
 		{
 			id: {{generateUUID | quote}}
@@ -137,9 +136,8 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 			  deleteStockEventCalc(id: $stockEventCalcID)
 			}"""
 			postScript: """
-			{
-				"result": args.deleteStockEventCalc
-			}"""
+				args.deleteStockEventCalc
+			"""
 		},
 	]
 }
