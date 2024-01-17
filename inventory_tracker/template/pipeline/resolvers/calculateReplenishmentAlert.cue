@@ -21,7 +21,7 @@ calculateReplenishmentAlert: pipelinev1.#Resolver & {
 	"""
 	response: { type: schema.Boolean }	
 	postScript: """
-	!isNull(context.pipeline.updateReplenishmentAlert.result) || !isNull(context.pipeline.deletereplenishmentAlerts.result)
+	size(context.pipeline.updateReplenishmentAlert.result)>0 || size(context.pipeline.deletereplenishmentAlerts.result)>0
 	"""
 	pipeline: [
 		{
