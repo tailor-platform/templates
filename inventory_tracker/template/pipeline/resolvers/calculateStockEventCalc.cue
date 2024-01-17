@@ -115,9 +115,6 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 			    id
 			  }
 			}"""
-			postScript: """
-				args.createStockEventCalc
-			"""
 		},
 		{
 			id: {{generateUUID | quote}}
@@ -135,9 +132,6 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 			mutation deleteStockEventCalc($stockEventCalcID: ID!) {
 			  deleteStockEventCalc(id: $stockEventCalcID)
 			}"""
-			postScript: """
-				args.deleteStockEventCalc
-			"""
 		},
 	]
 }
