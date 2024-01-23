@@ -1,0 +1,42 @@
+[
+    {
+        "id": "f3d5f1ae-e57b-5c7e-89c8-650707e86f4f",
+        "name": "Bounty Hunter"
+    },
+    {
+        "id": "204e2944-727b-562f-9385-923bf953e555",
+        "name": "Smuggler"
+    },
+    {
+        "id": "18fc8b81-04ea-5968-9fbc-5653e8322d6a",
+        "name": "Imperial Agent"
+    },
+    {
+        "id": "32006a56-70cb-5267-bfee-dfb9f8a6da0d",
+        "name": "Trooper"
+    },
+    {
+        "id": "6ad64e61-ce6b-5966-bbe8-548d801913b5",
+        "name": "Sith Load"
+    },
+    {
+        "id": "66e80ba1-f72b-55f8-a82a-a8c550620a2f",
+        "name": "Sith Apprentice"
+    },
+    {
+        "id": "833d52da-f65f-5349-9066-02516af4ed79",
+        "name": "Sith Inquisitor"
+    },
+    {
+        "id": "aace3934-db04-5d7e-a20e-29ca7c4b434c",
+        "name": "Jedi Padawan"
+    },
+    {
+        "id": "b591e614-a61d-5ace-bf56-f66da02c4c1d",
+        "name": "Jedi Knight"
+    },
+    {
+        "id": "acb318c3-8bba-585a-8344-95a942627268",
+        "name": "Jedi Master"
+    }
+]

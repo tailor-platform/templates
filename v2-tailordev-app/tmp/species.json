@@ -1,0 +1,94 @@
+[
+    {
+        "id": "a317adeb-0643-59c7-a716-3e3d714f4443",
+        "name": "Human"
+    },
+    {
+        "id": "3aa0e4ac-591c-5e4f-8df0-8e8f9046df77",
+        "name": "Droids"
+    },
+    {
+        "id": "22dd0e34-73c2-59dc-b82f-b2c688f76930",
+        "name": "Wookiees"
+    },
+    {
+        "id": "9861f304-6610-5c73-b16b-42c18b7b6b33",
+        "name": "Ewoks"
+    },
+    {
+        "id": "861a0c80-f230-5f4b-9946-0bbe9f713d6b",
+        "name": "Gungans"
+    },
+    {
+        "id": "5cdb550b-1ac8-5950-a9aa-2d728fafdec5",
+        "name": "Mon Calamari"
+    },
+    {
+        "id": "18654d2b-b578-5dd9-a441-a57e2e3f83e5",
+        "name": "Toydarians"
+    },
+    {
+        "id": "75e2d8c7-3812-5458-9e61-d8786d51f844",
+        "name": "Yoda's species"
+    },
+    {
+        "id": "5f90f479-604d-537d-8555-3ad4046a2098",
+        "name": "Trandoshans"
+    },
+    {
+        "id": "ec5d6fbd-485c-5b18-8f34-05ad6814a7ef",
+        "name": "Rodians"
+    },
+    {
+        "id": "fa4d6d4f-6642-5b32-a9d3-21c064222cba",
+        "name": "Hutt"
+    },
+    {
+        "id": "0ea45f2d-756c-5ff4-916c-85491e1c9536",
+        "name": "Tholothians"
+    },
+    {
+        "id": "2b053b29-7152-5815-9fee-cba6f1cbe5ba",
+        "name": "Iktotchi"
+    },
+    {
+        "id": "5774e853-5680-5911-86ce-8418e1b763ab",
+        "name": "Quermians"
+    },
+    {
+        "id": "c9ca2358-0c19-5708-a5bd-f9e9ddf3baec",
+        "name": "Kel Dor"
+    },
+    {
+        "id": "8c84c752-6431-5c91-ab19-da84443d6549",
+        "name": "Chagrians"
+    },
+    {
+        "id": "8b0dbb95-725e-5b8e-bd7c-a03ecd255682",
+        "name": "Geonosians"
+    },
+    {
+        "id": "28044bea-f992-574f-9b61-8945d1c6d399",
+        "name": "Mirialans"
+    },
+    {
+        "id": "e408fb85-68d0-5e85-87b6-901099fbc719",
+        "name": "Clawdites"
+    },
+    {
+        "id": "8398ded3-43f4-5ed3-b38c-454983f46137",
+        "name": "Besalisk"
+    },
+    {
+        "id": "a24d80f1-c2a6-50cf-89dc-ffc11ddd3c16",
+        "name": "Kaminoans"
+    },
+    {
+        "id": "f89e1e3c-2adf-51a9-bed6-81cc87f2e91a",
+        "name": "Skakoans"
+    },
+    {
+        "id": "2d1ec2a1-79cd-5c54-942d-6fc5af411e0d",
+        "name": "Muuns"
+    }
+]
