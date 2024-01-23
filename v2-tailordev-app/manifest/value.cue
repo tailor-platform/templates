@@ -1,0 +1,3 @@
+package manifest
+
+#appname: string

@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "apply": "tailordev start --apply",
+    "reset": "tailordev reset",
+    "seed": "tailordev custom seed",
+    "postinstall": "tailordev install:deps"
+  },
+  "devDependencies": {
+    "@tailor-platform/dev-cli": "0.1.0-preview.26"
+  },
+  "packageManager": "pnpm@8.10.0"
+}

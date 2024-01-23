@@ -1,0 +1,17 @@
+{
+  "version": "v2",
+  "name": "v2-manifest-app",
+  "manifest": "manifest",
+  "target": [
+    "workspace.cue"
+  ],
+  "dockerCompose": {
+    "pullPolicy": "always"
+  },
+  "custom": {
+    "seed": {
+      "description": "import seed data",
+      "path": "./scripts/seed.mjs"
+    }
+  }
+}
