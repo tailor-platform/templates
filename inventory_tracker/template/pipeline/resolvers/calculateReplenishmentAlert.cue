@@ -19,9 +19,9 @@ calculateReplenishmentAlert: pipelinev1.#Resolver & {
 	4. Create DemandForecast records based on the result of the aggregation.
 	5. Delete the DemandForecast records created prior to the the update.
 	"""
-	response: { type: schema.Boolean }	
+	response: { type: schema.Boolean }
 	postScript: """
-	size(context.pipeline.updateReplenishmentAlert.result)>0 || size(context.pipeline.deletereplenishmentAlerts.result)>0
+	size(context.pipeline.updateReplenishmentAlert.filter(a, a.result != null))>0 || size(context.pipeline.deletereplenishmentAlerts.filter(a, a.result != null))>0
 	"""
 	pipeline: [
 		{

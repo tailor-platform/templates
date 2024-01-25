@@ -20,11 +20,11 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 	5. Delete the putAwayCalc records and supplierLeadTime records created prior to the step 3 and 4. Those are the result of the step 1.
 	"""
 	postScript: """
-	(size(context.pipeline.createPutAwayCalc)>0 || size(context.pipeline.deletePutAwayLeadTimeCalc.result)>0)
+	(size(context.pipeline.createPutAwayCalc.filter(a, a.result != null))>0 || size(context.pipeline.deletePutAwayLeadTimeCalc.filter(a, a.result != null))>0)
 	&&
-	(size(context.pipeline.createSupplierLeadTime)>0 || size(context.pipeline.deleteSupplierLeadTime.result)>0)
+	(size(context.pipeline.createSupplierLeadTime.filter(a, a.result != null))>0 || size(context.pipeline.deleteSupplierLeadTime.filter(a, a.result != null))>0)
 	"""
-	response: { type: schema.Boolean }	
+	response: { type: schema.Boolean }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
@@ -37,7 +37,7 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 			    collection {
 			      id
 			      quantity
-				  putAwayDate
+			      putAwayDate
 			      purchaseOrderID
 			      purchaseOrder {
 			        purchaseOrderDate
@@ -53,9 +53,9 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 			    }
 			  }
 			  supplierLeadTimes{
-			      collection{
-			        id
-			      }
+			    collection{
+			      id
+			    }
 			  }
 			}"""
 			postScript: """
@@ -70,7 +70,7 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 			name:        "createPutAwayCalc"
 			description: "Parse and flatten the putAway records in pre-script. Then store them in putAwayCalc."
 			url:         settings.services.gateway
-			forEach:	 "context.pipeline.getRecords.putAways.collection"
+			forEach:     "context.pipeline.getRecords.putAways.collection"
 			preScript: """
 			{
 				"putAwayID": each.id,
@@ -168,8 +168,8 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 			name:        "deletePutAwayLeadTimeCalc"
 			description: "Delete the putAwayCalc records created prior to createPutAwayCalc. Those records are the result of the step getRecords.putAwayCalcs."
 			url:         settings.services.gateway
-			forEach:	 "context.pipeline.getRecords.putAwayCalcs.collection"
-			test: 		 "size(context.pipeline.getRecords.putAwayCalcs.collection) > 0" // skip if there is no record to delete.
+			forEach:     "context.pipeline.getRecords.putAwayCalcs.collection"
+			test:        "size(context.pipeline.getRecords.putAwayCalcs.collection) > 0" // skip if there is no record to delete.
 			preScript: """
 			{
 				"id": each.id,
@@ -189,8 +189,8 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 			name:        "deleteSupplierLeadTime"
 			description: "Delete the SupplierLeadTime records created prior to createSupplierLeadTime. Those records are the result of the step getRecords.supplierLeadTimes."
 			url:         settings.services.gateway
-			forEach:	 "context.pipeline.getRecords.supplierLeadTimes.collection"
-			test: 		 "size(context.pipeline.getRecords.supplierLeadTimes.collection) > 0" // skip if there is no record to delete.
+			forEach:     "context.pipeline.getRecords.supplierLeadTimes.collection"
+			test:        "size(context.pipeline.getRecords.supplierLeadTimes.collection) > 0" // skip if there is no record to delete.
 			preScript: """
 			{
 				"id": each.id,
