@@ -20,7 +20,7 @@ calculatePutAwayLeadTime: pipelinev1.#Resolver & {
 	5. Delete the putAwayCalc records and supplierLeadTime records created prior to the step 3 and 4. Those are the result of the step 1.
 	"""
 	postScript: """
-	(size(context.pipeline.createPutAwayCalc)>0) || size(context.pipeline.deletePutAwayLeadTimeCalc.result)>0)
+	(size(context.pipeline.createPutAwayCalc)>0 || size(context.pipeline.deletePutAwayLeadTimeCalc.result)>0)
 	&&
 	(size(context.pipeline.createSupplierLeadTime)>0 || size(context.pipeline.deleteSupplierLeadTime.result)>0)
 	"""
