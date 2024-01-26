@@ -20,9 +20,9 @@ calculateDemandForecast: pipelinev1.#Resolver & {
 	5. Delete the DemandForecast records created prior to the the update.
 	"""
 	postScript: """
-	!isNull(context.pipeline.createDemandForecast.result) || !isNull(context.pipeline.deleteDemandForecast.result)
+	size(context.pipeline.createDemandForecast.filter(a, a.result != null))>0 || size(context.pipeline.deleteDemandForecast.filter(a, a.result != null))>0
 	"""
-	response: { type: schema.Boolean }	
+	response: { type: schema.Boolean }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}

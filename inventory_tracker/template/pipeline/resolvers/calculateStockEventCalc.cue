@@ -19,7 +19,7 @@ calculateStockEventCalc: pipelinev1.#Resolver & {
 	"""
 	response: { type: schema.Boolean }
 	postScript: """
-	!isNull(context.pipeline.createStockEventCalc.result) || !isNull(context.pipeline.deleteStockEventCalc.result)
+	size(context.pipeline.createStockEventCalc.filter(a, a.result != null))>0 || size(context.pipeline.deleteStockEventCalc.filter(a, a.result != null))>0
 	"""
 	pipeline: [
 		{

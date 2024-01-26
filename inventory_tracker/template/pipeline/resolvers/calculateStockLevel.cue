@@ -20,9 +20,9 @@ calculateStockLevel: pipelinev1.#Resolver & {
 	5. Delete the DemandForecast records created prior to the the update.
 	"""
 	postScript: """
-	!isNull(context.pipeline.updateStockLevel.result) || !isNull(context.pipeline.deletestockLevels.result)
+	size(context.pipeline.updateStockLevel.filter(a, a.result != null))>0 || size(context.pipeline.deletestockLevels.filter(a, a.result != null))>0
 	"""
-	response: { type: schema.Boolean }	
+	response: { type: schema.Boolean }
 	pipeline: [
 		{
 			id: {{generateUUID | quote}}
