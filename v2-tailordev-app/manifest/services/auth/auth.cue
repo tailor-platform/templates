@@ -3,8 +3,8 @@ package auth
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/auth"
 	"github.com/tailor-platform/tailorctl/schema/v2/secretmanager"
-	"github.com/tailor-inc/platform-core-services/e2e/manifest/services/tailordb"
-	ttype "github.com/tailor-inc/platform-core-services/e2e/manifest/services/tailordb/type"
+	"github.com/tailor-inc/platform-core-services/e2e/manifest/services/galaxydb"
+	ttype "github.com/tailor-inc/platform-core-services/e2e/manifest/services/galaxydb/type"
 )
 
 auth.#Spec & {
@@ -38,7 +38,7 @@ auth.#Spec & {
 	]
 	userProfileProvider: auth.#UserProfileProviderType.TailorDB
 	userProfileProviderConfig: auth.#TailorDBProviderConfig & {
-		namespace:     tailordb.namespace
+		namespace:     galaxydb.namespace
 		type:          ttype.Character.name
 		usernameField: "email"
 		attributesFields: ["roles"]

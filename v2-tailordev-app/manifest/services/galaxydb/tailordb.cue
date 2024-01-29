@@ -1,8 +1,8 @@
-package tailordb
+package galaxydb
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
-	"github.com/tailor-inc/platform-core-services/e2e/manifest/services/tailordb/type"
+	"github.com/tailor-inc/platform-core-services/e2e/manifest/services/galaxydb/type"
 )
 
 tailordb.#Spec & {
