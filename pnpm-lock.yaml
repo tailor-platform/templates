@@ -9,8 +9,8 @@ devDependencies:
     specifier: ^3.9.4
     version: 3.9.11(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
   '@tailor-platform/dev-cli':
-    specifier: 0.1.0-preview.33
-    version: 0.1.0-preview.33(commander@11.1.0)
+    specifier: 0.1.0-preview.43
+    version: 0.1.0-preview.43(commander@11.1.0)
   cli-progress:
     specifier: ^3.12.0
     version: 3.12.0
@@ -102,8 +102,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tailor-platform/dev-cli@0.1.0-preview.33(commander@11.1.0):
-    resolution: {integrity: sha512-MpyumTjoEjSH8xtby/8r6S0aY6hpwUx7lWwlgPHUHUYFFszUIUxcwWxkto0LVwdI9DR7QhZNUbM5V7eD6gSRSw==}
+  /@tailor-platform/dev-cli@0.1.0-preview.43(commander@11.1.0):
+    resolution: {integrity: sha512-TvrK4NQ47ipzJ+pFhGgcdajtCxuad2oD8W3DJQGybTIuIl/KlGNTF+nYQYkCGm8vVUueDEdccGEu3PYgcp9Y3g==}
     hasBin: true
     dependencies:
       '@commander-js/extra-typings': 11.1.0(commander@11.1.0)
