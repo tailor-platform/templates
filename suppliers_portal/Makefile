@@ -4,20 +4,20 @@ UUID:= $(shell uuidgen)
 .PHONY: apply
 apply: generate
 	$(call _cue_vet)
-	tailorctl alpha workspace apply -m ${GENERATED}/workspace.cue
+	tailorctl workspace apply -m ${GENERATED}/workspace.cue
 
 .PHONY: machine-token
 machine-token:
-	tailorctl alpha workspace machineuser token -a suppliers-portal -m admin-machine-user -f json
+	tailorctl workspace machineuser token -a suppliers-portal -m admin-machine-user -f json
 
 .PHONY: init
 init:
-	tailorctl alpha auth login
-	tailorctl alpha workspace create --name suppliers-portal -r asia-northeast
+	tailorctl auth login
+	tailorctl workspace create --name suppliers-portal -r asia-northeast
 
 .PHONY: app
 app:
-	tailorctl alpha workspace app open -n suppliers-portal
+	tailorctl workspace app open -n suppliers-portal
 
 .PHONY: seed
 seed:
@@ -30,7 +30,7 @@ setup:
 
 .PHONY: generate
 generate:
-	tailorctl alpha manifest tidy
+	tailorctl manifest tidy
 	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
 	cue eval -f  manifest/workspace.cue -o ${GENERATED}/workspace.cue
 
