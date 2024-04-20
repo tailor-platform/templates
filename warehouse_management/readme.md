@@ -143,13 +143,15 @@ ShipOutLineItem ||--o{ Bin : binID
 ```
 
 ## Usage
-WIP
+To deploy this template, run the following commands
 
-To seed the initial data for your application, run these commands.
-```bash
-tailorctl app login -u '$owner_username' -p '$owner_password' #your workspace owner name and password
-tailorctl app import -m charts --auto-approve
 ```
+make init
+make apply
+make seed
+```
+ 
+To gain further insight into the data structure, visit the [Tailor Console](https://console.tailor.tech) and explore the data schema using live sample data.
 
 
 
