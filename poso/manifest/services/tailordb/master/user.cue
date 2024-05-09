@@ -7,17 +7,17 @@ import (
 
 User: tailordb.#Type & {
 	Name:        "User"
-	Description: "管理者ユーザーマスタ"
+	Description: "User of the system"
 	Fields: {
 		name: {
 			Type:        tailordb.#TypeString
-			Description: "管理者ユーザー名"
+			Description: "Name of the user"
 			Index:       true
 			Required:    true
 		}
 		email: {
 			Type:        tailordb.#TypeString
-			Description: "管理者メールアドレス"
+			Description: "Email of the user"
 			Index:       true
 			Unique:      true
 			Required:    true
