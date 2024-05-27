@@ -24,15 +24,15 @@ async function configureEnvironment() {
     try {
       workspaceJsonString = await $$({
         stdio: "pipe",
-      })`tailorctl alpha workspace describe -f json`;
+      })`tailorctl workspace describe -f json`;
     } catch (error) {
       if (error.message.includes("token is expired")) {
         console.error(
           "\x1b[31m%s\x1b[0m",
           "Token is expired. running login command..."
         );
-        await $$`tailorctl alpha auth login`;
-        await $$`tailorctl alpha config switch default`;
+        await $$`tailorctl auth login`;
+        await $$`tailorctl config switch default`;
         continue;
       }
       if (error.message.includes("workspace_id must be specified")) {
@@ -62,7 +62,7 @@ async function configureEnvironment() {
   }
   const appsJsonString = await $$({
     stdio: "pipe",
-  })`tailorctl alpha workspace app list -f json`;
+  })`tailorctl workspace app list -f json`;
   const apps = JSON.parse(appsJsonString.stdout);
   // prompt user to select an app
   const result = await prompts({
@@ -80,7 +80,7 @@ async function configureEnvironment() {
 async function selectWorkspace() {
   const workspacesJsonString = await $$({
     stdio: "pipe",
-  })`tailorctl alpha workspace list -f json`;
+  })`tailorctl workspace list -f json`;
   const workspaces = JSON.parse(workspacesJsonString.stdout);
   // prompt user to select a workspace
   const result = await prompts({
@@ -97,14 +97,14 @@ async function selectWorkspace() {
     console.error("\x1b[31m%s\x1b[0m", "No workspace selected");
     process.exit(1);
   }
-  await $$`tailorctl alpha config set workspaceId ${selectedWorkspace.id}`;
+  await $$`tailorctl config set workspaceId ${selectedWorkspace.id}`;
 }
 
 async function generateMachineUserToken() {
   try {
     const tokenResult = await $$({
       stdio: "pipe",
-    })`tailorctl alpha workspace machineuser token -a ${selectedApp.name} -m admin-machine-user -f json`;
+    })`tailorctl workspace machineuser token -a ${selectedApp.name} -m admin-machine-user -f json`;
     const token = JSON.parse(tokenResult.stdout);
     // Directly access the parsed result assuming $$ already parses the JSON output
     if (Array.isArray(token) && token.length > 0 && token[0].access_token) {

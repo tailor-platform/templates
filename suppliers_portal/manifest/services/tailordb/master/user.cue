@@ -2,15 +2,12 @@ package master
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
-	"tailor.build/template/manifest/services/tailordb/permissions"
+	"tailor.build/template/manifest/services/tailordb:permissions"
 )
 
 User: tailordb.#Type & {
 	Name:        "User"
-	Description: "User"
-	Settings: {
-		BulkUpsert: true
-	}
+	Description: "User of the system"
 	Fields: {
 		name: {
 			Type:        tailordb.#TypeString
@@ -33,5 +30,6 @@ User: tailordb.#Type & {
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField
 	}
+
 	TypePermission: permissions.adminAccess
 }
