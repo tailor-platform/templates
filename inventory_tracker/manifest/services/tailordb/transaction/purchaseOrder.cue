@@ -10,6 +10,7 @@ PurchaseOrder: tailordb.#Type & {
 	Description: "Model for Purchase Order. Each record of the Purchase Order represents unique combination of a Product, a Location, and a Supplier. Customization is required to wrap multiple records (line items) into one purchase order."
 	Settings: {
 		Aggregation: true
+		PublishRecordEvents: true
 	}
 	Fields: {
 		product: {
