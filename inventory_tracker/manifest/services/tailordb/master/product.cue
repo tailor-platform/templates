@@ -8,6 +8,9 @@ import (
 Product: tailordb.#Type & {
 	Name:        "Product"
 	Description: "Product model"
+	Settings: {
+		PublishRecordEvents: true
+	}
 	Fields: {
 		code: {
 			Type:        tailordb.#TypeInt
