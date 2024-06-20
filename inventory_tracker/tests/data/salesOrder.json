@@ -1,0 +1,13 @@
+{
+    "SalesOrder": {
+        "salesOrder1": {
+            "lotID": {
+                "UUID": "Lot.lot1"
+            },
+            "quantity": 5,
+            "salesOrderDate":"2023-11-10",
+            "customerName": "Paul Smith Jr.",
+            "deliveryAddress": "123 Main St, New York, NY 10001"
+        }
+    }
+}

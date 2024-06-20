@@ -2,10 +2,15 @@
   "name": "public-apps",
   "lockfileVersion": 2,
   "requires": true,
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@9.1.4",
   "packages": {},
+  "scripts": {
+    "test": "tailor-test",
+    "gqlprint": "gqlprint"
+  },
   "devDependencies": {
     "@tailor-platform/dev-cli": "0.1.0-preview.43",
+    "@tailor-platform/api-test-library": "0.1.0",
     "@apollo/client": "^3.9.4",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
