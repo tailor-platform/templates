@@ -1,0 +1,17 @@
+{
+    "PurchaseOrder": {
+        "purchaseOrder1": {
+            "productID": {
+                "UUID": "Product.product1"
+            },
+            "locationID": {
+                "UUID": "Location.location1"
+            },
+            "supplierID": {
+                "UUID": "Supplier.supplier1"
+            },
+            "quantity": 10,
+            "purchaseOrderDate": "2023-11-02"
+        }
+    }
+}

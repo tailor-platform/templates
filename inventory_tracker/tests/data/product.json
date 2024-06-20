@@ -1,0 +1,12 @@
+{
+    "Product": {
+        "product1": {
+            "code": 3001,
+            "name": "Organic Cotton T-Shirt",
+            "description": "Soft, breathable, and made from 100% organic cotton",
+            "price": 25,
+            "uom": "piece",
+            "sellingStartDate": "2023-11-01"
+        }
+    }
+}

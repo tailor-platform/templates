@@ -38,6 +38,10 @@ generate:
 vet:
 	$(call _cue_vet)
 
+.PHONY: test
+test:
+	pnpm test $(shell pwd)/tests
+
 define _cue_vet
 	cue vet  -c ./manifest/workspace.cue
 endef

@@ -1,0 +1,11 @@
+{
+    "PutAway": {
+        "putAway1": {
+            "purchaseOrderID": {
+                "UUID": "PurchaseOrder.purchaseOrder1"
+            },
+            "quantity": 8,
+            "putAwayDate": "2023-11-02"
+        }
+    }
+}
