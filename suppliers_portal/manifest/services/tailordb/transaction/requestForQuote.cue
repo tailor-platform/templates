@@ -70,7 +70,7 @@ RequestForQuoteLineItem: tailordb.#Type & {
 			Type:        tailordb.#TypeUUID
 			Description: "Product id. If the product is a buyer product"
 		}
-		Description: {
+		description: {
 			Type:        tailordb.#TypeString
 			Description: "Line item description"
 		}
