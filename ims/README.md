@@ -1,23 +1,21 @@
-# BASE TEMPLATE FOR V2
+# IMS (Inventory Management System)
 
-1. Copy and paste this template
-2. In the folder search for the string "base-template" and replace it for the name of the template
-3. Once you publish the project run `make seed` for local deployment or `node ./scripts/seed.mjs` for remote deployment seeding.
-4. If you want add a custom query in the seed file do it like this:
-```
-TableName: {
-	items: [
-		for k, v in #TableName {
-			v
-		},
-	],
-    query: """
-    mutation{
-        blablaCustomQuery(input: CustomQueryInput!){
-            id
-        }
-    }
-    """
-}
-```
-5. If needed, configure the auth server in services/auth/dev.auth.cue
+**Inventory Management**
+
+- **Real-time Stock Tracking:** Accurate, up-to-date visibility of your current inventory level.
+- **Average product cost:** Automatically calculate the average cost of products.
+- **Cost Pools:** Create cost pools and automatically allocate costs for multiple Receipts.
+- **Reliable Product Data**: Keep a reliable backup of your average costs and inventory levels.
+- **Partial Shipments** Ship what you have and then ship the rest.
+- **Partial Receipts** Receive partial orders.
+- **Automatically turn**: 
+    - Sales Orders into Shipments
+    - Shipments into Invoices
+    - Purchase Orders into Receipts
+
+
+## Integration
+
+- **QuickBooks Online:** Push invoices, products and contacts to QuickBooks online.
+- **Shopify:** Pull Product Variants, Customers and Sales Orders from Shopify 
+- **Shipstation:** Create shipments automatically and keep track of the status of shipments. 
