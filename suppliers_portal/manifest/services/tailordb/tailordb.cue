@@ -22,7 +22,7 @@ tailordb.#Spec & {
     { transaction.InvoiceLineItem },
     { transaction.RequestForQuote },
     { transaction.RequestForQuoteLineItem },
-    { transaction.RequestForQuoteSuppliers },
+    { transaction.RequestForQuoteSupplier },
     { transaction.Quote },
     { transaction.QuoteLineItem },
     { transaction.PurchaseOrder },

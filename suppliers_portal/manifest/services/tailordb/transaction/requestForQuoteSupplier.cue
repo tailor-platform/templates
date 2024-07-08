@@ -6,8 +6,8 @@ import (
 )
 
 
-RequestForQuoteSuppliers: tailordb.#Type & {
-  Name: "RequestForQuoteSuppliers"
+RequestForQuoteSupplier: tailordb.#Type & {
+  Name: "RequestForQuoteSupplier"
   Description: "Suppliers invites to quote for a specific RFQ"
   Settings: {
 		BulkUpsert: true
@@ -42,7 +42,7 @@ RequestForQuoteSuppliers: tailordb.#Type & {
       Type:        tailordb.#TypeUUID
       Description: "The ID of the quote."
     }
-    CreatedAt: tailordb.CreatedAtField
+    createdAt: tailordb.CreatedAtField
   }
   TypePermission: permissions.adminAccess
 }
