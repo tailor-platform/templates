@@ -14,8 +14,8 @@ auth.#Spec & {
 		auth.#IDProviderConfig & {
             Name: "retool-integration"
             Config: auth.#IDToken & {
-                ClientID: "1qkAt22ShoEvt98xF09dH7NsEmC5qkcU"
-                ProviderURL: "https://retool-integration.us.auth0.com/"
+                ClientID: "XXXXXXXXXXXXXXXX"
+                ProviderURL: "https://exampleco-enterprises.auth0.com/" // please update Provider URL
             }
         },
 	]

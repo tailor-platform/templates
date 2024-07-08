@@ -20,7 +20,7 @@ auth.#Spec & {
 					VaultName: "default"
 					SecretKey: "oidc-client-secret"
 				}
-				ProviderURL: "https://dev-st6ogwkegrb7ynti.us.auth0.com/" // please update Provider URL
+				ProviderURL: "https://exampleco-enterprises.auth0.com/" // please update Provider URL
 			}
 		},
 	]
