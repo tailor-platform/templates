@@ -9,17 +9,13 @@ import (
 		id: utils.uuid & {_, #type: "roles", #value: "Admin"}
 		name: "Admin"
 	}
-	Manager: {
-		id: utils.uuid & {_, #type: "roles", #value: "Manager"}
-		name: "Manager"
+	Editor: {
+		id: utils.uuid & {_, #type: "roles", #value: "Editor"}
+		name: "Editor"
 	}
-	Staff: {
-		id: utils.uuid & {_, #type: "roles", #value: "Staff"}
-		name: "Staff"
-	}
-	Customer: {
-		id: utils.uuid & {_, #type: "roles", #value: "Customer"}
-		name: "Customer"
+	Viewer: {
+		id: utils.uuid & {_, #type: "roles", #value: "Viewer"}
+		name: "Viewer"
 	}
 }
 
@@ -30,6 +26,3 @@ Role: {
 		},
 	]
 }
-
-
-
