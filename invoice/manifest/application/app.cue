@@ -18,12 +18,12 @@ application.#Spec & {
 		"http://localhost:3000",
 	]
 	Auth: application.#Auth & {
-		Namespace: auth.Namespace
+		Namespace:            auth.Namespace
 		IdProviderConfigName: auth.IdProviderConfigs[0].Name
 	}
 	Subgraphs: [
-		{Type: common.#TailorDB, Name:  tailordb.Namespace},
-		{Type: common.#Pipeline, Name:  pipeline.Namespace},
-		{Type: common.#Stateflow, Name:  stateflow.Namespace},
+		{Type: common.#TailorDB, Name: tailordb.Namespace},
+		{Type: common.#Pipeline, Name: pipeline.Namespace},
+		{Type: common.#StateFlow, Name: stateflow.Namespace},
 	]
 }

@@ -2,7 +2,7 @@ package master
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
-	"tailor.build/template/manifest/services/tailordb/permissions"
+	"tailor.build/template/manifest/services/tailordb:permissions"
 )
 
 Invoice: tailordb.#Type & {

@@ -1,7 +1,7 @@
 package master
 
 import (
-	"tailor.build/template/manifest/services/tailordb/permissions"
+	"tailor.build/template/manifest/services/tailordb:permissions"
 	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
 )
 
