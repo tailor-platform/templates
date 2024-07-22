@@ -1,6 +1,6 @@
 package environment
 
 #app: {
-	seed:           		"{{UUID}}"
-	namespace:				"invoice"
+	seed:      "{{UUID}}"
+	namespace: "invoice"
 }

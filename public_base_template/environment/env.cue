@@ -1,6 +1,6 @@
 package environment
 
 #app: {
-	seed:           "{{UUID}}"
-	namespace:      "base-template"
+	seed:      "{{UUID}}"
+	namespace: "base-template"
 }

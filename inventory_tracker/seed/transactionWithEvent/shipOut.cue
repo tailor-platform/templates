@@ -5,21 +5,21 @@ import (
 )
 
 #ShipOuts: {
-    ShipOut101: {
-        quantity: 5,
-        shipOutDate: "2023-11-11",
-        salesOrderID: utils.uuid & {_, #type: "salesOrder", #value: "101"},
-    }
+	ShipOut101: {
+		quantity:    5
+		shipOutDate: "2023-11-11"
+		salesOrderID: utils.uuid & {_, #type: "salesOrder", #value: "101"}
+	}
 }
 
 ShipOutWithEvent: {
-   items: [
+	items: [
 		for k, v in #ShipOuts {
 			v
 		},
-	],
-    query: """
-    mutation ($input: createShipOutWithEventInput!) {
-        shipOut101: createShipOutWithEvent(input: $input)
-    }"""
+	]
+	query: """
+		    mutation ($input: createShipOutWithEventInput!) {
+		        shipOut101: createShipOutWithEvent(input: $input)
+		    }"""
 }

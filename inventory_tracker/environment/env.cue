@@ -1,6 +1,6 @@
 package environment
 
 #app: {
-	seed:           "{{UUID}}"
-	namespace:      "inventory-tracker"
+	seed:      "{{UUID}}"
+	namespace: "inventory-tracker"
 }

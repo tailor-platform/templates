@@ -1,6 +1,6 @@
 package environment
 
 #app: {
-	seed:                 "{{UUID}}"
-	namespace:            "ims"
+	seed:      "{{UUID}}"
+	namespace: "ims"
 }

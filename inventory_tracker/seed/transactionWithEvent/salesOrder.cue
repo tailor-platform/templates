@@ -5,21 +5,20 @@ import (
 )
 
 #SalesOrders: {
-    SalesOrder101: {
-        id: utils.uuid & {_, #type: "salesOrder", #value: "101"},
-        lotID: utils.uuid & {_, #type: "lot", #value: "101"},
-        quantity: 5,
-        salesOrderDate: "2023-11-10",
-        customerName: "Paul Smith Jr.",
-        deliveryAddress: "123 Main St, New York, NY 10001"
-    }
+	SalesOrder101: {
+		id: utils.uuid & {_, #type: "salesOrder", #value: "101"}
+		lotID: utils.uuid & {_, #type: "lot", #value: "101"}
+		quantity:        5
+		salesOrderDate:  "2023-11-10"
+		customerName:    "Paul Smith Jr."
+		deliveryAddress: "123 Main St, New York, NY 10001"
+	}
 }
 
 SalesOrder: {
-   items: [
+	items: [
 		for k, v in #SalesOrders {
 			v
 		},
-	],
+	]
 }
-
