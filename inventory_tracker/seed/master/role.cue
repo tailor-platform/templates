@@ -4,7 +4,6 @@ import (
 	"tailor.build/template/seed/utils"
 )
 
-
 #Roles: {
 	Admin: {
 		id: utils.uuid & {_, #type: "roles", #value: "Admin"}
@@ -21,9 +20,9 @@ import (
 }
 
 Role: {
-   items: [
+	items: [
 		for k, v in #Roles {
 			v
 		},
-	],
+	]
 }

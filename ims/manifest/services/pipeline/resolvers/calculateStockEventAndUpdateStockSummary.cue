@@ -302,21 +302,6 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 			{
 				"result": args.createStockSummary.id
 			}"""
-		},
-		// 6.Trigger sync with shopify
-		{
-			Name: "syncShopify",
-			Description: "Trigger sync with shopify",
-			Invoker: settings.adminInvoker,
-			PreScript: """
-			{
-				"variantID": context.pipeline.getStockEvent.result.variantID
-			}
-			"""
-			Operation: pipeline.#GraphqlOperation & {
-				Query: "syncShopify"
-				Url: "https://eo4e79eejrc0gy3.m.pipedream.net"
-			}
 		}
 	]
 }

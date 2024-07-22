@@ -12,8 +12,8 @@ import (
 			{
 				name: "ManagerReview"
 				approvers: [
-					{ id: utils.uuid & {_, #type: "roles", #value: "Admin"} },
-                    { id: utils.uuid & {_, #type: "roles", #value: "Manager"} }
+					{id: utils.uuid & {_, #type: "roles", #value: "Admin"}},
+					{id: utils.uuid & {_, #type: "roles", #value: "Manager"}},
 				]
 				transitions: [{
 					action:      "approve"
@@ -23,11 +23,11 @@ import (
 			{
 				name: "CustomerReview"
 				approvers: [
-                    { id: utils.uuid & {_, #type: "roles", #value: "Admin"} },
-                    { id: utils.uuid & {_, #type: "roles", #value: "Customer"} }
-                ]
+					{id: utils.uuid & {_, #type: "roles", #value: "Admin"}},
+					{id: utils.uuid & {_, #type: "roles", #value: "Customer"}},
+				]
 				transitions: [{
-					action: "approve"
+					action:      "approve"
 					destination: "AllApproved"
 				}]
 			},
@@ -43,7 +43,7 @@ StateFlow: {
 		for k, v in #StateFlows {
 			v
 		},
-	],
+	]
 	query: """
 		mutation ($input: NewStateFlowRequestInput){
 		    newStateFlow(input: $input) {
@@ -52,4 +52,3 @@ StateFlow: {
 		}
 		"""
 }
-

@@ -5,14 +5,14 @@ import (
 )
 
 #StockEvents: {
-    StockEvent5: {
-        documentID: utils.uuid & {_, #type: "document", #value: "7"},
-        isAdding: true,
-    },
-    StockEvent6: {
-        documentID: utils.uuid & {_, #type: "document", #value: "5"},
-        isAdding: false,
-    }
+	StockEvent5: {
+		documentID: utils.uuid & {_, #type: "document", #value: "7"}
+		isAdding: true
+	}
+	StockEvent6: {
+		documentID: utils.uuid & {_, #type: "document", #value: "5"}
+		isAdding: false
+	}
 }
 
 StockEvent: {
@@ -21,14 +21,14 @@ StockEvent: {
 			v
 		},
 	]
-    query: """
-    mutation createStockEventsFromDocument ($input: createStockEventsFromDocumentInput!){
-        createStockEventsFromDocument(
-            input: $input
-        ){
-            result
-            error
-        }
-    }
-    """
+	query: """
+		mutation createStockEventsFromDocument ($input: createStockEventsFromDocumentInput!){
+		    createStockEventsFromDocument(
+		        input: $input
+		    ){
+		        result
+		        error
+		    }
+		}
+		"""
 }

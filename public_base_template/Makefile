@@ -1,23 +1,24 @@
 GENERATED=generated
 UUID:= $(shell uuidgen)
+APP_NAME:=base-template
 
 .PHONY: apply
-apply: generate
+apply:
 	$(call _cue_vet)
-	tailorctl workspace apply -m ${GENERATED}/workspace.cue
+	tailorctl workspace apply -m ./workspace.cue
 
 .PHONY: machine-token
 machine-token:
-	tailorctl workspace machineuser token -a base-template -m admin-machine-user -f json
+	tailorctl workspace machineuser token -a ${APP_NAME} -m admin-machine-user -f json
 
 .PHONY: init
 init:
-	tailorctl auth login
-	tailorctl workspace create --name base-template -r asia-northeast
+	tailorctl manifest tidy
+	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
 
 .PHONY: app
 app:
-	tailorctl workspace app open -n base-template
+	tailorctl workspace app open -n ${APP_NAME}
 
 .PHONY: seed
 seed:
@@ -28,18 +29,12 @@ setup:
 	pnpm i
 	$(call _install_deps)
 
-.PHONY: generate
-generate:
-	tailorctl manifest tidy
-	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
-	cue eval -f  manifest/workspace.cue -o ${GENERATED}/workspace.cue
-
 .PHONY: vet
 vet:
 	$(call _cue_vet)
 
 define _cue_vet
-	cue vet  -c ./manifest/workspace.cue
+	cue vet  -c ./workspace.cue
 endef
 
 define _install_deps
