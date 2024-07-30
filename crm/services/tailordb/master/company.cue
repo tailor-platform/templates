@@ -6,33 +6,33 @@ import (
 )
 
 Company: tailordb.#Type & {
-	Name: "Company"
+	Name:        "Company"
 	Description: "Company Model"
 	Fields: {
 		name: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Company Name"
-			Required: true
-			Unique: true
-			Index: true
+			Required:    true
+			Unique:      true
+			Index:       true
 		}
 		isDeleted: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is Deleted?"
 			Hooks: {
 				CreateExpr: "false"
 			}
 		}
 		url: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Company URL"
 		}
 		linkedInUrl: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Company's LinkedIn URL"
 		}
 		logoUrl: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Company Logo URL"
 		}
 		createdAt: tailordb.CreatedAtField

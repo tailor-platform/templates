@@ -6,25 +6,27 @@ import (
 )
 
 Engagement: tailordb.#Type & {
-	Name: "Engagement"
+	Name:        "Engagement"
 	Description: "Engagement model"
 	Fields: {
 		active: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is active?"
 		}
 		activityType: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Activity type"
-			Required: true
+			Required:    true
 		}
 		userId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Owner ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "User"
 		}
 		type: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Engagement type"
 		}
 		createdAt: tailordb.CreatedAtField

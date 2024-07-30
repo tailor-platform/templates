@@ -6,47 +6,50 @@ import (
 )
 
 Contact: tailordb.#Type & {
-	Name: "Contact"
+	Name:        "Contact"
 	Description: "Contact Model"
 	Fields: {
 		isDeleted: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is Deleted?"
 			Hooks: {
 				CreateExpr: "false"
 			}
 		}
 		firstName: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "First Name of the Contact"
-			Required: true
+			Required:    true
 		}
 		lastName: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Last Name of the Contact"
 		}
 		email: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "E-mail"
-			Required: true
+			Required:    true
 		}
 		phonePrimary: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Primary Phone Number"
-			Required: true
+			Required:    true
 		}
 		linkedInUrl: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "LinkedIn URL"
 		}
 		companyId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Company ID"
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "Company"
 		}
 		company: {
-			Type: "Company"
+			Type:        "Company"
 			Description: "Link to the Company"
-			SourceId: "companyId"
+			SourceId:    "companyId"
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField

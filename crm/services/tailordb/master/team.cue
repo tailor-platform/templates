@@ -6,18 +6,18 @@ import (
 )
 
 Team: tailordb.#Type & {
-	Name: "Team"
+	Name:        "Team"
 	Description: "Team model"
 	Fields: {
 		name: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Team Name"
-			Required: true
-			Unique: true
-			Index: true
+			Required:    true
+			Unique:      true
+			Index:       true
 		}
 		isDeleted: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is Deleted?"
 			Hooks: {
 				CreateExpr: "false"

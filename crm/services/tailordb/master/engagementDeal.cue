@@ -6,7 +6,7 @@ import (
 )
 
 EngagementDeal: tailordb.#Type & {
-	Name: "EngagementDeal"
+	Name:        "EngagementDeal"
 	Description: "EngagementDeal model"
 	Indexes: {
 		engagementDealCompositeKey: {
@@ -19,24 +19,28 @@ EngagementDeal: tailordb.#Type & {
 	}
 	Fields: {
 		dealId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Deal ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "Deal"
 		}
 		deal: {
-			Type: "Deal"
+			Type:        "Deal"
 			Description: "Link to the Deal"
-			SourceId: "dealId"
+			SourceId:    "dealId"
 		}
 		engagementId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Engagement ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "Engagement"
 		}
 		engagement: {
-			Type: "Engagement"
+			Type:        "Engagement"
 			Description: "Link to the Engagement"
-			SourceId: "engagementId"
+			SourceId:    "engagementId"
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField

@@ -6,18 +6,18 @@ import (
 )
 
 DealPipeline: tailordb.#Type & {
-	Name: "DealPipeline"
+	Name:        "DealPipeline"
 	Description: "DealPipeline description"
 	Fields: {
 		displayOrder: {
-			Type: tailordb.#TypeInt
+			Type:        tailordb.#TypeInt
 			Description: "Display Order"
-			Required: true
+			Required:    true
 		}
 		label: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Label"
-			Required: true
+			Required:    true
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField

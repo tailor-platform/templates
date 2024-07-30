@@ -6,7 +6,7 @@ import (
 )
 
 ContactListMember: tailordb.#Type & {
-	Name: "ContactListMember"
+	Name:        "ContactListMember"
 	Description: "ContactListMember model"
 	Settings: {
 		BulkUpsert: true
@@ -19,27 +19,29 @@ ContactListMember: tailordb.#Type & {
 	}
 	Fields: {
 		contactId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Contact ID"
-			Required: true
+			Required:    true
 		}
 		contact: {
-			Type: "Contact"
+			Type:        "Contact"
 			Description: "Link to the Contact"
-			SourceId: "contactId"
+			SourceId:    "contactId"
 		}
 		contactListId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "ContactList ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "ContactList"
 		}
 		contactList: {
-			Type: "ContactList"
+			Type:        "ContactList"
 			Description: "Link to the ContactList"
-			SourceId: "contactListId"
+			SourceId:    "contactListId"
 		}
 		addedAt: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Time when the contact was added to the list"
 		}
 		createdAt: tailordb.CreatedAtField
