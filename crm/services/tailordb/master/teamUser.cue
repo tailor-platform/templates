@@ -6,7 +6,7 @@ import (
 )
 
 TeamUser: tailordb.#Type & {
-	Name: "TeamUser"
+	Name:        "TeamUser"
 	Description: "TeamUser model"
 	Indexes: {
 		teamUserCompositeKey: {
@@ -19,30 +19,35 @@ TeamUser: tailordb.#Type & {
 	}
 	Fields: {
 		teamId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Team ID"
-			Required: true
-			Index: true
+			Required:    true
+			Index:       true
+			ForeignKey:  true
+			ForeignKeyType: "Team"
 		}
 		team: {
-			Type: "Team"
+			Type:        "Team"
 			Description: "Link to the Team"
-			SourceId: "teamId"
+			SourceId:    "teamId"
 		}
 		userId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "User ID"
-			Required: true
+			Required:    true
+			Index:       true
+			ForeignKey:  true
+			ForeignKeyType: "User"
 		}
 		user: {
-			Type: "User"
+			Type:        "User"
 			Description: "Link to the User"
-			SourceId: "userId"
+			SourceId:    "userId"
 		}
 		isSecondaryUser: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is Secondary User?"
-			Required: true
+			Required:    true
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField

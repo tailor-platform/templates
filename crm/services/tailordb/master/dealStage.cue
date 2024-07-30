@@ -6,55 +6,58 @@ import (
 )
 
 DealStage: tailordb.#Type & {
-	Name: "DealStage"
+	Name:        "DealStage"
 	Description: "DealStage model"
 	Fields: {
 		dealPipelineId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "DealPipeline ID"
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "DealPipeline"
 		}
 		dealPipeline: {
-			Type: "DealPipeline"
+			Type:        "DealPipeline"
 			Description: "Link to the DealPipeline"
-			SourceId: "dealPipelineId"
+			SourceId:    "dealPipelineId"
 		}
 		displayOrder: {
-			Type: tailordb.#TypeInt
+			Type:        tailordb.#TypeInt
 			Description: "Display Order"
-			Required: true
+			Required:    true
 		}
 		description: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Description"
 		}
 		label: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Label"
-			Required: true
+			Required:    true
 		}
 		name: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Name"
-			Required: true
+			Required:    true
 		}
 		type: {
-			Type: tailordb.#TypeString
+			Type:        tailordb.#TypeString
 			Description: "Stage type"
 		}
 		probability: {
-			Type: tailordb.#TypeFloat
+			Type:        tailordb.#TypeFloat
 			Description: "Default probability"
-			Required: true
+			Required:    true
 		}
 		closedWon: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Closed Won?"
-			Required: true
+			Required:    true
 		}
 		closedLost: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Closed Lost?"
-			Required: true
+			Required:    true
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField

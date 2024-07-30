@@ -6,24 +6,24 @@ import (
 )
 
 Deal: tailordb.#Type & {
-	Name: "Deal"
+	Name:        "Deal"
 	Description: "Deal description"
 	Settings: {
 		Aggregation: true
 	}
 	Fields: {
 		amount: {
-			Type: tailordb.#TypeFloat
+			Type:        tailordb.#TypeFloat
 			Description: "Deal amount"
-			Required: true
+			Required:    true
 		}
 		probability: {
-			Type: tailordb.#TypeFloat
+			Type:        tailordb.#TypeFloat
 			Description: "Deal probability."
-			Required: true
+			Required:    true
 		}
 		value: {
-			Type: tailordb.#TypeFloat
+			Type:        tailordb.#TypeFloat
 			Description: "Deal value"
 			Hooks: {
 				CreateExpr: "decimal(_value.amount * _value.probability)"
@@ -31,51 +31,59 @@ Deal: tailordb.#Type & {
 			}
 		}
 		isDeleted: {
-			Type: tailordb.#TypeBool
+			Type:        tailordb.#TypeBool
 			Description: "Is Deleted?"
 			Hooks: {
 				CreateExpr: "false"
 			}
 		}
 		dealStageId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "DealStage ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "DealStage"
 		}
 		dealStage: {
-			Type: "DealStage"
+			Type:        "DealStage"
 			Description: "Link to the DealStage"
-			SourceId: "dealStageId"
+			SourceId:    "dealStageId"
 		}
 		userId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "User ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "User"
 		}
 		user: {
-			Type: "User"
+			Type:        "User"
 			Description: "Link to the User"
-			SourceId: "userId"
+			SourceId:    "userId"
 		}
 		companyId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Company ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "Company"
 		}
 		company: {
-			Type: "Company"
+			Type:        "Company"
 			Description: "Link to the Company"
-			SourceId: "companyId"
+			SourceId:    "companyId"
 		}
 		contactId: {
-			Type: tailordb.#TypeUUID
+			Type:        tailordb.#TypeUUID
 			Description: "Contact ID"
-			Required: true
+			Required:    true
+			ForeignKey:  true
+			ForeignKeyType: "Contact"
 		}
 		contact: {
-			Type: "Contact"
+			Type:        "Contact"
 			Description: "Link to the Contact"
-			SourceId: "contactId"
+			SourceId:    "contactId"
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField
