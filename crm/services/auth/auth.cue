@@ -6,7 +6,6 @@ import (
 	"tailor.build/template/services/tailordb/master"
 	"tailor.build/template/environment"
 	role "tailor.build/template/seed/master"
-	"github.com/tailor-platform/tailorctl/schema/v2/secretmanager"
 )
 
 auth.#Spec & {
@@ -14,12 +13,8 @@ auth.#Spec & {
 	IdProviderConfigs: [
 		auth.#IDProviderConfig & {
 			Name: "sample"
-			Config: auth.#OIDC & {
-				ClientID: "XXXXXXX"
-				ClientSecret: secretmanager.#SecretValue & {
-					VaultName: "default"
-					SecretKey: "oidc-client-secret"
-				}
+				Config: auth.#IDToken & {
+				ClientID:    "exampleco"
 				ProviderURL: "https://exampleco-enterprises.auth0.com/"
 			}
 		},
