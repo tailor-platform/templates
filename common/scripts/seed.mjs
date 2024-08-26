@@ -1,5 +1,5 @@
 import pkg from "@apollo/client";
-import { $$, cue } from "@tailor-platform/dev-cli/script";
+import { $$ } from "@tailor-platform/dev-cli/script";
 import { promises as fs, readFileSync } from 'fs';
 import path from "path";
 import { exec } from "child_process";
@@ -223,7 +223,7 @@ async function seed() {
     for (const file of cueFiles) {
         const jsonPath = `./tmp/${path.basename(file, '.cue')}_seed.json`;
         try {
-            await execAsync(`${cue} eval ${file} --out json > ${jsonPath}`);
+            await execAsync(`cue eval ${file} --out json > ${jsonPath}`);
             await mutatePipeline(jsonPath, token);
         } catch (error) {
             console.error("\x1b[31m%s\x1b[0m", `Error processing ${file}: ${error.message}`);
