@@ -38,6 +38,9 @@
     "postcss-modules": "^6.0.0",
     "prettier": "^3.0.3"
   },
+  "overrides": {
+    "undici": "^6.19.2"
+  },
   "retoolCustomComponentLibraryConfig": {
     "name": "TimelineCustomControls",
     "label": "timeline custom controls",
