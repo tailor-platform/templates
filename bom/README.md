@@ -54,3 +54,67 @@ mutation item {
   }
 }
 ```
+
+## ERD for this application
+```mermaid
+erDiagram
+    BOM {
+        id UUID
+        name string
+        description string
+        sku string
+        itemId UUID
+        outputQuantity integer
+        bomType enum
+        isActive boolean
+        uomId UUID
+        createdAt Date
+        updatedAt Date
+    }
+    BomLineItem {
+        id UUID
+        bomId UUID
+        itemId UUID
+        inputQuantity integer
+        uomId UUID
+        createdAt Date
+        updatedAt Date
+    }
+    Item {
+        id UUID
+        name string
+        description string
+        sku string
+        isFinalProduct boolean
+        inventoryType enum
+        uomId UUID
+        bomId UUID
+        isActive boolean
+        createdAt Date
+        updatedAt Date
+    }
+    UOM {
+        id UUID
+        name string
+        description string
+        isActive boolean
+        createdAt Date
+        updatedAt Date
+    }
+    UomConversion {
+        id UUID
+        fromUomId UUID
+        toUomId UUID
+        conversionFactor float
+        createdAt Date
+        updatedAt Date
+    }
+    BOM ||--o{ BomLineItem : includes
+    BomLineItem ||--|| Item : contains
+    Item ||--|| UOM : uses
+    BOM ||--|| Item : finalizes
+    BomLineItem ||--|| UOM : measured_by
+    Item ||--o| BOM : associated_with
+    UomConversion ||--|| UOM : from
+    UomConversion ||--|| UOM : to
+```
