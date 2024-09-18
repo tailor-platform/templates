@@ -5,11 +5,12 @@ import (
 	"tailor.build/template/services/tailordb/permissions"
 )
 
+
 PurchaseOrder: tailordb.#Type & {
 	Name:        "PurchaseOrder"
 	Description: "Purchase order. A purchase order is a document issued by a buyer to a seller, indicating types, quantities, and agreed prices for products or services the seller will provide to the buyer."
 	Settings: {
-		BulkUpsert:          true
+		BulkUpsert: true
 		PublishRecordEvents: true
 	}
 	Fields: {
@@ -47,12 +48,12 @@ PurchaseOrder: tailordb.#Type & {
 			Description: "Status of the purchase order"
 			Required:    true
 			AllowedValues: [
-				{Value: "draft", Description: "Draft"},
-				{Value: "submitted", Description: "Submitted"},
-				{Value: "confirmed", Description: "Confirmed"},
-				{Value: "rejected", Description: "Rejected"},
-				{Value: "completed", Description: "Completed"},
-				{Value: "canceled", Description: "Canceled"},
+				{ Value: "draft", Description: "Draft" },
+				{ Value: "submitted", Description: "Submitted" },
+				{ Value: "confirmed", Description: "Confirmed" },
+				{ Value: "rejected", Description: "Rejected" },
+				{ Value: "completed", Description: "Completed" },
+				{ Value: "canceled", Description: "Canceled" }
 			]
 		}
 		"submittedOn": {
@@ -75,8 +76,8 @@ PurchaseOrder: tailordb.#Type & {
 			Type:        tailordb.#TypeEnum
 			Description: "Party who canceled the purchase order"
 			AllowedValues: [
-				{Value: "buyer", Description: "Buyer"},
-				{Value: "supplier", Description: "Supplier"},
+				{ Value: "buyer", Description: "Buyer" },
+				{ Value: "supplier", Description: "Supplier" }
 			]
 		}
 		"completedOn": {

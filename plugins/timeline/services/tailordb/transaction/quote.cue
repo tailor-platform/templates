@@ -9,7 +9,7 @@ Quote: tailordb.#Type & {
 	Name:        "Quote"
 	Description: "Quote model"
 	Settings: {
-		BulkUpsert:          true
+		BulkUpsert: true
 		PublishRecordEvents: true
 	}
 	Fields: {
@@ -51,11 +51,11 @@ Quote: tailordb.#Type & {
 			Type:        tailordb.#TypeEnum
 			Description: "Quote status"
 			AllowedValues: [
-				{Value: "draft", Description: "Draft"},
-				{Value: "submitted", Description: "Submitted"},
-				{Value: "accepted", Description: "Accepted"},
-				{Value: "rejected", Description: "Rejected"},
-				{Value: "expired", Description: "Expired"},
+				{ Value: "draft", Description: "Draft" },
+				{ Value: "submitted", Description: "Submitted" },
+				{ Value: "accepted", Description: "Accepted" },
+				{ Value: "rejected", Description: "Rejected" },
+				{ Value: "expired", Description: "Expired" }
 			]
 			Required: true
 		}

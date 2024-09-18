@@ -9,29 +9,29 @@ createInvoiceForPurchaseOrderInput: {
 	Name: "CreateInvoiceForPurchaseOrderInput"
 	Fields: [
 		{
-			Name: "supplierID"
-			Type: pipeline.ID
-		},
+      Name: "supplierID",
+      Type: pipeline.ID
+    },
 		{
-			Name: "purchaseOrderID"
-			Type: pipeline.ID
-		},
+      Name: "purchaseOrderID",
+      Type: pipeline.ID
+    },
 		{
-			Name: "invoiceDate"
-			Type: pipeline.Date
-		},
+      Name: "invoiceDate",
+      Type: pipeline.Date
+    },
 		{
-			Name: "reference"
-			Type: pipeline.String
-		},
+      Name: "reference",
+      Type: pipeline.String
+    },
 		{
-			Name: "status"
-			Type: pipeline.String
-		},
+      Name: "status",
+      Type: pipeline.String
+    },
 		{
-			Name: "dueDate"
-			Type: pipeline.Date
-		},
+      Name: "dueDate",
+      Type: pipeline.Date
+    },
 	]
 }
 
@@ -56,7 +56,7 @@ createInvoiceForPurchaseOrder: pipeline.#Resolver & {
 			Description: "Get line items from purchase order"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  query fetchPurchaseOrderLineItems($purchaseOrderID: ID!) {
 					    purchaseOrderLineItems(query: {purchaseOrderID: { eq: $purchaseOrderID}}) {
@@ -84,7 +84,7 @@ createInvoiceForPurchaseOrder: pipeline.#Resolver & {
 			Description: "Create a new invoice"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  mutation ($input: InvoiceCreateInput!) {
 					    createInvoice(input: $input) {

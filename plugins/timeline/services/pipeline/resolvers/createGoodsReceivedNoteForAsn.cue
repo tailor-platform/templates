@@ -56,25 +56,25 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 			Description: "Get line items from ASN"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
-															  query fetchAdvanceShipmentNoticeLineItems($advanceShipmentNoticeID: ID!) {
-															    advanceShipmentNoticeLineItems(query: {advanceShipmentNoticeID: { eq: $advanceShipmentNoticeID}}) {
-															      collection {
-															        id
-															        displayOrder
-															        product {
-															          id
-															          name
-															          description
-															          price
-															        }
-										                  invoiceLineItemID
-															        productID
-															        quantity
-															      }
-															    }
-															  }"""
+										  query fetchAdvanceShipmentNoticeLineItems($advanceShipmentNoticeID: ID!) {
+										    advanceShipmentNoticeLineItems(query: {advanceShipmentNoticeID: { eq: $advanceShipmentNoticeID}}) {
+										      collection {
+										        id
+										        displayOrder
+										        product {
+										          id
+										          name
+										          description
+										          price
+										        }
+					                  invoiceLineItemID
+										        productID
+										        quantity
+										      }
+										    }
+										  }"""
 			}
 			PostScript: "args.advanceShipmentNoticeLineItems.collection"
 		},
@@ -83,19 +83,19 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 			Description: "Create a new GRN"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
-					                    mutation ($input: GoodsReceivedNoteCreateInput!) {
-					                        createGoodsReceivedNote(input: $input) {
-					                          id
-					                          supplierID
-					                          invoiceID
-					                          advanceShipmentNoticeID
-					                          grnDate
-					                          reference
-					                          status
-					                        }
-					                      }"""
+                    mutation ($input: GoodsReceivedNoteCreateInput!) {
+                        createGoodsReceivedNote(input: $input) {
+                          id
+                          supplierID
+                          invoiceID
+                          advanceShipmentNoticeID
+                          grnDate
+                          reference
+                          status
+                        }
+                      }"""
 			}
 			PostScript: "args.createGoodsReceivedNote"
 		},
@@ -105,16 +105,16 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			ForEach:     "context.pipeline.fetchAdvanceShipmentNoticeLineItems"
 			PreScript: """
-																{
-																  "input": {
-																    "displayOrder": each.displayOrder,
-																    "goodsReceivedNoteID": context.pipeline.createGoodsReceivedNote.id,
-																    "advanceShipmentNoteLineItemID": each.id,
-												            "invoiceLineItemID": each.invoiceLineItemID,
-																    "productID": each.productID,
-																    "quantity": each.quantity,
-																  }
-																}"""
+												{
+												  "input": {
+												    "displayOrder": each.displayOrder,
+												    "goodsReceivedNoteID": context.pipeline.createGoodsReceivedNote.id,
+												    "advanceShipmentNoteLineItemID": each.id,
+								            "invoiceLineItemID": each.invoiceLineItemID,
+												    "productID": each.productID,
+												    "quantity": each.quantity,
+												  }
+												}"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					  mutation ($input: GoodsReceivedNoteLineItemCreateInput!) {

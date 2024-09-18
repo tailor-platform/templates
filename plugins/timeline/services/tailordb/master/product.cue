@@ -1,7 +1,7 @@
 package master
 
 import (
-	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
+  "github.com/tailor-platform/tailorctl/schema/v2/tailordb"
 	"tailor.build/template/services/tailordb/permissions"
 )
 
@@ -9,7 +9,7 @@ Product: tailordb.#Type & {
 	Name:        "Product"
 	Description: "Buyer's product catalog"
 	Settings: {
-		BulkUpsert:          true
+		BulkUpsert: true
 		PublishRecordEvents: true
 	}
 	Fields: {

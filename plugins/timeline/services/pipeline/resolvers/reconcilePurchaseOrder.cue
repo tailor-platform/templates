@@ -8,14 +8,14 @@ import (
 reconcilePurchaseOrderOutput: {
 	Name: "ReconcilePurchaseOrderOutput"
 	Fields: [
-		{Name: "purchaseOrderID", Type: pipeline.ID},
+		{Name: "purchaseOrderID", Type:         pipeline.ID},
 		{Name: "purchaseOrderLineItemID", Type: pipeline.ID},
-		{Name: "productID", Type: pipeline.ID},
-		{Name: "purchaseOrderQuantity", Type: pipeline.Float},
-		{Name: "invoiceQuantity", Type: pipeline.Float},
-		{Name: "price", Type: pipeline.Float},
-		{Name: "quantityDifference", Type: pipeline.Float},
-		{Name: "valueDifference", Type: pipeline.Float},
+		{Name: "productID", Type:               pipeline.ID},
+		{Name: "purchaseOrderQuantity", Type:   pipeline.Float},
+		{Name: "invoiceQuantity", Type:         pipeline.Float},
+		{Name: "price", Type:                   pipeline.Float},
+		{Name: "quantityDifference", Type:      pipeline.Float},
+		{Name: "valueDifference", Type:         pipeline.Float},
 	]
 }
 
@@ -41,7 +41,7 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 			Description: "Get all line items for purchase order"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  query ($id: ID!) {
 					    purchaseOrderLineItems (query: { purchaseOrderID: { eq: $id }}) {
@@ -67,17 +67,17 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 				  "purchaseOrderLineItemID": each.id
 				}
 				"""
-			Operation: pipeline.#GraphqlOperation & {
-				Query: """
-					query ($purchaseOrderLineItemID: ID!) {
-					  aggregateInvoiceLineItems(query: { purchaseOrderLineItemID: {eq: $purchaseOrderLineItemID} }) {
-					    sum {
-					      quantity
-					    }
-					  }
-					}
-					"""
-			}
+      Operation: pipeline.#GraphqlOperation & {
+        Query: """
+          query ($purchaseOrderLineItemID: ID!) {
+            aggregateInvoiceLineItems(query: { purchaseOrderLineItemID: {eq: $purchaseOrderLineItemID} }) {
+              sum {
+                quantity
+              }
+            }
+          }
+          """
+      }
 			PostScript: """
 				{
 				  "purchaseOrderID": context.args.id,

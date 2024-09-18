@@ -8,12 +8,12 @@ import (
 createPurchaseOrderForQuoteInput: {
 	Name: "CreatePurchaseOrderForQuoteInput"
 	Fields: [
-		{Name: "supplierID", Type: pipeline.ID},
-		{Name: "quoteID", Type: pipeline.ID},
+		{Name: "supplierID", Type:        pipeline.ID},
+		{Name: "quoteID", Type:           pipeline.ID},
 		{Name: "purchaseOrderDate", Type: pipeline.Date},
-		{Name: "expiryDate", Type: pipeline.Date},
-		{Name: "reference", Type: pipeline.String},
-		{Name: "status", Type: pipeline.String},
+		{Name: "expiryDate", Type:        pipeline.Date},
+		{Name: "reference", Type:         pipeline.String},
+		{Name: "status", Type:            pipeline.String},
 	]
 }
 
@@ -38,7 +38,7 @@ createPurchaseOrderForQuote: pipeline.#Resolver & {
 			Description: "Get line items from Quote"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  query fetchQuoteLineItems($quoteID: ID!) {
 					    quoteLineItems(query: {quoteID: { eq: $quoteID}}) {
@@ -66,18 +66,18 @@ createPurchaseOrderForQuote: pipeline.#Resolver & {
 			Description: "Create a new purchase order"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
-										        mutation ($input: PurchaseOrderCreateInput!) {
-										          createPurchaseOrder(input: $input) {
-										            id
-														    supplierID
-														    quoteID
-														    purchaseOrderDate
-														    reference
-														    status
-														  }
-														}"""
+					        mutation ($input: PurchaseOrderCreateInput!) {
+					          createPurchaseOrder(input: $input) {
+					            id
+									    supplierID
+									    quoteID
+									    purchaseOrderDate
+									    reference
+									    status
+									  }
+									}"""
 			}
 			PostScript: "args.createPurchaseOrder"
 		},
@@ -100,11 +100,11 @@ createPurchaseOrderForQuote: pipeline.#Resolver & {
 				"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-										  mutation ($input: PurchaseOrderLineItemCreateInput!) {
-										    createPurchaseOrderLineItem(input: $input) {
-										      id
-										    }
-										  }"""
+					  mutation ($input: PurchaseOrderLineItemCreateInput!) {
+					    createPurchaseOrderLineItem(input: $input) {
+					      id
+					    }
+					  }"""
 			}
 			PostScript: "args.createPurchaseOrderLineItem.id"
 		},

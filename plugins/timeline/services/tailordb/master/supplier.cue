@@ -1,7 +1,7 @@
 package master
 
 import (
-	"github.com/tailor-platform/tailorctl/schema/v2/tailordb"
+  "github.com/tailor-platform/tailorctl/schema/v2/tailordb"
 	"tailor.build/template/services/tailordb/permissions"
 )
 
@@ -9,7 +9,7 @@ Supplier: tailordb.#Type & {
 	Name:        "Supplier"
 	Description: "Supplier account"
 	Settings: {
-		BulkUpsert:          true
+		BulkUpsert: true
 		PublishRecordEvents: true
 	}
 	Fields: {
@@ -41,8 +41,8 @@ Supplier: tailordb.#Type & {
 		status: {
 			Type: tailordb.#TypeEnum
 			AllowedValues: [
-				{Value: "active", Description: "Active supplier."},
-				{Value: "inactive", Description: "Inactive supplier."},
+				{ Value: "active", Description: "Active supplier." },
+				{ Value: "inactive", Description: "Inactive supplier." }
 			]
 			Description: "Status of the supplier."
 		}

@@ -9,7 +9,7 @@ RequestForQuote: tailordb.#Type & {
 	Name:        "RequestForQuote"
 	Description: "Model for Request for Quote"
 	Settings: {
-		BulkUpsert:          true
+		BulkUpsert: true
 		PublishRecordEvents: true
 	}
 	Fields: {
@@ -33,10 +33,10 @@ RequestForQuote: tailordb.#Type & {
 			Type:        tailordb.#TypeEnum
 			Description: "Status of the Request for Quote"
 			AllowedValues: [
-				{Value: "draft", Description: "Draft"},
-				{Value: "active", Description: "Active"},
-				{Value: "closed", Description: "Closed"},
-				{Value: "cancelled", Description: "Cancelled"},
+				{ Value: "draft", Description: "Draft" },
+				{ Value: "active", Description: "Active" },
+				{ Value: "closed", Description: "Closed" },
+				{ Value: "cancelled", Description: "Cancelled" }
 			]
 		}
 		createdAt: tailordb.CreatedAtField

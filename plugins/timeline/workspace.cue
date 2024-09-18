@@ -11,12 +11,12 @@ import (
 
 v2.#Workspace & {
 	Apps: [
-		application,
+		application
 	]
 	Services: [
 		tailordb,
 		pipeline,
 		auth,
-		executor,
+		executor
 	]
 }
