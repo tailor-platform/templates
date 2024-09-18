@@ -8,14 +8,14 @@ import (
 reconcileInvoiceOutput: {
 	Name: "ReconcileInvoiceOutput"
 	Fields: [
-		{Name: "invoiceID", Type: pipeline.ID},
-		{Name: "invoiceLineItemID", Type: pipeline.ID},
-		{Name: "productID", Type: pipeline.ID},
+		{Name: "invoiceID", Type:             pipeline.ID},
+		{Name: "invoiceLineItemID", Type:     pipeline.ID},
+		{Name: "productID", Type:             pipeline.ID},
 		{Name: "goodsReceivedQuantity", Type: pipeline.Float},
-		{Name: "invoiceQuantity", Type: pipeline.Float},
-		{Name: "price", Type: pipeline.Float},
-		{Name: "quantityDifference", Type: pipeline.Float},
-		{Name: "valueDifference", Type: pipeline.Float},
+		{Name: "invoiceQuantity", Type:       pipeline.Float},
+		{Name: "price", Type:                 pipeline.Float},
+		{Name: "quantityDifference", Type:    pipeline.Float},
+		{Name: "valueDifference", Type:       pipeline.Float},
 	]
 }
 
@@ -41,7 +41,7 @@ reconcileInvoice: pipeline.#Resolver & {
 			Description: "Get all line items for an invoice"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  query ($id: ID!) {
 					    invoiceLineItems (query: { invoiceID: { eq: $id }}) {

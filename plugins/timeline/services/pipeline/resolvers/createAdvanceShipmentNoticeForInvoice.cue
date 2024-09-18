@@ -1,34 +1,34 @@
 package resolvers
 
 import (
-	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+  "github.com/tailor-platform/tailorctl/schema/v2/pipeline"
 	"tailor.build/template/settings"
 )
 
 createAdvanceShipmentNoticeForInvoiceInput: {
-	Name: "CreateAdvanceShipmentNoticeForInvoiceInput"
-	Fields: [
+  Name: "CreateAdvanceShipmentNoticeForInvoiceInput",
+  Fields: [
+    {
+      Name: "supplierID",
+      Type: pipeline.ID
+    },
 		{
-			Name: "supplierID"
-			Type: pipeline.ID
-		},
+      Name: "invoiceID",
+      Type: pipeline.ID
+    },
 		{
-			Name: "invoiceID"
-			Type: pipeline.ID
-		},
+      Name: "asnDate",
+      Type: pipeline.Date
+    },
 		{
-			Name: "asnDate"
-			Type: pipeline.Date
-		},
+      Name: "reference",
+      Type: pipeline.String
+    },
 		{
-			Name: "reference"
-			Type: pipeline.String
-		},
-		{
-			Name: "status"
-			Type: pipeline.String
-		},
-	]
+      Name: "status",
+      Type: pipeline.String
+    }
+  ]
 }
 
 createAdvanceShipmentNoticeForInvoice: pipeline.#Resolver & {
@@ -52,7 +52,7 @@ createAdvanceShipmentNoticeForInvoice: pipeline.#Resolver & {
 			Description: "Get line items from invoice"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  query fetchInvoiceLineItems($invoiceID: ID!) {
 					    invoiceLineItems(query: {invoiceID: { eq: $invoiceID}}) {
@@ -80,7 +80,7 @@ createAdvanceShipmentNoticeForInvoice: pipeline.#Resolver & {
 			Description: "Create a new advance shipment notice"
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args"
-			Operation: pipeline.#GraphqlOperation & {
+			Operation:   pipeline.#GraphqlOperation & {
 				Query: """
 					  mutation ($input: AdvanceShipmentNoticeCreateInput!) {
 					    createAdvanceShipmentNotice(input: $input) {

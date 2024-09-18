@@ -12,10 +12,10 @@ auth.#Spec & {
 	Namespace: environment.#app.namespace
 	IdProviderConfigs: [
 		auth.#IDProviderConfig & {
-			Name: "retool-integration"
-			Config: auth.#IDToken & {
-				ClientID:    "XXXXXXXXXXXXXXXX"
-				ProviderURL: "https://exampleco-enterprises.auth0.com/" // please update Provider URL
+			Name: "sample"
+				Config: auth.#IDToken & {
+				ClientID:    "exampleco"
+				ProviderURL: "https://exampleco-enterprises.auth0.com/"
 			}
 		},
 	]
