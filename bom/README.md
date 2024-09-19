@@ -55,8 +55,10 @@ mutation item {
 }
 ```
 
+
 ## ERD for this application
 ```mermaid
+
 erDiagram
     BOM {
         id UUID
@@ -71,6 +73,7 @@ erDiagram
         createdAt Date
         updatedAt Date
     }
+
     BomLineItem {
         id UUID
         bomId UUID
@@ -80,6 +83,7 @@ erDiagram
         createdAt Date
         updatedAt Date
     }
+
     Item {
         id UUID
         name string
@@ -93,6 +97,7 @@ erDiagram
         createdAt Date
         updatedAt Date
     }
+
     UOM {
         id UUID
         name string
@@ -101,6 +106,7 @@ erDiagram
         createdAt Date
         updatedAt Date
     }
+
     UomConversion {
         id UUID
         fromUomId UUID
@@ -109,12 +115,14 @@ erDiagram
         createdAt Date
         updatedAt Date
     }
-    BOM ||--o{ BomLineItem : includes
-    BomLineItem ||--|| Item : contains
-    Item ||--|| UOM : uses
-    BOM ||--|| Item : finalizes
-    BomLineItem ||--|| UOM : measured_by
-    Item ||--o| BOM : associated_with
-    UomConversion ||--|| UOM : from
-    UomConversion ||--|| UOM : to
+
+    BOM ||--o{ BomLineItem : "includes"
+    BomLineItem ||--o| Item : "contains"
+    Item ||--o| UOM : "uses"
+    BOM ||--o| Item : "finalizes"
+    BomLineItem ||--o| UOM : "measured_by"
+    Item ||--o| BOM : "associated_with"
+    UomConversion ||--o| UOM : "from"
+    UomConversion ||--o| UOM : "to"
 ```
+
