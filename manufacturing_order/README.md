@@ -1,8 +1,8 @@
-# Bill-of-material
+# manufacturing-order
 
 ## Overview
 
-This template  provides a comprehensive design for the Manufacturing Order (MO) module, integrating Bill of Materials (BOM), Work Order (WO), and optionally with Inventory Management Systems (IMS) and Sales Order/Purchase Order (SO/PO) systems. It aims to facilitate the creation, management, and tracking of manufacturing orders, ensuring efficient production processes. The document includes details on key features, models, user stories, entity relationships, interfaces, and functions required for the MO module.
+This template provides a comprehensive design for the Manufacturing Order (MO) module, integrating Bill of Materials (BOM), Work Order (WO), and optionally with Inventory Management Systems (IMS) and Sales Order/Purchase Order (SO/PO) systems. It aims to facilitate the creation, management, and tracking of manufacturing orders, ensuring efficient production processes. The document includes details on key features, models, user stories, entity relationships, interfaces, and functions required for the MO module.
 
 ## Usage
 To deploy this template, run the following commands
@@ -25,25 +25,38 @@ pnpm i
 2. To seed the initial data into a deployed application run the following commands:
 
 ```bash
-cd bom
+cd manufacturing_order
 node ../common/scripts/seed.mjs
 ```
 
 ## Sample GraphQL queries and mutations
 
-Create a bill or material
+Create a manufacturing order
 ```graphql
-mutation billOfMaterial {
-  createBom(input: {sku: "Wheel-01", bomType: RECIPE, itemId: "cb5ae7ab-dd63-4723-82e3-eafa39eb1873", uomId: "eb5ae7ab-dd63-4723-82e3-eafa39eb1823", name: "Wheel-01"}) {
-    id
-    name
+mutation MyMutation {
+  createManufacturingOrderAndWorkOrders(
+    input: {bomId: "69493a13-e2ea-5188-9258-441c3061b625", quantity: 5, name: "Abs Modulator"}
+  ) {
+    manufacturingOrderId
   }
 }
 ```
 
+
+Create a item of manufacturing order
+```graphql
+mutation MyMutation {
+  planManufacturingOrder(
+    input: {manufacturingOrderId: "0e13ddb1-2b43-4677-806e-eba5f6979a59", scheduleDateTime: "2024-10-10T13:55:20Z"}
+  ) {
+    success
+  }
+}
+```
+
+
 ## ERD for this application
 ```mermaid
-
 erDiagram
     Item {
         string id PK
@@ -111,6 +124,8 @@ erDiagram
         string woId FK
         string workCenterId FK
         number sequence
+        date startDate
+        date endDate
     }
 
     DayOfWeek {
@@ -131,14 +146,14 @@ erDiagram
         enum Finished
         enum Blocked
     }
-    
-	ManufacturingOrderStatus {
-		enum Created
-		enum In_Progress
-		enum WO_Completed
-		enum Completed
-		enum Cancelled
-	}
+
+    ManufacturingOrderStatus {
+        enum Created
+        enum In_Progress
+        enum WO_Completed
+        enum Completed
+        enum Cancelled
+    }
 
     Employee {
         id ID
@@ -170,11 +185,11 @@ erDiagram
         code string
         workingHoursId ID
         timeEfficiency number
-        capacity number
+        parallelProcessingLimit number
         setupTime number
         cleanupTime number
-        costPerHour number
-        costPerEmployee number
+        hourlyProcessingCost number
+        hourlyCostPerEmployee number
         isActive boolean
     }
 
@@ -236,4 +251,3 @@ erDiagram
     WOTimeTracking ||--|| WorkOrder : "tracks"
     WOTimeTracking ||--|| Employee : "worked by"
 ```
-
