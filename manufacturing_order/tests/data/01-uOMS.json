@@ -1,0 +1,36 @@
+{
+  "Uom": {
+    "uom1": {
+      "name": "Piece",
+      "description": "Unit of measurement for counting individual pieces"
+    },
+    "uom2": {
+      "name": "Kilogram",
+      "description": "Unit of measurement for weight in kilograms"
+    },
+    "uom3": {
+      "name": "Meter",
+      "description": null
+    },
+    "uom4": {
+      "name": "Hours",
+      "description": "Measurement of work hours"
+    },
+    "uom5": {
+      "name": "Grams",
+      "description": null
+    },
+    "uom6": {
+      "name": "Cms",
+      "description": "Centimeters"
+    },
+    "uom7": {
+      "name": "Minutes",
+      "description": null
+    },
+    "uom8": {
+      "name": "Foot",
+      "description": "foot"
+    }
+  }
+}

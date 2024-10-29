@@ -1,0 +1,11 @@
+{
+  "Product": {
+    "product1": {
+      "code": "PROD0001",
+      "name": "Samsung Galaxy S23 Ultra",
+      "description": "",
+      "price": 789.34,
+      "uom": "pcs"
+    }
+  }
+}

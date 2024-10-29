@@ -124,7 +124,7 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 					  }
 					"""
 			}
-			PostScript: "args.createGoodsReceivedLineItem.id"
+			PostScript: "args.createGoodsReceivedNoteLineItem.id"
 		},
 	]
 }

@@ -1,0 +1,94 @@
+{
+  "DailySchedule": {
+    "dailyschedule1": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "dayOfWeek": "Monday",
+      "workFrom": "09:00",
+      "workTo": "17:00",
+      "duration": 8
+    },
+    "dailyschedule2": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "dayOfWeek": "Tuesday",
+      "workFrom": "09:00",
+      "workTo": "17:00",
+      "duration": 8
+    },
+    "dailyschedule3": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "dayOfWeek": "Wednesday",
+      "workFrom": "09:00",
+      "workTo": "17:00",
+      "duration": 8
+    },
+    "dailyschedule4": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "dayOfWeek": "Thursday",
+      "workFrom": "09:00",
+      "workTo": "17:00",
+      "duration": 8
+    },
+    "dailyschedule5": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "dayOfWeek": "Friday",
+      "workFrom": "09:00",
+      "workTo": "17:00",
+      "duration": 8
+    },
+    "dailyschedule6": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour2"
+      },
+      "dayOfWeek": "Monday",
+      "workFrom": "01:00",
+      "workTo": "04:00",
+      "duration": 8
+    },
+    "dailyschedule7": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour2"
+      },
+      "dayOfWeek": "Tuesday",
+      "workFrom": "01:00",
+      "workTo": "04:00",
+      "duration": 8
+    },
+    "dailyschedule8": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour2"
+      },
+      "dayOfWeek": "Wednesday",
+      "workFrom": "01:00",
+      "workTo": "04:00",
+      "duration": 8
+    },
+    "dailyschedule9": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour2"
+      },
+      "dayOfWeek": "Thursday",
+      "workFrom": "01:00",
+      "workTo": "04:00",
+      "duration": 8
+    },
+    "dailyschedule10": {
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour2"
+      },
+      "dayOfWeek": "Friday",
+      "workFrom": "01:00",
+      "workTo": "04:00",
+      "duration": 8
+    }
+  }
+}

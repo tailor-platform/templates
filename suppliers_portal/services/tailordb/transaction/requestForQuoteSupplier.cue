@@ -9,7 +9,8 @@ RequestForQuoteSupplier: tailordb.#Type & {
 	Name:        "RequestForQuoteSupplier"
 	Description: "Suppliers invites to quote for a specific RFQ"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert:          true
+		PublishRecordEvents: true
 	}
 	Fields: {
 		requestForQuote: {

@@ -8,6 +8,10 @@ import (
 GoodsReceivedNote: tailordb.#Type & {
 	Name:        "GoodsReceivedNote"
 	Description: "Model for Goods Received Note"
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		grnDate: {
 			Type:        tailordb.#TypeDate
@@ -56,6 +60,7 @@ GoodsReceivedNote: tailordb.#Type & {
 				{Value: "confirmed", Description: "Confirmed"},
 			]
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }
@@ -65,6 +70,7 @@ GoodsReceivedNoteLineItem: tailordb.#Type & {
 	Description: "Model for Goods Received Note Line Item"
 	Settings: {
 		BulkUpsert: true
+		Aggregation: true
 	}
 	Fields: {
 		displayOrder: {
@@ -89,6 +95,11 @@ GoodsReceivedNoteLineItem: tailordb.#Type & {
 		invoiceLineItemID: {
 			Type:        tailordb.#TypeUUID
 			Description: "Invoice Line Item id of the ASN Line Item."
+		}
+		advanceShipmentNoticeLineItem: {
+			Type:        "AdvanceShipmentNoticeLineItem"
+			Description: "Advance Shipment Notice Line Item of the ASN Line Item."
+			SourceId:    "advanceShipmentNoteLineItemID"
 		}
 		advanceShipmentNoteLineItemID: {
 			Type:        tailordb.#TypeUUID

@@ -16,5 +16,6 @@ pipeline.#Spec & {
 		resolvers.createQuoteForRequestForQuote,
 		resolvers.reconcileAdvanceShipmentNotice,
 		resolvers.reconcileInvoice,
+		resolvers.reconcilePurchaseOrder,
 	]
 }

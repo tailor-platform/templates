@@ -1,6 +1,6 @@
 package environment
 
 #app: {
-	seed:      "{{UUID}}"
-	namespace: string
+	seed:           "{{UUID}}"
+	namespace:      "manufacturing-order"
 }

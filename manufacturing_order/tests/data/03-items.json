@@ -1,0 +1,144 @@
+{
+  "Item": {
+    "item1": {
+      "name": "Frame",
+      "description": "frame",
+      "sku": "FR-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item2": {
+      "name": "Spokes",
+      "description": "Spokes",
+      "sku": "SK-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item3": {
+      "name": "Handlebars",
+      "description": "Handlebars",
+      "sku": "HB-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item4": {
+      "name": "Brakes",
+      "description": "Brakes",
+      "sku": "BR-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item5": {
+      "name": "Wheels",
+      "description": "Wheels",
+      "sku": "WH-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item6": {
+      "name": "Tube",
+      "description": "Tube",
+      "sku": "TB-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item7": {
+      "name": "Pedals",
+      "description": "Pedals",
+      "sku": "Pedal-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item8": {
+      "name": "Chain",
+      "description": "chain",
+      "sku": "chain-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom3"
+      }
+    },
+    "item9": {
+      "name": "Bearing",
+      "description": "Bearing",
+      "sku": "Bearing-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item10": {
+      "name": "Paint - Blue",
+      "description": "paint blue",
+      "sku": "PB-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom2"
+      }
+    },
+    "item11": {
+      "name": "Paint - Red",
+      "description": "paint blue",
+      "sku": "PR-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom2"
+      }
+    },
+    "item12": {
+      "name": "Round Frame",
+      "description": "Round Frame",
+      "sku": "RF-001",
+      "isFinalProduct": false,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "item13": {
+      "name": "Assemble time",
+      "description": "Assemble time",
+      "sku": "AT-001",
+      "isFinalProduct": false,
+      "inventoryType": "SERVICE",
+      "uomId": {
+        "UUID": "Uom.uom4"
+      }
+    },
+    "item14": {
+      "name": "7-speed Advance Mountain bike",
+      "description": "7-speed Advance Mountain bike",
+      "sku": "7-speed-001",
+      "isFinalProduct": true,
+      "inventoryType": "INVENTORY",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    }
+  }
+}

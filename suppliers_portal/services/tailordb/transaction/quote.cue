@@ -8,6 +8,10 @@ import (
 Quote: tailordb.#Type & {
 	Name:        "Quote"
 	Description: "Quote model"
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		supplier: {
 			Type:        "Supplier"
@@ -55,6 +59,7 @@ Quote: tailordb.#Type & {
 			]
 			Required: true
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }

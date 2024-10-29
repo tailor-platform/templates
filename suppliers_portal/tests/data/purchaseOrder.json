@@ -1,0 +1,62 @@
+{
+  "PurchaseOrder": {
+    "purchaseOrder1": {
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "quoteID": {
+        "UUID": "Quote.quote1"
+      },
+      "purchaseOrderDate": "2024-08-25",
+      "reference": "PO-001",
+      "status": "confirmed",
+      "submittedOn": "2024-08-25",
+      "confirmedOn": "2024-08-25"
+    },
+    "purchaseOrder2": {
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "quoteID": {
+        "UUID": "Quote.quote1"
+      },
+      "purchaseOrderDate": "2024-08-25",
+      "reference": "PO-001",
+      "status": "confirmed",
+      "submittedOn": "2024-08-25",
+      "confirmedOn": "2024-08-25"
+    }
+  },
+  "PurchaseOrderLineItem": {
+    "purchaseOrder1LineItem1": {
+      "displayOrder": 1,
+      "purchaseOrderID": {
+        "UUID": "PurchaseOrder.purchaseOrder1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "quoteLineItemID": {
+        "UUID": "QuoteLineItem.quoteLineItem1"
+      },
+      "description": "Product description",
+      "price": 1000.0,
+      "quantity": 10
+    },
+    "purchaseOrder2LineItem1": {
+      "displayOrder": 1,
+      "purchaseOrderID": {
+        "UUID": "PurchaseOrder.purchaseOrder2"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "quoteLineItemID": {
+        "UUID": "QuoteLineItem.quoteLineItem1"
+      },
+      "description": "Product description",
+      "price": 1000.0,
+      "quantity": 10
+    }
+  }
+}

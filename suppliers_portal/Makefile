@@ -1,4 +1,3 @@
-GENERATED=generated
 UUID:= $(shell uuidgen)
 APP_NAME:=suppliers-portal
 

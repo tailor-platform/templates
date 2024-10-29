@@ -1,0 +1,24 @@
+{
+  "RequestForQuote": {
+    "requestForQuote1": {
+      "rfqDate": "2021-06-01",
+      "deadline": "2021-06-15",
+      "description": "Request for quote for a new project",
+      "reference": "RFQ-001",
+      "status": "active"
+    }
+  },
+  "RequestForQuoteLineItem": {
+    "requestForQuoteLineItem1": {
+      "displayOrder": 1,
+      "requestForQuoteID": {
+        "UUID": "RequestForQuote.requestForQuote1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "quantity": 10
+    }
+  }
+}

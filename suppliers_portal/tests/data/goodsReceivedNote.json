@@ -1,0 +1,68 @@
+{
+  "GoodsReceivedNote": {
+    "goodsReceivedNote1": {
+      "grnDate": "2024-07-01",
+      "reference": "GRN-001",
+      "invoiceID": {
+        "UUID": "Invoice.invoice1"
+      },
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "advanceShipmentNoticeID": {
+        "UUID": "AdvanceShipmentNotice.advanceShipmentNotice1"
+      },
+      "status": "confirmed"
+    },
+    "goodsReceivedNote2": {
+      "grnDate": "2024-07-01",
+      "reference": "GRN-002",
+      "invoiceID": {
+        "UUID": "Invoice.invoice2"
+      },
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "advanceShipmentNoticeID": {
+        "UUID": "AdvanceShipmentNotice.advanceShipmentNotice2"
+      },
+      "status": "confirmed"
+    }
+  },
+  "GoodsReceivedNoteLineItem": {
+    "goodsReceivedNote1LineItem1": {
+      "goodsReceivedNoteID": {
+        "UUID": "GoodsReceivedNote.goodsReceivedNote1"
+      },
+      "displayOrder": 1,
+      "invoiceLineItemID": {
+        "UUID": "InvoiceLineItem.invoiceLineItem1"
+      },
+      "advanceShipmentNoteLineItemID": {
+        "UUID": "AdvanceShipmentNoteLineItem.advanceShipmentNoteLineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "quantity": 10
+    },
+    "goodsReceivedNote2LineItem1": {
+      "goodsReceivedNoteID": {
+        "UUID": "GoodsReceivedNote.goodsReceivedNote2"
+      },
+      "displayOrder": 1,
+      "invoiceLineItemID": {
+        "UUID": "InvoiceLineItem.invoice2LineItem1"
+      },
+      "advanceShipmentNoteLineItemID": {
+        "UUID": "AdvanceShipmentNoteLineItem.advanceShipmentNoteLineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "quantity": 10
+    }
+  }
+}

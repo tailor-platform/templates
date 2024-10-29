@@ -9,7 +9,8 @@ Supplier: tailordb.#Type & {
 	Name:        "Supplier"
 	Description: "Supplier account"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert:          true
+		PublishRecordEvents: true
 	}
 	Fields: {
 		code: {
@@ -51,6 +52,7 @@ Supplier: tailordb.#Type & {
 			// temporary disabled for development
 			// required:  true
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }

@@ -1,0 +1,74 @@
+{
+  "Operation": {
+    "operation1": {
+      "name": "Frame Manufacturing",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter4"
+      },
+      "duration": 120,
+      "description": "Operation for assembling products",
+      "documentUrl": "http://example.com/doc-1",
+      "isActive": true,
+      "order": 1
+    },
+    "operation2": {
+      "name": " Wheel Building",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter4"
+      },
+      "duration": 60,
+      "description": "Operation for making wheel",
+      "documentUrl": "http://example.com/doc-2",
+      "isActive": true,
+      "order": 1
+    },
+    "operation3": {
+      "name": "Assembly",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter1"
+      },
+      "duration": 90,
+      "description": "Assenbly of all parts",
+      "documentUrl": "http://example.com/doc-3",
+      "isActive": true,
+      "order": 2
+    },
+    "operation4": {
+      "name": "Quality Check",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter3"
+      },
+      "duration": 10,
+      "description": "Quality check of the product",
+      "documentUrl": "http://example.com/doc-4",
+      "isActive": true,
+      "order": 3
+    },
+    "operation5": {
+      "name": "Packaging",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter5"
+      },
+      "duration": 60,
+      "description": "Packing of the product",
+      "documentUrl": "http://example.com/doc-5",
+      "isActive": true,
+      "order": 4
+    }
+  }
+}

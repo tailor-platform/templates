@@ -1,0 +1,16 @@
+{
+  "ManufacturingOrder": {
+    "manufacturingorder1": {
+      "name": "Mountain bike",
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item1"
+      },
+      "componentsStatus": "Ready",
+      "status": "Draft",
+      "quantity": 1
+    }
+  }
+}

@@ -8,6 +8,10 @@ import (
 AdvanceShipmentNotice: tailordb.#Type & {
 	Name:        "AdvanceShipmentNotice"
 	Description: "Model for Advance Shipment Notice"
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		asnDate: {
 			Type:        tailordb.#TypeDate
@@ -76,6 +80,7 @@ AdvanceShipmentNotice: tailordb.#Type & {
 			Type:        tailordb.#TypeDate
 			Description: "Submission date of the ASN."
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }
@@ -84,7 +89,8 @@ AdvanceShipmentNoticeLineItem: tailordb.#Type & {
 	Name:        "AdvanceShipmentNoticeLineItem"
 	Description: "Model for Advance Shipment Notice Line Item"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert: true,
+		Aggregation: true
 	}
 	Fields: {
 		displayOrder: {

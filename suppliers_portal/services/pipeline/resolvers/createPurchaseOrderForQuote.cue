@@ -11,7 +11,6 @@ createPurchaseOrderForQuoteInput: {
 		{Name: "supplierID", Type: pipeline.ID},
 		{Name: "quoteID", Type: pipeline.ID},
 		{Name: "purchaseOrderDate", Type: pipeline.Date},
-		{Name: "expiryDate", Type: pipeline.Date},
 		{Name: "reference", Type: pipeline.String},
 		{Name: "status", Type: pipeline.String},
 	]
