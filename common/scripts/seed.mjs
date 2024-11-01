@@ -12,92 +12,112 @@ const { ApolloClient, HttpLink, gql, InMemoryCache } = pkg;
 
 const execAsync = util.promisify(exec);
 const args = minimist(process.argv.slice(2));
-let { ignoreExisting } = args;
+let { ignoreExisting, generateTestDataArg, skipPrompts } = args;
 ignoreExisting = !!args["ignore-existing"];
+generateTestDataArg = args["generate-test-data"] !== undefined ? (args["generate-test-data"] || "tests/data") : undefined;
+skipPrompts = !!args["skip-prompts"];
+
+const uuidMap = {};
 
 let selectedApp, selectedWorkspace;
 
 async function configureEnvironment() {
-  let workspace;
-  do {
-    let workspaceJsonString;
-    try {
-      workspaceJsonString = await $$({
-        stdio: "pipe",
-      })`tailorctl workspace describe -f json`;
-    } catch (error) {
-      if (error.message.includes("token is expired")) {
-        console.error(
-          "\x1b[31m%s\x1b[0m",
-          "Token is expired. running login command..."
-        );
-        await $$`tailorctl auth login`;
-        await $$`tailorctl config switch default`;
-        continue;
-      }
-      if (error.message.includes("workspace_id must be specified")) {
-        await selectWorkspace();
-        continue;
-      }
-      throw error;
-    }
-    try {
-      workspace = JSON.parse(workspaceJsonString.stdout);
-    } catch (error) {
-      console.error("Error parsing workspace");
-      process.exit(1);
-    }
-  } while (!workspace);
+	let workspace;
+	do {
+		let workspaceJsonString;
+		try {
+			workspaceJsonString = await $$({
+				stdio: "pipe",
+			})`tailorctl workspace describe -f json`;
+		} catch (error) {
+			if (error.message.includes("token is expired")) {
+				console.error(
+					"\x1b[31m%s\x1b[0m",
+					"Token is expired. running login command..."
+				);
+				await $$`tailorctl auth login`;
+				await $$`tailorctl config switch default`;
+				continue;
+			}
+			if (error.message.includes("workspace_id must be specified")) {
+				await selectWorkspace();
+				continue;
+			}
+			throw error;
+		}
+		try {
+			workspace = JSON.parse(workspaceJsonString.stdout);
+		} catch (error) {
+			console.error("Error parsing workspace");
+			process.exit(1);
+		}
+	} while (!workspace);
 
-  if (workspace[0].name) {
-    const continuePrompt = await prompts({
-      type: "confirm",
-      name: "value",
-      message: `Do you want to use the workspace ${workspace[0].name}?`,
-      initial: true,
-    });
-    if (!continuePrompt.value) {
-      await selectWorkspace();
-    }
-  }
-  const appsJsonString = await $$({
-    stdio: "pipe",
-  })`tailorctl workspace app list -f json`;
-  const apps = JSON.parse(appsJsonString.stdout);
-  // prompt user to select an app
-  const result = await prompts({
-    type: "select",
-    name: "value",
-    message: "Select an app",
-    choices: apps.map((app) => ({
-      title: app.name,
-      value: app,
-    })),
-  });
-  selectedApp = result.value;
+	if (workspace[0].name) {
+		if (!skipPrompts) {
+			const continuePrompt = await prompts({
+				type: "confirm",
+				name: "value",
+				message: `Do you want to use the workspace ${workspace[0].name}?`,
+				initial: true,
+			});
+			if (!continuePrompt.value) {
+				await selectWorkspace();
+			}
+		} else {
+			selectedWorkspace = workspace[0]; // Auto-select the first workspace
+		}
+	}
+	const appsJsonString = await $$({
+		stdio: "pipe",
+	})`tailorctl workspace app list -f json`;
+	const apps = JSON.parse(appsJsonString.stdout);
+	
+	// If skipPrompts is true, auto-select the first app
+	if (skipPrompts) {
+		selectedApp = apps[0];
+	} else {
+		// prompt user to select an app
+		const result = await prompts({
+			type: "select",
+			name: "value",
+			message: "Select an app",
+			choices: apps.map((app) => ({
+				title: app.name,
+				value: app,
+			})),
+		});
+		selectedApp = result.value;
+	}
 }
 
 async function selectWorkspace() {
-  const workspacesJsonString = await $$({
-    stdio: "pipe",
-  })`tailorctl workspace list -f json`;
-  const workspaces = JSON.parse(workspacesJsonString.stdout);
-  // prompt user to select a workspace
-  const result = await prompts({
-    type: "select",
-    name: "value",
-    message: "Select a workspace",
-    choices: workspaces.map((workspace) => ({
-      title: workspace.name,
-      value: workspace,
-    })),
-  });
-  selectedWorkspace = result.value;
-  if (!selectedWorkspace) {
-    console.error("\x1b[31m%s\x1b[0m", "No workspace selected");
-    process.exit(1);
-  }
-  await $$`tailorctl config set workspaceId ${selectedWorkspace.id}`;
+	const workspacesJsonString = await $$({
+		stdio: "pipe",
+	})`tailorctl workspace list -f json`;
+	const workspaces = JSON.parse(workspacesJsonString.stdout);
+	// If skipPrompts is true, auto-select the first workspace
+	if (skipPrompts) {
+		selectedWorkspace = workspaces[0];
+	} else {
+		// prompt user to select a workspace
+		const result = await prompts({
+			type: "select",
+			name: "value",
+			message: "Select a workspace",
+			choices: workspaces.map((workspace) => ({
+				title: workspace.name,
+				value: workspace,
+			})),
+		});
+		selectedWorkspace = result.value;
+	}
+	
+	if (!selectedWorkspace) {
+		console.error("\x1b[31m%s\x1b[0m", "No workspace selected");
+		process.exit(1);
+	}
+	await $$`tailorctl config set workspaceId ${selectedWorkspace.id}`;
 }
 
 async function generateMachineUserToken() {
@@ -230,6 +250,7 @@ async function seed() {
             if (!error.message.includes("no CUE files")) throw error;
         }
     }
+	console.log("\x1b[32m%s\x1b[0m", "All seed files processed successfully.");
 }
 
 async function main() {

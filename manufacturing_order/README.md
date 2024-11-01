@@ -58,196 +58,197 @@ mutation MyMutation {
 ## ERD for this application
 ```mermaid
 erDiagram
-    Item {
-        string id PK
-        string name
-        string description
-        string productId
-        boolean isFinalProduct
-        InventoryType inventoryType
-        string uomId FK
-    }
+    Item {
+        string id PK
+        string name
+        string description
+        string productId
+        boolean isFinalProduct
+        InventoryType inventoryType
+        string uomId FK
+    }
 
-    UOM {
-        string id PK
-        string name
-        string description
-    }
+    UOM {
+        string id PK
+        string name
+        string description
+    }
 
-    UOMConversion {
-        string id PK
-        string fromUOMId FK
-        string toUOMId FK
-        number conversionFactor
-    }
+    UOMConversion {
+        string id PK
+        string fromUOMId FK
+        string toUOMId FK
+        number conversionFactor
+    }
 
-    BOM {
-        string id PK
-        string name
-        string description
-        string itemId FK
-        number outputQuantity
-        BOMType bomType
-    }
+    BOM {
+        string id PK
+        string name
+        string description
+        string itemId FK
+        number outputQuantity
+        BOMType bomType
+    }
 
-    BOMLineItem {
-        string id PK
-        string bomId FK
-        string itemId FK
-        number inputQuantity
-        string uomId FK
-        number unitCost
-        number totalCost
-        boolean isManufactured
-    }
+    BOMLineItem {
+        string id PK
+        string bomId FK
+        string itemId FK
+        number inputQuantity
+        string uomId FK
+        number unitCost
+        number totalCost
+        boolean isManufactured
+    }
 
-    ManufacturingOrder {
-        string id PK
-        string item
-        string manufacturingOrderName
-        date scheduledDate
-        string scheduledTime
-        string bomId FK
-        string componentsStatus
-        number quantity
-        ManufacturingOrderStatus status
-        date createdAt
-        date updatedAt
-        number totalCost
-        number bomCost
-        number woCost
-        ManufacturingOrder parentMOId FK
-    }
+    ManufacturingOrder {
+        string id PK
+        string item
+        string manufacturingOrderName
+        date scheduledDate
+        string scheduledTime
+        string bomId FK
+        string componentsStatus
+        number quantity
+        ManufacturingOrderStatus status
+        date createdAt
+        date updatedAt
+        number totalCost
+        number bomCost
+        number woCost
+        ManufacturingOrder parentMOId FK
+    }
 
-    MO_WO_Plan {
-        string moId FK
-        string woId FK
-        string workCenterId FK
-        number sequence
+    MO_WO_Plan {
+        string moId FK
+        string woId FK
+        string workCenterId FK
+        number sequence
         date startDate
-        date endDate
-    }
+        date endDate
+    }
 
-    DayOfWeek {
-        enum Sunday
-        enum Monday
-        enum Tuesday
-        enum Wednesday
-        enum Thursday
-        enum Friday
-        enum Saturday
-    }
+    DayOfWeek {
+        enum Sunday
+        enum Monday
+        enum Tuesday
+        enum Wednesday
+        enum Thursday
+        enum Friday
+        enum Saturday
+    }
 
-    WorkOrderStatus {
-        enum Waiting_for_another_WO
-        enum Waiting_for_components
-        enum Ready
-        enum In_Progress
-        enum Finished
-        enum Blocked
-    }
+    WorkOrderStatus {
+        enum Waiting_for_another_WO
+        enum Waiting_for_components
+        enum Ready
+        enum In_Progress
+        enum Finished
+        enum Blocked
+    }
 
-    ManufacturingOrderStatus {
-        enum Created
-        enum In_Progress
-        enum WO_Completed
-        enum Completed
-        enum Cancelled
-    }
+    ManufacturingOrderStatus {
+        enum Created
+        enum In_Progress
+        enum WO_Completed
+        enum Completed
+        enum Cancelled
+    }
 
-    Employee {
-        id ID
-        name string
-        role string
-    }
+    Employee {
+        id ID
+        name string
+        role string
+    }
 
-    WorkingHours {
-        id ID
-        name string
-        standardHoursPerWeek number
-        timeZone string
-        isActive boolean
-    }
+    WorkingHours {
+        id ID
+        name string
+        standardHoursPerWeek number
+        timeZone string
+        isActive boolean
+    }
 
-    DailySchedule {
-        id ID
-        workingHoursId ID
-        dayOfWeek DayOfWeek
-        workFrom string
-        workTo string
-        duration number
-    }
+    DailySchedule {
+        id ID
+        workingHoursId ID
+        dayOfWeek DayOfWeek
+        workFrom string
+        workTo string
+        duration number
+    }
 
-    WorkCenter {
-        id ID
-        name string
-        description string
-        code string
-        workingHoursId ID
-        timeEfficiency number
-        parallelProcessingLimit number
-        setupTime number
-        cleanupTime number
-        hourlyProcessingCost number
-        hourlyCostPerEmployee number
-        isActive boolean
-    }
+    WorkCenter {
+        id ID
+        name string
+        description string
+        code string
+        workingHoursId ID
+        timeEfficiency number
+        parallelProcessingLimit number
+        setupTime number
+        cleanupTime number
+        hourlyProcessingCost number
+        hourlyCostPerEmployee number
+        isActive boolean
+    }
 
-    Operation {
-        id ID
-        name string
-        bomId ID
-        workCenterId ID
-        duration number
-        description string
-        documentUrl string
-        isActive boolean
-    }
+    Operation {
+        id ID
+        name string
+        bomId ID
+        workCenterId ID
+        duration number
+        description string
+        documentUrl string
+        isActive boolean
+    }
 
-    WorkOrder {
-        id ID
-        status WorkOrderStatus
-        operationId ID
-        workCenterId ID
-        expectedDuration number
-        realDuration number
-        isBlocked boolean
-        isDeleted boolean
-        startDate Date
-        endDate Date
-    }
+    WorkOrder {
+        id ID
+        status WorkOrderStatus
+        operationId ID
+        workCenterId ID
+        expectedDuration number
+        realDuration number
+        isBlocked boolean
+        isDeleted boolean
+        startDate Date
+        endDate Date
+    }
 
-    WOTimeTracking {
-        workOrderId ID
-        employeeId ID
-        duration number
-        startDate Date
-        endDate Date
-    }
+    WOTimeTracking {
+        workOrderId ID
+        employeeId ID
+        duration number
+        startDate Date
+        endDate Date
+    }
 
-    Item ||--o{ UOM : "measured in"
-    Item ||--o{ BOM : "produced by"
-    BOM ||--o{ BOMLineItem : "has"
-    BOMLineItem ||--o{ Item : "uses"
-    BOMLineItem ||--o{ UOM : "measured in"
-    UOM ||--o{ UOMConversion : "converted from"
-    UOM ||--o{ UOMConversion : "converted to"
-    ManufacturingOrder ||--o{ ManufacturingOrder : "has nested MOs"
-    ManufacturingOrder ||--|| BOM : "based on"
-    ManufacturingOrder ||--o{ MO_WO_Plan : "has"
-    MO_WO_Plan ||--o{ WorkOrder : "contains"
-    WorkOrder ||--|| BOM : "based on"
-    WorkOrder ||--|| WorkCenter : "executed at"
-    WorkOrder ||--|| Operation : "based on"
-    WOTimeTracking ||--|| WorkOrder : "tracks"
-    WOTimeTracking ||--|| Employee : "worked by"
-    WorkingHours ||--o{ DailySchedule : "has"
-    DailySchedule }o--|| DayOfWeek : "on"
-    WorkCenter ||--|| WorkingHours : "uses"
-    Operation ||--|| BOM : "uses"
-    Operation ||--|| WorkCenter : "performed at"
-    WorkOrder ||--|| Operation : "based on"
-    WorkOrder ||--|| WorkCenter : "executed at"
-    WOTimeTracking ||--|| WorkOrder : "tracks"
-    WOTimeTracking ||--|| Employee : "worked by"
+    Item ||--o{ UOM : "measured in"
+    Item ||--o{ BOM : "produced by"
+    BOM ||--o{ BOMLineItem : "has"
+    BOMLineItem ||--o{ Item : "uses"
+    BOMLineItem ||--o{ UOM : "measured in"
+    UOM ||--o{ UOMConversion : "converted from"
+    UOM ||--o{ UOMConversion : "converted to"
+    ManufacturingOrder ||--o{ ManufacturingOrder : "has nested MOs"
+    ManufacturingOrder ||--|| BOM : "based on"
+    ManufacturingOrder ||--o{ MO_WO_Plan : "has"
+    MO_WO_Plan ||--o{ WorkOrder : "contains"
+    WorkOrder ||--|| BOM : "based on"
+    WorkOrder ||--|| WorkCenter : "executed at"
+    WorkOrder ||--|| Operation : "based on"
+    WOTimeTracking ||--|| WorkOrder : "tracks"
+    WOTimeTracking ||--|| Employee : "worked by"
+    WorkingHours ||--o{ DailySchedule : "has"
+    DailySchedule }o--|| DayOfWeek : "on"
+    WorkCenter ||--|| WorkingHours : "uses"
+    Operation ||--|| BOM : "uses"
+    Operation ||--|| WorkCenter : "performed at"
+    WorkOrder ||--|| Operation : "based on"
+    WorkOrder ||--|| WorkCenter : "executed at"
+    WOTimeTracking ||--|| WorkOrder : "tracks"
+    WOTimeTracking ||--|| Employee : "worked by"
 ```
+

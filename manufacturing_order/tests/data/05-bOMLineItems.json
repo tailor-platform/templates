@@ -1,0 +1,160 @@
+{
+  "BomLineItem": {
+    "bomlineitem1": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item6"
+      },
+      "inputQuantity": 1,
+      "unitCost": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem2": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item9"
+      },
+      "inputQuantity": 10,
+      "unitCost": 10,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem3": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item2"
+      },
+      "inputQuantity": 10,
+      "unitCost": 20,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem4": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item12"
+      },
+      "inputQuantity": 1,
+      "unitCost": 5,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem5": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item13"
+      },
+      "inputQuantity": 1,
+      "unitCost": 6,
+      "uomId": {
+        "UUID": "Uom.uom4"
+      }
+    },
+    "bomlineitem6": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item3"
+      },
+      "inputQuantity": 1,
+      "unitCost": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem7": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item4"
+      },
+      "inputQuantity": 2,
+      "unitCost": 8,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem8": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item5"
+      },
+      "unitCost": 5,
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem9": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item7"
+      },
+      "unitCost": 2,
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      }
+    },
+    "bomlineitem10": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item8"
+      },
+      "unitCost": 2,
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom3"
+      }
+    },
+    "bomlineitem11": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item10"
+      },
+      "unitCost": 1,
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom2"
+      }
+    },
+    "bomlineitem12": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item13"
+      },
+      "unitCost": 1,
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom4"
+      }
+    }
+  }
+}

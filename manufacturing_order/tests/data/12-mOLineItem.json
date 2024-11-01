@@ -1,0 +1,74 @@
+{
+  "MOLineItem": {
+    "molineitem1": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem6"
+      },
+      "requiredQuantity": 1,
+      "totalCost": 3
+    },
+    "molineitem2": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem7"
+      },
+      "requiredQuantity": 2,
+      "totalCost": 16
+    },
+    "molineitem3": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem8"
+      },
+      "requiredQuantity": 2,
+      "totalCost": 10
+    },
+    "molineitem4": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem9"
+      },
+      "requiredQuantity": 2,
+      "totalCost": 4
+    },
+    "molineitem5": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem10"
+      },
+      "requiredQuantity": 2,
+      "totalCost": 4
+    },
+    "molineitem6": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem11"
+      },
+      "requiredQuantity": 2,
+      "totalCost": 2
+    },
+    "molineitem7": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "bomLineItemId": {
+        "UUID": "BomLineItem.bomlineitem12"
+      },
+      "requiredQuantity": 4,
+      "totalCost": 4
+    }
+  }
+}

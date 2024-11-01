@@ -1,0 +1,19 @@
+{
+  "Role": {
+    "role1": {
+      "name": "Admin"
+    },
+    "role2": {
+      "name": "Manager"
+    },
+    "role3": {
+      "name": "Staff"
+    },
+    "role4": {
+      "name": "Viewer"
+    },
+    "role5": {
+      "name": "Editor"
+    }
+  }
+}

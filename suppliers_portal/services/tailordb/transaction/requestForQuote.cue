@@ -8,6 +8,10 @@ import (
 RequestForQuote: tailordb.#Type & {
 	Name:        "RequestForQuote"
 	Description: "Model for Request for Quote"
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		rfqDate: {
 			Type:        tailordb.#TypeDate
@@ -35,6 +39,7 @@ RequestForQuote: tailordb.#Type & {
 				{Value: "cancelled", Description: "Cancelled"},
 			]
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }

@@ -1,0 +1,31 @@
+{
+  "AdvanceShipmentNotice": {
+    "advanceShipmentNotice1": {
+      "asnDate": "2024-08-01",
+      "reference": "ASN-001",
+      "invoiceID": {
+        "UUID": "Invoice.invoice1"
+      },
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "status": "draft"
+    }
+  },
+  "AdvanceShipmentNoticeLineItem": {
+    "advanceShipmentNoticeLineItem1": {
+      "advanceShipmentNoticeID": {
+        "UUID": "AdvanceShipmentNotice.advanceShipmentNotice1"
+      },
+      "displayOrder": 1,
+      "invoiceLineItemID": {
+        "UUID": "InvoiceLineItem.invoiceLineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "quantity": 10
+    }
+  }
+}

@@ -34,7 +34,7 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 		Type:  reconcilePurchaseOrderOutput
 		Array: true
 	}
-	PostScript: "context.pipeline.aggregateInvoiceLineItemsForPurchaseOrderLineItem"
+	PostScript: "context.pipeline.aggregateInvoiceItemsForPOItem"
 	Pipelines: [
 		{
 			Name:        "fetchPurchaseOrderLineItems"
@@ -43,40 +43,38 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 			PreScript:   "context.args"
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-					  query ($id: ID!) {
-					    purchaseOrderLineItems (query: { purchaseOrderID: { eq: $id }}) {
-					      collection {
-					        id
-					        productID
-					        quantity
-					        price
-					      }
-					    }
-					  }
-					"""
+				query ($id: ID!) {
+					purchaseOrderLineItems (query: { purchaseOrderID: { eq: $id }}) {
+						collection {
+							id
+							productID
+							quantity
+							price
+						}
+					}
+				}"""
 			}
 			PostScript: "args.purchaseOrderLineItems.collection"
 		},
 		{
-			Name:        "aggregateInvoiceLineItemsForPurchaseOrderLineItem"
+			Name:        "aggregateInvoiceItemsForPOItem"
 			Description: "Get Invoice line items associated with the purchase order line item and calculate the total quantities"
 			Invoker:     settings.adminInvoker
 			ForEach:     "context.pipeline.fetchPurchaseOrderLineItems"
 			PreScript: """
 				{
-				  "purchaseOrderLineItemID": each.id
+					"purchaseOrderLineItemID": each.id
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					query ($purchaseOrderLineItemID: ID!) {
-					  aggregateInvoiceLineItems(query: { purchaseOrderLineItemID: {eq: $purchaseOrderLineItemID} }) {
-					    sum {
-					      quantity
-					    }
-					  }
-					}
-					"""
+						aggregateInvoiceLineItems(query: { purchaseOrderLineItemID: {eq: $purchaseOrderLineItemID} }) {
+							sum {
+								quantity
+							}
+						}
+					}"""
 			}
 			PostScript: """
 				{

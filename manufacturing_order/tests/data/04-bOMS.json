@@ -1,0 +1,43 @@
+{
+  "Bom": {
+    "bom1": {
+      "name": "7-speed Advance Mountain bike",
+      "description": "The 7-Speed Advance Mountain Bike is designed for both novice and experienced riders who crave adventure on rugged trails and off-road terrains. Engineered with a lightweight yet durable aluminum frame, this bike ensures optimal performance and durability.",
+      "outputQuantity": 1,
+      "sku": "7-speed-001",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item14"
+      }
+    },
+    "bom2": {
+      "name": "Wheel",
+      "description": "Wheel",
+      "sku": "wheel-001",
+      "outputQuantity": 1,
+      "bomType": "COMPONENT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item5"
+      }
+    },
+    "bom3": {
+      "name": "Tube",
+      "description": "Tube",
+      "sku": "Tube-001",
+      "outputQuantity": 1,
+      "bomType": "COMPONENT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item6"
+      }
+    }
+  }
+}

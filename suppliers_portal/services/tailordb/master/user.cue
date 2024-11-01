@@ -7,7 +7,10 @@ import (
 
 User: tailordb.#Type & {
 	Name:        "User"
-	Description: "User of the system"
+	Description: "User"
+	Settings: {
+		BulkUpsert: true
+	}
 	Fields: {
 		name: {
 			Type:        tailordb.#TypeString
@@ -30,6 +33,5 @@ User: tailordb.#Type & {
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField
 	}
-
 	TypePermission: permissions.adminAccess
 }

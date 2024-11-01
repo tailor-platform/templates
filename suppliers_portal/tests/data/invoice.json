@@ -1,0 +1,62 @@
+{
+  "Invoice": {
+    "invoice1": {
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "purchaseOrderID": {
+        "UUID": "PurchaseOrder.purchaseOrder1"
+      },
+      "invoiceDate": "2024-08-25",
+      "dueDate": "2024-09-25",
+      "reference": "INV-001",
+      "status": "submitted",
+      "submittedOn": "2024-08-25"
+    },
+    "invoice2": {
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "purchaseOrderID": {
+        "UUID": "PurchaseOrder.purchaseOrder2"
+      },
+      "invoiceDate": "2024-08-25",
+      "dueDate": "2024-09-25",
+      "reference": "INV-001",
+      "status": "submitted",
+      "submittedOn": "2024-08-25"
+    }
+  },
+  "InvoiceLineItem": {
+    "invoice1LineItem1": {
+      "displayOrder": 1,
+      "invoiceID": {
+        "UUID": "Invoice.invoice1"
+      },
+      "purchaseOrderLineItemID": {
+        "UUID": "PurchaseOrderLineItem.purchaseOrderLineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "price": 1000.0,
+      "quantity": 10
+    },
+    "invoice2LineItem1": {
+      "displayOrder": 1,
+      "invoiceID": {
+        "UUID": "Invoice.invoice2"
+      },
+      "purchaseOrderLineItemID": {
+        "UUID": "PurchaseOrderLineItem.purchaseOrder2LineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "price": 1000.0,
+      "quantity": 8
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Quote": {
+    "quote1": {
+      "supplierID": {
+        "UUID": "Supplier.supplier1"
+      },
+      "requestForQuoteID": {
+        "UUID": "RequestForQuote.requestForQuote1"
+      },
+      "quoteDate": "2024-08-05",
+      "expiryDate": "2024-08-20",
+      "reference": "Q-001",
+      "status": "draft"
+    }
+  },
+  "QuoteLineItem": {
+    "quoteLineItem1": {
+      "displayOrder": 1,
+      "quoteID": {
+        "UUID": "Quote.quote1"
+      },
+      "requestForQuoteLineItemID": {
+        "UUID": "RequestForQuoteLineItem.requestForQuoteLineItem1"
+      },
+      "productID": {
+        "UUID": "Product.product1"
+      },
+      "description": "Product description",
+      "price": 1000.00,
+      "quantity": 10
+    }
+  }
+}

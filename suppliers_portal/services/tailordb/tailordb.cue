@@ -5,6 +5,7 @@ import (
 	"tailor.build/template/environment"
 	"tailor.build/template/services/tailordb/master"
 	"tailor.build/template/services/tailordb/transaction"
+	"tailor.build/template/services/tailordb/timeline"
 )
 
 tailordb.#Spec & {
@@ -27,5 +28,6 @@ tailordb.#Spec & {
 		{transaction.QuoteLineItem},
 		{transaction.PurchaseOrder},
 		{transaction.PurchaseOrderLineItem},
+		{timeline.TimelineEntry},
 	]
 }

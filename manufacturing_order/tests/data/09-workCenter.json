@@ -1,0 +1,79 @@
+{
+  "WorkCenter": {
+    "workcenter1": {
+      "name": "Assembly Center",
+      "description": "Center for assembly operations",
+      "code": "WCA-001",
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "timeEfficiency": 0.85,
+      "parallelProcessingLimit": 2,
+      "setupTime": 15,
+      "cleanupTime": 15,
+      "hourlyProcessingCost": 100,
+      "costPerEmployee": 20,
+      "isActive": true
+    },
+    "workcenter2": {
+      "name": "Packing Center",
+      "description": "Center for packing operations",
+      "code": "WCP-001",
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "timeEfficiency": 0.9,
+      "parallelProcessingLimit": 2,
+      "setupTime": 20,
+      "cleanupTime": 10,
+      "hourlyProcessingCost": 80,
+      "costPerEmployee": 15,
+      "isActive": true
+    },
+    "workcenter3": {
+      "name": "Quality Control Center",
+      "description": "Center for quality control",
+      "code": "WCQC-001",
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "timeEfficiency": 0.95,
+      "parallelProcessingLimit": 4,
+      "setupTime": 0,
+      "cleanupTime": 0,
+      "hourlyProcessingCost": 10,
+      "costPerEmployee": 25,
+      "isActive": true
+    },
+    "workcenter4": {
+      "name": "Casting Center",
+      "description": "Center for Casting metal",
+      "code": "WCCC-001",
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "timeEfficiency": 1,
+      "parallelProcessingLimit": 2,
+      "setupTime": 15,
+      "cleanupTime": 15,
+      "hourlyProcessingCost": 100,
+      "costPerEmployee": 45,
+      "isActive": true
+    },
+    "workcenter5": {
+      "name": "Painting Center",
+      "description": "Center for painting",
+      "code": "WCP-001",
+      "workingHoursId": {
+        "UUID": "WorkingHour.workinghour1"
+      },
+      "timeEfficiency": 1,
+      "parallelProcessingLimit": 3,
+      "setupTime": 15,
+      "cleanupTime": 15,
+      "hourlyProcessingCost": 100,
+      "costPerEmployee": 45,
+      "isActive": true
+    }
+  }
+}

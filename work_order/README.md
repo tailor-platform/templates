@@ -43,6 +43,7 @@ query aggregateWorkOrder {
 }
 ```
 
+
 ## ERD for this application
 ```mermaid
 erDiagram
@@ -55,6 +56,7 @@ erDiagram
         enum Friday
         enum Saturday
     }
+
     WorkOrderStatus {
         enum Waiting_for_another_WO
         enum Waiting_for_components
@@ -63,17 +65,20 @@ erDiagram
         enum Finished
         enum Blocked
     }
+
     BOM {
         id ID
         name string
         description string
         outputQuantity number
     }
+
     Employee {
         id ID
         name string
         role string
     }
+
     WorkingHours {
         id ID
         name string
@@ -81,6 +86,7 @@ erDiagram
         timeZone string
         isActive boolean
     }
+
     DailySchedule {
         id ID
         workingHoursId ID
@@ -89,6 +95,7 @@ erDiagram
         workTo string
         duration number
     }
+
     WorkCenter {
         id ID
         name string
@@ -103,6 +110,7 @@ erDiagram
         costPerEmployee number
         isActive boolean
     }
+
     Operation {
         id ID
         name string
@@ -113,6 +121,7 @@ erDiagram
         documentUrl string
         isActive boolean
     }
+
     WorkOrder {
         id ID
         status WorkOrderStatus
@@ -125,6 +134,7 @@ erDiagram
         startDate Date
         endDate Date
     }
+
     WOTimeTracking {
         workOrderId ID
         employeeId ID
@@ -132,13 +142,17 @@ erDiagram
         startDate Date
         endDate Date
     }
+
     WorkingHours ||--o{ DailySchedule : has
     DailySchedule }o--|| DayOfWeek : on
+
     WorkCenter ||--|| WorkingHours : uses
     Operation ||--|| BOM : uses
     Operation ||--|| WorkCenter : performed_at
+
     WorkOrder ||--|| Operation : based_on
     WorkOrder ||--|| WorkCenter : executed_at
+
     WOTimeTracking ||--|| WorkOrder : tracks
     WOTimeTracking ||--|| Employee : worked_by
 ```

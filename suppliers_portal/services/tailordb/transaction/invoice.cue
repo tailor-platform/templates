@@ -8,6 +8,10 @@ import (
 Invoice: tailordb.#Type & {
 	Name:        "Invoice"
 	Description: "Invoice model"
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		supplier: {
 			Type:        "Supplier"
@@ -77,7 +81,8 @@ InvoiceLineItem: tailordb.#Type & {
 	Name:        "InvoiceLineItem"
 	Description: "Invoice Line Item model"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert: true,
+		Aggregation: true
 	}
 	Fields: {
 		displayOrder: {

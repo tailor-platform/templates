@@ -10,12 +10,10 @@ reconcileAdvanceShipmentNoticeOutput: {
 	Fields: [
 		{Name: "advanceShipmentNoticeID", Type: pipeline.ID},
 		{Name: "advanceShipmentNoticeLineItemID", Type: pipeline.ID},
-		{Name: "productId", Type: pipeline.ID},
-		{Name: "advanceShipmentNoticeQuantity", Type: pipeline.Float},
+		{Name: "productID", Type: pipeline.ID},
 		{Name: "goodsReceivedQuantity", Type: pipeline.Float},
-		{Name: "price", Type: pipeline.Float},
-		{Name: "quantityDifference", Type: pipeline.Float},
-		{Name: "valueDifference", Type: pipeline.Float},
+		{Name: "advanceShipmentNoticeQuantity", Type: pipeline.Float},
+		{Name: "quantityDifference", Type: pipeline.Float}
 	]
 }
 
@@ -44,7 +42,7 @@ reconcileAdvanceShipmentNotice: pipeline.#Resolver & {
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					query ($id: ID!) {
-					  advanceShipmentNotices (query: { advanceShipmentNoticeID: { eq: $id }}) {
+					  advanceShipmentNoticeLineItems (query: { advanceShipmentNoticeID: { eq: $id }}) {
 					    collection {
 					      id
 					      productID
@@ -54,13 +52,13 @@ reconcileAdvanceShipmentNotice: pipeline.#Resolver & {
 					}
 					"""
 			}
-			PostScript: "args.invoiceLineItems.collection"
+			PostScript: "args.advanceShipmentNoticeLineItems.collection"
 		},
 		{
-			Name:        "aggregateGrnLineItemsForInvoiceLineItem"
-			Description: "Get Goods received notice line items associated with the invoice line items"
+			Name:        "aggregateGrnLineItemsForAdvanceShipmentNoticeLineItem"
+			Description: "Get Goods received notice line items associated with the asn items"
 			Invoker:     settings.adminInvoker
-			ForEach:     "context.pipeline.fetchInvoiceLineItems"
+			ForEach:     "context.pipeline.fetchAdvanceShipmentNoticeLineItems"
 			PreScript: """
 				{
 				  "advanceShipmentNoticeLineItemID": each.id
@@ -69,7 +67,7 @@ reconcileAdvanceShipmentNotice: pipeline.#Resolver & {
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					query ($advanceShipmentNoticeLineItemID: ID!) {
-					  aggregateGoodsReceivedNoteLineItems(query: { advanceShipmentNoticeLineItemID: {eq: $advanceShipmentNoticeLineItemID} }) {
+					  aggregateGoodsReceivedNoteLineItems(query: { advanceShipmentNoteLineItemID: {eq: $advanceShipmentNoticeLineItemID} }) {
 					    sum {
 					      quantity
 					    }
@@ -79,14 +77,12 @@ reconcileAdvanceShipmentNotice: pipeline.#Resolver & {
 			}
 			PostScript: """
 				{
-				  "invoiceID": context.args.id,
-				  "invoiceLineItemID": each.id,
+				  "advanceShipmentNoticeID": context.args.id,
+				  "advanceShipmentNoticeLineItemID": each.id,
 				  "productID": each.productID,
 				  "goodsReceivedQuantity": args.aggregateGoodsReceivedNoteLineItems[0].sum.quantity,
-				  "invoiceQuantity": each.quantity,
-				  "price": each.price,
-				  "quantityDifference": args.aggregateGoodsReceivedNoteLineItems[0].sum.quantity - each.quantity,
-				  "valueDifference": (args.aggregateGoodsReceivedNoteLineItems[0].sum.quantity - each.quantity) * each.price
+				  "advanceShipmentNoticeQuantity": each.quantity,
+				  "quantityDifference": args.aggregateGoodsReceivedNoteLineItems[0].sum.quantity - each.quantity
 				}
 				"""
 		},

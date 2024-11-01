@@ -1,10 +1,10 @@
 package settings
 
 import (
-	"tailor.build/template/environment"
+	"tailor.build/template/services/auth"
 )
 
 adminInvoker: {
-	AuthNamespace:   environment.#app.namespace
-	MachineUserName: "admin-machine-user"
+	AuthNamespace:   auth.Namespace
+	MachineUserName: auth.MachineUsers[0].Name
 }

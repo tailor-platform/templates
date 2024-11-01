@@ -8,6 +8,10 @@ import (
 PurchaseOrder: tailordb.#Type & {
 	Name:        "PurchaseOrder"
 	Description: "Purchase order. A purchase order is a document issued by a buyer to a seller, indicating types, quantities, and agreed prices for products or services the seller will provide to the buyer."
+	Settings: {
+		BulkUpsert:          true
+		PublishRecordEvents: true
+	}
 	Fields: {
 		supplier: {
 			Type:        "Supplier"
@@ -28,17 +32,17 @@ PurchaseOrder: tailordb.#Type & {
 			Type:        tailordb.#TypeUUID
 			Description: "Quote ID"
 		}
-		"purchaseOrderDate": {
+		purchaseOrderDate: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of purchase order"
 			Required:    true
 		}
-		"reference": {
+		reference: {
 			Type:        tailordb.#TypeString
 			Description: "Human readable reference number of purchase order"
 			Required:    true
 		}
-		"status": {
+		status: {
 			Type:        tailordb.#TypeEnum
 			Description: "Status of the purchase order"
 			Required:    true
@@ -51,23 +55,23 @@ PurchaseOrder: tailordb.#Type & {
 				{Value: "canceled", Description: "Canceled"},
 			]
 		}
-		"submittedOn": {
+		submittedOn: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of submission"
 		}
-		"confirmedOn": {
+		confirmedOn: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of supplier confirmation"
 		}
-		"rejectedOn": {
+		rejectedOn: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of rejection"
 		}
-		"canceledOn": {
+		canceledOn: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of cancellation"
 		}
-		"canceledBy": {
+		canceledBy: {
 			Type:        tailordb.#TypeEnum
 			Description: "Party who canceled the purchase order"
 			AllowedValues: [
@@ -75,7 +79,7 @@ PurchaseOrder: tailordb.#Type & {
 				{Value: "supplier", Description: "Supplier"},
 			]
 		}
-		"completedOn": {
+		completedOn: {
 			Type:        tailordb.#TypeDate
 			Description: "Date of completion"
 		}
@@ -88,7 +92,8 @@ PurchaseOrderLineItem: tailordb.#Type & {
 	Name:        "PurchaseOrderLineItem"
 	Description: "Purchase order line item. A line item in a purchase order"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert: true,
+		Aggregation: true
 	}
 	Fields: {
 		displayOrder: {

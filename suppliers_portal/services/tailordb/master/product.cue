@@ -9,7 +9,8 @@ Product: tailordb.#Type & {
 	Name:        "Product"
 	Description: "Buyer's product catalog"
 	Settings: {
-		BulkUpsert: true
+		BulkUpsert:          true
+		PublishRecordEvents: true
 	}
 	Fields: {
 		code: {
@@ -35,6 +36,7 @@ Product: tailordb.#Type & {
 			Description: "Unit of measure of the product."
 			Required:    true
 		}
+		createdAt: tailordb.CreatedAtField
 	}
 	TypePermission: permissions.adminAccess
 }
