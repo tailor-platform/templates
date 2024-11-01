@@ -17,7 +17,7 @@ import (
 		name:                 "Night Shift"
 		standardHoursPerWeek: 40
 		timeZone:             "UTC-2"
-		isActive:             false
+		isActive:             true
 	}
 }
 

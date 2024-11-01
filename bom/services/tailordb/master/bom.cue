@@ -41,14 +41,18 @@ Bom: tailordb.#Type & {
 			Type:        tailordb.#TypeInt
 			Description: "Quantity of the final product produced"
 			Hooks: {
-				CreateExpr: "_value != null ? value : decimal(1.0)"
+				CreateExpr: """
+				_value != null ? _value : decimal(1.0)
+				"""
 			}
 		}
 		bomType: {
 			Type:        tailordb.#TypeEnum
 			AllowedValues: [
-				{ Value: "RECIPE", Description:     "The BOM is used to produce a final product using a manufacturing or assembly process."},
-				{ Value: "KIT", Description:     "The BOM is used to bundle multiple items together."}
+				{ Value: "RECIPE", Description:     "The BOM is used to produce an item using a manufacturing or assembly process."},
+				{ Value: "KIT", Description:     "The BOM is used to bundle multiple items together."},
+				{ Value: "FINAL_PRODUCT", Description:   "The BOM represents the final product."},
+				{ Value: "COMPONENT", Description:     "The BOM represents a component to build an item."}
 			]
 			Description: "Type or category of the BOM"
 			Required:    true
@@ -57,7 +61,9 @@ Bom: tailordb.#Type & {
 			Type:        tailordb.#TypeBool
 			Description: "Indicates if the BOM is active"
 			Hooks: {
-				CreateExpr: "true"
+				CreateExpr: """
+				_value != null ? _value : true
+				"""
 			}
 		}
 		uomId: {

@@ -11,13 +11,13 @@ import (
 		roles: [utils.uuid & {_, #type: "roles", #value: "Admin"}]
 		name: "Test Admin"
 	}
-	user3: {
+	user2: {
 		id: utils.uuid & {_, #type: "user", #value: "3"}
 		email: "test@editor.com"
 		roles: [utils.uuid & {_, #type: "roles", #value: "Editor"}]
 		name: "Test Editor"
 	}
-	user4: {
+	user3: {
 		id: utils.uuid & {_, #type: "user", #value: "4"}
 		email: "test@viewer.com"
 		roles: [utils.uuid & {_, #type: "roles", #value: "Viewer"}]

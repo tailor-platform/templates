@@ -53,7 +53,7 @@ MOLineItem: tailordb.#Type & {
 			}
 		}
 		totalCost: {
-			Type:        tailordb.#TypeInt
+			Type:        tailordb.#TypeFloat
 			Description: "Total cost of the component based on input quantity, uom and unit cost"
 		}
 		itemMoId: {

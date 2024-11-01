@@ -30,7 +30,9 @@ Item: tailordb.#Type & {
 			Type:        tailordb.#TypeBool
 			Description: "Indicates if this is the final product"
 			Hooks: {
-				CreateExpr: "_value != null ? value : false"
+				CreateExpr: """
+				_value != null ? _value : false
+				"""
 			}
 		}
 		inventoryType: {
@@ -70,7 +72,9 @@ Item: tailordb.#Type & {
 			Type:        tailordb.#TypeBool
 			Description: "Indicates if the item is active"
 			Hooks: {
-				CreateExpr: "true"
+				CreateExpr: """
+				_value != null ? _value : true
+				"""
 			}
 		}
 		createdAt: tailordb.CreatedAtField
