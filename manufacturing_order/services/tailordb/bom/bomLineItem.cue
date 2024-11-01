@@ -64,7 +64,7 @@ BomLineItem: tailordb.#Type & {
 			SourceId:    "uomId"
 		}
 		unitCost: {
-			Type:        tailordb.#TypeInt
+			Type:        tailordb.#TypeFloat
 			Description: "Cost per unit of the component"
 			Hooks: {
 				CreateExpr: """
@@ -73,7 +73,7 @@ BomLineItem: tailordb.#Type & {
 			}
 		}
 		totalCost: {
-			Type:        tailordb.#TypeInt
+			Type:        tailordb.#TypeFloat
 			Description: "Total cost of the component based on input quantity, uom and unit cost"
 			Hooks: {
 				CreateExpr: """

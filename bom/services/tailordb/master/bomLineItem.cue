@@ -46,7 +46,9 @@ BomLineItem: tailordb.#Type & {
 			Type:        tailordb.#TypeInt
 			Description: "Quantity of input items required"
 			Hooks: {
-				CreateExpr: "_value != null ? value : decimal(1.0)"
+				CreateExpr: """
+				_value != null ? _value : decimal(1.0)
+				"""
 			}
 		}
 		uomId: {
@@ -60,6 +62,25 @@ BomLineItem: tailordb.#Type & {
 			Type:        "Uom"
 			Description: "Link to the Unit of Measure"
 			SourceId:    "uomId"
+		}
+		unitCost: {
+			Type:        tailordb.#TypeFloat
+			Description: "Cost per unit of the component"
+			Hooks: {
+				CreateExpr: """
+				_value != null ? _value : decimal(0)
+				"""
+			}
+		}
+		totalCost: {
+			Type:        tailordb.#TypeFloat
+			Description: "Total cost of the component based on input quantity, uom and unit cost"
+			Hooks: {
+				CreateExpr: """
+						decimal(_value.unitCost) * decimal(_value.inputQuantity)
+					"""
+				UpdateExpr: CreateExpr
+			}
 		}
 		createdAt: tailordb.CreatedAtField
 		updatedAt: tailordb.UpdatedAtField
