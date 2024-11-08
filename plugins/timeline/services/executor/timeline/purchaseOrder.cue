@@ -112,7 +112,7 @@ import (
               "objectID": args.newRecord.id,
               "messageSegments": [
                 {
-                  "text": "PurchaseOrder confirmed byt he supplier",
+                  "text": "PurchaseOrder confirmed by the supplier",
                   "type": "text"
                 },
                 {
