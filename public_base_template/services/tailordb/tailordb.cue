@@ -11,5 +11,7 @@ tailordb.#Spec & {
 	Types: [
 		{master.Role},
 		{master.User},
+		{master.Project},
+		{master.Task},
 	]
 }
