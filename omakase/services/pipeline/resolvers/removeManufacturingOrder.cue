@@ -55,37 +55,43 @@ removeManufacturingOrder: pipeline.#Resolver & {
 							}
 
 							workOrders(query: { moId: {eq: $moId}}) {
-								collection {
-									id
-									expectedDuration
-									endDate
-									moId
-									operationId
-									realDuration
-									startDate
-									status
+								edges {
+      								node {
+										id
+										expectedDuration
+										endDate
+										moId
+										operationId
+										realDuration
+										startDate
+										status
+									}
 								}
 							}
 
 							mOLineItems(query: {moId: {eq: $moId}}) {
-								collection {
-									id
-									moId
-									bomLineItemId
-									itemMoId
-									totalCost
-									requiredQuantity
+								edges {
+      								node {
+										id
+										moId
+										bomLineItemId
+										itemMoId
+										totalCost
+										requiredQuantity
+									}
 								}
 							}
 							workOrderLineItems(query: {moId: {eq: $moId}}) {
-								collection {
-									moId
-									moLineItemId
-									quantity
-									scrapAction
-									returnAsNewSkuItemId
-									workOrderId
-									id
+								edges {
+      								node {
+										moId
+										moLineItemId
+										quantity
+										scrapAction
+										returnAsNewSkuItemId
+										workOrderId
+										id
+									}
 								}
 							}				
 						}"""
@@ -106,19 +112,19 @@ removeManufacturingOrder: pipeline.#Resolver & {
 		{
 			Name:        "markWorkOrderDeleted"
 			Description: "Marks Work Orders as deleted by updating their status in the system. This operation retrieves existing Work Orders, sets them as deleted, and then performs a bulk update to apply the changes."
-			Test: 		 "size(context.pipeline.fetchWorkOrders.workOrders.collection) > 0"
+			Test: 		 "size(context.pipeline.fetchWorkOrders.workOrders.edges) > 0"
 			PreScript:   """
 				{
-					"input": size(context.pipeline.fetchWorkOrders.workOrders.collection)== 0 ? [] : context.pipeline.fetchWorkOrders.workOrders.collection.map(e, {
-							'id': e.id,
+					"input": size(context.pipeline.fetchWorkOrders.workOrders.edges)== 0 ? [] : context.pipeline.fetchWorkOrders.workOrders.edges.map(e, {
+							'id': e.node.id,
 							'isDeleted':true,
-							'expectedDuration': e.expectedDuration,
-							'endDate': e.endDate,
-							'moId': e.moId,
-							'operationId': e.operationId,
-							'realDuration': e.realDuration,
-							'startDate': e.startDate,
-							'status': e.status,
+							'expectedDuration': e.node.expectedDuration,
+							'endDate': e.node.endDate,
+							'moId': e.node.moId,
+							'operationId': e.node.operationId,
+							'realDuration': e.node.realDuration,
+							'startDate': e.node.startDate,
+							'status': e.node.status,
 					}),
 				}"""
 			Operation: pipeline.#GraphqlOperation & {
@@ -134,17 +140,17 @@ removeManufacturingOrder: pipeline.#Resolver & {
 		{
 			Name:        "markMoLineItemDeleted"
 			Description: "Marks Manufacturing Order (MO) Line Items as deleted by updating their status in the system. This operation retrieves the existing MO Line Items, flags them as deleted, and then performs a bulk update to apply the changes."
-			Test: 		 "size(context.pipeline.fetchWorkOrders.mOLineItems.collection) > 0"
+			Test: 		 "size(context.pipeline.fetchWorkOrders.mOLineItems.edges) > 0"
 			PreScript:   """
 				{
-					"input": size(context.pipeline.fetchWorkOrders.mOLineItems.collection)== 0 ? [] : context.pipeline.fetchWorkOrders.mOLineItems.collection.map(e, {
-							'id': e.id,
+					"input": size(context.pipeline.fetchWorkOrders.mOLineItems.edges)== 0 ? [] : context.pipeline.fetchWorkOrders.mOLineItems.edges.map(e, {
+							'id': e.node.id,
 							'isDeleted':true,
-							'moId': e.moId,
-							'bomLineItemId': e.bomLineItemId,
-							'itemMoId': e.itemMoId,
-							'totalCost': e.totalCost,
-							'requiredQuantity': e.requiredQuantity,
+							'moId': e.node.moId,
+							'bomLineItemId': e.node.bomLineItemId,
+							'itemMoId': e.node.itemMoId,
+							'totalCost': e.node.totalCost,
+							'requiredQuantity': e.node.requiredQuantity,
 					}),
 				}"""
 			Operation: pipeline.#GraphqlOperation & {
@@ -160,18 +166,18 @@ removeManufacturingOrder: pipeline.#Resolver & {
 		{
 			Name:        "workOrderLineItemDeleted"
 			Description: "Marks Manufacturing Order (MO) work order Line Items as deleted by updating their status in the system. This operation retrieves the existing work order Line Items, flags them as deleted, and then performs a bulk update to apply the changes."
-			Test: 		 "size(context.pipeline.fetchWorkOrders.workOrderLineItems.collection) > 0"
+			Test: 		 "size(context.pipeline.fetchWorkOrders.workOrderLineItems.edges) > 0"
 			PreScript:   """
 				{
-					"input": size(context.pipeline.fetchWorkOrders.workOrderLineItems.collection)== 0 ? [] : context.pipeline.fetchWorkOrders.workOrderLineItems.collection.map(e, {
-							'id': e.id,
+					"input": size(context.pipeline.fetchWorkOrders.workOrderLineItems.edges)== 0 ? [] : context.pipeline.fetchWorkOrders.workOrderLineItems.edges.map(e, {
+							'id': e.node.id,
 							'isDeleted':true,
-							'moId': e.moId,
-							'moLineItemId': e.moLineItemId,
-							'quantity': e.quantity,
-							'scrapAction': e.scrapAction,
-							'returnAsNewSkuItemId': e.returnAsNewSkuItemId,
-							'workOrderId': e.workOrderId,
+							'moId': e.node.moId,
+							'moLineItemId': e.node.moLineItemId,
+							'quantity': e.node.quantity,
+							'scrapAction': e.node.scrapAction,
+							'returnAsNewSkuItemId': e.node.returnAsNewSkuItemId,
+							'workOrderId': e.node.workOrderId,
 					}),
 				}"""
 			Operation: pipeline.#GraphqlOperation & {

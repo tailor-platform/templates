@@ -49,14 +49,15 @@ unPlanManufacturingOrder: pipeline.#Resolver & {
 				}"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-					query getAllWorkOrdersOfMO($manufacturingOrderId: ID!) {
-						manufacturingOrder(id: $manufacturingOrderId) {
-							quantity
-							id
-						}
-						
-						workOrders(query: {moId: {eq: $manufacturingOrderId}, isDeleted: {eq: false}}) {
-							collection {
+				query getAllWorkOrdersOfMO($manufacturingOrderId: ID!) {
+					manufacturingOrder(id: $manufacturingOrderId) {
+						quantity
+						id
+					}
+				
+					workOrders(query: { moId: { eq: $manufacturingOrderId }, isDeleted: { eq: false } }) {
+						edges {
+							node {
 								id
 								expectedDuration
 								endDate
@@ -68,13 +69,15 @@ unPlanManufacturingOrder: pipeline.#Resolver & {
 								isDeleted
 							}
 						}
-					}"""
+					}
+				}
+				"""
 			}
 			PostHook: common.#Script & {
 				Expr: """
 				(() => {
 					const manufacturingOrder = args?.manufacturingOrder;
-					const workOrders = args?.workOrders?.collection;
+					const workOrders = args?.workOrders?.edges?.map(edge => edge.node);
 
 					if (!manufacturingOrder) {
 						return {

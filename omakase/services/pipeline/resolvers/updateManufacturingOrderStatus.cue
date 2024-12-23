@@ -57,29 +57,35 @@ updateManufacturingOrderStatus : pipeline.#Resolver & {
                     manufacturingOrder(id: $moId) {
                         bomId
                     }
-                    workOrders(query: {moId: {eq: $moId}}) {
-                        collection {
-                            id
-                            status
+                    workOrders(query: { moId: { eq: $moId } }) {
+                        edges {
+                            node {
+                                id
+                                status
+                            }
                         }
                     }
-                    mOLineItems(query: {moId: {eq: $moId}}) {
-                        collection {
-                            id
-                            requiredQuantity
-                            bomLineItem {
-                                item {
-                                    id
-                                    quantity
+                    mOLineItems(query: { moId: { eq: $moId } }) {
+                        edges {
+                            node {
+                                id
+                                requiredQuantity
+                                bomLineItem {
+                                    item {
+                                        id
+                                        quantity
+                                    }
                                 }
                             }
                         }
                     }
-                    workOrderLineItems(query: {moId: {eq: $moId}}) {
-                        collection {
-                            moLineItemId
-                            quantity
-                            workOrderId
+                    workOrderLineItems(query: { moId: { eq: $moId } }) {
+                        edges {
+                            node {
+                                moLineItemId
+                                quantity
+                                workOrderId
+                            }
                         }
                     }
                 }
@@ -89,9 +95,9 @@ updateManufacturingOrderStatus : pipeline.#Resolver & {
                 Expr: """
                 (() => {
                     const manufacturingOrder = args.manufacturingOrder;
-                    const workOrders = args.workOrders.collection;
-                    const mOLineItems = args.mOLineItems.collection;
-                    const workOrderLineItems = args.workOrderLineItems.collection;
+                    const workOrders = args.workOrders.edges.map(edge => edge.node);
+                    const mOLineItems = args.mOLineItems.edges.map(edge => edge.node);
+                    const workOrderLineItems = args.workOrderLineItems.edges.map(edge => edge.node);
 
                     const statuses = workOrders.map(wo => wo.status);
                     const inventoryOperation = context.args.input?.inventoryOperation ?? null;

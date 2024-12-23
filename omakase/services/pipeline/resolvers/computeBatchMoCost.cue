@@ -48,9 +48,11 @@ computeBatchMoCost : pipeline.#Resolver & {
 				Query: """
 				query fetchManufacturingOrders($moBatchId: ID!) {
 					manufacturingOrders(query: {moBatchId: {eq: $moBatchId}, isDeleted: {eq: false}}) {
-						collection {
-							id
-						}
+						edges {
+							node {
+								id
+							}
+						}	
 					}
 				}
 				"""
@@ -58,7 +60,7 @@ computeBatchMoCost : pipeline.#Resolver & {
 			PostHook: common.#Script & {
 				Expr: """
 				(() => {
-					const manufacturingOrders = args.manufacturingOrders.collection;
+					const manufacturingOrders = args.manufacturingOrders.edges.map(edge => edge.node);
 
 					if (manufacturingOrders.length === 0) {
 						return {

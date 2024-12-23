@@ -63,10 +63,12 @@ planManufacturingOrder: pipeline.#Resolver & {
 						}
 						
 						workOrders(query: {moId: {eq: $manufacturingOrderId}, isDeleted: {eq: false}}) {
-							collection {
-								id
-								order
-								expectedDuration
+							edges {
+      							node {
+									id
+									order
+									expectedDuration
+								}
 							}
 						}
 					}"""
@@ -74,7 +76,7 @@ planManufacturingOrder: pipeline.#Resolver & {
 			PostScript: """
 				{
 					"manufacturingOrder": args.manufacturingOrder,
-					"workOrders": args.workOrders,
+					"workOrders": args.workOrders.edges.map(each, each.node)
 				}"""
 			PostValidation: """
 				isNull(context.pipeline.getAllWorkOrdersOfMO.manufacturingOrder) ?
@@ -87,20 +89,22 @@ planManufacturingOrder: pipeline.#Resolver & {
 		{
 			Name:        "getAllDependentWorkOrders"
 			Description: "Retrieve all dependent work orders."
-			Test: 		 "size(context.pipeline.getAllWorkOrdersOfMO.workOrders.collection) > 0"
+			Test: 		 "size(context.pipeline.getAllWorkOrdersOfMO.workOrders) > 0"
 			PreScript: """
 			{
-					"workOrderId": size(context.pipeline.getAllWorkOrdersOfMO.workOrders.collection)== 0 ? [] : context.pipeline.getAllWorkOrdersOfMO.workOrders.collection.map(e, e.id),
+					"workOrderId": size(context.pipeline.getAllWorkOrdersOfMO.workOrders)== 0 ? [] : context.pipeline.getAllWorkOrdersOfMO.workOrders.map(e, e.id),
 			}
 			"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-				query getAllDependentWorkOrders($workOrderId:[ID]) {
-					workOrderDependencies(query: {workOrderId: {in: $workOrderId}}) {
-						collection {
-							dependsOnWorkOrderId
-							workOrderId
-							id
+				query getAllDependentWorkOrders($workOrderId: [ID]) {
+					workOrderDependencies(query: { workOrderId: { in: $workOrderId } }) {
+						edges {
+							node {
+								dependsOnWorkOrderId
+								workOrderId
+								id
+							}
 						}
 					}
 				}
@@ -109,8 +113,8 @@ planManufacturingOrder: pipeline.#Resolver & {
 			PostHook: common.#Script & {
 				Expr: """
 					(() => {
-						const workOrders = context.pipeline.getAllWorkOrdersOfMO.workOrders.collection
-						const dependenciesWorkOrders = args.workOrderDependencies.collection
+						const workOrders = context.pipeline.getAllWorkOrdersOfMO.workOrders
+						const dependenciesWorkOrders = args.workOrderDependencies.edges.map(e => e.node)
 						
 						function sortWorkOrders(workOrders, dependencies) {
 							try {

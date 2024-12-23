@@ -48,18 +48,20 @@ updateManufacturingOrderBatchStatus : pipeline.#Resolver & {
             Operation: pipeline.#GraphqlOperation & {
                 Query: """
                 query fetchManufacturingOrders($moBatchId: ID!) {
-                    manufacturingOrders(query: {moBatchId: {eq: $moBatchId},isDeleted: {eq: false}}) {
-                        collection {
-                            id
-                            status
+                    manufacturingOrders(query: { moBatchId: { eq: $moBatchId }, isDeleted: { eq: false } }) {
+                        edges {
+                            node {
+                                id
+                                status
+                            }
                         }
                     }
                 }
-                """
+            """
             },
             PostScript: """
             {
-                "manufacturingOrders": args.manufacturingOrders.collection
+                "manufacturingOrders": args.manufacturingOrders.edges.map(e, e.node)
             }
             """,
             PostValidation: """

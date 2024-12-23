@@ -90,21 +90,23 @@ moveWoToWaitingForComponents : pipeline.#Resolver & {
 			""",
             Operation: pipeline.#GraphqlOperation & {
                 Query: """
-				query fetchWorkOrderDependencies($workOrderId: ID!) {
-					workOrderDependencies(query: {workOrderId: {eq: $workOrderId}}) {
-						collection {
-							dependsOnWorkOrder {
-								status
+					query fetchWorkOrderDependencies($workOrderId: ID!) {
+						workOrderDependencies(query: { workOrderId: { eq: $workOrderId } }) {
+							edges {
+								node {
+									dependsOnWorkOrder {
+									status
+									}
+								}
 							}
 						}
 					}
-				}
-				"""
+					"""
             },
             PostHook: common.#Script & {
                 Expr: """
 				(() => {
-					const dependencies = args.workOrderDependencies.collection;
+					const dependencies = args.workOrderDependencies.edges.map(each=> each.node);
 
 					if (dependencies.length === 0) {
 						return {

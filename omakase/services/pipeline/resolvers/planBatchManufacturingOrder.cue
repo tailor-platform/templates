@@ -53,8 +53,10 @@ planBatchManufacturingOrder : pipeline.#Resolver & {
                 Query: """
                 query getManufacturingOrders($moBatchId: ID!) {
                     manufacturingOrders(query: {moBatchId: {eq: $moBatchId}}) {
-                        collection {
-                            id
+                        edges {
+                        node {
+                                id
+                            }
                         }
                     }
                 }
@@ -62,7 +64,7 @@ planBatchManufacturingOrder : pipeline.#Resolver & {
             },
             PostScript: """
             {
-                "manufacturingOrders": args.manufacturingOrders.collection
+                "manufacturingOrders": args.manufacturingOrders.edges.map(edge, edge.node)
             }
             """,
             PostValidation: """

@@ -64,31 +64,35 @@ addBatchMo: pipeline.#Resolver & {
 							operations(
 								query: {bomId: {eq:$bomId}, isActive: {eq: true}}
 							) {
-								collection {
-									id
-									duration
-									documentUrl
-									description
-									order
-									name
-									isActive
-									workCenterId
-									workCenter {
+								edges {
+                            		node {
+										id
+										duration
+										documentUrl
+										description
+										order
 										name
-										timeEfficiency
-										parallelProcessingLimit
-										setupTime
-										cleanupTime
+										isActive
+										workCenterId
+										workCenter {
+											name
+											timeEfficiency
+											parallelProcessingLimit
+											setupTime
+											cleanupTime
+										}
 									}
 								}
 							}
 							bomLineItems(
 								query: {bomId: {eq:$bomId}}
 							) {
-								collection {
-								id
-								unitCost
-								inputQuantity
+								edges {
+                            		node {
+										id
+										unitCost
+										inputQuantity
+									}
 								}
 							}
 						}"""
@@ -97,15 +101,15 @@ addBatchMo: pipeline.#Resolver & {
 				Expr: """
 					(() => {
 						const outputQuantity = context.args.input.quantity;
-						const calculatedOperations = args.operations.collection.length == 0 ? [] : args.operations.collection.map(e=> ({
-							"id": e.id,
-							"order": e.order,
-							"calculatedDuration": Math.floor(e.workCenter.setupTime + e.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.workCenter.parallelProcessingLimit) + (outputQuantity % e.workCenter.parallelProcessingLimit)) * e.duration * 100 / (e.workCenter.timeEfficiency * 100)))
+						const calculatedOperations = args.operations.edges.length == 0 ? [] : args.operations.edges.map(e=> ({
+							"id": e.node.id,
+							"order": e.node.order,
+							"calculatedDuration": Math.floor(e.node.workCenter.setupTime + e.node.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.node.workCenter.parallelProcessingLimit) + (outputQuantity % e.node.workCenter.parallelProcessingLimit)) * e.node.duration * 100 / (e.node.workCenter.timeEfficiency * 100)))
 						}));
-						const calculatedLineItems = args.bomLineItems.collection.length== 0 ? [] : args.bomLineItems.collection.map(e => ({
-							"id": e.id,
-							"requiredQuantity": context.args.input.quantity * e.inputQuantity,
-							"totalCost": context.args.input.quantity * e.inputQuantity * e.unitCost,
+						const calculatedLineItems = args.bomLineItems.edges.length== 0 ? [] : args.bomLineItems.edges.map(e => ({
+							"id": e.node.id,
+							"requiredQuantity": context.args.input.quantity * e.node.inputQuantity,
+							"totalCost": context.args.input.quantity * e.node.inputQuantity * e.node.unitCost,
 						}));
 
 						return {

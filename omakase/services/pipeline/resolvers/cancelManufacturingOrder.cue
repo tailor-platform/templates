@@ -55,37 +55,43 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 							}
 
 							workOrders(query: { moId: {eq: $moId}}) {
-								collection {
-									id
-									expectedDuration
-									endDate
-									moId
-									operationId
-									realDuration
-									startDate
-									status
+								edges {
+                            		node {
+										id
+										expectedDuration
+										endDate
+										moId
+										operationId
+										realDuration
+										startDate
+										status
+									}
 								}
 							}
 
 							mOLineItems(query: {moId: {eq: $moId}}) {
-								collection {
-									id
-									moId
-									bomLineItemId
-									itemMoId
-									totalCost
-									requiredQuantity
+								edges {
+                            		node {
+										id
+										moId
+										bomLineItemId
+										itemMoId
+										totalCost
+										requiredQuantity
+									}
 								}
 							}
 							workOrderLineItems(query: {moId: {eq: $moId}}) {
-								collection {
-									moId
-									moLineItemId
-									quantity
-									scrapAction
-									returnAsNewSkuItemId
-									workOrderId
-									id
+								edges {
+                            		node {
+										moId
+										moLineItemId
+										quantity
+										scrapAction
+										returnAsNewSkuItemId
+										workOrderId
+										id
+									}
 								}
 							}				
 						}"""
@@ -93,7 +99,7 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 			PostScript: """
 					{
 						"manufacturingOrder": args.manufacturingOrder,
-						"workOrders": args.workOrders,
+						"workOrders": args.workOrders.edges.map(each, each.node),
 						"mOLineItems": args.mOLineItems,
 						"workOrderLineItems": args.workOrderLineItems,
 					}"""
@@ -106,8 +112,8 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 		{
 			Name:        "cancelWorkOrders",
 			Description: "Cancels each work order by calling the cancelWorkOrder mutation.",
-			ForEach:     "context.pipeline.fetchWorkOrders.workOrders.collection",
-			Test:        "size(context.pipeline.fetchWorkOrders.workOrders.collection) > 0",
+			ForEach:     "context.pipeline.fetchWorkOrders.workOrders",
+			Test:        "size(context.pipeline.fetchWorkOrders.workOrders) > 0",
 			PreScript: """
 			{
 				"input": {

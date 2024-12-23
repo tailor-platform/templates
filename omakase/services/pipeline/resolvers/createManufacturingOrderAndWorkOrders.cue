@@ -68,43 +68,49 @@ createManufacturingOrderAndWorkOrders: pipeline.#Resolver & {
 							operations(
 								query: {bomId: {eq:$bomId}, isActive: {eq: true}}
 							) {
-								collection {
-									id
-									duration
-									documentUrl
-									description
-									order
-									name
-									isActive
-									workCenterId
-									workCenter {
+								edges {
+      								node {
+										id
+										duration
+										documentUrl
+										description
+										order
 										name
-										timeEfficiency
-										parallelProcessingLimit
-										setupTime
-										cleanupTime
+										isActive
+										workCenterId
+										workCenter {
+											name
+											timeEfficiency
+											parallelProcessingLimit
+											setupTime
+											cleanupTime
+										}
 									}
 								}
 							}
 							bomLineItems(
 								query: {bomId: {eq:$bomId}}
 							) {
-								collection {
-									id
-									unitCost
-									inputQuantity
-									scrapAction
-									returnAsNewSkuItemId
+								edges {
+      								node {
+										id
+										unitCost
+										inputQuantity
+										scrapAction
+										returnAsNewSkuItemId
+									}
 								}
 							}
 							operationLineItems(query: {bomId: {eq:$bomId}}) {
-								collection {
-									id
-									bomLineItemId
-									operationId
-									quantity
-									scrapAction
-									returnAsNewSkuItemId
+								edges {
+									node {
+											id
+											bomLineItemId
+											operationId
+											quantity
+											scrapAction
+											returnAsNewSkuItemId
+										}
 								}
 							}
 						}"""
@@ -113,22 +119,22 @@ createManufacturingOrderAndWorkOrders: pipeline.#Resolver & {
 				Expr: """
 					(() => {
 						const outputQuantity = context.args.input.quantity;
-						const calculatedOperations = args.operations.collection.length == 0 ? [] : args.operations.collection.map(e=> ({
-							"id": e.id,
-							"order": e.order,
-							"calculatedDuration": Math.floor(e.workCenter.setupTime + e.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.workCenter.parallelProcessingLimit) + (outputQuantity % e.workCenter.parallelProcessingLimit)) * e.duration * 100 / (e.workCenter.timeEfficiency * 100)))
+						const calculatedOperations = args.operations.edges.length == 0 ? [] : args.operations.edges.map(e=> ({
+							"id": e.node.id,
+							"order": e.node.order,
+							"calculatedDuration": Math.floor(e.node.workCenter.setupTime + e.node.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.node.workCenter.parallelProcessingLimit) + (outputQuantity % e.node.workCenter.parallelProcessingLimit)) * e.node.duration * 100 / (e.node.workCenter.timeEfficiency * 100)))
 						}));
-						const calculatedLineItems = args.bomLineItems.collection.length== 0 ? [] : args.bomLineItems.collection.map(e => ({
-							"id": e.id,
-							"scrapAction": e.scrapAction,
-							"returnAsNewSkuItemId": e.returnAsNewSkuItemId,
-							"requiredQuantity": context.args.input.quantity * e.inputQuantity,
-							"totalCost": context.args.input.quantity * e.inputQuantity * e.unitCost,
+						const calculatedLineItems = args.bomLineItems.edges.length== 0 ? [] : args.bomLineItems.edges.map(e => ({
+							"id": e.node.id,
+							"scrapAction": e.node.scrapAction,
+							"returnAsNewSkuItemId": e.node.returnAsNewSkuItemId,
+							"requiredQuantity": context.args.input.quantity * e.node.inputQuantity,
+							"totalCost": context.args.input.quantity * e.node.inputQuantity * e.node.unitCost,
 						}));
 
 						return {
 							"bom": args.bom,
-							"operationLineItems": args.operationLineItems.collection,
+							"operationLineItems": args.operationLineItems.edges.map(edge=>edge.node),
 							"quantity":context.args.input.quantity,
 							calculatedOperations,
 							calculatedLineItems
@@ -269,29 +275,35 @@ createManufacturingOrderAndWorkOrders: pipeline.#Resolver & {
 			"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-				query getAllDependentOperationAndWorkOrders($operationId:[ID],$moId:ID!) {
-					operationDependencies(query: {operationId: {in: $operationId}}) {
-						collection {
-						dependsOnOperationId
-						operationId
-						id
+				query getAllDependentOperationAndWorkOrders($operationId: [ID], $moId: ID!) {
+					operationDependencies(query: { operationId: { in: $operationId } }) {
+						edges {
+						node {
+							dependsOnOperationId
+							operationId
+							id
+						}
 						}
 					}
-					workOrders(query: {moId: {eq: $moId}, isDeleted: {eq: false}}) {
-						collection {
+					workOrders(query: { moId: { eq: $moId }, isDeleted: { eq: false } }) {
+						edges {
+						node {
 							id
 							moId
 							operationId
 						}
+						}
 					}
-					mOLineItems(query: {moId: {eq: $moId}, isDeleted: {eq: false}}) {
-						collection {
+					mOLineItems(query: { moId: { eq: $moId }, isDeleted: { eq: false } }) {
+						edges {
+						node {
 							id
 							requiredQuantity
 							moId
 							itemMoId
 							bomLineItemId
 							totalCost
+						}
 						}
 					}
 				}
@@ -305,8 +317,8 @@ createManufacturingOrderAndWorkOrders: pipeline.#Resolver & {
 			PreHook: common.#Script & {
 				Expr: """
 				(() => {
-					const dependencyArray = context.pipeline.getAllDependentOperationAndWorkOrders.operationDependencies.collection;
-					const workOrderArray = context.pipeline.getAllDependentOperationAndWorkOrders.workOrders.collection;
+					const dependencyArray = context.pipeline.getAllDependentOperationAndWorkOrders.operationDependencies.edges.map(edge => edge.node);
+					const workOrderArray = context.pipeline.getAllDependentOperationAndWorkOrders.workOrders.edges.map(edge => edge.node);
 
 					const resultArray = dependencyArray.map(dependency => {
 						// Find workOrderId (matching operationId from workOrderArray)
@@ -346,8 +358,8 @@ createManufacturingOrderAndWorkOrders: pipeline.#Resolver & {
 				Expr: """
 				(() => {
 					const operationLineItems = context.pipeline.fetchBomOperations.operationLineItems;
-					const mOLineItems = context.pipeline.getAllDependentOperationAndWorkOrders.mOLineItems.collection;
-					const workOrders = context.pipeline.getAllDependentOperationAndWorkOrders.workOrders.collection;
+					const mOLineItems = context.pipeline.getAllDependentOperationAndWorkOrders.mOLineItems.edges.map(edge => edge.node);
+					const workOrders = context.pipeline.getAllDependentOperationAndWorkOrders.workOrders.edges.map(edge => edge.node);
 					
 					const result = operationLineItems.map(operationLineItem => {
 						const bomLineItemId = operationLineItem.bomLineItemId;

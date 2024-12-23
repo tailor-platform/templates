@@ -81,15 +81,17 @@ workOrderStatusTransitionRecord : pipeline.#Resolver & {
                         createdAt
                     }
                     workOrderTransitions(
-                        query: {workOrderId: {eq: $workOrderId}},
-                        order: {field: createdAt, direction: Desc},
-                        size: 2
+                        query: { workOrderId: { eq: $workOrderId } }
+                        order: { field: createdAt, direction: Desc }
+                        first: 2
                     ) {
-                        collection {
-                            createdAt
-                            workOrderId
-                            fromStatus
-                            toStatus
+                        edges {
+                            node {
+                                createdAt
+                                workOrderId
+                                fromStatus
+                                toStatus
+                            }
                         }
                     }
                 }
@@ -99,7 +101,7 @@ workOrderStatusTransitionRecord : pipeline.#Resolver & {
                 Expr: """
                 (() => {
                     const workOrder = args.workOrder;
-                    const workOrderTransitions = args.workOrderTransitions.collection;
+                    const workOrderTransitions = args.workOrderTransitions.edges.map(edge => edge.node);
 
                     if(context.args.input.toStatus === context.args.input.fromStatus){
                         return {

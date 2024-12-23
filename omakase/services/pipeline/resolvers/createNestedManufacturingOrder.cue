@@ -49,15 +49,17 @@ createNestedManufacturingOrder : pipeline.#Resolver & {
                         status
                     }
                     mOLineItems(query: {moId: {eq: $moId}}) {
-                        collection {
-                            id
-                            requiredQuantity
-                            bomLineItem {
-                                item {
-                                    id
-                                    name
-                                    bomId
-                                    quantity
+                        edges {
+                            node {
+                                id
+                                requiredQuantity
+                                bomLineItem {
+                                    item {
+                                        id
+                                        name
+                                        bomId
+                                        quantity
+                                    }
                                 }
                             }
                         }
@@ -69,7 +71,7 @@ createNestedManufacturingOrder : pipeline.#Resolver & {
                 Expr: """
                 (() => {
                     const manufacturingOrder = args.manufacturingOrder;
-                    const moLineItems = args.mOLineItems.collection;
+                    const moLineItems = args.mOLineItems.edges.map(edge => edge.node);
 
                     if (!manufacturingOrder) {
                         return {

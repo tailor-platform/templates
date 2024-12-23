@@ -56,29 +56,35 @@ validateBomItemWithOperations : pipeline.#Resolver & {
             Operation: pipeline.#GraphqlOperation & {
                 Query: """
                 query fetchBomData($bomId: ID!) {
-                    bomLineItems(query: {bomId: {eq: $bomId}}) {
-                        collection {
-                            id
-                            inputQuantity
-                            itemId
-                        }
-                    }
-                    operationLineItems(query: {bomId: {eq: $bomId}}) {
-                        collection {
-                            id
-                            bomLineItemId
-                            bomLineItem {
+                    bomLineItems(query: { bomId: { eq: $bomId } }) {
+                        edges {
+                            node {
+                                id
+                                inputQuantity
                                 itemId
                             }
-                            operationId
-                            quantity
                         }
                     }
-                    operations(query: {bomId: {eq: $bomId}}) {
-                        collection {
-                            id
-                            name
-                            duration
+                    operationLineItems(query: { bomId: { eq: $bomId } }) {
+                        edges {
+                            node {
+                                id
+                                bomLineItemId
+                                bomLineItem {
+                                itemId
+                                }
+                                operationId
+                                quantity
+                            }
+                        }
+                    }
+                    operations(query: { bomId: { eq: $bomId } }) {
+                        edges {
+                            node {
+                                id
+                                name
+                                duration
+                            }
                         }
                     }
                 }
@@ -87,9 +93,9 @@ validateBomItemWithOperations : pipeline.#Resolver & {
             PostHook: common.#Script & {
                 Expr: """
                 (() => {
-                    const bomLineItems = args.bomLineItems.collection;
-                    const operationLineItems = args.operationLineItems.collection;
-                    const operations = args.operations.collection;
+                    const bomLineItems = args.bomLineItems.edges.map(edge => edge.node);
+                    const operationLineItems = args.operationLineItems.edges.map(edge => edge.node);
+                    const operations = args.operations.edges.map(edge => edge.node);
 
                     if (bomLineItems.length === 0 && operations.length === 0) {
                         return {

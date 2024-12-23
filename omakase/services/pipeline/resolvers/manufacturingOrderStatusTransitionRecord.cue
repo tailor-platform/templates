@@ -79,13 +79,15 @@ manufacturingOrderStatusTransitionRecord : pipeline.#Resolver & {
                     manufacturingOrderTransitions(
                         query: {moId: {eq: $manufacturingOrderId}},
                         order: {field: createdAt, direction: Desc},
-                        size: 2
+                        first: 2
                     ) {
-                        collection {
-                            createdAt
-                            moId
-                            fromStatus
-                            toStatus
+                        edges {
+                            node {
+                                createdAt
+                                moId
+                                fromStatus
+                                toStatus
+                            }
                         }
                     }
                 }
@@ -95,7 +97,7 @@ manufacturingOrderStatusTransitionRecord : pipeline.#Resolver & {
                 Expr: """
                 (() => {
                     const manufacturingOrder = args.manufacturingOrder;
-                    const manufacturingOrderTransitions = args.manufacturingOrderTransitions.collection;
+                    const manufacturingOrderTransitions = args.manufacturingOrderTransitions.edges.map(edge => edge.node);
 
                     if(context.args.input.toStatus === context.args.input.fromStatus){
                         return {

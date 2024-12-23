@@ -47,25 +47,31 @@ configureBomItemsWithOperation : pipeline.#Resolver & {
 					id
 				}
 				bomLineItems(query: {bomId: {eq: $bomId}}) {
-					collection {
-						id
-						inputQuantity
-						itemId
-						returnAsNewSkuItemId
-						scrapAction
+					edges {
+						node {
+							id
+							inputQuantity
+							itemId
+							returnAsNewSkuItemId
+							scrapAction
+						}
 					}
 				}
 				operations(query: {bomId: {eq: $bomId}, isActive: {eq: true} }, order: {field: order, direction: Asc}) {
-					collection {
-						id
-						name
+					edges {
+						node {
+							id
+							name
+						}
 					}
 				}
 				operationLineItems(query: {bomId: {eq: $bomId}}) {
-					collection {
-						id
-						quantity
-						operationId
+					edges {
+						node {
+							id
+							quantity
+							operationId
+						}
 					}
 				}
 			}
@@ -75,9 +81,9 @@ configureBomItemsWithOperation : pipeline.#Resolver & {
 				Expr: """
 			(() => {
 				const bom = args.bom;
-				const bomLineItems = args.bomLineItems.collection;
-				const operations = args.operations.collection;
-				const operationLineItems = args.operationLineItems.collection;
+				const bomLineItems = args.bomLineItems.edges.map(edge => edge.node);
+				const operations = args.operations.edges.map(edge => edge.node);
+				const operationLineItems = args.operationLineItems.edges.map(edge => edge.node);
 
 				if (!bom || !bom.id) {
 					return {

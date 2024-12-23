@@ -86,15 +86,17 @@ cancelWorkOrder : pipeline.#Resolver & {
                 Query: """
                 query fetchWorkOrderLineItems($workOrderId: ID!) {
                     workOrderLineItems(query: {workOrderId: {eq: $workOrderId}}) {
-                        collection {
-                            quantity
-                            returnAsNewSkuItemId
-                            scrapAction
-                            moLineItem {
-                                bomLineItem {
-                                    itemId
+                        edges {
+                            node {
+                                quantity
+                                returnAsNewSkuItemId
+                                scrapAction
+                                moLineItem {
+                                    bomLineItem {
+                                        itemId
+                                    }
                                 }
-                            }
+                            } 
                         }
                     }
                 }
@@ -102,7 +104,7 @@ cancelWorkOrder : pipeline.#Resolver & {
             },
             PostScript: """
             {
-                "lineItems": args.workOrderLineItems.collection
+                "lineItems": args.workOrderLineItems.edges.map(edge, edge.node)
             }
             """
         },

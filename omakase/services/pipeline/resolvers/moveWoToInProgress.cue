@@ -91,14 +91,16 @@ Moves a Work Order to 'in progress' status if sufficient inventory is available.
                 Query: """
                 query fetchWorkOrderLineItems($workOrderId: ID!) {
                     workOrderLineItems(query: {workOrderId: {eq: $workOrderId}}) {
-                        collection {
-                            workOrderId
-                            scrapAction
-                            quantity
-                            moLineItem {
-                                id
-                                bomLineItem {
-                                    itemId
+                        edges {
+                            node {
+                                workOrderId
+                                scrapAction
+                                quantity
+                                moLineItem {
+                                    id
+                                    bomLineItem {
+                                        itemId
+                                    }
                                 }
                             }
                         }
@@ -109,7 +111,7 @@ Moves a Work Order to 'in progress' status if sufficient inventory is available.
             PostHook: common.#Script & {
                 Expr: """
                 (() => {
-                    const lineItems = args.workOrderLineItems.collection;
+                    const lineItems = args.workOrderLineItems.edges.map(edge => edge.node);
                     const itemQuantities = {};
 
                     if (lineItems.length === 0) {
