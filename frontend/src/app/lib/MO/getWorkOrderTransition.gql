@@ -1,0 +1,14 @@
+query($workOrderId: ID!) {
+  workOrderTransitions(
+    query: {workOrderId: {eq:$workOrderId}}
+    order: {field: createdAt, direction: Asc}
+  ) {
+    collection {
+      id
+      fromStatus
+      toStatus
+      createdAt
+      timeInStatus
+    }
+  }
+}

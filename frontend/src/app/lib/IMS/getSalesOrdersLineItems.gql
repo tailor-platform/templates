@@ -1,0 +1,20 @@
+query SalesOrderLineItems ($salesOrderID: ID!){
+    salesOrderLineItems (query: {salesOrderID: {eq: $salesOrderID}}, size: 100000) {
+        collection {
+            id
+            salesOrderID
+            variantID
+            unitPrice
+            quantity
+            subtotalPrice
+            discount
+            requiresShipping
+            fulfillmentStatus
+            taxable
+            name
+            sku
+            unitCompareAtPrice
+            shopifyID
+        }
+    }
+}

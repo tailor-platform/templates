@@ -1,0 +1,11 @@
+overwrite: true
+schema: "https://mo-dev-qz0qzykeq8.erp.dev/query"
+documents:
+  - "src/app/lib/IMS/getProductsVariants.gql"
+  - "src/app/lib/IMS/getProducts.gql"
+  - "src/app/lib/IMS/getContacts.gql"
+generates:
+  src/app/lib/IMS/types.generated.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"

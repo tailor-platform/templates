@@ -1,0 +1,8 @@
+mutation ($id: ID!, $input: SalesOrderUpdateInput!) {
+  updateSalesOrder(
+    id: $id,
+    input: $input
+  ){
+    id
+  }
+}

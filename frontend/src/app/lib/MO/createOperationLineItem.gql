@@ -1,0 +1,5 @@
+mutation MyMutation($input: OperationLineItemCreateInput!) {
+  createOperationLineItem(input: $input) {
+    id
+  }
+}

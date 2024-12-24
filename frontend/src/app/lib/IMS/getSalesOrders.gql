@@ -1,0 +1,19 @@
+query SalesOrders {
+    salesOrders (size: 100000)  {
+        collection {
+            id
+            customerID
+            orderNumber
+            customerName
+            customerEmail
+            cancelledAt
+            cancelReason
+            currentSubtotalPrice
+            currency
+            shopifyID
+            shipStationOrderStatus
+            shippedAt
+            active
+        }
+    }
+}

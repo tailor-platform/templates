@@ -1,0 +1,11 @@
+mutation MyMutation($input:OperationCreateInput) {
+  createOperation(
+    input: $input
+  ) {
+    description
+    documentUrl
+    duration
+    id
+    name
+  }
+}

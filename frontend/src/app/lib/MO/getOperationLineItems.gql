@@ -1,0 +1,13 @@
+query MyQuery($id: ID!) {
+  operationLineItems(query: {bomId: {eq: $id}} ,order: {field: createdAt}) {
+    collection {
+      id
+      bomLineItemId
+      operationId
+      quantity
+      scrapAction
+      returnAsNewSkuItemId
+      bomId
+    }
+  }
+}

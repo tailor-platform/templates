@@ -1,0 +1,34 @@
+query OperationalStockEvents {
+    operationalStockEvents  (
+      size: 100000,
+
+    ) {
+        collection {
+          id
+          sequence
+          variantID
+          variant {
+            displayName
+          }
+          unitCost
+          incrementalQuantity
+          isOnHold
+          inStockQuantity
+          onHoldQuantity
+          transactionTotalCost
+          copiedToFinancialLedger
+          availableQuantity
+          averageCost
+          totalCost
+          receiptLineItemID
+          receiptLineItem{
+            receiptID
+          }
+          shipmentLineItemID
+          shipmentLineItem{
+            shipmentID
+          }
+          active
+        }
+    }
+}

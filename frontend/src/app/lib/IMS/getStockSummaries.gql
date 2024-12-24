@@ -1,0 +1,14 @@
+query StockSummaries {
+    stockSummaries  (size: 100000) {
+        collection {
+            id
+            variantID
+            onHoldQuantity
+            availableQuantity
+            inStockQuantity
+            totalCost
+            averageCost
+            active
+        }
+    }
+}

@@ -1,0 +1,3 @@
+mutation BulkUpsertShipmentLineItems ($input: [ShipmentLineItemCreateInput]) {
+    bulkUpsertShipmentLineItems(input: $input)
+}

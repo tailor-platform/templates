@@ -1,0 +1,24 @@
+query ($bomId: ID!, $outputQuantity: Float!) {
+  previewManufacturing(
+    input: { bomId: $bomId, outputQuantity: $outputQuantity }
+  ) {
+    requiredItems {
+      id
+      itemId
+      outputQuantity
+      uomId
+    }
+    workOperations {
+      calculatedDuration
+      description 
+      documentUrl
+      duration
+      order
+      id
+      isActive
+      name
+      workCenter
+      workCenterId
+    }
+  }
+}

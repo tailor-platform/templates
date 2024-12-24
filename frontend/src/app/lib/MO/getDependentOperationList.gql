@@ -1,0 +1,15 @@
+query MyQuery($operationId:ID!) {
+  operationDependencies(query: {operationId: {eq: $operationId}}) {
+    collection {
+      id
+      dependsOnOperation {
+        name
+        order
+        duration
+        documentUrl
+        description
+        id
+      }
+    }
+  }
+}

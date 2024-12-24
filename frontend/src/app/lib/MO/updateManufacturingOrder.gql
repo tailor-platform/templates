@@ -1,0 +1,8 @@
+mutation MyMutation($id: ID!,$input:ManufacturingOrderUpdateInput) {
+  updateManufacturingOrder(
+    id: $id
+    input: $input
+  ){
+    id
+  }
+}

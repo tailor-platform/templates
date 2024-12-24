@@ -1,0 +1,7 @@
+mutation ($input:moveWoToWaitingForComponentsInput!) {
+  moveWoToWaitingForComponents(
+    input: $input
+  ){
+   success
+  }
+}

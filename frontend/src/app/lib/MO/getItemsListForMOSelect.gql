@@ -1,0 +1,16 @@
+query ($itemId: [ID]!) {
+  items(query: { id: { in: $itemId } }) {
+    collection {
+      id
+      name
+      description
+      uom {
+        name
+      }
+      uomId
+      bomId
+      isFinalProduct
+      inventoryType
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation ($input:moveWoToInProgressInput!) {
+  moveWoToInProgress(
+    input: $input
+  ){
+   success
+  }
+}

@@ -1,0 +1,13 @@
+query Receipts{
+    receipts  (size: 100000)  {
+        collection {
+            id
+            receiptNumber
+            supplierID
+            purchaseOrderID
+            date
+            receiptStatus
+            active
+        }
+    }
+}

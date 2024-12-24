@@ -1,0 +1,27 @@
+query ($moId: ID!) {
+  mOLineItems(
+    query: {
+      moId: { eq: $moId },
+      # id: { in: ["c5a18ac0-7aa2-46ee-acdd-02aa3ec80ba2","31867b04-ea4b-4a4f-bc66-fa91d46c61ad"] }
+    }
+  ) {
+    collection {
+      id
+      requiredQuantity
+      totalCost
+      itemMoId
+      bomLineItem {
+        item {
+          id
+          name
+          inventoryType
+          bomId
+        }
+        uom {
+          name
+          id
+        }
+      }
+    }
+  }
+}

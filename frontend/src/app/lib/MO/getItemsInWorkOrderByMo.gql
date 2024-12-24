@@ -1,0 +1,20 @@
+query ($moId:ID!) {
+  workOrderLineItems(query: {moId: {eq: $moId}}) {
+    collection {
+      id
+      quantity
+      moLineItemId
+      workOrderId
+      moLineItem {
+        bomLineItem {
+          itemId
+        }
+      }
+      workOrder {
+        operationId
+      }
+      scrapAction
+      returnAsNewSkuItemId
+    }
+  }
+}

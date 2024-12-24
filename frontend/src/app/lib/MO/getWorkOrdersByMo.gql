@@ -1,0 +1,28 @@
+query MyQuery($moId: ID!) {
+  workOrders(
+    query: { isDeleted: { eq: false }, moId: { eq: $moId } }
+    order: { field: order, direction: Asc }
+  ) {
+    collection {
+      id
+      endDate
+      realDuration
+      operationId
+      order
+      operation {
+        name
+        workCenter {
+          name
+        }
+      }
+      status
+      startDate
+      endDate
+      expectedDuration
+      moId
+      mo {
+        name
+      }
+    }
+  }
+}

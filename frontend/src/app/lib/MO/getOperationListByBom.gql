@@ -1,0 +1,27 @@
+query MyQuery($bomId: ID!) {
+  operations(
+    order: { field: order, direction: Asc }
+    query: { isActive: { eq: true }, bomId: { eq: $bomId } }
+  ) {
+    collection {
+      description
+      documentUrl
+      duration
+      id
+      name
+      isActive
+      order
+      workCenter {
+        id
+        name
+      }
+      bom {
+        id
+        name
+        outputQuantity
+      }
+      bomId
+      workCenterId
+    }
+  }
+}

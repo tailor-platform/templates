@@ -1,0 +1,17 @@
+mutation MyMutation($input:DailyScheduleCreateInput) {
+  createDailySchedule(
+    input: $input
+  ){
+     dayOfWeek
+    duration
+    id
+    workFrom
+    workTo
+    workingHours {
+      id
+      name
+      standardHoursPerWeek
+      timeZone
+    }
+  }
+}

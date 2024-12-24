@@ -1,0 +1,7 @@
+mutation MyMutation($id: ID!) {
+  updateWorkingHour(id: $id,input: {isActive: false})
+{
+    id
+    name
+  }
+}

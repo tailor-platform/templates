@@ -1,0 +1,7 @@
+mutation MyMutation($input:validateBomItemWithOperationsInput!) {
+  validateBomItemWithOperations(
+    input: $input
+  ){
+    success
+  }
+}

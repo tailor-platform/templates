@@ -1,0 +1,35 @@
+query  {
+  manufacturingOrders(
+    order: { field: createdAt, direction: Desc }
+    query: { isDeleted: { eq: false } }
+  ) {
+    collection {
+      id
+      name
+      quantity
+      bomId
+      bom {
+        name
+        uom {
+          name
+        }
+      }
+      isDeleted
+      isPlanCreated
+      startDateTime
+      endDateTime
+      status
+      itemId
+      item {
+        name
+      }
+      totalCost
+      woCost
+      bomCost
+      componentsStatus
+      parentMoId
+      moBatchId
+      errorMessage
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query Invoices {
+    invoices  (size: 100000) {
+        collection {
+            id
+            invoiceNumber
+            customerID
+            shipmentID
+            date
+            invoiceStatus
+            quickbookInvoiceId
+            customer{
+              name
+              openBalance
+              creditLimit
+              availableCredit
+            }
+            active
+        }
+    }
+}

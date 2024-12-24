@@ -1,0 +1,3 @@
+mutation MyMutation($input: [WorkOrderDependencyCreateInput]) {
+  bulkUpsertWorkOrderDependencies(input: $input)
+}

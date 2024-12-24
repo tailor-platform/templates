@@ -1,0 +1,15 @@
+query ShipmenLineItems ($shipmentID: ID!){
+    shipmentLineItems (query: {shipmentID: {eq: $shipmentID}}, size: 100000) {
+        collection {
+            shipmentID
+            id
+            variantID
+            unitCost
+            unitPrice
+            quantity
+            taxable
+            shipmentStatus
+            shippedAt
+        }
+    }
+}

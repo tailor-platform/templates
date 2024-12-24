@@ -1,0 +1,7 @@
+mutation MyMutation($input: WOTimeTrackingCreateInput) {
+  createWOTimeTracking(
+    input: $input
+  ){
+    id
+  }
+}

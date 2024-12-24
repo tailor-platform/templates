@@ -1,0 +1,7 @@
+mutation ($input: ProductVariantCreateInput!) {
+  createProductVariant(
+    input: $input
+  ){
+    id
+  }
+}

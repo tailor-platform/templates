@@ -1,0 +1,18 @@
+query MyQuery {
+  mOBatches(query: {isDeleted: {eq: false}}) {
+    collection {
+      id
+     
+      name
+      quantity
+      status
+      startDateTime
+      endDateTime
+      
+      bom{
+        name
+      }
+      batchSize
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query ($itemId: ID!) {
+  boms(
+    size: 1000
+    order: { field: createdAt, direction: Desc }
+    query: { itemId: { eq: $itemId } }
+  ) {
+    collection {
+      id
+      name
+      description
+      outputQuantity
+      uomId
+      bomType
+      uom {
+        name
+      }
+    }
+  }
+}

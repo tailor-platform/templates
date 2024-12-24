@@ -1,0 +1,11 @@
+query CostPools {
+    costPools  (size: 100000) {
+        collection {
+            id
+            closedAt
+            isClosed
+            name
+            active
+        }
+    }
+}

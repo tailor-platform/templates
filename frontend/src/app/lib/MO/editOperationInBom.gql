@@ -1,0 +1,22 @@
+mutation MyMutation($id: ID!,$input:OperationUpdateInput ) {
+  updateOperation(
+    id: $id
+    input: $input
+  ) {
+    id
+    name
+    bomId
+    description
+    documentUrl
+    duration
+    workCenterId
+    bom {
+      id
+      name
+    }
+    workCenter {
+      name
+      id
+    }
+  }
+}

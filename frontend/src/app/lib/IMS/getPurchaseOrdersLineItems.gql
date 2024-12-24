@@ -1,0 +1,12 @@
+query PurchaseOrderLineItems ($purchaseOrderID: ID!){
+    purchaseOrderLineItems (query: {purchaseOrderID: {eq: $purchaseOrderID}}, size: 100000) {
+        collection {
+            id
+            purchaseOrderID
+            variantID
+            unitCost
+            quantity
+            subtotalCost
+        }
+    }
+}

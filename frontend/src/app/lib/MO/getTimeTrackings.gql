@@ -1,0 +1,18 @@
+query MyQuery($workOrderId:ID!) {
+  wOTimeTrackings(
+    query: {workOrderId: {eq: $workOrderId}}  
+    order: { field: createdAt, direction: Desc }
+  ) {
+    collection {
+      id
+      startDate
+      endDate
+      duration
+      employeeId
+      workOrderId
+      employee {
+        name
+      }
+    }
+  }
+}

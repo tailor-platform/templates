@@ -1,0 +1,9 @@
+query MyQuery($batchSize: Int!, $bomId: ID! , $name: String! , $totalQ: Int!) {
+  previewMoBatch(batchSize: $batchSize, bomId: $bomId, name: $name, totalQuantity: $totalQ) {
+    moBatches {
+      
+      name
+      quantity
+    }
+  }
+}

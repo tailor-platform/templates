@@ -1,0 +1,13 @@
+query CostPoolLineItems ($costPoolID: ID!){
+    costPoolLineItems (query: {costPoolID: {eq: $costPoolID}}) {
+        edges {
+            node {
+                id
+                name
+                allocationBase
+                amount
+                costPoolID
+            }
+        }
+    }
+}

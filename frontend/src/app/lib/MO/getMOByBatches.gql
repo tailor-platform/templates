@@ -1,0 +1,20 @@
+query MyQuery($id: ID!) {
+  manufacturingOrders(query: { moBatchId: { eq: $id } }) {
+    collection {
+      bomCost
+      componentsStatus
+      isPlanCreated
+      name
+      quantity
+      startDateTime
+      totalCost
+      status
+      woCost
+      id
+      endDateTime
+    }
+    total
+    size
+    from
+  }
+}

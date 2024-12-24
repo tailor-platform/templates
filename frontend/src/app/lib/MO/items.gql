@@ -1,0 +1,28 @@
+query {
+  items(
+    size: 1000
+    order: { field: createdAt, direction: Asc }
+    query: { isActive: { eq: true } }
+  ) {
+    collection {
+      id
+      name
+      sku
+      uom {
+        name
+      }
+      bomId
+      bom {
+        name
+      }
+      uomId
+      isFinalProduct
+      inventoryType
+      quantity
+      woAllocatedQuantity
+      scrapAction
+      wastedQuantity
+      returnAsNewSkuItemId
+    }
+  }
+}

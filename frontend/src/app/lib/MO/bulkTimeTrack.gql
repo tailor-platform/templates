@@ -1,0 +1,5 @@
+mutation MyMutation($input: [WOTimeTrackingCreateInput]) {
+  bulkUpsertWOTimeTrackings(
+    input: $input
+  )
+}

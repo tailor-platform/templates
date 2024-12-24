@@ -1,0 +1,25 @@
+query MyQuery {
+  workOrders(
+    query: { isDeleted: { eq: false } }
+    order: { field: createdAt, direction: Asc }
+  ) {
+    collection {
+      id
+      endDate
+      order
+      realDuration
+      operationId
+      operation {
+        name
+      }
+      status
+      startDate
+      endDate
+      expectedDuration
+      moId
+      mo {
+        name
+      }
+    }
+  }
+}
