@@ -1,0 +1,17 @@
+query FinancialStockSummaries {
+    financialStockSummaries  (size: 100000) {
+        collection {
+            id
+            variantID
+            variant{
+              displayName
+            }
+            onHoldQuantity
+            availableQuantity
+            inStockQuantity
+            totalCost
+            averageCost
+            active
+        }
+    }
+}

@@ -1,0 +1,25 @@
+query ProductVariants {
+  productVariants {
+    edges {
+      node {
+        id
+        displayName
+        availableForSale
+        barcode
+        sku
+        productID
+        price
+        shopifyID
+        inventoryType
+        inventoryQuantity
+        quickbookItemId
+        quickbookSyncToken
+        quickbookItemName
+        image {
+          url
+        }
+        active
+      }
+    }
+  }
+}

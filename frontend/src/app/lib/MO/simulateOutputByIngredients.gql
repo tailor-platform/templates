@@ -1,0 +1,14 @@
+query ($bomId: ID!, $inputQuantities: [listInput]!) {
+  simulateOutputByIngredients(
+    input: {bomId: $bomId, inputQuantities: $inputQuantities}
+  ) {
+    outputQuantity
+    result{
+      id
+      itemId
+      uomId
+      outputQuantity
+    }
+  }
+}
+

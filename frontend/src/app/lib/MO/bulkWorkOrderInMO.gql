@@ -1,0 +1,5 @@
+mutation MyMutation($input:[WorkOrderCreateInput]) {
+  bulkUpsertWorkOrders(
+    input: $input
+  )
+}

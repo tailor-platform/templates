@@ -1,0 +1,21 @@
+query ProductVariant($id: ID!) {
+  productVariant(id: $id) {
+    id
+    displayName
+    availableForSale
+    barcode
+    sku
+    productID
+    price
+    shopifyID
+    inventoryType
+    inventoryQuantity
+    quickbookItemId
+    quickbookSyncToken
+    quickbookItemName
+    image {
+      url
+    }
+    active
+  }
+}

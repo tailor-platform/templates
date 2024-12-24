@@ -1,0 +1,24 @@
+query MyQuery {
+  manufacturingOrders(
+    query: {
+      and: {
+        endDateTime: { ne: null }
+        startDateTime: { ne: null }
+        isDeleted: { eq: false }
+      }
+    }
+  ) {
+    collection {
+      startDateTime
+      name
+      id
+      endDateTime
+      quantity
+      status
+      componentsStatus
+      item {
+        name
+      }
+    }
+  }
+}

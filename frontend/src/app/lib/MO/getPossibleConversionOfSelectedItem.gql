@@ -1,0 +1,16 @@
+query ($toUomId: ID!) {
+  uomConversions(
+    size: 1000
+    order: { field: createdAt, direction: Desc }
+    query: { toUomId: { eq: $toUomId } }
+  ) {
+    collection {
+      id
+      fromUomId
+      fromUom{
+        name
+      }
+      toUomId
+      }
+    }
+  }

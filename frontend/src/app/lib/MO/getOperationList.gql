@@ -1,0 +1,24 @@
+query MyQuery {
+  operations(query: {isActive: {eq: true}}) {
+     collection {
+      description
+      documentUrl
+      duration
+      id
+      name
+      isActive
+      order
+      workCenter {
+        id
+        name
+      }
+      bom {
+        id
+        name
+        outputQuantity
+      }
+       bomId
+       workCenterId
+    }
+  }
+}

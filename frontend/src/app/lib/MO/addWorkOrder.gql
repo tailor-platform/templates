@@ -1,0 +1,8 @@
+mutation MyMutation($input:WorkOrderCreateInput) {
+  createWorkOrder(
+    input: $input
+  ){
+    id
+    isDeleted
+  }
+}

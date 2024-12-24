@@ -1,0 +1,19 @@
+query MyQuery {
+  workCenters(query: {isActive: {eq: true}}) {
+    collection {
+      id
+      name
+      description
+      isActive
+      setupTime
+      timeEfficiency
+      description
+      costPerEmployee
+      code
+      cleanupTime
+      parallelProcessingLimit
+      hourlyProcessingCost
+      workingHoursId
+    }
+  }
+}

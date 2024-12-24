@@ -1,0 +1,25 @@
+query ReceiptLineItems ($receiptID: ID!){
+    receiptLineItems (query: {receiptID: {eq: $receiptID}}, size: 100000) {
+        collection {
+            id
+            receiptID
+            variantID
+            cubicMeters
+            subtotalUnitCost
+            quantity
+            costPools{
+              costPoolID
+              costPool{
+                id
+                isClosed
+              }
+            }
+            subtotalCost
+            totalUnitCost
+            unitCostPoolAllocation
+            totalCostPoolAllocation
+            receiptStatus
+            receivedAt
+        }
+    }
+}

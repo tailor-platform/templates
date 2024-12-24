@@ -1,0 +1,30 @@
+query FinancialStockEvents {
+    financialStockEvents  (
+      size: 100000
+    ){
+        collection {
+            createdAt
+            id
+            averageCost
+            onHoldQuantity
+            availableQuantity
+            inStockQuantity
+            isOnHold
+            shipmentLineItemID
+            shipmentLineItem {
+              shipmentID
+            }
+            unitCost
+            variantID
+            totalCost
+            transactionTotalCost
+            operationalStockEventID
+            incrementalQuantity
+            receiptLineItemID
+            receiptLineItem {
+              receiptID
+            }
+            active
+        }
+    }
+}

@@ -1,0 +1,3 @@
+mutation ($input: [ItemCreateInput]) {
+    bulkUpsertItems (input: $input)
+}

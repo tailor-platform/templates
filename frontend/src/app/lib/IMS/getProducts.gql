@@ -1,0 +1,14 @@
+query Products {
+  products {
+    edges {
+      node {
+        id
+        description
+        title
+        handle
+        shopifyID
+        active
+      }
+    }
+  }
+}

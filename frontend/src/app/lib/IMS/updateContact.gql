@@ -1,0 +1,8 @@
+mutation ($id: ID!, $input: ContactUpdateInput!) {
+  updateContact(
+    id: $id,
+    input: $input
+  ){
+    id
+  }
+}

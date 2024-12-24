@@ -1,0 +1,10 @@
+query($ids:[ID]) {
+  workOrderDependencies(
+    query: {workOrderId: {in: $ids}}
+  ) {
+    collection {
+      dependsOnWorkOrderId
+      workOrderId
+    }
+  }
+}

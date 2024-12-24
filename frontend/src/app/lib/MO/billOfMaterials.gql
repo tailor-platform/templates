@@ -1,0 +1,27 @@
+query {
+  boms(
+    size: 1000,
+    order: { field: createdAt, direction: Desc }
+    query: {isActive: {eq: true}}
+  ) {
+    collection {
+      id
+      itemId
+      name
+      sku
+      uomId
+      bomType
+      uom{
+        name
+      }
+      description
+      item {
+        name
+        description
+      }
+      outputQuantity
+      configureMessage
+      isConfiguredProperly
+    }
+  }
+}

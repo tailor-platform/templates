@@ -1,0 +1,14 @@
+query ($moId: ID!) {
+  manufacturingOrderTransitions(
+    order: {field: createdAt, direction: Asc}
+    query: {moId: {eq: $moId}}
+  ) {
+    collection {
+      id
+      timeInStatus
+      toStatus
+      fromStatus
+      createdAt
+    }
+  }
+}

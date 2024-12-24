@@ -1,0 +1,10 @@
+query Product($id: ID!) {
+  product(id: $id) {
+    id
+    description
+    title
+    handle
+    shopifyID
+    active
+  }
+}

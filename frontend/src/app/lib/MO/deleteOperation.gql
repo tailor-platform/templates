@@ -1,0 +1,6 @@
+mutation MyMutation($id: ID!) {
+  updateOperation(id: $id, input: {isActive: false}){
+  id
+  name
+  }
+}

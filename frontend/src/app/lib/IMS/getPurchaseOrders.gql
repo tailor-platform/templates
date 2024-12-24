@@ -1,0 +1,25 @@
+query PurchaseOrders {
+    purchaseOrders (size: 100000)  {
+        collection {
+            id
+            documentNumber
+            supplierID
+            date
+            dueDate
+            exFactoryDate
+            shipVia
+            shipToID
+            terms
+            approvedBy
+            receivedBy
+            shippingContactName
+            shippingContactPhone
+            shippingInstructions
+            billToID
+            trackingNumber
+            pulledBy
+            notes
+            active
+        }
+    }
+}

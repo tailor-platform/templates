@@ -1,0 +1,19 @@
+query MyMutation($input: ComputeManufacturingOrderCostInput!) {
+  computeManufacturingOrderCost(input: $input) {
+    moLineItemsTotalCost
+    workOrderTotalCost
+    manufacturingOrderTotalCost
+    manufacturingOrderTotalExpectedCost
+    manufacturingOrderUnitCost
+    manufacturingOrderUnitExpectedCost
+    workOrderTotalDuration
+    workOrderTotalExpectedDuration
+    calculatedWorkOrders {
+      totalCost
+      totalDuration
+      workOrderId
+      totalExpectedCost
+      totalExpectedDuration
+    }
+  }
+}

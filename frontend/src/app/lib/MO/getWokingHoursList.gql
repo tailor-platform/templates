@@ -1,0 +1,11 @@
+query MyQuery {
+  workingHours(query: { isActive: { eq: true } }) {
+    collection {
+      id
+      isActive
+      name
+      standardHoursPerWeek
+      timeZone
+    }
+  }
+}

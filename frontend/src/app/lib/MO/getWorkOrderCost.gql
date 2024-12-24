@@ -1,0 +1,8 @@
+query MyQuery($workOrderId: ID!) {
+  computeWorkOrderCost(
+    input: {workOrderId: $workOrderId}
+  ) {
+    totalCost
+    totalDuration
+  }
+}

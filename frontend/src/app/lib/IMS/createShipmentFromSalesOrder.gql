@@ -1,0 +1,7 @@
+mutation ($salesOrderID: ID!) {
+  createShipmentFromSalesOrder(
+    input: {
+      salesOrderID: $salesOrderID
+    }
+  )
+}

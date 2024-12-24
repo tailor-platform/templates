@@ -1,0 +1,7 @@
+mutation ($input: CostPoolCreateInput!) {
+  createCostPool(
+    input: $input
+  ){
+    id
+  }
+}

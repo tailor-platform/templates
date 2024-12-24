@@ -1,0 +1,8 @@
+mutation MyMutation($id:ID!,$input:DailyScheduleUpdateInput) {
+  updateDailySchedule(
+    id: $id
+    input:$input 
+  ){
+    id
+  }
+}

@@ -1,0 +1,3 @@
+mutation BulkUpsertInvoiceLineItems ($input: [InvoiceLineItemCreateInput]) {
+    bulkUpsertInvoiceLineItems(input: $input)
+}

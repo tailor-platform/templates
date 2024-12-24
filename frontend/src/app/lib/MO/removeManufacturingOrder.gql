@@ -1,0 +1,8 @@
+mutation MyMutation($input:removeManufacturingOrderInput!) {
+  removeManufacturingOrder(
+    input: $input
+  ){
+    manufacturingOrderId
+    success
+  }
+}

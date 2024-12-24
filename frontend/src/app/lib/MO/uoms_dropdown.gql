@@ -1,0 +1,13 @@
+query {
+  uoms(
+    size: 1000,
+    order: { field: createdAt, direction: Desc }
+    query: {isActive: {eq: true}}
+  ) {
+    collection {
+      id
+      name
+      description
+    }
+  }
+}

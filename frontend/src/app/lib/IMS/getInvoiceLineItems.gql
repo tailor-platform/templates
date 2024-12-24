@@ -1,0 +1,15 @@
+query InvoiceLineItems ($invoiceID: ID!){
+    invoiceLineItems (query: {invoiceID: {eq: $invoiceID}}, size: 100000) {
+        collection {
+            id
+            invoiceID
+            variantID
+            unitPrice
+            quantity
+            taxable
+            variant{
+              quickbookItemId
+            }
+        }
+    }
+}

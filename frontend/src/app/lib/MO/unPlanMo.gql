@@ -1,0 +1,7 @@
+mutation MyMutation($input:UnPlanManufacturingOrderInput!) {
+  unPlanManufacturingOrder(
+    input: $input
+  ){
+    success
+  }
+}

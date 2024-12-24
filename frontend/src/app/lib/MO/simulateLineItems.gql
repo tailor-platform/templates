@@ -1,0 +1,11 @@
+query ($bomId: ID!, $outputQuantity: Float!) {
+  simulateInputRequirementByOutputQuantity(
+    input: { bomId: $bomId, outputQuantity: $outputQuantity }
+  ) {
+    result {
+      uomId
+      outputQuantity
+      itemId
+    }
+  }
+}

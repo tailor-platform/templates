@@ -1,0 +1,10 @@
+mutation ($input: BomCreateInput!) {
+  createBom(input: $input) {
+    id
+    name
+    description
+    outputQuantity
+    itemId
+    isActive
+  }
+}

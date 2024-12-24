@@ -1,0 +1,19 @@
+query($workOrderId: ID!) {
+  workOrderLineItems(query: {workOrderId: {eq: $workOrderId}}) {
+    collection {
+      id
+      moLineItem{
+        bomLineItem {
+          item{
+            name
+          }
+        }
+      }
+      quantity
+      scrapAction
+      returnAsNewSkuItem{
+        name
+      }
+    }
+  }
+}

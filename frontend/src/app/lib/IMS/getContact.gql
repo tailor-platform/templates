@@ -1,0 +1,22 @@
+query Contact($id: ID!) {
+  contact(id: $id) {
+    id
+    name
+    email
+    company
+    phone
+    address1
+    address2
+    city
+    province
+    provinceCode
+    zip
+    country
+    countryCode
+    creditLimit
+    openBalance
+    availableCredit
+    quickBookCustomerId
+    active
+  }
+}

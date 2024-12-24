@@ -1,0 +1,3 @@
+mutation MyMutation($id: ID!) {
+  deleteWorkOrderDependency(id: $id)
+}

@@ -1,0 +1,8 @@
+mutation ($shipmentItemIDs: [ID]!) {
+  createStockEventsFromShipmentLineItems(
+    input: {
+      shipmentItemIDs: $shipmentItemIDs
+      action: RELEASE
+    }
+  )
+}

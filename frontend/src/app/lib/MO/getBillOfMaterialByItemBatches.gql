@@ -1,0 +1,25 @@
+query($itemId:ID!) {
+  boms(
+    size: 1000,
+    order: { field: createdAt, direction: Desc }
+    query: {isActive: {eq: true},itemId: {eq: $itemId}}
+  ) {
+    collection {
+      id
+      itemId
+      name
+      sku
+      uomId
+      bomType
+      uom{
+        name
+      }
+      description
+      item {
+        name
+        description
+      }
+      outputQuantity
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation MyMutation($id: ID!,$input:WorkingHourUpdateInput) {
+  updateWorkingHour(
+    id: $id
+    input: $input
+  ) {
+    id
+    isActive
+    name
+    standardHoursPerWeek
+    timeZone
+  }
+}

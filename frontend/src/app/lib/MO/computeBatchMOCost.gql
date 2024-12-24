@@ -1,0 +1,11 @@
+query MyQuery($id: ID!){
+  computeBatchMoCost(
+    input: { moBatchId: $id }
+  ) {
+    expectedTotalCost
+    expectedUnitCost
+    success
+    totalCost
+    unitCost
+  }
+}

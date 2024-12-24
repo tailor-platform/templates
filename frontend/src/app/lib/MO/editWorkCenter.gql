@@ -1,0 +1,19 @@
+mutation MyMutation($id: ID!,$input:WorkCenterUpdateInput) {
+  updateWorkCenter(
+    id: $id
+    input:$input 
+  ){
+     cleanupTime
+    code
+    costPerEmployee
+    description
+    updatedAt
+    timeEfficiency
+    setupTime
+    parallelProcessingLimit
+    name
+    id
+    hourlyProcessingCost
+    workingHoursId
+  }
+}

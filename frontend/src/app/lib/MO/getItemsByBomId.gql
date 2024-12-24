@@ -1,0 +1,26 @@
+query ($bomId: ID!) {
+  bomLineItems(
+    size: 1000
+    order: { field: createdAt, direction: Desc }
+    query: { bomId: { eq: $bomId } }
+  ) {
+    collection {
+      id
+      bomId
+      itemId
+      inputQuantity
+      uomId
+      uom {
+        name
+      }
+      item {
+        name
+        description
+        inventoryType
+        uom {
+          name
+        }
+      }
+    }
+  }
+}

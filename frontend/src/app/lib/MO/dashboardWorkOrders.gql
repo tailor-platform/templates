@@ -1,0 +1,27 @@
+
+query MyQuery {
+  workOrders(
+    query: {
+      and: {
+        isDeleted: { eq: false }
+      }
+    }
+  ) {
+    collection {
+      isDeleted
+      id
+      startDate
+      operation {
+        name
+        workCenterId
+        workCenter {
+          name
+        }
+      }
+      expectedDuration
+      realDuration
+      endDate
+      status
+    }
+  }
+}

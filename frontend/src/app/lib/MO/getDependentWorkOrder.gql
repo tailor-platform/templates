@@ -1,0 +1,21 @@
+query MyQuery($workOrderId: ID!) {
+  workOrderDependencies(query: { workOrderId: { eq: $workOrderId } }) {
+    collection {
+      id
+      dependsOnWorkOrderId
+      workOrderId
+      dependsOnWorkOrder {
+        id
+        endDate
+        order
+        realDuration
+        operationId
+        status
+        startDate
+        endDate
+        expectedDuration
+        moId
+      }
+    }
+  }
+}

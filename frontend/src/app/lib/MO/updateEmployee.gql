@@ -1,0 +1,7 @@
+mutation MyMutation($id: ID!, $input: EmployeeUpdateInput!) {
+  updateEmployee(id: $id, input:  $input){
+    id
+    name
+    role
+  }
+}

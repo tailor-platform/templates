@@ -1,0 +1,7 @@
+mutation ($input:createNestedManufacturingOrderInput!) {
+  createNestedManufacturingOrder(
+    input: $input
+  ){
+    success
+  }
+}

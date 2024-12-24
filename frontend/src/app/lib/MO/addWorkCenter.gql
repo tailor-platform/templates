@@ -1,0 +1,17 @@
+mutation MyMutation($input:WorkCenterCreateInput) {
+  createWorkCenter(
+    input: $input
+  ){
+    name
+    parallelProcessingLimit
+    setupTime
+    timeEfficiency
+    workingHoursId
+    hourlyProcessingCost
+    id
+    description
+    costPerEmployee
+    code
+    cleanupTime
+  }
+}

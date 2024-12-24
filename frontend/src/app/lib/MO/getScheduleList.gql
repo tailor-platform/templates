@@ -1,0 +1,17 @@
+query MyQuery($id:ID!) {
+  dailySchedules (query: {workingHoursId: {eq: $id}}) {
+    collection {
+      duration
+      dayOfWeek
+      id
+      workFrom
+      workTo
+      workingHoursId
+      workingHours {
+        name
+        standardHoursPerWeek
+        id
+      }
+    }
+  }
+}

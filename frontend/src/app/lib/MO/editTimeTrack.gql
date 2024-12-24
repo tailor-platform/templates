@@ -1,0 +1,8 @@
+mutation MyMutation($id: ID!,$input:WOTimeTrackingUpdateInput) {
+  updateWOTimeTracking(
+    id: $id
+    input: $input
+  ){
+    id
+  }
+}

@@ -1,0 +1,7 @@
+mutation ($input:moveWoToFinishInput!) {
+  moveWoToFinish(
+    input: $input
+  ){
+   success
+  }
+}

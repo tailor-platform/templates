@@ -1,0 +1,12 @@
+query Shipments {
+    shipments(size: 100000)  {
+        collection {
+            id
+            salesOrderID
+            customerID
+            shipmentNumber
+            date
+            active
+        }
+    }
+}
