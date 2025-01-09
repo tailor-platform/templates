@@ -1,0 +1,9 @@
+query SalesOrderLineItemsCount($salesOrderID: ID!) {
+  salesOrderLineItems(query: { salesOrderID: { eq: $salesOrderID } }) {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}

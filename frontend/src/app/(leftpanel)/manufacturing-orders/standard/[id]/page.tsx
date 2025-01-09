@@ -28,6 +28,7 @@ import { useQuery } from "urql";
 import { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import dynamic from "next/dynamic";
+import { MOWorkOrdersTab } from "../tab-work-orders";
 
 const MOLineItemsTab = dynamic(() => import("./items-table"), {
   ssr: false,
@@ -69,6 +70,24 @@ const QUERY = gql`
               id
             }
           }
+        }
+      }
+    }
+    workOrders(query: { moId: { eq: $id } }) {
+      edges {
+        node {
+          operation {
+            name
+            workCenter {
+              name
+            }
+          }
+          status
+          order
+          expectedDuration
+          realDuration
+          startDate
+          endDate
         }
       }
     }
@@ -140,6 +159,7 @@ export default function StandardManufacturingOrderDetails({}) {
 
   // @ts-expect-error - edges is not defined on type
   const moLineItems = data?.mOLineItems?.edges.map((edge) => edge.node) || [];
+  const moWorkOrders = data?.workOrders?.edges || [];
 
   return (
     <div className="grid auto-rows-min gap-4 md:grid-cols-[30%_auto]">
@@ -267,21 +287,13 @@ export default function StandardManufacturingOrderDetails({}) {
           <TabsList>
             <TabsTrigger value="items">Items</TabsTrigger>
             <TabsTrigger value="work-order">Work Order</TabsTrigger>
-            <TabsTrigger value="cost">Cost</TabsTrigger>
-            <TabsTrigger value="items-in-work-order">
-              Items in Work Order
-            </TabsTrigger>
-            <TabsTrigger value="transition">Transition</TabsTrigger>
           </TabsList>
           <TabsContent value="items">
             <MOLineItemsTab moLineItems={moLineItems} />
           </TabsContent>
-          <TabsContent value="work-order">Work Order</TabsContent>
-          <TabsContent value="cost">Cost</TabsContent>
-          <TabsContent value="items-in-work-order">
-            Items in Work Order
+          <TabsContent value="work-order">
+            <MOWorkOrdersTab workOrders={moWorkOrders} />
           </TabsContent>
-          <TabsContent value="transition">Transition</TabsContent>
         </Tabs>
       </div>
     </div>

@@ -24,20 +24,20 @@ simulateInput:{
             ]
 	}
 
-listPickingResult: {
-	Name: "listPickingResult"
+listOutputResult: {
+	Name: "listOutputResult"
 	Fields: [
 		{Name: "outputQuantity", Type: pipeline.Float, Required: true},
 		{
 			Name:  "result"
 			Array: true
 			Type: {
-				Name: "listPickingItemResult"
+				Name: "listOutputResult"
 				Fields: [
 					{Name: "id", Type: pipeline.ID},
 					{Name: "itemId", Type: pipeline.ID},
 					{Name: "uomId", Type: pipeline.ID},
-					{Name: "outputQuantity", Type: pipeline.Float},
+					{Name: "outputQuantity", Type: pipeline.Float}
 				]
 			}
 		},
@@ -48,7 +48,7 @@ simulateOutputByIngredients: pipeline.#Resolver & {
     Authorization: pipeline.#AuthInsecure
     Name:        "simulateOutputByIngredients"
     Description: "Simulate the Input Quantity requirement of a BOM by the output quantity"
-   	Response: {Type: listPickingResult}
+   	Response: {Type: listOutputResult}
     Inputs:[
         {
 			Name: "input",

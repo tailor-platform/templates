@@ -1,0 +1,18 @@
+query Item($id: ID!) {
+    item(id: $id) {
+        id
+        name
+        sku
+        description
+        inventoryType
+        isFinalProduct
+        bom {
+            name
+        }
+        uom {
+            name
+        }
+        woAllocatedQuantity
+        wastedQuantity
+    }
+}

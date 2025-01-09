@@ -1,7 +1,5 @@
 mutation ($salesOrderID: ID!) {
-  createShipmentFromSalesOrder(
-    input: {
-      salesOrderID: $salesOrderID
-    }
-  )
+  createShipmentFromSalesOrder(input: { salesOrderID: $salesOrderID }) {
+    shipmentId
+  }
 }

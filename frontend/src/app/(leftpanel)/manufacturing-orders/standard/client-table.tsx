@@ -1,23 +1,21 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { ManufacturingOrder } from "@/app/(leftpanel)/manufacturing-orders/standard/page";
+import { StandardManufacturingOrdersTable } from "./orders-table";
 
 type Props = {
   manufacturingOrders: ManufacturingOrder[];
+  fetching: boolean;
 };
-
-const StandardManufacturingOrdersTable = dynamic(
-  () => import("./orders-table"),
-  { ssr: false },
-);
 
 export const StandardManufacturingOrdersTableClient = ({
   manufacturingOrders,
+  fetching,
 }: Props) => {
   return (
     <StandardManufacturingOrdersTable
       manufacturingOrders={manufacturingOrders}
+      fetching={fetching}
     />
   );
 };

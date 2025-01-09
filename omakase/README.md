@@ -5,14 +5,15 @@
 After you deployed the app, please follow these steps to set up the state to accept the Sales Order from Shopify.
 
 1. Deployment
-make init
-make apply
+   make init
+   make apply
 
-2. Set up Inventory 
-make demo
+2. Set up Inventory
+   make demo
 
 Now, you have 100 available quantity for each of these product.
 Product variants ID will be same.
+
 ```json
     "productVariants": {
       "edges": [
@@ -42,11 +43,7 @@ If you create the sales order, you can create a shipment from the sales order wi
 
 ```gql
 mutation ($salesOrderID: ID!) {
-  createShipmentFromSalesOrder(
-    input: {
-      salesOrderID: $salesOrderID
-    }
-  ){
+  createShipmentFromSalesOrder(input: { salesOrderID: $salesOrderID }) {
     shipmentId
   }
 }
@@ -54,30 +51,27 @@ mutation ($salesOrderID: ID!) {
 
 If you want to update the inventory state, please run this GQL.
 You have to run `HOLD` first.
+
 ```gql
 mutation ($shipmentItemIDs: [ID]!) {
   createStockEventsFromShipmentLineItems(
-    input: {
-      shipmentItemIDs: $shipmentItemIDs
-      action: HOLD
-    }
+    input: { shipmentItemIDs: $shipmentItemIDs, action: HOLD }
   )
 }
 ```
 
 Then `SHIP`
+
 ```gql
 mutation ($shipmentItemIDs: [ID]!) {
   createStockEventsFromShipmentLineItems(
-    input: {
-      shipmentItemIDs: $shipmentItemIDs
-      action: SHIP
-    }
+    input: { shipmentItemIDs: $shipmentItemIDs, action: SHIP }
   )
 }
 ```
 
 once you make it `SHIP`, you can push the inventory change to Shopify.
+
 ```sh
 curl -X POST https://eooueqea9ac07t5.m.pipedream.net \
      -H "Content-Type: application/json" \
@@ -88,24 +82,50 @@ curl -X POST https://eooueqea9ac07t5.m.pipedream.net \
          }'
 ```
 
-
-
 ## Data Reset
+
 You can run these command if you want to reset data for Demo.
 This will delete all of the data for these Types.
 
+IMS:
+
 ```
-tcl workspace service tailordb truncate -n mo-dev -t InventoryItem -a
-tcl workspace service tailordb truncate -n mo-dev -t InventoryLevel -a
-tcl workspace service tailordb truncate -n mo-dev -t PurchaseOrder -a
-tcl workspace service tailordb truncate -n mo-dev -t PurchaseOrderLineItem -a
-tcl workspace service tailordb truncate -n mo-dev -t Receipt -a
-tcl workspace service tailordb truncate -n mo-dev -t ReceiptLineItem -a
-tcl workspace service tailordb truncate -n mo-dev -t SalesOrder -a
-tcl workspace service tailordb truncate -n mo-dev -t SalesOrderLineItem -a
-tcl workspace service tailordb truncate -n mo-dev -t Shipment -a
-tcl workspace service tailordb truncate -n mo-dev -t ShipmentLineItem -a
-tcl workspace service tailordb truncate -n mo-dev -t StockSummary -a
-tcl workspace service tailordb truncate -n mo-dev -t OperationalStockEvent -a
-tcl workspace service tailordb truncate -n mo-dev -t Contact -a
+tailorctl workspace service tailordb truncate -n mo-dev -t InventoryItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t InventoryLevel -a
+tailorctl workspace service tailordb truncate -n mo-dev -t PurchaseOrder -a
+tailorctl workspace service tailordb truncate -n mo-dev -t PurchaseOrderLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Receipt -a
+tailorctl workspace service tailordb truncate -n mo-dev -t ReceiptLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t SalesOrder -a
+tailorctl workspace service tailordb truncate -n mo-dev -t SalesOrderLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Shipment -a
+tailorctl workspace service tailordb truncate -n mo-dev -t ShipmentLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t StockSummary -a
+tailorctl workspace service tailordb truncate -n mo-dev -t OperationalStockEvent -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Contact -a
+```
+
+MO:
+
+```
+tailorctl workspace service tailordb truncate -n mo-dev -t Uom -a
+tailorctl workspace service tailordb truncate -n mo-dev -t UomConversion -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Item -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Bom -a
+tailorctl workspace service tailordb truncate -n mo-dev -t BomLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Employee -a
+tailorctl workspace service tailordb truncate -n mo-dev -t WorkingHour -a
+tailorctl workspace service tailordb truncate -n mo-dev -t DailySchedule -a
+tailorctl workspace service tailordb truncate -n mo-dev -t WorkCenter -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Operation -a
+tailorctl workspace service tailordb truncate -n mo-dev -t MOBatch -a
+tailorctl workspace service tailordb truncate -n mo-dev -t ManufacturingOrder -a
+tailorctl workspace service tailordb truncate -n mo-dev -t MOLineItem -a
+tailorctl workspace service tailordb truncate -n mo-dev -t OperationDependency -a
+tailorctl workspace service tailordb truncate -n mo-dev -t WorkOrder -a
+tailorctl workspace service tailordb truncate -n mo-dev -t WorkOrderDependency -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Item -a
+tailorctl workspace service tailordb truncate -n mo-dev -t WorkOrderTransition -a
+tailorctl workspace service tailordb truncate -n mo-dev -t Role -a
+tailorctl workspace service tailordb truncate -n mo-dev -t User -a
 ```

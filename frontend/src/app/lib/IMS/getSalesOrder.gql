@@ -1,0 +1,23 @@
+query SalesOrder($id: ID!) {
+  salesOrder(id: $id) {
+    currency
+    created
+    shopifyID
+    updated
+    orderNumber
+    customerEmail
+    customerID
+    createdAt
+    shipStationOrderStatus
+    updatedAt
+    shippedAt
+    id
+    cancelledAt
+    currentSubtotalPrice
+    updatedByID
+    customerName
+    cancelReason
+    active
+    createdByID
+  }
+}

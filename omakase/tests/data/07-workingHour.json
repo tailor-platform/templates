@@ -1,0 +1,16 @@
+{
+  "WorkingHour": {
+    "workinghour1": {
+      "name": "Standard Working Hours",
+      "standardHoursPerWeek": 40,
+      "timeZone": "UTC",
+      "isActive": true
+    },
+    "workinghour2": {
+      "name": "Night Shift",
+      "standardHoursPerWeek": 20,
+      "timeZone": "UTC-2",
+      "isActive": true
+    }
+  }
+}

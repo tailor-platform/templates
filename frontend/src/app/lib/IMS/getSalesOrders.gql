@@ -1,19 +1,28 @@
 query SalesOrders {
-    salesOrders (size: 100000)  {
-        collection {
-            id
-            customerID
-            orderNumber
-            customerName
-            customerEmail
-            cancelledAt
-            cancelReason
-            currentSubtotalPrice
-            currency
-            shopifyID
-            shipStationOrderStatus
-            shippedAt
-            active
-        }
+  salesOrders(order: { field: createdAt, direction: Desc }) {
+    edges {
+      node {
+        currency
+        created
+        shopifyID
+        updated
+        orderNumber
+        customerEmail
+        customerID
+        createdAt
+        shipStationOrderStatus
+        updatedAt
+        shippedAt
+        id
+        cancelledAt
+        currentSubtotalPrice
+        updatedByID
+        customerName
+        cancelReason
+        active
+        createdByID
+        shopifyCreatedAt
+      }
     }
+  }
 }

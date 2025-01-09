@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useViewContext } from "@/app/(leftpanel)/view-context";
 import { gql } from "@fabrix-framework/fabrix";
 import { useMemo } from "react";
@@ -12,21 +13,26 @@ const QUERY = gql`
   ${GET_PRODUCTS}
 `;
 
-const queryConfig = {
-  query: QUERY,
-  context: {
-    requestPolicy: "cache-first" as const,
-  },
-};
-
 export default function ProductsPage() {
   const { viewType } = useViewContext();
-  const [{ data }] = useQuery(queryConfig);
+  const [{ data, fetching }] = useQuery({
+    query: QUERY,
+    requestPolicy: "cache-first",
+  });
+
   const products = useMemo(
     () =>
       data?.products?.edges?.map((edge: { node: Product }) => edge.node) || [],
     [data],
   );
 
-  return <div>{viewType === "table" && <Table products={products} />}</div>;
+  return (
+    <div>
+      {viewType === "table" && (
+        <Suspense fallback={<div></div>}>
+          <Table products={products} fetching={fetching} />
+        </Suspense>
+      )}
+    </div>
+  );
 }

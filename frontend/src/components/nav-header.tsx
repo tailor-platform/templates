@@ -2,8 +2,8 @@
 
 import { SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 import Avatar from "boring-avatars";
-import { ButtonIcon } from "@/components/ui/button-icon";
-import { Plus, Search } from "lucide-react";
+// import { ButtonIcon } from "@/components/ui/button-icon";
+// import { Plus, Search } from "lucide-react";
 import Link from "next/link";
 
 export function NavHeader() {
@@ -22,7 +22,7 @@ export function NavHeader() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <ButtonIcon>
               <Search />
             </ButtonIcon>
@@ -30,7 +30,7 @@ export function NavHeader() {
             <ButtonIcon>
               <Plus />
             </ButtonIcon>
-          </div>
+          </div> */}
         </div>
       </SidebarMenuItem>
     </SidebarMenu>

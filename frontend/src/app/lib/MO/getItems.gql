@@ -1,0 +1,22 @@
+query Items {
+    items {
+        edges {
+            node {
+                id
+                name
+                sku
+                description
+                inventoryType
+                isFinalProduct
+                bom {
+                    name
+                }
+                uom {
+                    name
+                }
+                woAllocatedQuantity
+                wastedQuantity
+            }
+        }
+    }
+}

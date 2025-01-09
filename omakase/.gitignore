@@ -1,0 +1,47 @@
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+### Node ###
+# Logs
+logs
+*.log
+lerna-debug.log*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Files from sample builds
+db/logs
+db/postgres
+db/es-data
+db/mongodb
+
+node_modules/
+
+**/**/generated/**/*
+
+tmp
+
+**/templates/**/charts/**
+**/templates/**/values.yaml

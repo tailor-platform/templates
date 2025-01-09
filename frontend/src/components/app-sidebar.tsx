@@ -3,18 +3,18 @@
 import {
   Asterisk,
   Banknote,
-  Bot,
-  Calculator,
+  // Bot,
+  // Calculator,
   FileCheck,
-  Import,
-  Layers3,
-  LayoutDashboard,
+  // Import,
+  // Layers3,
+  // LayoutDashboard,
   List,
   Receipt,
   ReceiptText,
-  Settings2,
+  // Settings2,
   Ungroup,
-  Users,
+  // Users,
   Warehouse,
 } from "lucide-react";
 
@@ -41,23 +41,23 @@ type NavItem = {
 };
 
 const data = {
-  navTop: [
-    {
-      title: "Dashboard",
-      url: "/",
-      icon: LayoutDashboard,
-    },
-    {
-      title: "Agents",
-      url: "#",
-      icon: Bot,
-    },
-    {
-      title: "Saved Views",
-      url: "#",
-      icon: Layers3,
-    },
-  ],
+  // navTop: [
+  //   {
+  //     title: "Dashboard",
+  //     url: "/",
+  //     icon: LayoutDashboard,
+  //   },
+  //   {
+  //     title: "Agents",
+  //     url: "#",
+  //     icon: Bot,
+  //   },
+  //   {
+  //     title: "Saved Views",
+  //     url: "#",
+  //     icon: Layers3,
+  //   },
+  // ],
   navMain: [
     {
       title: "Master Data",
@@ -80,26 +80,6 @@ const data = {
       ],
     },
     {
-      title: "Sales",
-      url: "#",
-      icon: Banknote,
-      isActive: false,
-      items: [
-        {
-          title: "Sales Orders",
-          url: "/sales/sales-orders",
-        },
-        {
-          title: "Shipments",
-          url: "/sales/shipments",
-        },
-        {
-          title: "Invoices",
-          url: "/sales/invoices",
-        },
-      ],
-    },
-    {
       title: "Procurements",
       url: "#",
       icon: Receipt,
@@ -113,113 +93,143 @@ const data = {
           title: "Receipts",
           url: "/procurements/receipts",
         },
+        // {
+        //   title: "Cost Pools",
+        //   url: "/procurements/cost-pools",
+        // },
+      ],
+    },
+    {
+      title: "Sales",
+      url: "#",
+      icon: Banknote,
+      isActive: false,
+      items: [
         {
-          title: "Cost Pools",
-          url: "/procurements/cost-pools",
+          title: "Sales Orders",
+          url: "/sales/sales-orders",
         },
+        {
+          title: "Shipments",
+          url: "/sales/shipments",
+        },
+        // {
+        //   title: "Invoices",
+        //   url: "/sales/invoices",
+        // },
       ],
     },
     {
       title: "Inventory",
-      url: "#",
+      url: "/inventory/stock-summary",
       icon: Warehouse,
-      isActive: false,
-      items: [
-        {
-          title: "Stock Summary",
-          url: "/inventory/stock-summary",
-        },
-        {
-          title: "Operational Ledger",
-          url: "/inventory/operational-ledger",
-        },
-        {
-          title: "Financial Ledger",
-          url: "/inventory/financial-ledger",
-        },
-        {
-          title: "Financial Stock Summary",
-          url: "/inventory/financial-stock-summary",
-        },
-      ],
     },
+    // {
+    //   title: "Inventory",
+    //   url: "#",
+    //   icon: Warehouse,
+    //   isActive: false,
+    //   items: [
+    //     {
+    //       title: "Stock Summary",
+    //       url: "/inventory/stock-summary",
+    //     },
+    //     {
+    //       title: "Operational Ledger",
+    //       url: "/inventory/operational-ledger",
+    //     },
+    //     {
+    //       title: "Financial Ledger",
+    //       url: "/inventory/financial-ledger",
+    //     },
+    //     {
+    //       title: "Financial Stock Summary",
+    //       url: "/inventory/financial-stock-summary",
+    //     },
+    //   ],
+    // },
     {
       title: "Manufacturing Orders",
-      url: "#",
+      url: "/manufacturing-orders/standard",
       icon: ReceiptText,
-      items: [
-        {
-          title: "Standard",
-          url: "/manufacturing-orders/standard",
-        },
-        {
-          title: "Batch",
-          url: "/manufacturing-orders/batch",
-        },
-      ],
     },
+    // {
+    //   title: "Manufacturing Orders",
+    //   url: "#",
+    //   icon: ReceiptText,
+    //   items: [
+    //     {
+    //       title: "Standard",
+    //       url: "/manufacturing-orders/standard",
+    //     },
+    //     {
+    //       title: "Batch",
+    //       url: "/manufacturing-orders/batch",
+    //     },
+    //   ],
+    // },
     {
       title: "Work Orders",
-      url: "#",
+      url: "/work-orders",
       icon: FileCheck,
     },
     {
       title: "Bill of Materials",
-      url: "#",
+      url: "/bill-of-materials",
       icon: List,
     },
     {
       title: "Items",
-      url: "#",
+      url: "/items",
       icon: Ungroup,
     },
-    {
-      title: "Employees",
-      url: "#",
-      icon: Users,
-    },
-    {
-      title: "Simulator",
-      url: "#",
-      icon: Calculator,
-      items: [
-        {
-          title: "Input Requirement BOM",
-          url: "#",
-        },
-        {
-          title: "Output by Ingredients",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Employees",
+    //   url: "#",
+    //   icon: Users,
+    // },
+    // {
+    //   title: "Simulator",
+    //   url: "#",
+    //   icon: Calculator,
+    //   items: [
+    //     {
+    //       title: "Input Requirement BOM",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Output by Ingredients",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
-  navSettings: [
-    {
-      title: "Unit of Measures",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "Working Hours",
-          url: "#",
-        },
-        {
-          title: "Work Centers",
-          url: "#",
-        },
-        {
-          title: "Operations",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Import Inventory",
-      url: "#",
-      icon: Import,
-    },
-  ],
+  // navSettings: [
+  //   {
+  //     title: "Unit of Measures",
+  //     url: "#",
+  //     icon: Settings2,
+  //     items: [
+  //       {
+  //         title: "Working Hours",
+  //         url: "#",
+  //       },
+  //       {
+  //         title: "Work Centers",
+  //         url: "#",
+  //       },
+  //       {
+  //         title: "Operations",
+  //         url: "#",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "Import Inventory",
+  //     url: "#",
+  //     icon: Import,
+  //   },
+  // ],
 };
 
 const markActive = (items: NavItem[], pathname: string): NavItem[] => {
@@ -239,9 +249,9 @@ const markActive = (items: NavItem[], pathname: string): NavItem[] => {
 export const AppSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
   const pathname = usePathname();
 
-  const updatedNavTop = markActive(data.navTop, pathname);
+  // const updatedNavTop = markActive(data.navTop, pathname);
   const updatedNavMain = markActive(data.navMain, pathname);
-  const updatedNavSettings = markActive(data.navSettings, pathname);
+  // const updatedNavSettings = markActive(data.navSettings, pathname);
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -249,9 +259,9 @@ export const AppSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
         <NavHeader />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain title="Workspaces" items={updatedNavTop} />
+        {/* <NavMain title="Workspaces" items={updatedNavTop} /> */}
         <NavMain title="Views" items={updatedNavMain} />
-        <NavMain title="Settings" items={updatedNavSettings} />
+        {/* <NavMain title="Settings" items={updatedNavSettings} /> */}
       </SidebarContent>
       <SidebarFooter>
         <ModuleSwitcher

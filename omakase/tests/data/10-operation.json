@@ -1,0 +1,116 @@
+{
+  "Operation": {
+    "operation1": {
+      "name": "Engine Assembly",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter1"
+      },
+      "duration": 180,
+      "description": "Assembling the motorcycle engine from components.",
+      "documentUrl": "http://example.com/docs/engine-assembly",
+      "isActive": true,
+      "order": 1
+    },
+    "operation2": {
+      "name": "Frame Assembly",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter2"
+      },
+      "duration": 150,
+      "description": "Assembling the motorcycle frame and structural components.",
+      "documentUrl": "http://example.com/docs/frame-assembly",
+      "isActive": true,
+      "order": 2
+    },
+    "operation3": {
+      "name": "Electrical Systems Installation",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter3"
+      },
+      "duration": 90,
+      "description": "Installing electrical systems, wiring, and electronics.",
+      "documentUrl": "http://example.com/docs/electrical-installation",
+      "isActive": true,
+      "order": 3
+    },
+    "operation4": {
+      "name": "Casting Motorcycle Components",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter4"
+      },
+      "duration": 120,
+      "description": "Casting metal components specific to motorcycle production.",
+      "documentUrl": "http://example.com/docs/casting",
+      "isActive": true,
+      "order": 4
+    },
+    "operation5": {
+      "name": "Painting Components",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter5"
+      },
+      "duration": 100,
+      "description": "Painting motorcycle frames, engines, and other components.",
+      "documentUrl": "http://example.com/docs/painting",
+      "isActive": true,
+      "order": 5
+    },
+    "operation6": {
+      "name": "Final Assembly",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter6"
+      },
+      "duration": 200,
+      "description": "Integrating all major components into the finished motorcycle.",
+      "documentUrl": "http://example.com/docs/final-assembly",
+      "isActive": true,
+      "order": 6
+    },
+    "operation7": {
+      "name": "Quality Control",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter7"
+      },
+      "duration": 30,
+      "description": "Conducting quality assurance and testing of completed motorcycles.",
+      "documentUrl": "http://example.com/docs/quality-control",
+      "isActive": true,
+      "order": 7
+    },
+    "operation8": {
+      "name": "Packaging",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "workCenterId": {
+        "UUID": "WorkCenter.workcenter8"
+      },
+      "duration": 80,
+      "description": "Packaging completed motorcycles for shipping.",
+      "documentUrl": "http://example.com/docs/packaging",
+      "isActive": true,
+      "order": 8
+    }
+  }
+}

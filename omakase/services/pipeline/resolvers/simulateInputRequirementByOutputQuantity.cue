@@ -18,6 +18,12 @@ listPickingResult: {
 					{Name: "itemId", Type: pipeline.ID},
 					{Name: "uomId", Type: pipeline.ID},
 					{Name: "outputQuantity", Type: pipeline.Float},
+					{Name: "uomName", Type: pipeline.String},
+					{Name: "itemName", Type: pipeline.String},
+					{Name: "itemDescription", Type: pipeline.String},
+					{Name: "itemInventoryType", Type: pipeline.String},
+					{Name: "itemIsActive", Type: pipeline.Boolean},
+					{Name: "itemIsFinalProduct", Type: pipeline.Boolean}
 				]
 			}
 		},
@@ -60,16 +66,22 @@ simulateInputRequirementByOutputQuantity: pipeline.#Resolver & {
 							}
 							bomLineItems(query: {bomId: {eq: $bomId}}) {
 								edges {
-      								node {
+									node {
 										id
 										bomId
 										itemId
 										item {
 											name
 											description
+											inventoryType
+            					isActive
+            					isFinalProduct
 										}
 										inputQuantity
 										uomId
+										uom {
+											name
+										}
 									}
 								}
 							}
@@ -82,7 +94,13 @@ simulateInputRequirementByOutputQuantity: pipeline.#Resolver & {
 						"result": size(args.bomLineItems.edges)== 0 ? [] : args.bomLineItems.edges.map(e, {
 							"id": e.node.id,
 							"itemId": e.node.itemId,
+							"itemName": e.node.item.name,
+							"itemDescription": e.node.item.description,
+							"itemInventoryType": e.node.item.inventoryType,
+							"itemIsActive": e.node.item.isActive,
+							"itemIsFinalProduct": e.node.item.isFinalProduct,
 							"uomId": e.node.uomId,
+							"uomName": e.node.uom.name,
 							"outputQuantity": (context.args.input.outputQuantity/args.bom.outputQuantity) * e.node.inputQuantity 
 						})
 					}"""

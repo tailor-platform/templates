@@ -1,0 +1,16 @@
+query WorkOrder($id: ID!) {
+    workOrder(id: $id) {
+        id
+        operation {
+            name
+        }
+        mo {
+            name
+        }
+        status
+        expectedDuration
+        order
+        startDate
+        endDate
+    }
+}

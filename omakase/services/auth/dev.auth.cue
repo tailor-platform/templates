@@ -1,3 +1,4 @@
+@if(dev)
 package auth
 
 import (
@@ -12,10 +13,10 @@ auth.#Spec & {
 	Namespace: environment.#app.namespace
 	IdProviderConfigs: [
 		auth.#IDProviderConfig & {
-			Name: "sample"
-				Config: auth.#IDToken & {
-				ClientID:    "exampleco"
-				ProviderURL: "https://exampleco-enterprises.auth0.com/"
+			Name: "retool-integration"
+			Config: auth.#IDToken & {
+				ClientID:    "1qkAt22ShoEvt98xF09dH7NsEmC5qkcU"
+				ProviderURL: "https://retool-integration.us.auth0.com/"
 			}
 		},
 	]
