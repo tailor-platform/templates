@@ -103,7 +103,6 @@ export function DataTable<T>(props: DataTableProps<T>) {
 
   const defaultColDef: ColDef = {
     filter: true,
-    floatingFilter: true,
     resizable: true,
     sortable: true,
     enablePivot: true,
