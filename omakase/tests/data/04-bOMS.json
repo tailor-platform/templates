@@ -1,0 +1,329 @@
+{
+  "Bom": {
+    "bom1": {
+      "name": "Abs Modulator",
+      "description": "Component \"abs modulator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "ABS.#553175",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item1"
+      }
+    },
+    "bom2": {
+      "name": "Air Cleaner",
+      "description": "Component \"air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "AIR.#095921",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item2"
+      }
+    },
+    "bom3": {
+      "name": "Alternator",
+      "description": "Component \"alternator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "ALT.#955373",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item3"
+      }
+    },
+    "bom4": {
+      "name": "Battery",
+      "description": "Component \"battery\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "BAT.#657979",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item4"
+      }
+    },
+    "bom5": {
+      "name": "Body / Cover",
+      "description": "Component \"body / cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "BOD.#852513",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item5"
+      }
+    },
+    "bom6": {
+      "name": "Cam Chain Tensioner",
+      "description": "Component \"cam chain tensioner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CAM.#379391",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item6"
+      }
+    },
+    "bom7": {
+      "name": "Camshaft-Valve",
+      "description": "Component \"camshaft-valve\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CAMVAL.#681275",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item7"
+      }
+    },
+    "bom8": {
+      "name": "Canister",
+      "description": "Component \"canister\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CAN.#113742",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item8"
+      }
+    },
+    "bom9": {
+      "name": "Caution Labels",
+      "description": "Component \"caution labels\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CAU.#033854",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item9"
+      }
+    },
+    "bom10": {
+      "name": "Clutch",
+      "description": "Component \"clutch\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CLU.#931707",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item10"
+      }
+    },
+    "bom11": {
+      "name": "Crankcase",
+      "description": "Component \"crankcase\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CRA.#729357",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item11"
+      }
+    },
+    "bom12": {
+      "name": "Crankshaft Piston",
+      "description": "Component \"crankshaft piston\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CRA.#945484",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item12"
+      }
+    },
+    "bom13": {
+      "name": "Cylinder",
+      "description": "Component \"cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CYL.#635389",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item13"
+      }
+    },
+    "bom14": {
+      "name": "Cylinder Head",
+      "description": "Component \"cylinder head\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "CYL.#503069",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item14"
+      }
+    },
+    "bom15": {
+      "name": "Frame",
+      "description": "Component \"frame\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRA.#947725",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item15"
+      }
+    },
+    "bom16": {
+      "name": "Front Brake Master Cylinder",
+      "description": "Component \"front brake master cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRO.#291634",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item16"
+      }
+    },
+    "bom17": {
+      "name": "Front Brake-Caliper",
+      "description": "Component \"front brake-caliper\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FROCAL.#232528",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item17"
+      }
+    },
+    "bom18": {
+      "name": "Front Cover / Leg Shield",
+      "description": "Component \"front cover / leg shield\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRO.#646679",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item18"
+      }
+    },
+    "bom19": {
+      "name": "front fender",
+      "description": "Component \"front fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRO.#417159",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item32"
+      }
+    },
+    "bom20": {
+      "name": "rear fender",
+      "description": "Component \"rear fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "REA.#382980",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item52"
+      }
+    },
+    "bom21": {
+      "name": "front fork",
+      "description": "Component \"front fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRO.#611893",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item84"
+      }
+    },
+    "bom22": {
+      "name": "rear shock absorber",
+      "description": "Component \"rear shock absorber\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "REA.#060545",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item105"
+      }
+    },
+    "bom23": {
+      "name": "front wheel",
+      "description": "Component \"front wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "FRO.#072515",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item117"
+      }
+    },
+    "bom24": {
+      "name": "rear wheel",
+      "description": "Component \"rear wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model.",
+      "outputQuantity": 1,
+      "sku": "REA.#682714",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item132"
+      }
+    },
+    "bom25": {
+      "name": "Honda Motorcycle C125A 2AC",
+      "description": "Honda Motorcycle C125A 2AC - Assembled parts",
+      "outputQuantity": 1,
+      "sku": "HND.C125A2AC",
+      "bomType": "FINAL_PRODUCT",
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "itemId": {
+        "UUID": "Item.item154"
+      }
+    }
+  }
+}

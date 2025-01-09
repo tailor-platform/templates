@@ -5,2160 +5,2320 @@ import (
 )
 
 #Item: {
+
+	// 1. FRONT CROWN PANEL
 	item0: {
 		id: utils.uuid & {_, #type: "item", #value: "1"}
-		name:           "Abs Modulator"
-		description:    "Component \"abs modulator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "ABS.#707091"
+		name:           "Front Crown Panel"
+		description:    "Front crown fabric panel for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100001"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 10
 		wastedQuantity: 10
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 2. REAR CROWN PANEL
 	item1: {
 		id: utils.uuid & {_, #type: "item", #value: "2"}
-		name:           "Air Cleaner"
-		description:    "Component \"air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "AIR.#817822"
+		name:           "Rear Crown Panel"
+		description:    "Rear crown fabric panel for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100002"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 3. LEFT SIDE CROWN PANEL
 	item2: {
 		id: utils.uuid & {_, #type: "item", #value: "3"}
-		name:           "Alternator"
-		description:    "Component \"alternator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "ALT.#219217"
+		name:           "Left Side Crown Panel"
+		description:    "Left side fabric panel for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100003"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 4. RIGHT SIDE CROWN PANEL
 	item3: {
 		id: utils.uuid & {_, #type: "item", #value: "4"}
-		name:           "Battery"
-		description:    "Component \"battery\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "BAT.#787498"
+		name:           "Right Side Crown Panel"
+		description:    "Right side fabric panel for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100004"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 5. TOP BUTTON
 	item4: {
 		id: utils.uuid & {_, #type: "item", #value: "5"}
-		name:           "Body / Cover"
-		description:    "Component \"body / cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "BOD.#226849"
+		name:           "Top Button"
+		description:    "Top button piece for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100005"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 6. VISOR CANVAS
 	item5: {
 		id: utils.uuid & {_, #type: "item", #value: "6"}
-		name:           "Cam Chain Tensioner"
-		description:    "Component \"cam chain tensioner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CAM.#440304"
+		name:           "Visor Canvas"
+		description:    "Outer visor fabric for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100006"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 7. VISOR INSERT
 	item6: {
 		id: utils.uuid & {_, #type: "item", #value: "7"}
-		name:           "Camshaft-Valve"
-		description:    "Component \"camshaft-valve\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CAMVAL.#707230"
+		name:           "Visor Insert"
+		description:    "Plastic insert to shape the visor for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100007"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 8. SWEATBAND FABRIC
 	item7: {
 		id: utils.uuid & {_, #type: "item", #value: "8"}
-		name:           "Canister"
-		description:    "Component \"canister\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CAN.#191666"
+		name:           "Sweatband Fabric"
+		description:    "Comfort sweatband fabric for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100008"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 9. SWEATBAND ELASTIC
 	item8: {
 		id: utils.uuid & {_, #type: "item", #value: "9"}
-		name:           "Caution Labels"
-		description:    "Component \"caution labels\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CAU.#960008"
+		name:           "Sweatband Elastic"
+		description:    "Elastic material for sweatband adjustment in Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100009"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 10. ADJUSTABLE BACK STRAP
 	item9: {
 		id: utils.uuid & {_, #type: "item", #value: "10"}
-		name:           "Clutch"
-		description:    "Component \"clutch\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CLU.#931633"
+		name:           "Adjustable Back Strap"
+		description:    "Adjustable back strap for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100010"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 11. SNAPBACK CLOSURE
 	item10: {
 		id: utils.uuid & {_, #type: "item", #value: "11"}
-		name:           "Crankcase"
-		description:    "Component \"crankcase\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CRA.#315278"
+		name:           "Snapback Closure"
+		description:    "Snapback plastic closure for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100011"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 12. BUCKLES AND METAL RINGS
 	item11: {
 		id: utils.uuid & {_, #type: "item", #value: "12"}
-		name:           "Crankshaft Piston"
-		description:    "Component \"crankshaft piston\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CRA.#699720"
+		name:           "Buckles and Metal Rings"
+		description:    "Metal buckles and rings for hat adjustment hardware."
+		sku:            "HAT.COMP.#100012"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 13. LOGO PATCH EMBROIDERED
 	item12: {
 		id: utils.uuid & {_, #type: "item", #value: "13"}
-		name:           "Cylinder"
-		description:    "Component \"cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CYL.#446275"
+		name:           "Logo Patch (Embroidered)"
+		description:    "Embroidered logo patch for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100013"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 14. ACCENT STITCHING THREAD
 	item13: {
 		id: utils.uuid & {_, #type: "item", #value: "14"}
-		name:           "Cylinder Head"
-		description:    "Component \"cylinder head\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "CYL.#759643"
+		name:           "Accent Stitching Thread"
+		description:    "Colored thread for accent stitching on Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100014"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 15. EYELETS PACK (LARGE)
 	item14: {
 		id: utils.uuid & {_, #type: "item", #value: "15"}
-		name:           "Frame"
-		description:    "Component \"frame\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRA.#956489"
+		name:           "Eyelets Pack (Large)"
+		description:    "Metal eyelets for ventilation holes in Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100015"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 16. FOAM REINFORCEMENT
 	item15: {
 		id: utils.uuid & {_, #type: "item", #value: "16"}
-		name:           "Front Brake Master Cylinder"
-		description:    "Component \"front brake master cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRO.#482183"
+		name:           "Foam Reinforcement"
+		description:    "Foam reinforcement for hat structure."
+		sku:            "HAT.COMP.#100016"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 17. INTERLINING MATERIAL
 	item16: {
 		id: utils.uuid & {_, #type: "item", #value: "17"}
-		name:           "Front Brake-Caliper"
-		description:    "Component \"front brake-caliper\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FROCAL.#790640"
+		name:           "Interlining Material"
+		description:    "Interlining for improved shape retention in Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100017"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 18. BRAND LABEL (WOVEN)
 	item17: {
 		id: utils.uuid & {_, #type: "item", #value: "18"}
-		name:           "Front Cover / Leg Shield"
-		description:    "Component \"front cover / leg shield\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRO.#460724"
+		name:           "Brand Label (Woven)"
+		description:    "Woven brand label for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100018"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 19. SIZE LABEL
 	item18: {
 		id: utils.uuid & {_, #type: "item", #value: "19"}
-		name:           "COLLAR, TAILLIGHT MOUNTING"
-		description:    "Component \"collar, taillight mounting\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "337KAN960.#791210"
-		isFinalProduct: false
+		name:           "Size Label"
+		description:    "Size indicator label for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100019"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 20. CARE INSTRUCTION LABEL
 	item19: {
 		id: utils.uuid & {_, #type: "item", #value: "20"}
-		name:           "PIPE A, FR. BRAKE"
-		description:    "Component \"pipe a, fr. brake\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "451K0GD20.#825165"
+		name:           "Care Instruction Label"
+		description:    "Printed label with care instructions for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100020"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 21. HANG TAG CORD
 	item20: {
 		id: utils.uuid & {_, #type: "item", #value: "21"}
-		name:           "PIPE B, FR. BRAKE"
-		description:    "Component \"pipe b, fr. brake\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "451K0GD20.#010729"
+		name:           "Hang Tag Cord"
+		description:    "Cord for attaching hang tag to Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100021"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 22. HANG TAG PAPER
 	item21: {
 		id: utils.uuid & {_, #type: "item", #value: "22"}
-		name:           "CLIP, BRAKE PIPE"
-		description:    "Component \"clip, brake pipe\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "463SAA901.#529190"
+		name:           "Hang Tag Paper"
+		description:    "Paper hang tag for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100022"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 23. DECORATIVE RIBBON
 	item22: {
 		id: utils.uuid & {_, #type: "item", #value: "23"}
-		name:           "BRACKET, ABS MODULATOR"
-		description:    "Component \"bracket, abs modulator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "502K0GD20.#345285"
+		name:           "Decorative Ribbon"
+		description:    "Ribbon for hat decoration on Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100023"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 24. UNDERBILL PRINT TRANSFER
 	item23: {
 		id: utils.uuid & {_, #type: "item", #value: "24"}
-		name:           "MODULATOR ASSY."
-		description:    "Component \"modulator assy.\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "571K0GD21.#603808"
+		name:           "Underbill Print Transfer"
+		description:    "Graphics transfer for underbill decoration on Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100024"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 25. BUTTON CORD
 	item24: {
 		id: utils.uuid & {_, #type: "item", #value: "25"}
-		name:           "GROMMET, MAIN PIPE COVER"
-		description:    "Component \"grommet, main pipe cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "643KWW640.#937498"
+		name:           "Button Cord"
+		description:    "Cord used to secure top button on Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100025"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 26. VISOR REINFORCEMENT STRIP
 	item25: {
 		id: utils.uuid & {_, #type: "item", #value: "26"}
-		name:           "RUBBER B, SEAT MOUNTING"
-		description:    "Component \"rubber b, seat mounting\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "772KW7900.#591036"
+		name:           "Visor Reinforcement Strip"
+		description:    "Extra reinforcement strip for hat visor."
+		sku:            "HAT.COMP.#100026"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 27. FOAM PADDING
 	item26: {
 		id: utils.uuid & {_, #type: "item", #value: "27"}
-		name:           "RUBBER B, SEAT SETTING"
-		description:    "Component \"rubber b, seat setting\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "772KPH900.#054124"
+		name:           "Foam Padding"
+		description:    "Additional foam padding for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100027"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 28. HOLOGRAPHIC STICKER
 	item27: {
 		id: utils.uuid & {_, #type: "item", #value: "28"}
-		name:           "COLLAR, TAILLIGHT"
-		description:    "Component \"collar, taillight\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905K0FT00.#517893"
+		name:           "Holographic Sticker"
+		description:    "Holographic sticker for authenticity on Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100028"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 29. REFLECTIVE PATCH
 	item28: {
 		id: utils.uuid & {_, #type: "item", #value: "29"}
-		name:           "CLAMP, BRAKE PIPE"
-		description:    "Component \"clamp, brake pipe\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "906MCA003.#414978"
+		name:           "Reflective Patch"
+		description:    "Reflective patch for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100029"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 30. CROWN VENTILATION MESH
 	item29: {
 		id: utils.uuid & {_, #type: "item", #value: "30"}
-		name:           "BOLT, HEX. (6X20)"
-		description:    "Component \"bolt, hex. (6x20)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "9210600A.#308549"
+		name:           "Crown Ventilation Mesh"
+		description:    "Breathable mesh material for crown ventilation in Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100030"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 31. PERFORMANCE SWEATBAND INSERT
 	item30: {
 		id: utils.uuid & {_, #type: "item", #value: "31"}
-		name:           "BOLT, FLANGE (6X22)"
-		description:    "Component \"bolt, flange (6x22)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "95706000.#710867"
-		isFinalProduct: false
+		name:           "Performance Sweatband Insert"
+		description:    "High-performance moisture-wicking sweatband insert for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100031"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 32. CROWN STRUCTURE SUPPORT
 	item31: {
 		id: utils.uuid & {_, #type: "item", #value: "32"}
-		name:           "front fender"
-		description:    "Component \"front fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRO.#516786"
-		isFinalProduct: true
+		name:           "Crown Structure Support"
+		description:    "Internal support material for maintaining crown shape."
+		sku:            "HAT.COMP.#100032"
+		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 33. SIDE PANEL MESH INSERT
 	item32: {
 		id: utils.uuid & {_, #type: "item", #value: "33"}
-		name:           "REFLECTOR, FR. REFLEX (AMBER)"
-		description:    "Component \"reflector, fr. reflex (amber)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "337KAK971.#081756"
+		name:           "Side Panel Mesh Insert"
+		description:    "Breathable mesh inserts for side panels of Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100033"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 34. REAR VENTILATION GROMMETS
 	item33: {
 		id: utils.uuid & {_, #type: "item", #value: "34"}
-		name:           "FENDER, FR. *NH303M*(MAT AXIS GRAY METALLIC)"
-		description:    "Component \"fender, fr. *nh303m*(mat axis gray metallic)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0G900.#277994"
+		name:           "Rear Ventilation Grommets"
+		description:    "Metal grommets for rear panel ventilation."
+		sku:            "HAT.COMP.#100034"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 35. PREMIUM CLOSURE SYSTEM
 	item34: {
 		id: utils.uuid & {_, #type: "item", #value: "35"}
-		name:           "STAY, R. FR. REFLECTOR"
-		description:    "Component \"stay, r. fr. reflector\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0G960.#710035"
-		isFinalProduct: false
+		name:           "Premium Closure System"
+		description:    "High-quality adjustable closure system for perfect fit."
+		sku:            "HAT.COMP.#100035"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 36. VISOR STIFFENING INSERT
 	item35: {
 		id: utils.uuid & {_, #type: "item", #value: "36"}
-		name:           "STAY, L. FR. REFLECTOR"
-		description:    "Component \"stay, l. fr. reflector\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0G960.#063752"
+		name:           "Visor Stiffening Insert"
+		description:    "Reinforcement insert for visor shape retention."
+		sku:            "HAT.COMP.#100036"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 37. MOISTURE-WICKING HEADBAND
 	item36: {
 		id: utils.uuid & {_, #type: "item", #value: "37"}
-		name:           "GARNISH, R. FR. FORK"
-		description:    "Component \"garnish, r. fr. fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0GT30.#689802"
+		name:           "Moisture-Wicking Headband"
+		description:    "Advanced moisture-wicking headband for comfort."
+		sku:            "HAT.COMP.#100037"
 		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		inventoryType:  "INVENTORY" 
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 38. CROWN REINFORCEMENT TAPE
 	item37: {
 		id: utils.uuid & {_, #type: "item", #value: "38"}
-		name:           "COVER, L. FR. FORK *NH303M* (WOL)(MAT AXIS GRAY METALLIC)"
-		description:    "Component \"cover, l. fr. fork *nh303m* (wol)(mat axis gray metallic)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0G900.#976728"
+		name:           "Crown Reinforcement Tape"
+		description:    "Structural reinforcement tape for crown stability."
+		sku:            "HAT.COMP.#100038"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 39. SIDE PANEL STABILIZER
 	item38: {
 		id: utils.uuid & {_, #type: "item", #value: "39"}
-		name:           "GARNISH, L. FR. FORK"
-		description:    "Component \"garnish, l. fr. fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "611K0GT30.#410134"
+		name:           "Side Panel Stabilizer"
+		description:    "Support material for side panel structure."
+		sku:            "HAT.COMP.#100039"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 40. PERFORMANCE MESH LINING
 	item39: {
 		id: utils.uuid & {_, #type: "item", #value: "40"}
-		name:           "COVER SET, R. FR. FORK (TYPE1)(WL)"
-		description:    "Component \"cover set, r. fr. fork (type1)(wl)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "612K0GJ30.#800191"
-		isFinalProduct: false
+		name:           "Performance Mesh Lining"
+		description:    "Breathable mesh lining for internal comfort."
+		sku:            "HAT.COMP.#100040"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 41. VISOR EDGE BINDING
 	item40: {
 		id: utils.uuid & {_, #type: "item", #value: "41"}
-		name:           "GARNISH SET, FR. TOP (TYPE1) (WL)"
-		description:    "Component \"garnish set, fr. top (type1) (wl)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "643K0GT30.#179542"
+		name:           "Visor Edge Binding"
+		description:    "Protective binding for visor edges."
+		sku:            "HAT.COMP.#100041"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 42. CROWN VENTILATION PANEL
 	item41: {
 		id: utils.uuid & {_, #type: "item", #value: "42"}
-		name:           "COLLAR, FR. FENDER"
-		description:    "Component \"collar, fr. fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "813KPH900.#065302"
+		name:           "Crown Ventilation Panel"
+		description:    "Specialized panel for crown airflow."
+		sku:            "HAT.COMP.#100042"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 43. REFLECTIVE SAFETY STRIP
 	item42: {
 		id: utils.uuid & {_, #type: "item", #value: "43"}
-		name:           "RIVET, PUSH (6MM)"
-		description:    "Component \"rivet, push (6mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901K0AE11.#007047"
+		name:           "Reflective Safety Strip"
+		description:    "High-visibility reflective material for safety."
+		sku:            "HAT.COMP.#100043"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 44. QUICK-DRY SWEATBAND
 	item43: {
 		id: utils.uuid & {_, #type: "item", #value: "44"}
-		name:           "NUT, U (6MM) (FUJI SEIMITSU)"
-		description:    "Component \"nut, u (6mm) (fuji seimitsu)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KGH901.#462188"
+		name:           "Quick-Dry Sweatband"
+		description:    "Rapid moisture-wicking sweatband material."
+		sku:            "HAT.COMP.#100044"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 45. ANTI-MICROBIAL TREATMENT
 	item44: {
 		id: utils.uuid & {_, #type: "item", #value: "45"}
-		name:           "NUT, SPRING (4MM)"
-		description:    "Component \"nut, spring (4mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KWWA00.#318215"
-		isFinalProduct: false
+		name:           "Anti-Microbial Treatment"
+		description:    "Protective treatment for odor control."
+		sku:            "HAT.COMP.#100045"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 46. UV PROTECTION COATING
 	item45: {
 		id: utils.uuid & {_, #type: "item", #value: "46"}
-		name:           "COLLAR, MAIN SIDE COVER"
-		description:    "Component \"collar, main side cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905KBP900.#462091"
+		name:           "UV Protection Coating"
+		description:    "Specialized UV-resistant coating for fabric protection."
+		sku:            "HAT.COMP.#100046"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 47. ELASTIC COMFORT BAND
 	item46: {
 		id: utils.uuid & {_, #type: "item", #value: "47"}
-		name:           "CLIP, SLIDE"
-		description:    "Component \"clip, slide\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "906K14A31.#729334"
+		name:           "Elastic Comfort Band"
+		description:    "Flexible band for improved fit and comfort."
+		sku:            "HAT.COMP.#100047"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 48. CROWN HEIGHT STABILIZER
 	item47: {
 		id: utils.uuid & {_, #type: "item", #value: "48"}
-		name:           "CLIP, SNAP FITTING (PO)"
-		description:    "Component \"clip, snap fitting (po)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "906K59A11.#458124"
+		name:           "Crown Height Stabilizer"
+		description:    "Internal support for maintaining crown height."
+		sku:            "HAT.COMP.#100048"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 49. REAR MESH PANEL
 	item48: {
 		id: utils.uuid & {_, #type: "item", #value: "49"}
-		name:           "SCREW, PAN (5X11.5)"
-		description:    "Component \"screw, pan (5x11.5)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "915GE2760.#578896"
+		name:           "Rear Mesh Panel"
+		description:    "Breathable mesh panel for back section."
+		sku:            "HAT.COMP.#100049"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 50. PREMIUM SNAP CLOSURE
 	item49: {
 		id: utils.uuid & {_, #type: "item", #value: "50"}
-		name:           "SCREW, TAPPING (4X16)"
-		description:    "Component \"screw, tapping (4x16)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "939244.#307434"
-		isFinalProduct: false
+		name:           "Premium Snap Closure"
+		description:    "High-quality snap closure system."
+		sku:            "HAT.COMP.#100050"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 51. REINFORCED SEAM TAPE
 	item50: {
 		id: utils.uuid & {_, #type: "item", #value: "51"}
-		name:           "BOLT, FLANGE (6X14)"
-		description:    "Component \"bolt, flange (6x14)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "96006000.#354635"
+		name:           "Reinforced Seam Tape"
+		description:    "Heavy-duty tape for seam reinforcement."
+		sku:            "HAT.COMP.#100051"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 52. MOISTURE BARRIER LAYER
 	item51: {
 		id: utils.uuid & {_, #type: "item", #value: "52"}
-		name:           "rear fender"
-		description:    "Component \"rear fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "REA.#328782"
-		isFinalProduct: true
+		name:           "Moisture Barrier Layer"
+		description:    "Protective moisture-resistant layer."
+		sku:            "HAT.COMP.#100052"
+		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 53. VISOR SHAPE RETAINER
 	item52: {
 		id: utils.uuid & {_, #type: "item", #value: "53"}
-		name:           "REFLECTOR, RR. REFLEX (RED)(THAI STANLEY)"
-		description:    "Component \"reflector, rr. reflex (red)(thai stanley)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "337K2EA01.#684000"
+		name:           "Visor Shape Retainer"
+		description:    "Internal support for visor shape maintenance."
+		sku:            "HAT.COMP.#100053"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 54. COMFORT FOAM INSERT
 	item53: {
 		id: utils.uuid & {_, #type: "item", #value: "54"}
-		name:           "REFLECTOR, REFLEX (FIEM)"
-		description:    "Component \"reflector, reflex (fiem)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "337KPL902.#447156"
+		name:           "Comfort Foam Insert"
+		description:    "Cushioning foam for enhanced comfort."
+		sku:            "HAT.COMP.#100054"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 55. VENTILATION EYELET SET
 	item54: {
 		id: utils.uuid & {_, #type: "item", #value: "55"}
-		name:           "FENDER, RR. *NH303M*(MAT AXIS GRAY METALLIC)"
-		description:    "Component \"fender, rr. *nh303m*(mat axis gray metallic)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "801K0GA20.#500413"
-		isFinalProduct: false
+		name:           "Ventilation Eyelet Set"
+		description:    "Metal eyelets for enhanced airflow."
+		sku:            "HAT.COMP.#100055"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	//
+	// Now continue items #56 through #152 (item55..item151) in the same pattern
+	// (unique realistic sub-component names, consistent true/false pattern).
+	//
+
+	// 56. CROWN WEATHER PROTECTOR
 	item55: {
 		id: utils.uuid & {_, #type: "item", #value: "56"}
-		name:           "FENDER (INNER)"
-		description:    "Component \"fender (inner)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "801K0G900.#672103"
+		name:           "Crown Weather Protector"
+		description:    "Layer for shielding crown fabric from wet conditions."
+		sku:            "HAT.COMP.#100056"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 57. NEON ACCENT STITCH
 	item56: {
 		id: utils.uuid & {_, #type: "item", #value: "57"}
-		name:           "COVER, LICENSE LIGHT"
-		description:    "Component \"cover, license light\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "801K0G900.#340918"
+		name:           "Neon Accent Stitch"
+		description:    "Bright stitching thread for high-visibility detailing."
+		sku:            "HAT.COMP.#100057"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 58. SWEATBAND SILICONE STRIP
 	item57: {
 		id: utils.uuid & {_, #type: "item", #value: "58"}
-		name:           "LID, FENDER (INNER)"
-		description:    "Component \"lid, fender (inner)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "801K0G900.#972641"
+		name:           "Sweatband Silicone Strip"
+		description:    "Non-slip silicone strip for sweatband interior."
+		sku:            "HAT.COMP.#100058"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 59. RIVETED METAL EYELET
 	item58: {
 		id: utils.uuid & {_, #type: "item", #value: "59"}
-		name:           "BRACKET, NUMBER PLATE"
-		description:    "Component \"bracket, number plate\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "847K0G930.#364977"
+		name:           "Riveted Metal Eyelet"
+		description:    "Sturdy metal eyelet for improved durability."
+		sku:            "HAT.COMP.#100059"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 60. ULTRA-FIT SWEATBAND
 	item59: {
 		id: utils.uuid & {_, #type: "item", #value: "60"}
-		name:           "BOLT, SOCKET SPECIAL (8X20)"
-		description:    "Component \"bolt, socket special (8x20)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901K0G901.#954908"
-		isFinalProduct: false
+		name:           "Ultra-Fit Sweatband"
+		description:    "Premium sweatband designed for ultra comfort and moisture control."
+		sku:            "HAT.COMP.#100060"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 61. DECORATIVE SIDE PATCH
 	item60: {
 		id: utils.uuid & {_, #type: "item", #value: "61"}
-		name:           "SCREW, VISOR SPECIAL SETTING"
-		description:    "Component \"screw, visor special setting\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901KW7900.#104300"
+		name:           "Decorative Side Patch"
+		description:    "Emblem patch for side panel decoration."
+		sku:            "HAT.COMP.#100061"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 62. ANTI-GLARE VISOR STRIP
 	item61: {
 		id: utils.uuid & {_, #type: "item", #value: "62"}
-		name:           "BOLT, FLANGE (6MM)"
-		description:    "Component \"bolt, flange (6mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901KVB900.#091199"
+		name:           "Anti-Glare Visor Strip"
+		description:    "Special strip on visor underside to reduce glare."
+		sku:            "HAT.COMP.#100062"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 63. SIDE LOGO TRANSFER
 	item62: {
 		id: utils.uuid & {_, #type: "item", #value: "63"}
-		name:           "CLIP, BUMPER SEAL"
-		description:    "Component \"clip, bumper seal\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901SP0003.#550605"
+		name:           "Side Logo Transfer"
+		description:    "Heat transfer for adding a small side logo."
+		sku:            "HAT.COMP.#100063"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 64. EDGE GUARD PIPING
 	item63: {
 		id: utils.uuid & {_, #type: "item", #value: "64"}
-		name:           "NUT, U (5MM)"
-		description:    "Component \"nut, u (5mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KWN901.#105339"
+		name:           "Edge Guard Piping"
+		description:    "Protective piping to guard edges from wear."
+		sku:            "HAT.COMP.#100064"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 65. HYDROPHOBIC CROWN FABRIC
 	item64: {
 		id: utils.uuid & {_, #type: "item", #value: "65"}
-		name:           "PLUG, CONE TYPE"
-		description:    "Component \"plug, cone type\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "908422610.#534827"
-		isFinalProduct: false
+		name:           "Hydrophobic Crown Fabric"
+		description:    "Water-repellent crown fabric for outdoor performance."
+		sku:            "HAT.COMP.#100065"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 66. REFLECTIVE VISOR LOGO
 	item65: {
 		id: utils.uuid & {_, #type: "item", #value: "66"}
-		name:           "SCREW, TAPPING (4X12)"
-		description:    "Component \"screw, tapping (4x12)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "939243.#962300"
+		name:           "Reflective Visor Logo"
+		description:    "Small reflective logo attachment for visor top."
+		sku:            "HAT.COMP.#100066"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 67. INTERIOR SEAM COVER
 	item66: {
 		id: utils.uuid & {_, #type: "item", #value: "67"}
-		name:           "NUT, CAP (6MM)"
-		description:    "Component \"nut, cap (6mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "9400600S.#135642"
+		name:           "Interior Seam Cover"
+		description:    "Soft tape covering internal seams for comfort."
+		sku:            "HAT.COMP.#100067"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 68. COOLING MESH OVERLAY
 	item67: {
 		id: utils.uuid & {_, #type: "item", #value: "68"}
-		name:           "WASHER, PLAIN (8MM)"
-		description:    "Component \"washer, plain (8mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "941080.#003637"
+		name:           "Cooling Mesh Overlay"
+		description:    "Special overlay mesh for improved ventilation."
+		sku:            "HAT.COMP.#100068"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 69. GLITTER ACCENT THREAD
 	item68: {
 		id: utils.uuid & {_, #type: "item", #value: "69"}
-		name:           "BOLT, FLANGE (6X12)"
-		description:    "Component \"bolt, flange (6x12)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "95706008.#591309"
+		name:           "Glitter Accent Thread"
+		description:    "Subtle glitter thread for decorative stitching."
+		sku:            "HAT.COMP.#100069"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 70. PREMIUM BRANDED PATCH
 	item69: {
 		id: utils.uuid & {_, #type: "item", #value: "70"}
-		name:           "TUBE, BREATHER"
-		description:    "Component \"tube, breather\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "157K0GT20.#742740"
-		isFinalProduct: false
+		name:           "Premium Branded Patch"
+		description:    "High-end embroidered patch showcasing brand logo."
+		sku:            "HAT.COMP.#100070"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 71. HIDDEN STORAGE POCKET
 	item70: {
 		id: utils.uuid & {_, #type: "item", #value: "71"}
-		name:           "ELEMENT, AIR CLEANER"
-		description:    "Component \"element, air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172KWW640.#205159"
+		name:           "Hidden Storage Pocket"
+		description:    "Secret pocket within crown for small valuables."
+		sku:            "HAT.COMP.#100071"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 72. LINING ANTI-STATIC STRIP
 	item71: {
 		id: utils.uuid & {_, #type: "item", #value: "72"}
-		name:           "SEAL, AIR CLEANER COVER"
-		description:    "Component \"seal, air cleaner cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172KWB600.#525109"
+		name:           "Lining Anti-Static Strip"
+		description:    "Strip to reduce static buildup in hat lining."
+		sku:            "HAT.COMP.#100072"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 73. SIDE-VENT REFLECTIVE PANEL
 	item72: {
 		id: utils.uuid & {_, #type: "item", #value: "73"}
-		name:           "SEAL, AIR CLEANER HOUSING"
-		description:    "Component \"seal, air cleaner housing\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172KPYH00.#627735"
+		name:           "Side-Vent Reflective Panel"
+		description:    "Reflective panel for increased visibility on side vents."
+		sku:            "HAT.COMP.#100073"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 74. VISOR GRIP TEXTURE
 	item73: {
 		id: utils.uuid & {_, #type: "item", #value: "74"}
-		name:           "CASE SUB-ASSY., AIR CLEANER"
-		description:    "Component \"case sub-assy., air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172K0GT20.#054483"
+		name:           "Visor Grip Texture"
+		description:    "Rubberized texture on visor brim for better grip."
+		sku:            "HAT.COMP.#100074"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 75. HEAT TRANSFER BRANDING
 	item74: {
 		id: utils.uuid & {_, #type: "item", #value: "75"}
-		name:           "TUBE, VINYL (11X15X35)"
-		description:    "Component \"tube, vinyl (11x15x35)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172KPK900.#945172"
-		isFinalProduct: false
+		name:           "Heat Transfer Branding"
+		description:    "Branded graphic applied via heat transfer technology."
+		sku:            "HAT.COMP.#100075"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 76. ODOR-NEUTRALIZING LINER
 	item75: {
 		id: utils.uuid & {_, #type: "item", #value: "76"}
-		name:           "COVER SUB-ASSY., AIR CLEANER"
-		description:    "Component \"cover sub-assy., air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172K0G900.#456556"
+		name:           "Odor-Neutralizing Liner"
+		description:    "Special liner to reduce and neutralize sweat odors."
+		sku:            "HAT.COMP.#100076"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 77. FOAM SHOCK ABSORBER
 	item76: {
 		id: utils.uuid & {_, #type: "item", #value: "77"}
-		name:           "PLUG, AIR CLEANER DRAIN"
-		description:    "Component \"plug, air cleaner drain\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172KVB900.#421364"
+		name:           "Foam Shock Absorber"
+		description:    "Additional foam to absorb impact on top of hat."
+		sku:            "HAT.COMP.#100077"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 78. WRAPAROUND ELASTIC BAND
 	item77: {
 		id: utils.uuid & {_, #type: "item", #value: "78"}
-		name:           "TUBE, AIR CLEANER CONNECTING"
-		description:    "Component \"tube, air cleaner connecting\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172K0GT20.#021811"
+		name:           "Wraparound Elastic Band"
+		description:    "Elastic band providing secure fit around entire head."
+		sku:            "HAT.COMP.#100078"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 79. DUAL-COLOR VISOR FABRIC
 	item78: {
 		id: utils.uuid & {_, #type: "item", #value: "79"}
-		name:           "BAND, AIR CLEANER CONNECTING TUBE (38)"
-		description:    "Component \"band, air cleaner connecting tube (38)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "172K35V00.#178201"
+		name:           "Dual-Color Visor Fabric"
+		description:    "Contrasting colors on top and bottom of visor."
+		sku:            "HAT.COMP.#100079"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 80. HIGH-DEFINITION LOGO PATCH
 	item79: {
 		id: utils.uuid & {_, #type: "item", #value: "80"}
-		name:           "CLIP, AIR IN. DUCT PUSH"
-		description:    "Component \"clip, air in. duct push\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "906PV3003.#416500"
-		isFinalProduct: false
+		name:           "High-Definition Logo Patch"
+		description:    "Raised embroidered patch with crisp detail."
+		sku:            "HAT.COMP.#100080"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 81. PERFORATED SIDE STRAP
 	item80: {
 		id: utils.uuid & {_, #type: "item", #value: "81"}
-		name:           "SCREW, TAPPING (5X25)"
-		description:    "Component \"screw, tapping (5x25)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "939255.#791804"
+		name:           "Perforated Side Strap"
+		description:    "Adjustable strap with perforations for added airflow."
+		sku:            "HAT.COMP.#100081"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 82. INTERIOR SILK LINING
 	item81: {
 		id: utils.uuid & {_, #type: "item", #value: "82"}
-		name:           "CLAMP, TUBE (D13)"
-		description:    "Component \"clamp, tube (d13)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "95041308.#554714"
+		name:           "Interior Silk Lining"
+		description:    "Luxurious silk lining for enhanced comfort and style."
+		sku:            "HAT.COMP.#100082"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 83. REAR REFLECTIVE LABEL
 	item82: {
 		id: utils.uuid & {_, #type: "item", #value: "83"}
-		name:           "CLIP, TUBE (C12)"
-		description:    "Component \"clip, tube (c12)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "950800.#120131"
+		name:           "Rear Reflective Label"
+		description:    "Reflective brand label on rear panel for night visibility."
+		sku:            "HAT.COMP.#100083"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 84. AROMA-INFUSED HEADBAND
 	item83: {
 		id: utils.uuid & {_, #type: "item", #value: "84"}
-		name:           "front fork"
-		description:    "Component \"front fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRO.#042577"
-		isFinalProduct: true
+		name:           "Aroma-Infused Headband"
+		description:    "Headband subtly infused with pleasant aroma technology."
+		sku:            "HAT.COMP.#100084"
+		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 85. WIND-RESISTANT PANEL
 	item84: {
 		id: utils.uuid & {_, #type: "item", #value: "85"}
-		name:           "GUARD, ABS SENSOR"
-		description:    "Component \"guard, abs sensor\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "385K0G950.#942531"
-		isFinalProduct: false
+		name:           "Wind-Resistant Panel"
+		description:    "Special panel for preventing wind infiltration."
+		sku:            "HAT.COMP.#100085"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 86. SPORTY DECAL PRINT
 	item85: {
 		id: utils.uuid & {_, #type: "item", #value: "86"}
-		name:           "FORK ASSY., R. FR."
-		description:    "Component \"fork assy., r. fr.\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K0GD21.#244331"
+		name:           "Sporty Decal Print"
+		description:    "Colorful decal for sporty aesthetic on hat exterior."
+		sku:            "HAT.COMP.#100086"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 87. QUICK-RELEASE BUCKLE
 	item86: {
 		id: utils.uuid & {_, #type: "item", #value: "87"}
-		name:           "SPRING, FR. FORK"
-		description:    "Component \"spring, fr. fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K0GT21.#509226"
+		name:           "Quick-Release Buckle"
+		description:    "Buckle allowing fast release and adjustment."
+		sku:            "HAT.COMP.#100087"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 88. MESH OVERLAY STRIPES
 	item87: {
 		id: utils.uuid & {_, #type: "item", #value: "88"}
-		name:           "PIPE, FR. FORK"
-		description:    "Component \"pipe, fr. fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K0GT21.#768919"
+		name:           "Mesh Overlay Stripes"
+		description:    "Decorative stripes of mesh overlay for style and airflow."
+		sku:            "HAT.COMP.#100088"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 89. MID-CROWN SUPPORT BAND
 	item88: {
 		id: utils.uuid & {_, #type: "item", #value: "89"}
-		name:           "SPRING, REBOUND (SHOWA)"
-		description:    "Component \"spring, rebound (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514GN5901.#236301"
+		name:           "Mid-Crown Support Band"
+		description:    "Support band around the mid-crown area for shape retention."
+		sku:            "HAT.COMP.#100089"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 90. LUXE EMBROIDERED PATCH
 	item89: {
 		id: utils.uuid & {_, #type: "item", #value: "90"}
-		name:           "RING, BACK-UP (SHOWA)"
-		description:    "Component \"ring, back-up (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514KWB601.#481048"
-		isFinalProduct: false
+		name:           "Luxe Embroidered Patch"
+		description:    "Premium embroidered patch with metallic thread."
+		sku:            "HAT.COMP.#100090"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 91. PERFORMANCE COOLING BAND
 	item90: {
 		id: utils.uuid & {_, #type: "item", #value: "91"}
-		name:           "CASE, R. FR. (LOWER) (SHOWA)"
-		description:    "Component \"case, r. fr. (lower) (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K0G951.#690738"
+		name:           "Performance Cooling Band"
+		description:    "Cooling band to reduce internal heat build-up."
+		sku:            "HAT.COMP.#100091"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 92. FLEXIBLE VISOR BASE
 	item91: {
 		id: utils.uuid & {_, #type: "item", #value: "92"}
-		name:           "DUST SEAL (SHOWA)"
-		description:    "Component \"dust seal (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514GN5901.#923601"
+		name:           "Flexible Visor Base"
+		description:    "Semi-rigid yet flexible base layer for the visor."
+		sku:            "HAT.COMP.#100092"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 93. ANTI-SWEAT LINING
 	item92: {
 		id: utils.uuid & {_, #type: "item", #value: "93"}
-		name:           "RING, PISTON (SHOWA)"
-		description:    "Component \"ring, piston (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514KWB601.#631371"
+		name:           "Anti-Sweat Lining"
+		description:    "Extra lining to prevent sweat marks."
+		sku:            "HAT.COMP.#100093"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 94. REAR SIZE ADJUSTER
 	item93: {
 		id: utils.uuid & {_, #type: "item", #value: "94"}
-		name:           "SEAT B, SPRING"
-		description:    "Component \"seat b, spring\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K58TC1.#047098"
+		name:           "Rear Size Adjuster"
+		description:    "Mechanism for adjusting fit at the rear crown."
+		sku:            "HAT.COMP.#100094"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 95. FOIL DECOR LOGO
 	item94: {
 		id: utils.uuid & {_, #type: "item", #value: "95"}
-		name:           "RING, STOPPER (SHOWA)"
-		description:    "Component \"ring, stopper (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514KPH901.#825193"
-		isFinalProduct: false
+		name:           "Foil Decor Logo"
+		description:    "Metallic foil decoration highlighting brand logo."
+		sku:            "HAT.COMP.#100095"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 96. LASER-CUT VENT PANELS
 	item95: {
 		id: utils.uuid & {_, #type: "item", #value: "96"}
-		name:           "RING, OIL SEAL STOPPER (SHOWA)"
-		description:    "Component \"ring, oil seal stopper (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514065901.#946650"
+		name:           "Laser-Cut Vent Panels"
+		description:    "Precision laser-cut vents for improved airflow."
+		sku:            "HAT.COMP.#100096"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 97. TPU LOGO BADGE
 	item96: {
 		id: utils.uuid & {_, #type: "item", #value: "97"}
-		name:           "PIPE, SEAT"
-		description:    "Component \"pipe, seat\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514K0GT21.#086544"
+		name:           "TPU Logo Badge"
+		description:    "Thermoplastic polyurethane badge for brand marking."
+		sku:            "HAT.COMP.#100097"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 98. REINFORCED BUTTON LOOP
 	item97: {
 		id: utils.uuid & {_, #type: "item", #value: "98"}
-		name:           "SEAL SET, FR. FORK (SHOWA)"
-		description:    "Component \"seal set, fr. fork (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "514KGH901.#469398"
+		name:           "Reinforced Button Loop"
+		description:    "Strengthened loop to secure top button firmly."
+		sku:            "HAT.COMP.#100098"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 99. NEOPRENE SWEAT GUARD
 	item98: {
 		id: utils.uuid & {_, #type: "item", #value: "99"}
-		name:           "FORK ASSY., L. FR."
-		description:    "Component \"fork assy., l. fr.\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "515K0GT21.#068592"
+		name:           "Neoprene Sweat Guard"
+		description:    "Neoprene guard to protect from sweat absorption."
+		sku:            "HAT.COMP.#100099"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 100. EMBOSSED LEATHER LABEL
 	item99: {
 		id: utils.uuid & {_, #type: "item", #value: "100"}
-		name:           "CASE, L. FR. (LOWER) (SHOWA)"
-		description:    "Component \"case, l. fr. (lower) (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "515K0G901.#919917"
-		isFinalProduct: false
+		name:           "Embossed Leather Label"
+		description:    "Genuine leather label with embossed brand design."
+		sku:            "HAT.COMP.#100100"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 101. REAR ELASTIC DRAWSTRINGS
 	item100: {
 		id: utils.uuid & {_, #type: "item", #value: "101"}
-		name:           "SCREW, SPECIAL (5MM)"
-		description:    "Component \"screw, special (5mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901MEJJ00.#631659"
+		name:           "Rear Elastic Drawstrings"
+		description:    "Elastic drawstring for adjusting hat tightness at rear."
+		sku:            "HAT.COMP.#100101"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 102. PRINTED LOGO TAPING
 	item101: {
 		id: utils.uuid & {_, #type: "item", #value: "102"}
-		name:           "BOLT, SOCKET (8MM) (SHOWA)"
-		description:    "Component \"bolt, socket (8mm) (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901KV3701.#149153"
+		name:           "Printed Logo Taping"
+		description:    "Branded taping running along hat seams for branding."
+		sku:            "HAT.COMP.#100102"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 103. FLAT VISOR INSERT
 	item102: {
 		id: utils.uuid & {_, #type: "item", #value: "103"}
-		name:           "WASHER, SPECIAL (8MM) (SHOWA)"
-		description:    "Component \"washer, special (8mm) (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905283000.#743180"
+		name:           "Flat Visor Insert"
+		description:    "Insert for achieving a flat visor style."
+		sku:            "HAT.COMP.#100103"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 104. SUBTLE ACCENT TRIM
 	item103: {
 		id: utils.uuid & {_, #type: "item", #value: "104"}
-		name:           "O-RING (16.8X2.4)"
-		description:    "Component \"o-ring (16.8x2.4)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "912166003.#620616"
+		name:           "Subtle Accent Trim"
+		description:    "Thin decorative trim around edges for a subtle pop."
+		sku:            "HAT.COMP.#100104"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 105. ENGRAVED METAL EMBLEM
 	item104: {
 		id: utils.uuid & {_, #type: "item", #value: "105"}
-		name:           "rear shock absorber"
-		description:    "Component \"rear shock absorber\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "REA.#944116"
+		name:           "Engraved Metal Emblem"
+		description:    "Metal emblem with intricate engraved branding."
+		sku:            "HAT.COMP.#100105"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 106. REFLECTIVE TAPED SEAMS
 	item105: {
 		id: utils.uuid & {_, #type: "item", #value: "106"}
-		name:           "CUSHION ASSY., RR. (TYPE1)"
-		description:    "Component \"cushion assy., rr. (type1)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "524K0GT31.#273021"
+		name:           "Reflective Taped Seams"
+		description:    "Taped seams with reflective properties for nighttime visibility."
+		sku:            "HAT.COMP.#100106"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 107. FELT LINING STRIP
 	item106: {
 		id: utils.uuid & {_, #type: "item", #value: "107"}
-		name:           "COLLAR, RUBBER BUSH"
-		description:    "Component \"collar, rubber bush\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "524KBW901.#178894"
+		name:           "Felt Lining Strip"
+		description:    "Soft felt strip for added forehead comfort."
+		sku:            "HAT.COMP.#100107"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 108. COLOR-CHANGING LOGO
 	item107: {
 		id: utils.uuid & {_, #type: "item", #value: "108"}
-		name:           "BUSH, RUBBER (UPPER) (SHOWA)"
-		description:    "Component \"bush, rubber (upper) (showa)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "524399601.#986703"
+		name:           "Color-Changing Logo"
+		description:    "Logo that shifts color under UV light."
+		sku:            "HAT.COMP.#100108"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 109. HIGH-TECH FABRIC BLEND
 	item108: {
 		id: utils.uuid & {_, #type: "item", #value: "109"}
-		name:           "NUT, CAP (10MM)"
-		description:    "Component \"nut, cap (10mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "902HA0000.#536683"
+		name:           "High-Tech Fabric Blend"
+		description:    "Innovative blend for increased durability and moisture control."
+		sku:            "HAT.COMP.#100109"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 110. SUBLIMATED VISOR ART
 	item109: {
 		id: utils.uuid & {_, #type: "item", #value: "110"}
-		name:           "WASHER (10.5X26X1.6)"
-		description:    "Component \"washer (10.5x26x1.6)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905K0G900.#248242"
-		isFinalProduct: false
+		name:           "Sublimated Visor Art"
+		description:    "Full-color sublimated design on the visor surface."
+		sku:            "HAT.COMP.#100110"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 111. HIDDEN REINFORCEMENT WEBBING
 	item110: {
 		id: utils.uuid & {_, #type: "item", #value: "111"}
-		name:           "WASHER, PLAIN (10MM)"
-		description:    "Component \"washer, plain (10mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "941102.#345434"
+		name:           "Hidden Reinforcement Webbing"
+		description:    "Webbing within crown for structural integrity."
+		sku:            "HAT.COMP.#100111"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 112. SILICONE LOGO APPLIQUÉ
 	item111: {
 		id: utils.uuid & {_, #type: "item", #value: "112"}
-		name:           "FLYWHEEL"
-		description:    "Component \"flywheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "311K0GT21.#968986"
+		name:           "Silicone Logo Appliqué"
+		description:    "Raised silicone appliqué for bold brand visibility."
+		sku:            "HAT.COMP.#100112"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 113. WATERPROOF STITCH SEALANT
 	item112: {
 		id: utils.uuid & {_, #type: "item", #value: "113"}
-		name:           "STATOR"
-		description:    "Component \"stator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "311K1MT01.#006201"
+		name:           "Waterproof Stitch Sealant"
+		description:    "Sealant applied over stitches to prevent water ingress."
+		sku:            "HAT.COMP.#100113"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 114. UNDER VISOR REFLECTIVE PRINT
 	item113: {
 		id: utils.uuid & {_, #type: "item", #value: "114"}
-		name:           "WASHER (12X24X2.3)"
-		description:    "Component \"washer (12x24x2.3)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "904KWZ900.#336969"
+		name:           "Under Visor Reflective Print"
+		description:    "Reflective design on the underside of the visor."
+		sku:            "HAT.COMP.#100114"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 115. EMBROIDERED CREST PATCH
 	item114: {
 		id: utils.uuid & {_, #type: "item", #value: "115"}
-		name:           "NUT, FLANGE (12MM)"
-		description:    "Component \"nut, flange (12mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "940120.#341006"
-		isFinalProduct: false
+		name:           "Embroidered Crest Patch"
+		description:    "Traditional crest-style patch with fine embroidery."
+		sku:            "HAT.COMP.#100115"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 116. FRAY-RESISTANT THREAD
 	item115: {
 		id: utils.uuid & {_, #type: "item", #value: "116"}
-		name:           "BOLT, FLANGE (6X16)"
-		description:    "Component \"bolt, flange (6x16)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "96006000.#691978"
+		name:           "Fray-Resistant Thread"
+		description:    "Durable thread designed to resist fraying over time."
+		sku:            "HAT.COMP.#100116"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 117. LAMINATED VISOR CORE
 	item116: {
 		id: utils.uuid & {_, #type: "item", #value: "117"}
-		name:           "front wheel"
-		description:    "Component \"front wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "FRO.#202261"
-		isFinalProduct: true
+		name:           "Laminated Visor Core"
+		description:    "Multiple layers laminated for a sturdy visor core."
+		sku:            "HAT.COMP.#100117"
+		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 118. BREATHABLE INNER NETTING
 	item117: {
 		id: utils.uuid & {_, #type: "item", #value: "118"}
-		name:           "VALVE, RIM (IRC)"
-		description:    "Component \"valve, rim (irc)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "427GM9743.#476785"
+		name:           "Breathable Inner Netting"
+		description:    "Light netting for improved internal airflow."
+		sku:            "HAT.COMP.#100118"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 119. MICROFLEECE WRAP
 	item118: {
 		id: utils.uuid & {_, #type: "item", #value: "119"}
-		name:           "AXLE, FR. WHEEL"
-		description:    "Component \"axle, fr. wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "443KZVL00.#891510"
+		name:           "Microfleece Wrap"
+		description:    "Soft microfleece wrap around the crown for warmth."
+		sku:            "HAT.COMP.#100119"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 120. OVERSIZED EMBLEM FRONT
 	item119: {
 		id: utils.uuid & {_, #type: "item", #value: "120"}
-		name:           "COLLAR, FR. WHEEL SIDE"
-		description:    "Component \"collar, fr. wheel side\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "443K0G900.#616145"
-		isFinalProduct: false
+		name:           "Oversized Emblem Front"
+		description:    "Large embroidered emblem occupying most of front panel."
+		sku:            "HAT.COMP.#100120"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 121. DUAL-DENSITY FOAM LAYER
 	item120: {
 		id: utils.uuid & {_, #type: "item", #value: "121"}
-		name:           "RING, FR. PULSER"
-		description:    "Component \"ring, fr. pulser\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "445K26C10.#694483"
+		name:           "Dual-Density Foam Layer"
+		description:    "Foam layer with two densities for comfort and support."
+		sku:            "HAT.COMP.#100121"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 122. HIGHLIGHTED TOP STITCH
 	item121: {
 		id: utils.uuid & {_, #type: "item", #value: "122"}
-		name:           "COLLAR, FR. AXLE DISTANCE"
-		description:    "Component \"collar, fr. axle distance\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "446K0G900.#730291"
+		name:           "Highlighted Top Stitch"
+		description:    "Eye-catching color for top button and topstitching."
+		sku:            "HAT.COMP.#100122"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 123. COMPRESSION HEADBAND LAYER
 	item122: {
 		id: utils.uuid & {_, #type: "item", #value: "123"}
-		name:           "WHEEL SUB-ASSY., FR. *NH303M*(MAT AXIS GRAY METALLIC)"
-		description:    "Component \"wheel sub-assy., fr. *nh303m*(mat axis gray metallic)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "446K0GD30.#651692"
+		name:           "Compression Headband Layer"
+		description:    "Elastic compression layer to ensure secure head fit."
+		sku:            "HAT.COMP.#100123"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 124. DECORATIVE PEAK ACCENT
 	item123: {
 		id: utils.uuid & {_, #type: "item", #value: "124"}
-		name:           "TIRE, FR. (70/90-17M/C 38P) (IRC)"
-		description:    "Component \"tire, fr. (70/90-17m/c 38p) (irc)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "447K0G903.#431229"
+		name:           "Decorative Peak Accent"
+		description:    "Contrast accent placed at the front peak of the visor."
+		sku:            "HAT.COMP.#100124"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 125. DELUXE METAL BUCKLE
 	item124: {
 		id: utils.uuid & {_, #type: "item", #value: "125"}
-		name:           "DISK, FR. BRAKE"
-		description:    "Component \"disk, fr. brake\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "452K0G901.#484834"
-		isFinalProduct: false
+		name:           "Deluxe Metal Buckle"
+		description:    "Top-tier metal buckle for adjustable strap with premium finish."
+		sku:            "HAT.COMP.#100125"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 126. MESH INTERIOR PARTITION
 	item125: {
 		id: utils.uuid & {_, #type: "item", #value: "126"}
-		name:           "BOLT, DISK (6X17)"
-		description:    "Component \"bolt, disk (6x17)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901KZZ900.#030290"
+		name:           "Mesh Interior Partition"
+		description:    "Partition inside hat for separating compartments."
+		sku:            "HAT.COMP.#100126"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 127. 3D RAISED FRONT LETTERING
 	item126: {
 		id: utils.uuid & {_, #type: "item", #value: "127"}
-		name:           "BOLT, TORX (5X10)"
-		description:    "Component \"bolt, torx (5x10)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901K0GD20.#434399"
+		name:           "3D Raised Front Lettering"
+		description:    "Three-dimensional lettering for bold brand presence."
+		sku:            "HAT.COMP.#100127"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 128. DUAL-LAYER SWEAT GUARD
 	item127: {
 		id: utils.uuid & {_, #type: "item", #value: "128"}
-		name:           "NUT, U (12MM)"
-		description:    "Component \"nut, u (12mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KWN701.#784280"
+		name:           "Dual-Layer Sweat Guard"
+		description:    "Two-layer system to wick sweat and prevent staining."
+		sku:            "HAT.COMP.#100128"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 129. METALLIC EDGE TRIM
 	item128: {
 		id: utils.uuid & {_, #type: "item", #value: "129"}
-		name:           "BEARING, RADIAL BALL (6201U L)(NSK)"
-		description:    "Component \"bearing, radial ball (6201u l)(nsk)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910K24901.#004847"
+		name:           "Metallic Edge Trim"
+		description:    "Shiny metallic trim along the edges for flair."
+		sku:            "HAT.COMP.#100129"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 130. HIGH-CROWN FOAM LINER
 	item129: {
 		id: utils.uuid & {_, #type: "item", #value: "130"}
-		name:           "BEARING, RADIAL BALL (6201U L)(FAG)"
-		description:    "Component \"bearing, radial ball (6201u l)(fag)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910K24904.#507469"
-		isFinalProduct: false
+		name:           "High-Crown Foam Liner"
+		description:    "Foam liner specifically for high-crown hat designs."
+		sku:            "HAT.COMP.#100130"
+		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 131. LIGHT-REFRACTING BEADWORK
 	item130: {
 		id: utils.uuid & {_, #type: "item", #value: "131"}
-		name:           "DUST SEAL (21X32X5) (ARAI)"
-		description:    "Component \"dust seal (21x32x5) (arai)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "912KZR601.#354817"
+		name:           "Light-Refracting Beadwork"
+		description:    "Small beads refracting light, adding sparkle under bright conditions."
+		sku:            "HAT.COMP.#100131"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 132. RIGID VISOR SKELETON
 	item131: {
 		id: utils.uuid & {_, #type: "item", #value: "132"}
-		name:           "rear wheel"
-		description:    "Component \"rear wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "REA.#035254"
-		isFinalProduct: true
+		name:           "Rigid Visor Skeleton"
+		description:    "Rigid interior visor framework for strong shape definition."
+		sku:            "HAT.COMP.#100132"
+		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 133. ENHANCED AIRFLOW BAND
 	item132: {
 		id: utils.uuid & {_, #type: "item", #value: "133"}
-		name:           "DAMPER SET, WHEEL"
-		description:    "Component \"damper set, wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "064KWB600.#203139"
+		name:           "Enhanced Airflow Band"
+		description:    "Band designed to channel cool air through the interior."
+		sku:            "HAT.COMP.#100133"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 134. TEMPERATURE-REGULATING FABRIC
 	item133: {
 		id: utils.uuid & {_, #type: "item", #value: "134"}
-		name:           "ADJUSTER, CHAIN"
-		description:    "Component \"adjuster, chain\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "405K0G900.#452015"
+		name:           "Temperature-Regulating Fabric"
+		description:    "Fabric that adapts to external temperatures, keeping you comfortable."
+		sku:            "HAT.COMP.#100134"
 		isFinalProduct: false
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
 	}
 
+	// 135. LUXURY SUEDE BRIM
 	item134: {
 		id: utils.uuid & {_, #type: "item", #value: "135"}
-		name:           "SPROCKET, FINAL DRIVEN (35T)"
-		description:    "Component \"sprocket, final driven (35t)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "412K0GT21.#766489"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item135: {
-		id: utils.uuid & {_, #type: "item", #value: "136"}
-		name:           "SLEEVE, RR. WHEEL"
-		description:    "Component \"sleeve, rr. wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "423KWWB60.#243134"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item136: {
-		id: utils.uuid & {_, #type: "item", #value: "137"}
-		name:           "COLLAR, RR. WHEEL SIDE"
-		description:    "Component \"collar, rr. wheel side\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "423K0G900.#587765"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item137: {
-		id: utils.uuid & {_, #type: "item", #value: "138"}
-		name:           "FLANGE SUB-ASSY., FINAL DRIVEN"
-		description:    "Component \"flange sub-assy., final driven\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "426K58N40.#145484"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item138: {
-		id: utils.uuid & {_, #type: "item", #value: "139"}
-		name:           "COLLAR, RR. AXLE DISTANCE"
-		description:    "Component \"collar, rr. axle distance\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "426KFL850.#044258"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item139: {
-		id: utils.uuid & {_, #type: "item", #value: "140"}
-		name:           "WHEEL SUB-ASSY., RR. *NH303M*(MAT AXIS GRAY METALLIC)"
-		description:    "Component \"wheel sub-assy., rr. *nh303m*(mat axis gray metallic)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "426K0GT30.#118544"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item140: {
-		id: utils.uuid & {_, #type: "item", #value: "141"}
-		name:           "O-RING (40.5X3) (NIPPON DUST KEEPER)"
-		description:    "Component \"o-ring (40.5x3) (nippon dust keeper)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "426001004.#207473"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item141: {
-		id: utils.uuid & {_, #type: "item", #value: "142"}
-		name:           "TIRE, RR. (80/90-17M/C 50P) (IRC)"
-		description:    "Component \"tire, rr. (80/90-17m/c 50p) (irc)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "427K0G903.#117613"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item142: {
-		id: utils.uuid & {_, #type: "item", #value: "143"}
-		name:           "BOLT, STUD (8X18)"
-		description:    "Component \"bolt, stud (8x18)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "901KWB600.#326330"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item143: {
-		id: utils.uuid & {_, #type: "item", #value: "144"}
-		name:           "NUT, SPECIAL (6MM)"
-		description:    "Component \"nut, special (6mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KZVJ00.#682658"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item144: {
-		id: utils.uuid & {_, #type: "item", #value: "145"}
-		name:           "NUT, U (8MM) (FUJI SEIMITSU)"
-		description:    "Component \"nut, u (8mm) (fuji seimitsu)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "903KPH971.#348707"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item145: {
-		id: utils.uuid & {_, #type: "item", #value: "146"}
-		name:           "WASHER, RR. AXLE"
-		description:    "Component \"washer, rr. axle\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905K0G900.#786235"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item146: {
-		id: utils.uuid & {_, #type: "item", #value: "147"}
-		name:           "PLATE, SWINGARM SIDE"
-		description:    "Component \"plate, swingarm side\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "905K0G900.#779611"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item147: {
-		id: utils.uuid & {_, #type: "item", #value: "148"}
-		name:           "BEARING, RADIAL BALL L (6203UU) (FUJIKOSHI)"
-		description:    "Component \"bearing, radial ball l (6203uu) (fujikoshi)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910K35V03.#304627"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item148: {
-		id: utils.uuid & {_, #type: "item", #value: "149"}
-		name:           "BEARING, RADIAL BALL (6203UU) (FAG)"
-		description:    "Component \"bearing, radial ball (6203uu) (fag)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910K35V04.#232238"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item149: {
-		id: utils.uuid & {_, #type: "item", #value: "150"}
-		name:           "BEARING, RADIAL BALL (6301U L)(FAG)"
-		description:    "Component \"bearing, radial ball (6301u l)(fag)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910K03H02.#424726"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item150: {
-		id: utils.uuid & {_, #type: "item", #value: "151"}
-		name:           "BEARING, RADIAL BALL (6301U L)(NSK)"
-		description:    "Component \"bearing, radial ball (6301u l)(nsk)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "910KVSF02.#769318"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item151: {
-		id: utils.uuid & {_, #type: "item", #value: "152"}
-		name:           "DUST SEAL (27X40X4.5) (NOK)"
-		description:    "Component \"dust seal (27x40x4.5) (nok)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "912KGH902.#869241"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item152: {
-		id: utils.uuid & {_, #type: "item", #value: "153"}
-		name:           "NUT, HEX. (6MM)"
-		description:    "Component \"nut, hex. (6mm)\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		sku:            "9400620S.#895739"
-		isFinalProduct: false
-		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
-		woAllocatedQuantity: 0
-		wastedQuantity: 0
-		scrapAction: "Return"
-	}
-
-	item153: {
-		id: utils.uuid & {_, #type: "item", #value: "154"}
-		name:           "Honda Motorcycle C125A 2AC"
-		description:    "Honda Motorcycle C125A 2AC - Assembled parts"
-		sku:            "HND.C125A2AC"
+		name:           "Luxury Suede Brim"
+		description:    "High-end suede brim for a premium look and feel."
+		sku:            "HAT.COMP.#100135"
 		isFinalProduct: true
 		inventoryType:  "INVENTORY"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		quantity: 10
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
 		woAllocatedQuantity: 0
 		wastedQuantity: 0
-		scrapAction: "Return"
+		scrapAction:    "Return"
+	}
+
+	// 136. PATTERNED UNDERBILL FABRIC
+	item135: {
+		id: utils.uuid & {_, #type: "item", #value: "136"}
+		name:           "Patterned Underbill Fabric"
+		description:    "Underbill printed with stylish patterns."
+		sku:            "HAT.COMP.#100136"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 137. POCKET FOR HEADPHONES
+	item136: {
+		id: utils.uuid & {_, #type: "item", #value: "137"}
+		name:           "Pocket for Headphones"
+		description:    "Small concealed pocket to store earbud headphones."
+		sku:            "HAT.COMP.#100137"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 138. REFLECTIVE INTERIOR ACCENTS
+	item137: {
+		id: utils.uuid & {_, #type: "item", #value: "138"}
+		name:           "Reflective Interior Accents"
+		description:    "Small reflective strips inside hat for subtle shine."
+		sku:            "HAT.COMP.#100138"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 139. AROMA-FRESH SWEAT GUARD
+	item138: {
+		id: utils.uuid & {_, #type: "item", #value: "139"}
+		name:           "Aroma-Fresh Sweat Guard"
+		description:    "Sweat guard with integrated odor-fighting fragrance."
+		sku:            "HAT.COMP.#100139"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 140. SHADOW EMBLEM OUTLINE
+	item139: {
+		id: utils.uuid & {_, #type: "item", #value: "140"}
+		name:           "Shadow Emblem Outline"
+		description:    "Outline around emblem for a stylish shadow effect."
+		sku:            "HAT.COMP.#100140"
+		isFinalProduct: true
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 141. CAMO UNDERBRIM PRINT
+	item140: {
+		id: utils.uuid & {_, #type: "item", #value: "141"}
+		name:           "Camo Underbrim Print"
+		description:    "Camouflage print under the visor for a hidden style."
+		sku:            "HAT.COMP.#100141"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 142. RIBBON BRAND TAG
+	item141: {
+		id: utils.uuid & {_, #type: "item", #value: "142"}
+		name:           "Ribbon Brand Tag"
+		description:    "Small woven ribbon tag with brand name."
+		sku:            "HAT.COMP.#100142"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 143. DUAL-TONE CROWN PANEL
+	item142: {
+		id: utils.uuid & {_, #type: "item", #value: "143"}
+		name:           "Dual-Tone Crown Panel"
+		description:    "Crown panel featuring two complementary colors."
+		sku:            "HAT.COMP.#100143"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 144. STRATEGIC VENT POCKETS
+	item143: {
+		id: utils.uuid & {_, #type: "item", #value: "144"}
+		name:           "Strategic Vent Pockets"
+		description:    "Carefully placed vent pockets for optimum air circulation."
+		sku:            "HAT.COMP.#100144"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 145. WATER-REPELLENT COATING
+	item144: {
+		id: utils.uuid & {_, #type: "item", #value: "145"}
+		name:           "Water-Repellent Coating"
+		description:    "Coating that repels moisture to keep hat drier."
+		sku:            "HAT.COMP.#100145"
+		isFinalProduct: true
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 146. VINYL SNAP CLOSURE
+	item145: {
+		id: utils.uuid & {_, #type: "item", #value: "146"}
+		name:           "Vinyl Snap Closure"
+		description:    "Snap closure made from durable vinyl material."
+		sku:            "HAT.COMP.#100146"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 147. LASER-ENGRAVED METAL RING
+	item146: {
+		id: utils.uuid & {_, #type: "item", #value: "147"}
+		name:           "Laser-Engraved Metal Ring"
+		description:    "Metal ring hardware with laser-engraved detailing."
+		sku:            "HAT.COMP.#100147"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 148. MULTI-LAYER EDGE SEAL
+	item147: {
+		id: utils.uuid & {_, #type: "item", #value: "148"}
+		name:           "Multi-Layer Edge Seal"
+		description:    "Edges sealed with multiple layers for durability and style."
+		sku:            "HAT.COMP.#100148"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 149. ULTRA-FINE STITCH DETAIL
+	item148: {
+		id: utils.uuid & {_, #type: "item", #value: "149"}
+		name:           "Ultra-Fine Stitch Detail"
+		description:    "High stitch-count detail for a refined, premium look."
+		sku:            "HAT.COMP.#100149"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 150. GLOW-IN-THE-DARK EMBLEM
+	item149: {
+		id: utils.uuid & {_, #type: "item", #value: "150"}
+		name:           "Glow-in-the-Dark Emblem"
+		description:    "Emblem that glows in low-light conditions."
+		sku:            "HAT.COMP.#100150"
+		isFinalProduct: true
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 151. ULTRA-FLEX COMFORT SWEATBAND
+	item150: {
+		id: utils.uuid & {_, #type: "item", #value: "151"}
+		name:           "Ultra-Flex Comfort Sweatband"
+		description:    "Sweatband offering exceptional flexibility and comfort."
+		sku:            "HAT.COMP.#100151"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 152. SLIM PROFILE VISOR RIM
+	item151: {
+		id: utils.uuid & {_, #type: "item", #value: "152"}
+		name:           "Slim Profile Visor Rim"
+		description:    "Thin rim design offering a sleek visor profile."
+		sku:            "HAT.COMP.#100152"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 153. SPECIALTY METAL CLIP
+	item152: {
+		id: utils.uuid & {_, #type: "item", #value: "153"}
+		name:           "Specialty Metal Clip"
+		description:    "Unique metal clip accent for Ace Iconic Performance Hat."
+		sku:            "HAT.COMP.#100153"
+		isFinalProduct: false
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
+	}
+
+	// 154. ACE ICONIC PERFORMANCE HAT (FINAL PRODUCT)
+	item153: {
+		id: utils.uuid & {_, #type: "item", #value: "154"}
+		name:           "Ace Iconic Performance Hat"
+		description:    "Ace Iconic Performance Hat - Assembled parts"
+		sku:            "ACE.HAT"
+		isFinalProduct: true
+		inventoryType:  "INVENTORY"
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		quantity:       10
+		woAllocatedQuantity: 0
+		wastedQuantity: 0
+		scrapAction:    "Return"
 	}
 }
 

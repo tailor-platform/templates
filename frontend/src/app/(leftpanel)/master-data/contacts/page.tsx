@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useViewContext } from "@/app/(leftpanel)/view-context";
 import { gql } from "@fabrix-framework/fabrix";
 import { useMemo } from "react";
@@ -12,21 +13,26 @@ const QUERY = gql`
   ${GET_CONTACTS}
 `;
 
-const queryConfig = {
-  query: QUERY,
-  context: {
-    requestPolicy: "cache-first" as const,
-  },
-};
-
 export default function ContactsPage() {
   const { viewType } = useViewContext();
-  const [{ data }] = useQuery(queryConfig);
-  const contacts: Contact[] = useMemo(
+  const [{ data, fetching }] = useQuery({
+    query: QUERY,
+    requestPolicy: "cache-first",
+  });
+
+  const contacts = useMemo(
     () =>
       data?.contacts?.edges?.map((edge: { node: Contact }) => edge.node) || [],
     [data],
   );
 
-  return <div>{viewType === "table" && <Table contacts={contacts} />}</div>;
+  return (
+    <div>
+      {viewType === "table" && (
+        <Suspense fallback={<div></div>}>
+          <Table contacts={contacts} fetching={fetching} />
+        </Suspense>
+      )}
+    </div>
+  );
 }

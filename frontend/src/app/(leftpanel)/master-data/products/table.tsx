@@ -5,13 +5,13 @@ import { PanelRight } from "lucide-react";
 import { type Product } from "@/app/lib/IMS/types.generated";
 import { DataTable } from "@/components/data-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 type Props = {
   products: Product[];
+  fetching: boolean;
 };
 
-const TableContent = ({ products }: Props) => {
+const TableContent = ({ products, fetching }: Props) => {
   const { sidebarPanel } = useSidebarContext();
   const router = useRouter();
   const pathname = usePathname();
@@ -63,6 +63,7 @@ const TableContent = ({ products }: Props) => {
       <DataTable
         rowData={products}
         columnDefs={colDefs}
+        fetching={fetching}
         sideBar={{
           toolPanels: [
             {
@@ -95,12 +96,8 @@ const TableContent = ({ products }: Props) => {
   );
 };
 
-export const Table = ({ products }: Props) => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <TableContent products={products} />
-    </Suspense>
-  );
+export const Table = ({ products, fetching }: Props) => {
+  return <TableContent products={products} fetching={fetching} />;
 };
 
 export default Table;

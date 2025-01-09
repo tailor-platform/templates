@@ -1,0 +1,60 @@
+{
+  "OperationDependency": {
+    "operationdependency1": {
+      "operationId": {
+        "UUID": "Operation.operation3"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation1"
+      }
+    },
+    "operationdependency2": {
+      "operationId": {
+        "UUID": "Operation.operation3"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation2"
+      }
+    },
+    "operationdependency3": {
+      "operationId": {
+        "UUID": "Operation.operation4"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation3"
+      }
+    },
+    "operationdependency4": {
+      "operationId": {
+        "UUID": "Operation.operation5"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation4"
+      }
+    },
+    "operationdependency5": {
+      "operationId": {
+        "UUID": "Operation.operation6"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation5"
+      }
+    },
+    "operationdependency6": {
+      "operationId": {
+        "UUID": "Operation.operation7"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation6"
+      }
+    },
+    "operationdependency7": {
+      "operationId": {
+        "UUID": "Operation.operation8"
+      },
+      "dependsOnOperationId": {
+        "UUID": "Operation.operation7"
+      }
+    }
+  }
+}

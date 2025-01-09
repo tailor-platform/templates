@@ -58,6 +58,10 @@ SalesOrder: commonType.#CommonType & {
 			Description: "Customer email"
 		}
 		createdAt: tailordb.CreatedAtField
+		shopifyCreatedAt: {
+			Type:        tailordb.#TypeDateTime
+			Description: "Shopify created at"
+		}
 		shipStationOrderStatus: {
 			Type:        tailordb.#TypeEnum
 			Description: "inventoryType"

@@ -1,0 +1,118 @@
+version: "3.7"
+services:
+  migration:
+    image: asia-northeast1-docker.pkg.dev/tailor-professional-service/cmd/minitailor:latest
+    pull_policy: always
+    command: minitailor db.migration
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+
+  minitailor:
+    image: asia-northeast1-docker.pkg.dev/tailor-professional-service/cmd/minitailor:latest
+    pull_policy: always
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      MONGO_URI: mongodb://mongodb:27017
+      MINITAILOR_PORT: 8000
+      APP_HTTP_SCHEMA: http
+      AUTH_PLATFORM_URL: http://mini.tailor.tech:18009/auth/platform
+      PLATFORM_URL: http://mini.tailor.tech:18090
+      FUNCTION_RUNTIME_BASE_URL: http://function-runtime:18999
+    networks:
+      default:
+        aliases:
+          - mini.tailor.tech
+    ports:
+      - 8000:8000
+      - 18009:18009
+      - 18090:18090
+      - 18888:18888
+    volumes:
+      - .:/root/backend
+    working_dir: /root/backend
+    entrypoint: minitailor start
+    healthcheck:
+      test: "nc -z localhost 18090"
+      interval: 1s
+      timeout: 5s
+      retries: 3
+
+  console:
+    image: asia-northeast1-docker.pkg.dev/tailor-professional-service/cmd/console:latest
+    pull_policy: always
+    environment:
+      NEXT_PUBLIC_API_URL: http://mini.tailor.tech:18090
+      NEXT_PUBLIC_APP_HOST: http://desktop.tailor.tech:3030
+      NEXT_PUBLIC_MINITAILOR_PORT: 8000
+    ports:
+      - 3030:3000
+    networks:
+      default:
+        aliases:
+          - desktop.tailor.tech
+
+  db:
+    image: postgres:13.5
+    volumes:
+      - ./db/postgres:/var/lib/postgresql
+      - ./db/logs:/var/log
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: postgres -c listen_addresses='*'
+    healthcheck:
+      test: "pg_isready -U postgres"
+      interval: 2s
+      timeout: 5s
+      retries: 3
+    ports:
+      - 35432:5432
+
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 1s
+      timeout: 5s
+      retries: 3
+
+  function-runtime:
+    image: asia-northeast1-docker.pkg.dev/tailor-professional-service/cmd/function:latest
+    environment:
+      DEBUG: "true"
+      ENVIRONMENT: test
+      PROJECT_ID: test-project
+      REGION: test-region
+      SERVER_PORT: 18999
+      TONIC_MAX_DECODING_MESSAGE_SIZE: 33554432
+      TONIC_MAX_ENCODING_MESSAGE_SIZE: 33554432
+      RUNTIME_MEM_LIMIT: 41943040
+      RUNTIME_NUM_THREADS: 4
+      RUNTIME_TIMEOUT_IN_SEC: 2
+      RUNTIME_MODULE_DIR: /tmp
+      LIMITER_NUM_ERRORS: 3
+      LIMITER_TIME_WINDOW_IN_SEC: 10
+      LIMITER_TIME_TO_DENY: 10
+    ports:
+      - "18999:18999"
+
+volumes:
+  mongodb:
+    driver: local

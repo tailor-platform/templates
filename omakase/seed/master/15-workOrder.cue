@@ -12,7 +12,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "1"} // Engine Assembly
 		expectedDuration: 180 // Duration in minutes
 		order: 1
-		status: "In_Progress"
+		status: "Finished"
 	}
 	workOrder1: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "1"}
@@ -20,7 +20,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "2"} // Frame Assembly
 		expectedDuration: 150
 		order: 2
-		status: "Draft"
+		status: "Finished"
 	}
 	workOrder2: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "2"}
@@ -28,7 +28,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "3"} // Electrical Systems Installation
 		expectedDuration: 90
 		order: 3
-		status: "Ready"
+		status: "Finished"
 	}
 	workOrder3: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "3"}
@@ -36,7 +36,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "4"} // Casting Motorcycle Components
 		expectedDuration: 120
 		order: 4
-		status: "Waiting_for_components"
+		status: "Finished"
 	}
 	workOrder4: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "4"}
@@ -44,7 +44,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "5"} // Painting Components
 		expectedDuration: 100
 		order: 5
-		status: "Waiting_for_another_WO"
+		status: "Finished"
 	}
 	workOrder5: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "5"}
@@ -52,7 +52,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "6"} // Final Assembly
 		expectedDuration: 200
 		order: 6
-		status: "Draft"
+		status: "Finished"
 	}
 	workOrder6: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "6"}
@@ -60,6 +60,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "7"} // Quality Control
 		expectedDuration: 30
 		order: 7
+		status: "Finished"
 	}
 	workOrder7: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "7"}
@@ -67,7 +68,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "8"} // Packaging
 		expectedDuration: 80
 		order: 8
-		status: "Draft"
+		status: "Finished"
 	}
 	workOrder8: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "8"}
@@ -75,7 +76,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "1"} // Engine Assembly
 		expectedDuration: 180 // Duration in minutes
 		order: 1
-		status: "In_Progress"
+		status: "Canceled"
 	}
 	workOrder9: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "9"}
@@ -83,7 +84,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "2"} // Frame Assembly
 		expectedDuration: 150
 		order: 2
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder10: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "10"}
@@ -91,7 +92,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "3"} // Electrical Systems Installation
 		expectedDuration: 90
 		order: 3
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder11: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "11"}
@@ -99,7 +100,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "4"} // Casting Motorcycle Components
 		expectedDuration: 120
 		order: 4
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder12: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "12"}
@@ -107,7 +108,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "5"} // Painting Components
 		expectedDuration: 100
 		order: 5
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder13: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "13"}
@@ -115,7 +116,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "6"} // Final Assembly
 		expectedDuration: 200
 		order: 6
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder14: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "14"}
@@ -123,7 +124,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "7"} // Quality Control
 		expectedDuration: 30
 		order: 7
-		status: "Draft"
+		status: "Canceled"
 	}
 	workOrder15: {
 		id: utils.uuid & {_, #type: "WorkOrder", #value: "15"}
@@ -131,7 +132,7 @@ import (
 		operationId: utils.uuid & {_, #type: "Operation", #value: "8"} // Packaging
 		expectedDuration: 80
 		order: 8
-		status: "Draft"
+		status: "Canceled"
 	}
 }
 

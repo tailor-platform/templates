@@ -1,6 +1,9 @@
 import {
+  bomTypeColors,
   componentStatusColors,
   inventoryTypeColors,
+  receiptStatusColors,
+  salesOrderStatusColors,
   statusColors,
   workOrderStatusColors,
 } from "@/lib/colors";
@@ -109,6 +112,86 @@ export const WorkOrderStatusEnumRenderer = <
   const color = workOrderStatusColors[value] || "bg-gray-300";
   const label = workOrderStatusLabels[value] || value;
 
+  return (
+    <div className="flex h-full items-center">
+      <Badge className="flex items-center gap-2" size="sm" variant="secondary">
+        <span className={`h-2 w-2 rounded-full ${color}`} />
+        {label}
+      </Badge>
+    </div>
+  );
+};
+
+export const salesOrderStatusLabels: Record<string, string> = {
+  not_sent: "Not sent",
+  changes_not_sent: "Changes not sent",
+  awaiting_payment: "Awaiting payment",
+  shipped: "Shipped",
+};
+
+export const SalesOrderStatusEnumRenderer = <
+  T extends keyof typeof salesOrderStatusColors,
+>({
+  value,
+}: {
+  value: T;
+}) => {
+  const color = salesOrderStatusColors[value];
+  const label = salesOrderStatusLabels[value] || value;
+  return (
+    color && (
+      <div className="flex h-full items-center">
+        <Badge
+          className="flex items-center gap-2"
+          size="sm"
+          variant="secondary"
+        >
+          <span className={`h-2 w-2 rounded-full ${color}`} />
+          {label}
+        </Badge>
+      </div>
+    )
+  );
+};
+
+export const receiptStatusLabels: Record<string, string> = {
+  OPEN: "Open",
+  CLOSED: "Closed",
+};
+
+export const ReceiptStatusEnumRenderer = <
+  T extends keyof typeof receiptStatusColors,
+>({
+  value,
+}: {
+  value: T;
+}) => {
+  const color = receiptStatusColors[value] || "bg-gray-300";
+  const label = receiptStatusLabels[value] || value;
+  return (
+    <div className="flex h-full items-center">
+      <Badge className="flex items-center gap-2" size="sm" variant="secondary">
+        <span className={`h-2 w-2 rounded-full ${color}`} />
+        {label}
+      </Badge>
+    </div>
+  );
+};
+
+export const bomTypeLabels: Record<string, string> = {
+  FINAL_PRODUCT: "Final Product",
+  COMPONENT: "Component",
+  RECIPE: "Recipe",
+  KIT: "Kit",
+};
+
+export const BomTypeEnumRenderer = <T extends keyof typeof bomTypeColors>({
+  value,
+}: {
+  value: T;
+}) => {
+  const color = bomTypeColors[value] || "bg-gray-300";
+  const label = bomTypeLabels[value] || value;
   return (
     <div className="flex h-full items-center">
       <Badge className="flex items-center gap-2" size="sm" variant="secondary">

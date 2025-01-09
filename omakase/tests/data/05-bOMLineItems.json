@@ -1,0 +1,2289 @@
+{
+  "BomLineItem": {
+    "bomlineitem1": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item19"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.61,
+      "scrapAction": "Return"
+    },
+    "bomlineitem2": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item20"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 17.44,
+      "scrapAction": "Return"
+    },
+    "bomlineitem3": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item21"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 18.07,
+      "scrapAction": "Return"
+    },
+    "bomlineitem4": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item22"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 4.56,
+      "scrapAction": "Return"
+    },
+    "bomlineitem6": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item23"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 15.2,
+      "scrapAction": "Return"
+    },
+    "bomlineitem7": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item24"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 785.84,
+      "scrapAction": "Return"
+    },
+    "bomlineitem8": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item25"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem9": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item26"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem10": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item27"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.05,
+      "scrapAction": "Return"
+    },
+    "bomlineitem11": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item28"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem12": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item29"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2,
+      "scrapAction": "Return"
+    },
+    "bomlineitem13": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item30"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.92,
+      "scrapAction": "Return"
+    },
+    "bomlineitem14": {
+      "bomId": {
+        "UUID": "Bom.bom1"
+      },
+      "itemId": {
+        "UUID": "Item.item31"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.49,
+      "scrapAction": "Return"
+    },
+    "bomlineitem15": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item33"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.69,
+      "scrapAction": "Return"
+    },
+    "bomlineitem16": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item34"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 55.11,
+      "scrapAction": "Return"
+    },
+    "bomlineitem17": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item35"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 74.34,
+      "scrapAction": "Return"
+    },
+    "bomlineitem18": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item36"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 59.66,
+      "scrapAction": "Return"
+    },
+    "bomlineitem19": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item37"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.67,
+      "scrapAction": "Return"
+    },
+    "bomlineitem20": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item38"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 114.61,
+      "scrapAction": "Return"
+    },
+    "bomlineitem21": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item39"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.67,
+      "scrapAction": "Return"
+    },
+    "bomlineitem22": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item40"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 118.87,
+      "scrapAction": "Return"
+    },
+    "bomlineitem23": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item41"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 53.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem24": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item42"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem25": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item43"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.11,
+      "scrapAction": "Return"
+    },
+    "bomlineitem26": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item44"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.2,
+      "scrapAction": "Return"
+    },
+    "bomlineitem27": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item45"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem28": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item46"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem29": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item47"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.23,
+      "scrapAction": "Return"
+    },
+    "bomlineitem30": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item48"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem31": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item49"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.11,
+      "scrapAction": "Return"
+    },
+    "bomlineitem32": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item50"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.74,
+      "scrapAction": "Return"
+    },
+    "bomlineitem33": {
+      "bomId": {
+        "UUID": "Bom.bom19"
+      },
+      "itemId": {
+        "UUID": "Item.item51"
+      },
+      "inputQuantity": 5,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.66,
+      "scrapAction": "Return"
+    },
+    "bomlineitem34": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item53"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 22.34,
+      "scrapAction": "Return"
+    },
+    "bomlineitem35": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item54"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.67,
+      "scrapAction": "Return"
+    },
+    "bomlineitem36": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item25"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem37": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item55"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 393.79,
+      "scrapAction": "Return"
+    },
+    "bomlineitem38": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item56"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 20.31,
+      "scrapAction": "Return"
+    },
+    "bomlineitem39": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item57"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.89,
+      "scrapAction": "Return"
+    },
+    "bomlineitem40": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item58"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 4.38,
+      "scrapAction": "Return"
+    },
+    "bomlineitem41": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item59"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 185.18,
+      "scrapAction": "Return"
+    },
+    "bomlineitem42": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item60"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.15,
+      "scrapAction": "Return"
+    },
+    "bomlineitem43": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item61"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.74,
+      "scrapAction": "Return"
+    },
+    "bomlineitem44": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item62"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.9,
+      "scrapAction": "Return"
+    },
+    "bomlineitem45": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item63"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 5.43,
+      "scrapAction": "Return"
+    },
+    "bomlineitem46": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item44"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.2,
+      "scrapAction": "Return"
+    },
+    "bomlineitem47": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item64"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.56,
+      "scrapAction": "Return"
+    },
+    "bomlineitem48": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item45"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem49": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item28"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem50": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item65"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.75,
+      "scrapAction": "Return"
+    },
+    "bomlineitem51": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item66"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.82,
+      "scrapAction": "Return"
+    },
+    "bomlineitem52": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item67"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.67,
+      "scrapAction": "Return"
+    },
+    
+    
+   
+    "bomlineitem56": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item68"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.85,
+      "scrapAction": "Return"
+    },
+    "bomlineitem57": {
+      "bomId": {
+        "UUID": "Bom.bom20"
+      },
+      "itemId": {
+        "UUID": "Item.item69"
+      },
+      "inputQuantity": 5,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.54,
+      "scrapAction": "Return"
+    },
+    "bomlineitem58": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item70"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.41,
+      "scrapAction": "Return"
+    },
+    "bomlineitem59": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item71"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.9,
+      "scrapAction": "Return"
+    },
+    "bomlineitem60": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item72"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.23,
+      "scrapAction": "Return"
+    },
+    "bomlineitem61": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item73"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.05,
+      "scrapAction": "Return"
+    },
+    "bomlineitem62": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item74"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 11.46,
+      "scrapAction": "Return"
+    },
+    "bomlineitem63": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item75"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.41,
+      "scrapAction": "Return"
+    },
+    "bomlineitem64": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item76"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.95,
+      "scrapAction": "Return"
+    },
+    "bomlineitem65": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item77"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem66": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item78"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 19.74,
+      "scrapAction": "Return"
+    },
+    "bomlineitem67": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item79"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.52,
+      "scrapAction": "Return"
+    },
+    "bomlineitem68": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item62"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.9,
+      "scrapAction": "Return"
+    },
+    "bomlineitem69": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item80"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 4.56,
+      "scrapAction": "Return"
+    },
+    "bomlineitem70": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item81"
+      },
+      "inputQuantity": 5,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.02,
+      "scrapAction": "Return"
+    },
+    "bomlineitem71": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item82"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem72": {
+      "bomId": {
+        "UUID": "Bom.bom2"
+      },
+      "itemId": {
+        "UUID": "Item.item83"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.38,
+      "scrapAction": "Return"
+    },
+    "bomlineitem73": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item85"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 54.36,
+      "scrapAction": "Return"
+    },
+    "bomlineitem74": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item86"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 111.16,
+      "scrapAction": "Return"
+    },
+    "bomlineitem75": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item87"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem76": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item88"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 35.72,
+      "scrapAction": "Return"
+    },
+    "bomlineitem77": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item89"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 4.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem78": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item90"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.49,
+      "scrapAction": "Return"
+    },
+    "bomlineitem79": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item91"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 54.1,
+      "scrapAction": "Return"
+    },
+    "bomlineitem80": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item92"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 14.13,
+      "scrapAction": "Return"
+    },
+    "bomlineitem81": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item93"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.26,
+      "scrapAction": "Return"
+    },
+    "bomlineitem82": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item94"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.38,
+      "scrapAction": "Return"
+    },
+    "bomlineitem83": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item95"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.36,
+      "scrapAction": "Return"
+    },
+    "bomlineitem84": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item96"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.93,
+      "scrapAction": "Return"
+    },
+    "bomlineitem85": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item97"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.72,
+      "scrapAction": "Return"
+    },
+    "bomlineitem86": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item98"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 5.51,
+      "scrapAction": "Return"
+    },
+    "bomlineitem87": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item99"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 97.28,
+      "scrapAction": "Return"
+    },
+    "bomlineitem88": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item100"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 23.03,
+      "scrapAction": "Return"
+    },
+    "bomlineitem89": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item101"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.3,
+      "scrapAction": "Return"
+    },
+    "bomlineitem90": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item102"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.82,
+      "scrapAction": "Return"
+    },
+    "bomlineitem91": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item103"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.54,
+      "scrapAction": "Return"
+    },
+    "bomlineitem92": {
+      "bomId": {
+        "UUID": "Bom.bom21"
+      },
+      "itemId": {
+        "UUID": "Item.item104"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.13,
+      "scrapAction": "Return"
+    },
+    "bomlineitem93": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item106"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 141.9,
+      "scrapAction": "Return"
+    },
+    "bomlineitem94": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item107"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.18,
+      "scrapAction": "Return"
+    },
+    "bomlineitem95": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item108"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 5.18,
+      "scrapAction": "Return"
+    },
+    "bomlineitem96": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item109"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 6.33,
+      "scrapAction": "Return"
+    },
+    "bomlineitem97": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item110"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.1,
+      "scrapAction": "Return"
+    },
+    "bomlineitem98": {
+      "bomId": {
+        "UUID": "Bom.bom22"
+      },
+      "itemId": {
+        "UUID": "Item.item111"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.48,
+      "scrapAction": "Return"
+    },
+    "bomlineitem99": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item112"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 51.48,
+      "scrapAction": "Return"
+    },
+    "bomlineitem100": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item113"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 30.31,
+      "scrapAction": "Return"
+    },
+    "bomlineitem101": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item114"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.84,
+      "scrapAction": "Return"
+    },
+    "bomlineitem102": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item115"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.92,
+      "scrapAction": "Return"
+    },
+    "bomlineitem103": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item116"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.93,
+      "scrapAction": "Return"
+    },
+    "bomlineitem104": {
+      "bomId": {
+        "UUID": "Bom.bom3"
+      },
+      "itemId": {
+        "UUID": "Item.item31"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.1,
+      "scrapAction": "Return"
+    },
+    "bomlineitem105": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item118"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem106": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item119"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 6.79,
+      "scrapAction": "Return"
+    },
+    "bomlineitem107": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item120"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.56,
+      "scrapAction": "Return"
+    },
+    "bomlineitem108": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item121"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 23.89,
+      "scrapAction": "Return"
+    },
+    "bomlineitem109": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item122"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 6.77,
+      "scrapAction": "Return"
+    },
+    "bomlineitem110": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item123"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 266.75,
+      "scrapAction": "Return"
+    },
+    "bomlineitem111": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item124"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 44.39,
+      "scrapAction": "Return"
+    },
+    "bomlineitem112": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item125"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 65.75,
+      "scrapAction": "Return"
+    },
+    "bomlineitem113": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item126"
+      },
+      "inputQuantity": 5,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.61,
+      "scrapAction": "Return"
+    },
+    "bomlineitem114": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item127"
+      },
+      "inputQuantity": 3,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.93,
+      "scrapAction": "Return"
+    },
+    "bomlineitem115": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item128"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.77,
+      "scrapAction": "Return"
+    },
+    "bomlineitem116": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item129"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.74,
+      "scrapAction": "Return"
+    },
+    "bomlineitem117": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item130"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.92,
+      "scrapAction": "Return"
+    },
+    "bomlineitem118": {
+      "bomId": {
+        "UUID": "Bom.bom23"
+      },
+      "itemId": {
+        "UUID": "Item.item131"
+      },
+      "inputQuantity": 2,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.2,
+      "scrapAction": "Return"
+    },
+    "bomlineitem119": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item133"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 9.48,
+      "scrapAction": "Return"
+    },
+    "bomlineitem120": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item134"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 9.48,
+      "scrapAction": "Return"
+    },
+    "bomlineitem121": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item135"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 20.97,
+      "scrapAction": "Return"
+    },
+    "bomlineitem122": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item136"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 5.84,
+      "scrapAction": "Return"
+    },
+    "bomlineitem123": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item137"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 7.52,
+      "scrapAction": "Return"
+    },
+    "bomlineitem124": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item138"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 64.18,
+      "scrapAction": "Return"
+    },
+    "bomlineitem125": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item139"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 4.52,
+      "scrapAction": "Return"
+    },
+    "bomlineitem126": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item140"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 286.36,
+      "scrapAction": "Return"
+    },
+    "bomlineitem127": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item141"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.13,
+      "scrapAction": "Return"
+    },
+    "bomlineitem128": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item142"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 54.62,
+      "scrapAction": "Return"
+    },
+    "bomlineitem129": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item118"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem130": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item119"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 10.38,
+      "scrapAction": "Return"
+    },
+    "bomlineitem131": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item143"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.61,
+      "scrapAction": "Return"
+    },
+    "bomlineitem132": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item144"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.11,
+      "scrapAction": "Return"
+    },
+    "bomlineitem133": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item145"
+      },
+      "inputQuantity": 4,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.43,
+      "scrapAction": "Return"
+    },
+    "bomlineitem134": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item146"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.43,
+      "scrapAction": "Return"
+    },
+    "bomlineitem135": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item147"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 10.57,
+      "scrapAction": "Return"
+    },
+    "bomlineitem136": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item148"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 18.3,
+      "scrapAction": "Return"
+    },
+    "bomlineitem137": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item149"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 18.3,
+      "scrapAction": "Return"
+    },
+    "bomlineitem138": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item129"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.74,
+      "scrapAction": "Return"
+    },
+    "bomlineitem139": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item130"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 3.92,
+      "scrapAction": "Return"
+    },
+    "bomlineitem140": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item150"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 6.36,
+      "scrapAction": "Return"
+    },
+    "bomlineitem141": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item151"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 8.07,
+      "scrapAction": "Return"
+    },
+    "bomlineitem142": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item152"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 0.87,
+      "scrapAction": "Return"
+    },
+    "bomlineitem143": {
+      "bomId": {
+        "UUID": "Bom.bom24"
+      },
+      "itemId": {
+        "UUID": "Item.item153"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1.21,
+      "scrapAction": "Return"
+    },
+    "bomlineitem145": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item1"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 860.38,
+      "scrapAction": "Return"
+    },
+    "bomlineitem146": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item2"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 85.79,
+      "scrapAction": "Return"
+    },
+    "bomlineitem147": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item3"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 88.71,
+      "scrapAction": "Return"
+    },
+    "bomlineitem148": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item4"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 120,
+      "scrapAction": "Return"
+    },
+    "bomlineitem149": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item5"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 350,
+      "scrapAction": "Return"
+    },
+    "bomlineitem150": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item6"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 45,
+      "scrapAction": "Return"
+    },
+    "bomlineitem151": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item7"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 75,
+      "scrapAction": "Return"
+    },
+    "bomlineitem152": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item8"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 25,
+      "scrapAction": "Return"
+    },
+    "bomlineitem153": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item9"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 2.5,
+      "scrapAction": "Return"
+    },
+    "bomlineitem154": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item10"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 200,
+      "scrapAction": "Return"
+    },
+    "bomlineitem155": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item11"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 400,
+      "scrapAction": "Return"
+    },
+    "bomlineitem156": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item12"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 60,
+      "scrapAction": "Return"
+    },
+    "bomlineitem157": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item13"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 150,
+      "scrapAction": "Return"
+    },
+    "bomlineitem158": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item14"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 250,
+      "scrapAction": "Return"
+    },
+    "bomlineitem159": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item15"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 1200,
+      "scrapAction": "Return"
+    },
+    "bomlineitem160": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item16"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 75,
+      "scrapAction": "Return"
+    },
+    "bomlineitem161": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item17"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 150,
+      "scrapAction": "Return"
+    },
+    "bomlineitem162": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item18"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 50,
+      "scrapAction": "Return"
+    },
+    "bomlineitem163": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item32"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 535.27,
+      "scrapAction": "Return"
+    },
+    "bomlineitem164": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item52"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 718.65,
+      "scrapAction": "Return"
+    },
+    "bomlineitem165": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item84"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 521.65,
+      "scrapAction": "Return"
+    },
+    "bomlineitem166": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item105"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 342.68,
+      "scrapAction": "Return"
+    },
+    "bomlineitem167": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item117"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 467,
+      "scrapAction": "Return"
+    },
+    "bomlineitem168": {
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item132"
+      },
+      "inputQuantity": 1,
+      "uomId": {
+        "UUID": "Uom.uom1"
+      },
+      "unitCost": 565.74,
+      "scrapAction": "Return"
+    }
+  }
+}

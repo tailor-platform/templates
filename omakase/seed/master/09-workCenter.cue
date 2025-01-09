@@ -5,27 +5,25 @@ import (
 )
 
 #WorkCenter: {
-	// 1. Engine Assembly Center
 	workCenter0: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "1"}
-		name:        "Engine Assembly Center"
-		description: "Center dedicated to assembling motorcycle engines"
+		name:        "Base Assembly Center"
+		description: "Center dedicated to assembling sub-components of the hat crown"
 		code:        "WCE-001"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.85
 		parallelProcessingLimit:  2
-		setupTime:       30 // Increased for complex engine assembly
+		setupTime:       30
 		cleanupTime:     30
-		hourlyProcessingCost:     150 // Higher due to specialized tasks
+		hourlyProcessingCost:     150
 		costPerEmployee: 30
 		isActive:        true
 	}
 	
-	// 2. Frame Assembly Center
 	workCenter1: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "2"}
 		name:        "Frame Assembly Center"
-		description: "Center for assembling motorcycle frames and structural components"
+		description: "Center for assembling the hat's structural panels"
 		code:        "WCF-001"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.9
@@ -37,11 +35,10 @@ import (
 		isActive:        true
 	}
 	
-	// 3. Electrical Systems Center
 	workCenter2: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "3"}
 		name:        "Electrical Systems Center"
-		description: "Center for installing electrical systems, wiring, and electronics"
+		description: "Center for attaching patches, labels, or minor attachments"
 		code:        "WCELEC-001"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.95
@@ -53,43 +50,40 @@ import (
 		isActive:        true
 	}
 	
-	// 4. Casting Center
 	workCenter3: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "4"}
 		name:        "Casting Center"
-		description: "Center for casting metal components specific to motorcycles"
+		description: "Center for shaping brims or applying special forms"
 		code:        "WCCC-002"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  1.0
 		parallelProcessingLimit:  2
-		setupTime:       25 // Increased for motorcycle-specific components
+		setupTime:       25
 		cleanupTime:     25
 		hourlyProcessingCost:     130
 		costPerEmployee: 50
 		isActive:        true
 	}
 	
-	// 5. Painting Center
 	workCenter4: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "5"}
 		name:        "Painting Center"
-		description: "Center for painting motorcycle frames, engines, and other components"
-		code:        "WCP-002" // Updated code to differentiate from bicycle packing
+		description: "Center for dyeing or painting the hat components"
+		code:        "WCP-002"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  1.0
 		parallelProcessingLimit:  3
-		setupTime:       20 // Adjusted for larger components
+		setupTime:       20
 		cleanupTime:     20
 		hourlyProcessingCost:     110
 		costPerEmployee: 35
 		isActive:        true
 	}
 	
-	// 6. Final Assembly Center
 	workCenter5: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "6"}
 		name:        "Final Assembly Center"
-		description: "Center for final assembly of all motorcycle components into finished units"
+		description: "Center for integrating all hat components into final product"
 		code:        "WCF-001"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.88
@@ -101,11 +95,10 @@ import (
 		isActive:        true
 	}
 	
-	// 7. Quality Control Center
 	workCenter6: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "7"}
 		name:        "Quality Control Center"
-		description: "Center for quality assurance and testing of completed motorcycles"
+		description: "Center for testing and QA of completed hats"
 		code:        "WCQC-002"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.95
@@ -117,12 +110,11 @@ import (
 		isActive:        true
 	}
 	
-	// 8. Packaging Center
 	workCenter7: {
 		id: utils.uuid & {_, #type: "WorkCenter", #value: "8"}
 		name:        "Packaging Center"
-		description: "Center for packaging completed motorcycles for shipping"
-		code:        "WCP-002" // Updated code
+		description: "Center for packaging completed Ace Iconic Performance Hats"
+		code:        "WCP-002"
 		workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
 		timeEfficiency:  0.9
 		parallelProcessingLimit:  3
@@ -132,22 +124,6 @@ import (
 		costPerEmployee: 25
 		isActive:        true
 	}
-	
-	// workCenter8: {
-	// 	id: utils.uuid & {_, #type: "WorkCenter", #value: "9"}
-	// 	name:        "Engine Testing Center"
-	// 	description: "Center for testing engine performance and reliability"
-	// 	code:        "WCET-001"
-	// 	workingHoursId: utils.uuid & {_, #type: "WorkingHour", #value: "1"}
-	// 	timeEfficiency:  0.9
-	// 	parallelProcessingLimit:  2
-	// 	setupTime:       20
-	// 	cleanupTime:     20
-	// 	hourlyProcessingCost:     130
-	// 	costPerEmployee: 35
-	// 	isActive:        true
-	// }
-	
 }
 
 WorkCenter: {

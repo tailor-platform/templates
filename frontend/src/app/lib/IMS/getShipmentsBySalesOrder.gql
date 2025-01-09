@@ -1,0 +1,69 @@
+query Shipments($salesOrderID: ID) {
+  shipments(query: { salesOrderID: { eq: $salesOrderID } }) {
+    total
+    edges {
+      cursor
+      node {
+        shipmentNumber
+        updated
+        updatedAt
+        created
+        createdByID
+        updatedByID
+        date
+        active
+        customerID
+        salesOrderID
+        createdAt
+        id
+        customer {
+          updatedByID
+          zip
+          quickBookCustomerId
+          country
+          countryCode
+          address1
+          updatedAt
+          active
+          name
+          company
+          province
+          availableCredit
+          createdAt
+          city
+          createdByID
+          address2
+          email
+          provinceCode
+          id
+          updated
+          openBalance
+          creditLimit
+          phone
+          created
+        }
+        salesOrder {
+          currency
+          created
+          shopifyID
+          updated
+          orderNumber
+          customerEmail
+          customerID
+          createdAt
+          shipStationOrderStatus
+          updatedAt
+          shippedAt
+          id
+          cancelledAt
+          currentSubtotalPrice
+          updatedByID
+          customerName
+          cancelReason
+          active
+          createdByID
+        }
+      }
+    }
+  }
+}

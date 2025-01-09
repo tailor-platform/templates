@@ -5,13 +5,13 @@ import { PanelRight } from "lucide-react";
 import { ProductVariant } from "@/app/lib/IMS/types.generated";
 import { DataTable } from "@/components/data-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 type Props = {
   productVariants: ProductVariant[];
+  fetching: boolean;
 };
 
-const TableContent = ({ productVariants }: Props) => {
+const TableContent = ({ productVariants, fetching }: Props) => {
   const { sidebarPanel } = useSidebarContext();
   const router = useRouter();
   const pathname = usePathname();
@@ -59,7 +59,9 @@ const TableContent = ({ productVariants }: Props) => {
       headerName: "Price",
       flex: 1,
       valueFormatter: (params) => {
-        return params.value ? `$${params.value.toFixed(2)}` : "";
+        if (params.value == null) return "";
+        const numValue = Number(params.value);
+        return isNaN(numValue) ? "" : numValue.toFixed(2);
       },
     },
     {
@@ -78,6 +80,7 @@ const TableContent = ({ productVariants }: Props) => {
       <DataTable
         rowData={productVariants}
         columnDefs={colDefs}
+        fetching={fetching}
         sideBar={{
           toolPanels: [
             {
@@ -113,12 +116,8 @@ const TableContent = ({ productVariants }: Props) => {
   );
 };
 
-export const Table = ({ productVariants }: Props) => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <TableContent productVariants={productVariants} />
-    </Suspense>
-  );
+export const Table = ({ productVariants, fetching }: Props) => {
+  return <TableContent productVariants={productVariants} fetching={fetching} />;
 };
 
 export default Table;

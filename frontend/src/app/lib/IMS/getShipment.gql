@@ -1,0 +1,11 @@
+query Shipment($id: ID!){
+    shipment(id: $id) {
+        shipmentNumber
+        salesOrderID
+        date
+        createdAt
+        customer {
+            name
+        }
+    }
+}

@@ -7,27 +7,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { InventoryTypeEnumRenderer } from "@/lib/enum-labels"; // Assuming ShadCN Table is already set up
-
-type BOMLineItem = {
-  item: {
-    id: string;
-    name: string;
-    inventoryType: string;
-    bomId: string;
-  };
-  uom: {
-    name: string;
-    id: string;
-  };
-};
-
-type MOLineItem = {
-  id: string;
-  requiredQuantity: number;
-  totalCost: number;
-  itemMoId: string;
-  bomLineItem: BOMLineItem;
-};
+import { MOLineItem } from "@/types";
 
 type MOLineItemEdge = {
   node: MOLineItem;
@@ -35,9 +15,13 @@ type MOLineItemEdge = {
 
 type MOLineItemsTabProps = {
   moLineItems: MOLineItemEdge[];
+  onRowSelect?: (row: MOLineItem) => void;
 };
 
-export const MOLineItemsTab = ({ moLineItems }: MOLineItemsTabProps) => {
+export const MOLineItemsTab = ({
+  moLineItems,
+  onRowSelect,
+}: MOLineItemsTabProps) => {
   const lineItemsList = moLineItems.map((edge) => edge.node);
 
   return (
@@ -60,7 +44,7 @@ export const MOLineItemsTab = ({ moLineItems }: MOLineItemsTabProps) => {
             </TableRow>
           ) : (
             lineItemsList.map((lineItem, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} onClick={() => onRowSelect?.(lineItem)}>
                 <TableCell>{lineItem.bomLineItem.item.name}</TableCell>
                 <TableCell>
                   <InventoryTypeEnumRenderer

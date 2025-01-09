@@ -1,0 +1,16 @@
+{
+  "ManufacturingOrder": {
+    "manufacturingorder1": {
+      "name": "Honda Motorcycle C125A 2AC",
+      "bomId": {
+        "UUID": "Bom.bom25"
+      },
+      "itemId": {
+        "UUID": "Item.item154"
+      },
+      "componentsStatus": "Ready",
+      "status": "Draft",
+      "quantity": 1
+    }
+  }
+}

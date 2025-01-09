@@ -1,0 +1,11 @@
+query Invoice($id: ID!) {
+    invoice(id: $id) {
+        invoiceNumber
+        invoiceStatus
+        customer {
+            name
+        }
+        date
+        shipmentID
+    }
+}

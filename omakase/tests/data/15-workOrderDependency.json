@@ -1,0 +1,60 @@
+{
+  "WorkOrderDependency": {
+    "workorderdependency1": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder3"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder1"
+      }
+    },
+    "workorderdependency2": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder3"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder2"
+      }
+    },
+    "workorderdependency3": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder4"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder3"
+      }
+    },
+    "workorderdependency4": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder5"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder4"
+      }
+    },
+    "workorderdependency5": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder6"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder5"
+      }
+    },
+    "workorderdependency6": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder7"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder6"
+      }
+    },
+    "workorderdependency7": {
+      "workOrderId": {
+        "UUID": "WorkOrder.workorder8"
+      },
+      "dependsOnWorkOrderId": {
+        "UUID": "WorkOrder.workorder7"
+      }
+    }
+  }
+}

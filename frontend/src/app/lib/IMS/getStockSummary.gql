@@ -1,0 +1,11 @@
+query StockSummary($id: ID!) {
+    stockSummary(id: $id) {
+        id
+        variantID
+        averageCost
+        inStockQuantity
+        onHoldQuantity
+        availableQuantity
+        totalCost
+    }
+}

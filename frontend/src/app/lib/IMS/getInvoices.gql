@@ -1,20 +1,16 @@
 query Invoices {
-    invoices  (size: 100000) {
-        collection {
-            id
-            invoiceNumber
-            customerID
-            shipmentID
-            date
-            invoiceStatus
-            quickbookInvoiceId
-            customer{
-              name
-              openBalance
-              creditLimit
-              availableCredit
+    invoices {
+        edges {
+            node {
+                id
+                invoiceStatus
+                invoiceNumber
+                customer {
+                    name
+                }
+                date
+                shipmentID
             }
-            active
         }
     }
 }

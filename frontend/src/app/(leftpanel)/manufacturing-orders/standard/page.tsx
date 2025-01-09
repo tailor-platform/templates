@@ -1,15 +1,16 @@
 "use client";
 
-import { StandardManufacturingOrdersKanban } from "@/app/(leftpanel)/manufacturing-orders/standard/kanban";
+import { Suspense } from "react";
 import { useViewContext } from "@/app/(leftpanel)/view-context";
-import { StandardManufacturingOrdersTableClient } from "@/app/(leftpanel)/manufacturing-orders/standard/client-table";
-import { StandardManufacturingOrdersCalendar } from "@/app/(leftpanel)/manufacturing-orders/standard/calendar";
-import { gql } from "@fabrix-framework/fabrix";
-import { useEffect, useState } from "react";
-import { statusColors } from "@/lib/colors";
 import { useQuery } from "urql";
+import { useState, useEffect } from "react";
+import { StandardManufacturingOrdersTableClient } from "./client-table";
+import { StandardManufacturingOrdersKanban } from "./kanban";
+import { StandardManufacturingOrdersCalendar } from "./calendar";
+import { StandardManufacturingOrdersTimeline } from "./timeline";
 import { statusLabels } from "@/lib/enum-labels";
-import { StandardManufacturingOrdersTimeline } from "@/app/(leftpanel)/manufacturing-orders/standard/timeline";
+import { statusColors } from "@/lib/colors";
+import { gql } from "@fabrix-framework/fabrix";
 
 export type ManufacturingOrder = {
   id: string;
@@ -53,7 +54,7 @@ const QUERY = gql`
 
 export default function StandardManufacturingOrdersPage() {
   const { viewType } = useViewContext();
-  const [{ data }] = useQuery({ query: QUERY });
+  const [{ data, fetching }] = useQuery({ query: QUERY });
   const [statuses, setStatuses] = useState([]);
   const [manufacturingOrders, setManufacturingOrders] = useState<
     ManufacturingOrder[]
@@ -88,9 +89,12 @@ export default function StandardManufacturingOrdersPage() {
   return (
     <div>
       {viewType === "table" && (
-        <StandardManufacturingOrdersTableClient
-          manufacturingOrders={manufacturingOrders}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <StandardManufacturingOrdersTableClient
+            manufacturingOrders={manufacturingOrders}
+            fetching={fetching}
+          />
+        </Suspense>
       )}
       {viewType === "kanban" && (
         <StandardManufacturingOrdersKanban

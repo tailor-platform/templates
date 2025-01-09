@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { ColDef, ICellRendererParams, themeQuartz } from "ag-grid-enterprise";
-import { AgGridReact } from "ag-grid-react";
+import { ColDef, ICellRendererParams } from "ag-grid-enterprise";
 import { Badge } from "@/components/ui/badge";
 import {
   ComponentStatusEnumRenderer,
@@ -12,9 +9,12 @@ import { useSidebarContext } from "@/app/(leftpanel)/sidebar-context";
 import { MOSidePanel } from "./side-panel";
 import { useSearchParams } from "next/navigation";
 import { PanelRight } from "lucide-react";
+import { DataTable } from "@/components/data-table";
+import { useRouter, usePathname } from "next/navigation";
 
 type Props = {
   manufacturingOrders: ManufacturingOrder[];
+  fetching: boolean;
 };
 
 const QuantityRenderer = <T extends string | number>({
@@ -60,53 +60,24 @@ interface Row {
   moBatchId: string;
 }
 
-const baseThemeParams = {
-  borderRadius: 2,
-  fontFamily: {
-    googleFont: "Inter",
-  },
-  fontSize: 13,
-  headerFontSize: 14,
-  spacing: 6,
-  wrapperBorderRadius: 2,
-};
-
-const myDarkTheme = themeQuartz.withParams({
-  ...baseThemeParams,
-  backgroundColor: "#171717",
-  foregroundColor: "#fafafa",
-  rowHoverColor: "#262626",
-  checkboxCheckedBackgroundColor: "#fff",
-  checkboxCheckedShapeColor: "#0a0a0a",
-  checkboxCheckedBorderColor: "#fff",
-});
-
-const myLightTheme = themeQuartz.withParams({
-  ...baseThemeParams,
-  backgroundColor: "#FFFFFF",
-  foregroundColor: "#0a0a0a",
-  rowHoverColor: "#f5f5f5",
-  checkboxCheckedBackgroundColor: "#0a0a0a",
-  checkboxCheckedShapeColor: "#fff",
-  checkboxCheckedBorderColor: "#0a0a0a",
-});
-
 export const StandardManufacturingOrdersTable = ({
   manufacturingOrders,
+  fetching,
 }: Props) => {
-  const { theme } = useTheme();
   const { sidebarPanel } = useSidebarContext();
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const selectedId = searchParams.get("id");
 
-  const defaultColDef = {
-    filter: true,
-    floatingFilter: true,
-    resizable: true,
-    sortable: true,
-    enablePivot: true,
-    enableRowGroup: true,
-    enableValue: true,
-    editable: true,
+  const createQueryString = (name: string, value: string | null) => {
+    const params = new URLSearchParams(searchParams);
+    if (value === null) {
+      params.delete(name);
+    } else {
+      params.set(name, value);
+    }
+    return params.toString();
   };
 
   const rowData: Row[] = manufacturingOrders.map((order) => ({
@@ -121,18 +92,6 @@ export const StandardManufacturingOrdersTable = ({
     moBatchId: order.moBatchId || "N/A",
   }));
 
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const id = searchParams.get("id");
-
-    if (id) {
-      setSelectedId(id);
-    }
-  }, [searchParams]);
-
-  const appliedTheme = theme === "dark" ? myDarkTheme : myLightTheme;
-
   const colDefs: ColDef<Row>[] = [
     {
       field: "name",
@@ -143,7 +102,9 @@ export const StandardManufacturingOrdersTable = ({
           <div
             onClick={(e) => {
               e.stopPropagation();
-              setSelectedId(params.data?.id ?? null);
+              router.push(
+                `${pathname}?${createQueryString("id", params.data?.id ?? null)}`,
+              );
             }}
             className="invisible absolute inset-y-0 left-0 flex items-center group-hover:visible"
           >
@@ -186,21 +147,11 @@ export const StandardManufacturingOrdersTable = ({
   ];
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "80vh",
-      }}
-      className="[&_.ag-cell-wrapper.ag-row-group]:items-center"
-    >
-      <AgGridReact
+    <>
+      <DataTable
         rowData={rowData}
         columnDefs={colDefs}
-        defaultColDef={defaultColDef}
-        theme={appliedTheme}
-        rowSelection="multiple"
-        cellSelection={true}
-        rowClass="group"
+        fetching={fetching}
         sideBar={{
           toolPanels: [
             {
@@ -221,18 +172,15 @@ export const StandardManufacturingOrdersTable = ({
           defaultToolPanel: sidebarPanel || undefined,
           hiddenByDefault: !sidebarPanel,
         }}
-        allowDragFromColumnsToolPanel
-        rowGroupPanelShow="always"
-        pivotPanelShow="always"
-        onCellValueChanged={(event) => {
-          console.log("Cell value changed:", event);
-        }}
       />
       <MOSidePanel
         id={selectedId}
-        onOpenChange={(open) => setSelectedId(open ? selectedId : null)}
+        onOpenChange={(open) => {
+          if (open) return;
+          router.push(`${pathname}?${createQueryString("id", null)}`);
+        }}
       />
-    </div>
+    </>
   );
 };
 

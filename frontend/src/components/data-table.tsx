@@ -1,32 +1,38 @@
 import React from "react";
 import { AgGridReact } from "ag-grid-react";
 import { useTheme } from "next-themes";
-import { SideBarDef, ColDef, themeQuartz } from "ag-grid-enterprise";
-
-type CellValueChangedEvent<T> = {
-  data: T;
-  oldValue: unknown;
-  newValue: unknown;
-  column: ColDef;
-  node: unknown;
-};
+import {
+  SideBarDef,
+  ColDef,
+  themeQuartz,
+  CellValueChangedEvent,
+} from "ag-grid-enterprise";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type DataTableProps<T> = {
   rowData: T[];
   columnDefs: ColDef<T>[];
   sideBar?: SideBarDef | null;
-  defaultToolPanel?: string | null;
   rowSelection?: "multiple" | "single" | undefined;
   allowDragFromColumnsToolPanel?: boolean;
   rowGroupPanelShow?: "always" | "onlyWhenGrouping";
   pivotPanelShow?: "always" | "onlyWhenPivoting";
   onCellValueChanged?: (event: CellValueChangedEvent<T>) => void;
+  fetching: boolean;
+  tableHeight?: string;
+  tooltipInteraction?: boolean;
+  tooltipShowDelay?: number;
+  tooltipHideDelay?: number;
 };
 
-/**
- * Custom DataTable component for the left panel.
- * The theme is based on the themeQuartz theme.
- */
+const LoadingCellRenderer = () => {
+  const width = Math.floor(Math.random() * 70 + 30);
+  return (
+    <div className="flex h-full items-center">
+      <Skeleton className="h-4" style={{ width: `${width}%` }} />
+    </div>
+  );
+};
 
 const baseThemeParams = {
   borderRadius: 2,
@@ -68,10 +74,32 @@ export function DataTable<T>(props: DataTableProps<T>) {
     allowDragFromColumnsToolPanel = true,
     rowGroupPanelShow = "always",
     pivotPanelShow = "always",
+    onCellValueChanged,
+    fetching,
+    tableHeight = "calc(100vh - 128px)",
+    tooltipInteraction = false,
+    tooltipShowDelay = 300,
+    tooltipHideDelay = 1000,
   } = props;
 
   const { theme } = useTheme();
   const appliedTheme = theme === "dark" ? myDarkTheme : myLightTheme;
+
+  const enhancedColumnDefs = columnDefs.map((col) => ({
+    ...col,
+    valueGetter: (params: { data: { [x: string]: unknown } }) => {
+      if (fetching) return "loading";
+      return params.data?.[col.field as string];
+    },
+    cellRendererSelector: (params: { value: string }) => {
+      if (params.value === "loading") {
+        return {
+          component: LoadingCellRenderer,
+        };
+      }
+      return undefined;
+    },
+  }));
 
   const defaultColDef: ColDef = {
     filter: true,
@@ -82,31 +110,38 @@ export function DataTable<T>(props: DataTableProps<T>) {
     enableRowGroup: true,
     enableValue: true,
     editable: true,
+    minWidth: 180,
   };
+
+  const placeholderData = fetching ? Array(rowData?.length || 5).fill({}) : [];
+  const displayData = fetching ? placeholderData : rowData;
 
   return (
     <div
+      suppressHydrationWarning
+      className={`${appliedTheme} [&_.ag-cell-wrapper.ag-row-group]:items-center`}
       style={{
         width: "100%",
-        height: "80vh",
+        height: tableHeight,
+        overflow: "hidden",
       }}
-      className="[&_.ag-cell-wrapper.ag-row-group]:items-center"
     >
       <AgGridReact
-        rowData={rowData}
-        columnDefs={columnDefs}
+        rowData={displayData}
+        columnDefs={enhancedColumnDefs as ColDef<unknown>[]}
         defaultColDef={defaultColDef}
-        theme={appliedTheme}
         rowSelection={rowSelection}
         cellSelection={true}
-        rowClass="group"
         allowDragFromColumnsToolPanel={allowDragFromColumnsToolPanel}
         rowGroupPanelShow={rowGroupPanelShow}
         pivotPanelShow={pivotPanelShow}
-        onFirstDataRendered={(params) => {
-          console.log("First Data Rendered:", params);
-        }}
         sideBar={sideBar}
+        onCellValueChanged={onCellValueChanged}
+        theme={appliedTheme}
+        alwaysShowHorizontalScroll={true}
+        tooltipInteraction={tooltipInteraction}
+        tooltipHideDelay={tooltipHideDelay}
+        tooltipShowDelay={tooltipShowDelay}
       />
     </div>
   );

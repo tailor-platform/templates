@@ -1,0 +1,28 @@
+query PurchaseOrder($id: ID!) {
+    purchaseOrder(id: $id) {
+        id
+        documentNumber
+        supplier {
+            name
+        }
+        date
+        terms
+        shipTo {
+            name
+        }
+        shipVia
+        dueDate
+        shippingContactName
+        shippingContactPhone
+        shippingInstructions
+        trackingNumber
+        notes
+        billTo {
+            id
+        }
+        exFactoryDate
+        approvedBy
+        receivedBy
+        pulledBy
+    }
+}

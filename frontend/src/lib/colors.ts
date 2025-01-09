@@ -27,3 +27,22 @@ export const workOrderStatusColors: Record<string, string> = {
   Finished: "bg-chart-5",
   Canceled: "bg-chart-6",
 };
+
+export const salesOrderStatusColors: Record<string, string> = {
+  not_sent: "bg-chart-1",
+  changes_not_sent: "bg-chart-2",
+  awaiting_payment: "bg-chart-3",
+  shipped: "bg-chart-4",
+};
+
+export const receiptStatusColors: Record<string, string> = {
+  OPEN: "bg-green-500",
+  CLOSED: "bg-red-500",
+};
+
+export const bomTypeColors: Record<string, string> = {
+  FINAL_PRODUCT: "bg-chart-1",
+  COMPONENT: "bg-chart-2",
+  RECIPE: "bg-chart-3",
+  KIT: "bg-chart-4",
+};

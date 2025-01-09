@@ -1,0 +1,94 @@
+{
+  "UomConversion": {
+    "uomconversion1": {
+      "fromUomId": {
+        "UUID": "Uom.uom2"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom5"
+      },
+      "conversionFactor": 1000
+    },
+    "uomconversion2": {
+      "fromUomId": {
+        "UUID": "Uom.uom3"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom6"
+      },
+      "conversionFactor": 100
+    },
+    "uomconversion3": {
+      "fromUomId": {
+        "UUID": "Uom.uom4"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom7"
+      },
+      "conversionFactor": 60
+    },
+    "uomconversion4": {
+      "fromUomId": {
+        "UUID": "Uom.uom8"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom3"
+      },
+      "conversionFactor": 0.3048
+    },
+    "uomconversion5": {
+      "fromUomId": {
+        "UUID": "Uom.uom6"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom3"
+      },
+      "conversionFactor": 0.01
+    },
+    "uomconversion6": {
+      "fromUomId": {
+        "UUID": "Uom.uom5"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom2"
+      },
+      "conversionFactor": 0.001
+    },
+    "uomconversion7": {
+      "fromUomId": {
+        "UUID": "Uom.uom7"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom4"
+      },
+      "conversionFactor": 0.0167
+    },
+    "uomconversion8": {
+      "fromUomId": {
+        "UUID": "Uom.uom3"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom8"
+      },
+      "conversionFactor": 3.28084
+    },
+    "uomconversion9": {
+      "fromUomId": {
+        "UUID": "Uom.uom6"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom8"
+      },
+      "conversionFactor": 0.0328084
+    },
+    "uomconversion10": {
+      "fromUomId": {
+        "UUID": "Uom.uom8"
+      },
+      "toUomId": {
+        "UUID": "Uom.uom6"
+      },
+      "conversionFactor": 30.48
+    }
+  }
+}

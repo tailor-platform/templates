@@ -7,279 +7,281 @@ import (
 #Bom: {
 	bom0: {
 		id: utils.uuid & {_, #type: "bom", #value: "1"}
-		name:           "Abs Modulator"
-		description:    "Component \"abs modulator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Front Crown Panel"
+		description:    "Front crown fabric panel for Ace Iconic Performance Hat."
 		outputQuantity: 1
-		sku:            "ABS.#553175"
+		sku:            "HAT.BOM.#500001"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "1"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "1"}
 	}
 
 	bom1: {
 		id: utils.uuid & {_, #type: "bom", #value: "2"}
-		name:           "Air Cleaner"
-		description:    "Component \"air cleaner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Rear Crown Panel"
+		description:    "Rear crown fabric panel for Ace Iconic Performance Hat."
 		outputQuantity: 1
-		sku:            "AIR.#095921"
+		sku:            "HAT.BOM.#500002"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "2"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "2"}
 	}
+
+	// Bom 2..23 with realistic sub-component names:
 
 	bom2: {
 		id: utils.uuid & {_, #type: "bom", #value: "3"}
-		name:           "Alternator"
-		description:    "Component \"alternator\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Left Side Crown Panel"
+		description:    "Left side crown fabric panel for Ace Iconic Performance Hat."
 		outputQuantity: 1
-		sku:            "ALT.#955373"
+		sku:            "HAT.BOM.#500003"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "3"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "3"}
 	}
 
 	bom3: {
 		id: utils.uuid & {_, #type: "bom", #value: "4"}
-		name:           "Battery"
-		description:    "Component \"battery\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Right Side Crown Panel"
+		description:    "Right side crown fabric panel for Ace Iconic Performance Hat."
 		outputQuantity: 1
-		sku:            "BAT.#657979"
+		sku:            "HAT.BOM.#500004"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "4"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "4"}
 	}
 
 	bom4: {
 		id: utils.uuid & {_, #type: "bom", #value: "5"}
-		name:           "Body / Cover"
-		description:    "Component \"body / cover\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Left Rear Crown Mesh Panel"
+		description:    "Left rear mesh panel for enhanced breathability."
 		outputQuantity: 1
-		sku:            "BOD.#852513"
+		sku:            "HAT.BOM.#500005"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "5"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "5"}
 	}
 
 	bom5: {
 		id: utils.uuid & {_, #type: "bom", #value: "6"}
-		name:           "Cam Chain Tensioner"
-		description:    "Component \"cam chain tensioner\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Right Rear Crown Mesh Panel"
+		description:    "Right rear mesh panel for enhanced breathability."
 		outputQuantity: 1
-		sku:            "CAM.#379391"
+		sku:            "HAT.BOM.#500006"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "6"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "6"}
 	}
 
 	bom6: {
 		id: utils.uuid & {_, #type: "bom", #value: "7"}
-		name:           "Camshaft-Valve"
-		description:    "Component \"camshaft-valve\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Visor Top Fabric"
+		description:    "Top layer fabric of the visor."
 		outputQuantity: 1
-		sku:            "CAMVAL.#681275"
+		sku:            "HAT.BOM.#500007"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "7"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "7"}
 	}
 
 	bom7: {
 		id: utils.uuid & {_, #type: "bom", #value: "8"}
-		name:           "Canister"
-		description:    "Component \"canister\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Visor Bottom Fabric"
+		description:    "Underside fabric of the visor to reduce glare."
 		outputQuantity: 1
-		sku:            "CAN.#113742"
+		sku:            "HAT.BOM.#500008"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "8"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "8"}
 	}
 
 	bom8: {
 		id: utils.uuid & {_, #type: "bom", #value: "9"}
-		name:           "Caution Labels"
-		description:    "Component \"caution labels\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Visor Stiffener"
+		description:    "Stiffening material inserted between visor fabrics."
 		outputQuantity: 1
-		sku:            "CAU.#033854"
+		sku:            "HAT.BOM.#500009"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "9"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "9"}
 	}
 
 	bom9: {
 		id: utils.uuid & {_, #type: "bom", #value: "10"}
-		name:           "Clutch"
-		description:    "Component \"clutch\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Sweatband"
+		description:    "Moisture-wicking sweatband for comfort."
 		outputQuantity: 1
-		sku:            "CLU.#931707"
+		sku:            "HAT.BOM.#500010"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "10"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "10"}
 	}
 
 	bom10: {
 		id: utils.uuid & {_, #type: "bom", #value: "11"}
-		name:           "Crankcase"
-		description:    "Component \"crankcase\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Closure Strap"
+		description:    "Adjustable strap for hat sizing."
 		outputQuantity: 1
-		sku:            "CRA.#729357"
+		sku:            "HAT.BOM.#500011"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "11"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "11"}
 	}
 
 	bom11: {
 		id: utils.uuid & {_, #type: "bom", #value: "12"}
-		name:           "Crankshaft Piston"
-		description:    "Component \"crankshaft piston\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Closure Buckle"
+		description:    "Metal or plastic buckle for strap closure."
 		outputQuantity: 1
-		sku:            "CRA.#945484"
+		sku:            "HAT.BOM.#500012"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "12"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "12"}
 	}
 
 	bom12: {
 		id: utils.uuid & {_, #type: "bom", #value: "13"}
-		name:           "Cylinder"
-		description:    "Component \"cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		outputQuantity: 1
-		sku:            "CYL.#635389"
+		name:           "Embroidered Eyelets"
+		description:    "Embroidered vents on the crown for breathability."
+		outputQuantity: 6
+		sku:            "HAT.BOM.#500013"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "13"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "13"}
 	}
 
 	bom13: {
 		id: utils.uuid & {_, #type: "bom", #value: "14"}
-		name:           "Cylinder Head"
-		description:    "Component \"cylinder head\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Top Button"
+		description:    "Button at the crown's apex."
 		outputQuantity: 1
-		sku:            "CYL.#503069"
+		sku:            "HAT.BOM.#500014"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "14"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "14"}
 	}
 
 	bom14: {
 		id: utils.uuid & {_, #type: "bom", #value: "15"}
-		name:           "Frame"
-		description:    "Component \"frame\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
-		outputQuantity: 1
-		sku:            "FRA.#947725"
+		name:           "Interior Seam Tape"
+		description:    "Tape covering the interior seams of the crown panels."
+		outputQuantity: 5
+		sku:            "HAT.BOM.#500015"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "15"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "15"}
 	}
 
 	bom15: {
 		id: utils.uuid & {_, #type: "bom", #value: "16"}
-		name:           "Front Brake Master Cylinder"
-		description:    "Component \"front brake master cylinder\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Foam Stabilizer"
+		description:    "Foam backing to maintain crown shape."
 		outputQuantity: 1
-		sku:            "FRO.#291634"
+		sku:            "HAT.BOM.#500016"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "16"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "16"}
 	}
 
 	bom16: {
 		id: utils.uuid & {_, #type: "bom", #value: "17"}
-		name:           "Front Brake-Caliper"
-		description:    "Component \"front brake-caliper\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Brand Label"
+		description:    "Woven brand label attached inside the hat."
 		outputQuantity: 1
-		sku:            "FROCAL.#232528"
+		sku:            "HAT.BOM.#500017"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "17"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "17"}
 	}
 
 	bom17: {
 		id: utils.uuid & {_, #type: "bom", #value: "18"}
-		name:           "Front Cover / Leg Shield"
-		description:    "Component \"front cover / leg shield\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Care Label"
+		description:    "Printed label with care instructions."
 		outputQuantity: 1
-		sku:            "FRO.#646679"
+		sku:            "HAT.BOM.#500018"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "18"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "18"}
 	}
 
 	bom18: {
 		id: utils.uuid & {_, #type: "bom", #value: "19"}
-		name:           "front fender"
-		description:    "Component \"front fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Front Logo Patch"
+		description:    "Embroidered logo patch placed on the front crown."
 		outputQuantity: 1
-		sku:            "FRO.#417159"
+		sku:            "HAT.BOM.#500019"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "32"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "19"}
 	}
 
 	bom19: {
 		id: utils.uuid & {_, #type: "bom", #value: "20"}
-		name:           "rear fender"
-		description:    "Component \"rear fender\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Back Logo Patch"
+		description:    "Small embroidered logo patch at the back of the hat."
 		outputQuantity: 1
-		sku:            "REA.#382980"
+		sku:            "HAT.BOM.#500020"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "52"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "20"}
 	}
 
 	bom20: {
 		id: utils.uuid & {_, #type: "bom", #value: "21"}
-		name:           "front fork"
-		description:    "Component \"front fork\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Side Logo Patch"
+		description:    "Optional embroidered patch placed on the side panel."
 		outputQuantity: 1
-		sku:            "FRO.#611893"
+		sku:            "HAT.BOM.#500021"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "84"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "21"}
 	}
 
 	bom21: {
 		id: utils.uuid & {_, #type: "bom", #value: "22"}
-		name:           "rear shock absorber"
-		description:    "Component \"rear shock absorber\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Decorative Piping"
+		description:    "Piping around crown seams for added style."
 		outputQuantity: 1
-		sku:            "REA.#060545"
+		sku:            "HAT.BOM.#500022"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "105"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "22"}
 	}
 
 	bom22: {
 		id: utils.uuid & {_, #type: "bom", #value: "23"}
-		name:           "front wheel"
-		description:    "Component \"front wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Thread Spool"
+		description:    "High-strength thread used for stitching the panels."
 		outputQuantity: 1
-		sku:            "FRO.#072515"
+		sku:            "HAT.BOM.#500023"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "117"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "23"}
 	}
 
 	bom23: {
 		id: utils.uuid & {_, #type: "bom", #value: "24"}
-		name:           "rear wheel"
-		description:    "Component \"rear wheel\" for 2024 Honda Motorcycle C125A 2AC - SUPER CUB C125 model."
+		name:           "Under-Visor Fabric"
+		description:    "Additional under-visor lining for support and style."
 		outputQuantity: 1
-		sku:            "REA.#682714"
+		sku:            "HAT.BOM.#500024"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "132"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "24"}
 	}
 
+	// The final assembled hat:
 	bom24: {
 		id: utils.uuid & {_, #type: "bom", #value: "25"}
-		name:           "Honda Motorcycle C125A 2AC"
-		description:    "Honda Motorcycle C125A 2AC - Assembled parts"
+		name:           "Ace Iconic Performance Hat"
+		description:    "Ace Iconic Performance Hat - Assembled parts"
 		outputQuantity: 1
-		sku:            "HND.C125A2AC"
+		sku:            "ACE.HAT"
 		bomType:        "FINAL_PRODUCT"
-		uomId: utils.uuid & {_, #type: "uom", #value: "1"}
-		itemId: utils.uuid & {_, #type: "item", #value: "154"}
+		uomId:          utils.uuid & {_, #type: "uom", #value: "1"}
+		itemId:         utils.uuid & {_, #type: "item", #value: "154"}
 	}
-
 }
 
 Bom: {

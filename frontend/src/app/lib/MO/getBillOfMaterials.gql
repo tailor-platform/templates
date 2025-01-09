@@ -1,0 +1,20 @@
+query BillOfMaterials {
+    boms {
+        edges {
+            node {
+                id
+                name
+                sku
+                description
+                bomType
+                item {
+                    name
+                }
+                outputQuantity
+                uom {
+                    name
+                }
+            }
+        }
+    }
+}

@@ -6,11 +6,13 @@ import { type Contact } from "@/app/lib/IMS/types.generated";
 import { DataTable } from "@/components/data-table";
 import { ColDef, ICellRendererParams } from "ag-grid-enterprise";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
-type Props = { contacts: Contact[] };
+type Props = {
+  contacts: Contact[];
+  fetching: boolean;
+};
 
-const TableContent = ({ contacts }: Props) => {
+const TableContent = ({ contacts, fetching }: Props) => {
   const { sidebarPanel } = useSidebarContext();
   const router = useRouter();
   const pathname = usePathname();
@@ -63,7 +65,11 @@ const TableContent = ({ contacts }: Props) => {
       field: "creditLimit",
       headerName: "Credit Limit",
       flex: 1,
-      valueFormatter: (params) => params.value?.toFixed(2),
+      valueFormatter: (params) => {
+        if (params.value == null) return "";
+        const numValue = Number(params.value);
+        return isNaN(numValue) ? "" : numValue.toFixed(2);
+      },
     },
     {
       field: "active",
@@ -82,6 +88,7 @@ const TableContent = ({ contacts }: Props) => {
       <DataTable<Contact>
         rowData={contacts}
         columnDefs={colDefs}
+        fetching={fetching}
         sideBar={{
           toolPanels: [
             {
@@ -122,12 +129,8 @@ const TableContent = ({ contacts }: Props) => {
   );
 };
 
-export const Table = ({ contacts }: Props) => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <TableContent contacts={contacts} />
-    </Suspense>
-  );
+export const Table = ({ contacts, fetching }: Props) => {
+  return <TableContent contacts={contacts} fetching={fetching} />;
 };
 
 export default Table;

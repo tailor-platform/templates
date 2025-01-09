@@ -1,0 +1,16 @@
+query BillOfMaterial ($id: ID!) {
+    bom(id: $id) {
+        id
+        name
+        sku
+        description
+        bomType
+        item {
+            name
+        }
+        outputQuantity
+        uom {
+            name
+        }
+    }
+}

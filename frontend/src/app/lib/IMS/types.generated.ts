@@ -8776,7 +8776,7 @@ export type Query = {
   /** Shipment model(GetList) */
   shipments: ShipmentConnection;
   simulateInputRequirementByOutputQuantity?: Maybe<ListPickingResult>;
-  simulateOutputByIngredients?: Maybe<ListPickingResult>;
+  simulateOutputByIngredients?: Maybe<ListOutputResult>;
   simulateWorkOperation?: Maybe<SimulateWorkOperationOutput>;
   /** StockSummary model(GetList) */
   stockSummaries: StockSummaryConnection;
@@ -10694,6 +10694,8 @@ export type SalesOrder = {
   shipStationOrderStatus?: Maybe<SalesOrderShipStationOrderStatus>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['DateTime']['output']>;
   /** Shopify order ID */
   shopifyID?: Maybe<Scalars['String']['output']>;
   /**
@@ -10746,6 +10748,8 @@ export type SalesOrderCreateInput = {
   shipStationOrderStatus?: InputMaybe<SalesOrderShipStationOrderStatus>;
   /** shipped at */
   shippedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** Shopify order ID */
   shopifyID?: InputMaybe<Scalars['String']['input']>;
   /** updatedAt */
@@ -11169,6 +11173,7 @@ export enum SalesOrderOrderFieldEnum {
   OrderNumber = 'orderNumber',
   ShipStationOrderStatus = 'shipStationOrderStatus',
   ShippedAt = 'shippedAt',
+  ShopifyCreatedAt = 'shopifyCreatedAt',
   ShopifyId = 'shopifyID',
   UpdatedAt = 'updatedAt'
 }
@@ -11196,6 +11201,7 @@ export type SalesOrderQueryInput = {
   orderNumber?: InputMaybe<IntegerFilter>;
   shipStationOrderStatus?: InputMaybe<SalesOrderShipStationOrderStatusEnumFilter>;
   shippedAt?: InputMaybe<DatetimeFilter>;
+  shopifyCreatedAt?: InputMaybe<DatetimeFilter>;
   shopifyID?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DatetimeFilter>;
 };
@@ -11244,6 +11250,8 @@ export type SalesOrderUpdateInput = {
   shipStationOrderStatus?: InputMaybe<SalesOrderShipStationOrderStatus>;
   /** shipped at */
   shippedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** Shopify order ID */
   shopifyID?: InputMaybe<Scalars['String']['input']>;
   /** updatedAt */
@@ -11291,6 +11299,8 @@ export type SalesOrdersAggregationCountToDayFunc = {
   createdAt?: Maybe<Scalars['Int']['output']>;
   /** shippedAt is aggregation field */
   shippedAt?: Maybe<Scalars['Int']['output']>;
+  /** shopifyCreatedAt is aggregation field */
+  shopifyCreatedAt?: Maybe<Scalars['Int']['output']>;
   /** updatedAt is aggregation field */
   updatedAt?: Maybe<Scalars['Int']['output']>;
 };
@@ -11303,6 +11313,8 @@ export type SalesOrdersAggregationCountToHourFunc = {
   createdAt?: Maybe<Scalars['Int']['output']>;
   /** shippedAt is aggregation field */
   shippedAt?: Maybe<Scalars['Int']['output']>;
+  /** shopifyCreatedAt is aggregation field */
+  shopifyCreatedAt?: Maybe<Scalars['Int']['output']>;
   /** updatedAt is aggregation field */
   updatedAt?: Maybe<Scalars['Int']['output']>;
 };
@@ -11315,6 +11327,8 @@ export type SalesOrdersAggregationCountToMinuteFunc = {
   createdAt?: Maybe<Scalars['Int']['output']>;
   /** shippedAt is aggregation field */
   shippedAt?: Maybe<Scalars['Int']['output']>;
+  /** shopifyCreatedAt is aggregation field */
+  shopifyCreatedAt?: Maybe<Scalars['Int']['output']>;
   /** updatedAt is aggregation field */
   updatedAt?: Maybe<Scalars['Int']['output']>;
 };
@@ -11327,6 +11341,8 @@ export type SalesOrdersAggregationCountToMonthFunc = {
   createdAt?: Maybe<Scalars['Int']['output']>;
   /** shippedAt is aggregation field */
   shippedAt?: Maybe<Scalars['Int']['output']>;
+  /** shopifyCreatedAt is aggregation field */
+  shopifyCreatedAt?: Maybe<Scalars['Int']['output']>;
   /** updatedAt is aggregation field */
   updatedAt?: Maybe<Scalars['Int']['output']>;
 };
@@ -11339,6 +11355,8 @@ export type SalesOrdersAggregationCountToYearFunc = {
   createdAt?: Maybe<Scalars['Int']['output']>;
   /** shippedAt is aggregation field */
   shippedAt?: Maybe<Scalars['Int']['output']>;
+  /** shopifyCreatedAt is aggregation field */
+  shopifyCreatedAt?: Maybe<Scalars['Int']['output']>;
   /** updatedAt is aggregation field */
   updatedAt?: Maybe<Scalars['Int']['output']>;
 };
@@ -11378,6 +11396,8 @@ export type SalesOrdersAggregationGroupByToDayFunc = {
   createdAt?: Maybe<Scalars['String']['output']>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['String']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['String']['output']>;
   /** updatedAt */
   updatedAt?: Maybe<Scalars['String']['output']>;
 };
@@ -11390,6 +11410,8 @@ export type SalesOrdersAggregationGroupByToHourFunc = {
   createdAt?: Maybe<Scalars['String']['output']>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['String']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['String']['output']>;
   /** updatedAt */
   updatedAt?: Maybe<Scalars['String']['output']>;
 };
@@ -11402,6 +11424,8 @@ export type SalesOrdersAggregationGroupByToMinuteFunc = {
   createdAt?: Maybe<Scalars['String']['output']>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['String']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['String']['output']>;
   /** updatedAt */
   updatedAt?: Maybe<Scalars['String']['output']>;
 };
@@ -11414,6 +11438,8 @@ export type SalesOrdersAggregationGroupByToMonthFunc = {
   createdAt?: Maybe<Scalars['String']['output']>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['String']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['String']['output']>;
   /** updatedAt */
   updatedAt?: Maybe<Scalars['String']['output']>;
 };
@@ -11426,6 +11452,8 @@ export type SalesOrdersAggregationGroupByToYearFunc = {
   createdAt?: Maybe<Scalars['String']['output']>;
   /** shipped at */
   shippedAt?: Maybe<Scalars['String']['output']>;
+  /** Shopify created at */
+  shopifyCreatedAt?: Maybe<Scalars['String']['output']>;
   /** updatedAt */
   updatedAt?: Maybe<Scalars['String']['output']>;
 };
@@ -14261,12 +14289,24 @@ export type ListInput = {
   uomId?: InputMaybe<Scalars['ID']['input']>;
 };
 
+export type ListOutputResult = {
+  __typename?: 'listOutputResult';
+  outputQuantity: Scalars['Float']['output'];
+  result?: Maybe<Array<Maybe<ListOutputResult>>>;
+};
+
 export type ListPickingItemResult = {
   __typename?: 'listPickingItemResult';
   id?: Maybe<Scalars['ID']['output']>;
+  itemDescription?: Maybe<Scalars['String']['output']>;
   itemId?: Maybe<Scalars['ID']['output']>;
+  itemInventoryType?: Maybe<Scalars['String']['output']>;
+  itemIsActive?: Maybe<Scalars['Boolean']['output']>;
+  itemIsFinalProduct?: Maybe<Scalars['Boolean']['output']>;
+  itemName?: Maybe<Scalars['String']['output']>;
   outputQuantity?: Maybe<Scalars['Float']['output']>;
   uomId?: Maybe<Scalars['ID']['output']>;
+  uomName?: Maybe<Scalars['String']['output']>;
 };
 
 export type ListPickingOperationResult = {
@@ -14523,6 +14563,11 @@ export type ContactsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ContactsQuery = { __typename?: 'Query', contacts: { __typename?: 'ContactConnection', edges: Array<{ __typename?: 'ContactEdge', node: { __typename?: 'Contact', id: string, name: string, email: string, company?: string | null, phone?: string | null, address1?: string | null, address2?: string | null, city?: string | null, province?: string | null, provinceCode?: string | null, zip?: string | null, country?: string | null, countryCode?: string | null, creditLimit?: number | null, openBalance?: number | null, availableCredit?: number | null, quickBookCustomerId?: string | null, active?: boolean | null } }> } };
 
+export type InvoicesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type InvoicesQuery = { __typename?: 'Query', invoices: { __typename?: 'InvoiceConnection', edges: Array<{ __typename?: 'InvoiceEdge', node: { __typename?: 'Invoice', id: string, invoiceStatus?: InvoiceInvoiceStatus | null, invoiceNumber?: string | null, date?: any | null, shipmentID?: string | null, customer?: { __typename?: 'Contact', name: string } | null } }> } };
+
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -14532,3 +14577,20 @@ export type ProductVariantsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ProductVariantsQuery = { __typename?: 'Query', productVariants: { __typename?: 'ProductVariantConnection', edges: Array<{ __typename?: 'ProductVariantEdge', node: { __typename?: 'ProductVariant', id: string, displayName?: string | null, availableForSale?: boolean | null, barcode?: string | null, sku?: string | null, productID?: string | null, price?: number | null, shopifyID?: string | null, inventoryType?: ProductVariantInventoryType | null, inventoryQuantity?: number | null, quickbookItemId?: string | null, quickbookSyncToken?: string | null, quickbookItemName?: string | null, active?: boolean | null, image?: { __typename?: 'ProductImage', url?: string | null } | null } }> } };
+
+export type SalesOrdersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SalesOrdersQuery = { __typename?: 'Query', salesOrders: { __typename?: 'SalesOrderConnection', edges: Array<{ __typename?: 'SalesOrderEdge', node: { __typename?: 'SalesOrder', currency?: string | null, created?: any | null, shopifyID?: string | null, updated?: any | null, orderNumber?: number | null, customerEmail?: string | null, customerID?: string | null, createdAt?: any | null, shipStationOrderStatus?: SalesOrderShipStationOrderStatus | null, updatedAt?: any | null, shippedAt?: any | null, id: string, cancelledAt?: any | null, currentSubtotalPrice?: string | null, updatedByID?: string | null, customerName?: string | null, cancelReason?: string | null, active?: boolean | null, createdByID?: string | null, shopifyCreatedAt?: any | null } }> } };
+
+export type ShipmenLineItemsQueryVariables = Exact<{
+  shipmentID: Scalars['ID']['input'];
+}>;
+
+
+export type ShipmenLineItemsQuery = { __typename?: 'Query', shipmentLineItems: { __typename?: 'ShipmentLineItemConnection', edges: Array<{ __typename?: 'ShipmentLineItemEdge', node: { __typename?: 'ShipmentLineItem', shipmentID: string, id: string, variantID?: string | null, unitCost: number, unitPrice: number, quantity: number, taxable?: boolean | null, shipmentStatus?: ShipmentLineItemShipmentStatus | null, shippedAt?: any | null } }> } };
+
+export type ShipmentsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ShipmentsQuery = { __typename?: 'Query', shipments: { __typename?: 'ShipmentConnection', total?: number | null, edges: Array<{ __typename?: 'ShipmentEdge', cursor: string, node: { __typename?: 'Shipment', shipmentNumber?: string | null, updated?: any | null, updatedAt?: any | null, created?: any | null, createdByID?: string | null, updatedByID?: string | null, date?: any | null, active?: boolean | null, customerID?: string | null, salesOrderID?: string | null, createdAt?: any | null, id: string, customer?: { __typename?: 'Contact', updatedByID?: string | null, zip?: string | null, quickBookCustomerId?: string | null, country?: string | null, countryCode?: string | null, address1?: string | null, updatedAt?: any | null, active?: boolean | null, name: string, company?: string | null, province?: string | null, availableCredit?: number | null, createdAt?: any | null, city?: string | null, createdByID?: string | null, address2?: string | null, email: string, provinceCode?: string | null, id: string, updated?: any | null, openBalance?: number | null, creditLimit?: number | null, phone?: string | null, created?: any | null } | null, salesOrder?: { __typename?: 'SalesOrder', currency?: string | null, created?: any | null, shopifyID?: string | null, updated?: any | null, orderNumber?: number | null, customerEmail?: string | null, customerID?: string | null, createdAt?: any | null, shipStationOrderStatus?: SalesOrderShipStationOrderStatus | null, updatedAt?: any | null, shippedAt?: any | null, id: string, cancelledAt?: any | null, currentSubtotalPrice?: string | null, updatedByID?: string | null, customerName?: string | null, cancelReason?: string | null, active?: boolean | null, createdByID?: string | null } | null } }> } };

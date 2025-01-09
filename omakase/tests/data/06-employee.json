@@ -1,0 +1,19 @@
+{
+  "Employee": {
+    "employee1": {
+      "name": "Alice Johnson",
+      "role": "Engineer",
+      "isActive": true
+    },
+    "employee2": {
+      "name": "Bob Smith",
+      "role": "Technician",
+      "isActive": true
+    },
+    "employee3": {
+      "name": "Charlie Brown",
+      "role": "Manager",
+      "isActive": true
+    }
+  }
+}

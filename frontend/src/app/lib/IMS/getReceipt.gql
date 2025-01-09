@@ -1,0 +1,14 @@
+query Receipt($id: ID!) {
+    receipt(id: $id) {
+        id
+        receiptStatus
+        receiptNumber
+        supplier {
+            name
+        }
+        purchaseOrder {
+            id
+        }
+        date
+    }
+}

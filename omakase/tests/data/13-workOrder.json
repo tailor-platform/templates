@@ -1,0 +1,84 @@
+{
+  "WorkOrder": {
+    "workorder1": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation1"
+      },
+      "expectedDuration": 180,
+      "order": 1
+    },
+    "workorder2": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation2"
+      },
+      "expectedDuration": 150,
+      "order": 2
+    },
+    "workorder3": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation3"
+      },
+      "expectedDuration": 90,
+      "order": 3
+    },
+    "workorder4": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation4"
+      },
+      "expectedDuration": 120,
+      "order": 4
+    },
+    "workorder5": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation5"
+      },
+      "expectedDuration": 100,
+      "order": 5
+    },
+    "workorder6": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation6"
+      },
+      "expectedDuration": 200,
+      "order": 6
+    },
+    "workorder7": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation7"
+      },
+      "expectedDuration": 30,
+      "order": 7
+    },
+    "workorder8": {
+      "moId": {
+        "UUID": "ManufacturingOrder.manufacturingorder1"
+      },
+      "operationId": {
+        "UUID": "Operation.operation8"
+      },
+      "expectedDuration": 80,
+      "order": 8
+    }
+  }
+}

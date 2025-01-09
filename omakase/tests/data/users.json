@@ -1,0 +1,38 @@
+{
+  "User": {
+    "user1": {
+      "email": "test@admin.com",
+      "roles": [
+        {
+          "UUID": "Role.role1"
+        }
+      ],
+      "name": "Test Admin"
+    },
+    "user2": {
+      "email": "test@manager.com",
+      "roles": [
+        {
+          "UUID": "Role.role2"
+        }
+      ],
+      "name": "Test Manager"
+    },
+    "user3": {
+      "email": "test@staff.com",
+      "roles": [
+        {
+          "UUID": "Role.role3"
+        }
+      ],
+      "name": "Test Staff"
+    },
+    "user4": {
+      "email": "test@customer.com",
+      "roles": [
+        "7705b031-a961-51cb-93af-5b84236b2323"
+      ],
+      "name": "Test Customer"
+    }
+  }
+}

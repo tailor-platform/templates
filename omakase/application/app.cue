@@ -16,9 +16,10 @@ application.#Spec & {
 		"http://localhost:8081",
 		"http://localhost:3000",
 		"https://*-www.dev.tailor.tech",
-		"https://*.dev.tailor.tech",
-		"https://*.tailor.tech",
-
+    "https://*.dev.tailor.tech",
+    "https://*.tailor.tech",
+    "https://www.tailor.tech",
+		"https://tailor-omakase-*.vercel.app"
 	]
 	Auth: application.#Auth & {
 		Namespace:            auth.Namespace

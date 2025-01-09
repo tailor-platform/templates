@@ -37,6 +37,12 @@ previewManufacturingOutput: {
 					{Name: "itemId", Type: pipeline.ID},
 					{Name: "uomId", Type: pipeline.ID},
 					{Name: "outputQuantity", Type: pipeline.Float},
+					{Name: "uomName", Type: pipeline.String},
+					{Name: "itemName", Type: pipeline.String},
+					{Name: "itemDescription", Type: pipeline.String},
+					{Name: "itemInventoryType", Type: pipeline.String},
+					{Name: "itemIsActive", Type: pipeline.Boolean},
+					{Name: "itemIsFinalProduct", Type: pipeline.Boolean}
 				]
 			}
 		}
@@ -99,7 +105,13 @@ previewManufacturing: pipeline.#Resolver & {
                                     id
                                     itemId
                                     outputQuantity
+																		itemName
+																		itemDescription
+																		itemInventoryType
+																		itemIsActive
+																		itemIsFinalProduct
                                     uomId
+																		uomName
                             }
                             outputQuantity
                         }

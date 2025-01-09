@@ -1,25 +1,32 @@
 query PurchaseOrders {
-    purchaseOrders (size: 100000)  {
-        collection {
-            id
-            documentNumber
-            supplierID
-            date
-            dueDate
-            exFactoryDate
-            shipVia
-            shipToID
-            terms
-            approvedBy
-            receivedBy
-            shippingContactName
-            shippingContactPhone
-            shippingInstructions
-            billToID
-            trackingNumber
-            pulledBy
-            notes
-            active
+    purchaseOrders {
+        edges {
+            node {
+                id
+                documentNumber
+                supplier {
+                    name
+                }
+                date
+                terms
+                shipTo {
+                    name
+                }
+                shipVia
+                dueDate
+                shippingContactName
+                shippingContactPhone
+                shippingInstructions
+                trackingNumber
+                notes
+                billTo {
+                    id
+                }
+                exFactoryDate
+                approvedBy
+                receivedBy
+                pulledBy
+            }
         }
     }
 }
