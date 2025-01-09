@@ -28,8 +28,6 @@ init:
 	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
 else
 init:
-	tailorctl auth login
-	tailorctl workspace create -r us-west --name ${APP_NAME}-${ENV}
 	tailorctl manifest tidy
 	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
 endif
