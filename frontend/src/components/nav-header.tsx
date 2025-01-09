@@ -14,10 +14,10 @@ export function NavHeader() {
           <Link href="/">
             <div className="flex items-center gap-2">
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
-                <Avatar size={24} variant="marble" />
+                <Avatar size={24} variant="marble" name="Nike" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="cursor-pointer">Acme Inc</span>
+                <span className="cursor-pointer">Nike</span>
               </div>
             </div>
           </Link>
