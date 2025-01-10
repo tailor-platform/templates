@@ -21,7 +21,7 @@ app:
 
 .PHONY: seed
 seed:
-	node ./seed.mjs  --ignore-existing
+	node ../common/scripts/seed.mjs --ignore-existing
 
 .PHONY: truncate
 truncate:
