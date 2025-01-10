@@ -403,7 +403,13 @@ export const Table = ({ salesOrders, fetching }: Props) => {
           </>
         );
       },
-      aggFunc: gridConfig?.pivotMode ? "sum" : undefined,
+      aggFunc: (params) => {
+        let sum = 0;
+        params.values.forEach((value) => {
+          sum += Number(value) || 0;
+        });
+        return sum;
+      },
       enableValue: true,
       allowedAggFuncs: ["sum"],
       valueFormatter: (params) => {
