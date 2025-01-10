@@ -7,8 +7,8 @@ export default function ServerProviders({
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="light"
+      enableSystem={false}
       disableTransitionOnChange
     >
       <SidebarProvider>{children}</SidebarProvider>
