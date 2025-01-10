@@ -5,11 +5,11 @@ import {
   Check,
   ChevronsUpDown,
   Table,
-  Kanban,
   Calendar,
   GanttChart,
   User,
   Truck,
+  type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 import {
   Popover,
@@ -28,54 +27,115 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useState } from "react";
-import { useViewContext, ViewType } from "@/app/(leftpanel)/view-context";
+import { useViewContext } from "@/app/(leftpanel)/view-context";
+import { GridConfig } from "@/app/(leftpanel)/view-context";
 
-// Define view options with categories
-const viewOptions = {
-  layouts: [
-    {
-      value: "table",
-      label: "Table View",
-      icon: Table,
-    },
-    {
-      value: "kanban",
-      label: "Kanban Board",
-      icon: Kanban,
-    },
-    {
-      value: "calendar",
-      label: "Calendar View",
-      icon: Calendar,
-    },
-    {
-      value: "timeline",
-      label: "Timeline View",
-      icon: GanttChart,
-    },
-  ],
-  tableViews: [
+type SavedView = {
+  value: string;
+  label: string;
+  icon: LucideIcon;
+  gridConfig: GridConfig;
+};
+
+const viewOptions: { savedViews: SavedView[] } = {
+  savedViews: [
     {
       value: "default",
       label: "Default Grid",
       icon: Table,
+      gridConfig: {
+        pivotMode: false,
+        groupBy: [],
+        pivot: [],
+      },
     },
+
     {
       value: "grouped-customer",
       label: "Grouped by Customer",
       icon: User,
       gridConfig: {
+        pivotMode: false,
         groupBy: ["customerName"],
         groupIncludeTotalFooter: true,
+        groupDefaultExpanded: 1,
       },
     },
+
     {
       value: "grouped-status",
       label: "Grouped by Status",
       icon: Truck,
       gridConfig: {
+        pivotMode: false,
         groupBy: ["shipStationOrderStatus"],
         groupIncludeTotalFooter: true,
+        groupDefaultExpanded: 1,
+      },
+    },
+    {
+      value: "customer-revenue-per-status",
+      label: "Revenue by Customer and Status",
+      icon: GanttChart,
+      gridConfig: {
+        pivotMode: true,
+        groupBy: ["customerName"],
+        pivot: ["shipStationOrderStatus"],
+        sideBar: {
+          toolPanels: [
+            {
+              id: "columns",
+              labelDefault: "Columns",
+              labelKey: "columns",
+              iconKey: "columns",
+              toolPanel: "agColumnsToolPanel",
+            },
+          ],
+        },
+        defaultColDef: {
+          flex: 1,
+          minWidth: 130,
+          enablePivot: true,
+          enableRowGroup: true,
+          enableValue: true,
+          sortable: true,
+          resizable: true,
+        },
+        rowGroupPanelShow: "always" as const,
+        pivotPanelShow: "always" as const,
+        groupDefaultExpanded: 1,
+      },
+    },
+    {
+      value: "customer-daily-revenue",
+      label: "Daily Revenue by Customer",
+      icon: Calendar,
+      gridConfig: {
+        pivotMode: true,
+        groupBy: ["customerName"],
+        pivot: ["shopifyCreatedAt"],
+        defaultColDef: {
+          flex: 1,
+          minWidth: 130,
+          enablePivot: true,
+          enableRowGroup: true,
+          enableValue: true,
+          sortable: true,
+          resizable: true,
+        },
+        sideBar: {
+          toolPanels: [
+            {
+              id: "columns",
+              labelDefault: "Columns",
+              labelKey: "columns",
+              iconKey: "columns",
+              toolPanel: "agColumnsToolPanel",
+            },
+          ],
+        },
+        pivotPanelShow: "always",
+        groupDefaultExpanded: 1,
       },
     },
   ],
@@ -90,25 +150,17 @@ export function ViewsComboBox() {
     setValue(currentValue);
     setOpen(false);
 
-    // Find the selected view configuration
-    const layoutView = viewOptions.layouts.find(
+    const savedView = viewOptions.savedViews.find(
       (v) => v.value === currentValue,
     );
-    const tableView = viewOptions.tableViews.find(
-      (v) => v.value === currentValue,
-    );
-
-    if (layoutView) {
-      setViewType(layoutView.value as ViewType);
-      setGridConfig(null); // Reset gridConfig for non-table views
-    } else if (tableView) {
+    if (savedView) {
       setViewType("table");
-      setGridConfig(tableView.gridConfig || null); // Apply gridConfig if available
+      setGridConfig(savedView.gridConfig || null);
     }
   };
 
   const getSelectedLabel = () => {
-    const allViews = [...viewOptions.layouts, ...viewOptions.tableViews];
+    const allViews = [...viewOptions.savedViews];
     return (
       allViews.find((option) => option.value === value)?.label || "Select view"
     );
@@ -121,39 +173,20 @@ export function ViewsComboBox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[260px] justify-between"
           size="sm"
         >
           {getSelectedLabel()}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[340px] p-0">
+      <PopoverContent className="w-[280px] p-0">
         <Command>
           <CommandInput placeholder="Search views..." />
           <CommandList>
             <CommandEmpty>No views found.</CommandEmpty>
-            <CommandGroup heading="Layouts">
-              {viewOptions.layouts.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={handleSelect}
-                >
-                  <option.icon className="h-4 w-4" />
-                  <Check
-                    className={cn(
-                      "h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                  {option.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            <CommandSeparator />
-            <CommandGroup heading="Tables">
-              {viewOptions.tableViews.map((option) => (
+            <CommandGroup heading="Saved Views">
+              {viewOptions.savedViews.map((option) => (
                 <CommandItem
                   key={option.value}
                   value={option.value}

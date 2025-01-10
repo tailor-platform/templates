@@ -23,6 +23,14 @@ type DataTableProps<T> = {
   tooltipInteraction?: boolean;
   tooltipShowDelay?: number;
   tooltipHideDelay?: number;
+  pivotMode?: boolean;
+  defaultColDef?: ColDef;
+  autoGroupColumnDef?: ColDef;
+  gridConfig?: {
+    columnDefs: ColDef[];
+    defaultColDef: ColDef;
+  };
+  groupDefaultExpanded?: number;
 };
 
 const LoadingCellRenderer = () => {
@@ -80,6 +88,11 @@ export function DataTable<T>(props: DataTableProps<T>) {
     tooltipInteraction = false,
     tooltipShowDelay = 300,
     tooltipHideDelay = 1000,
+    pivotMode,
+    defaultColDef: defaultColDefProp,
+    autoGroupColumnDef,
+    gridConfig,
+    groupDefaultExpanded,
   } = props;
 
   const { theme } = useTheme();
@@ -101,7 +114,7 @@ export function DataTable<T>(props: DataTableProps<T>) {
     },
   }));
 
-  const defaultColDef: ColDef = {
+  const defaultColDef: ColDef = defaultColDefProp || {
     filter: true,
     resizable: true,
     sortable: true,
@@ -115,6 +128,12 @@ export function DataTable<T>(props: DataTableProps<T>) {
   const placeholderData = fetching ? Array(rowData?.length || 5).fill({}) : [];
   const displayData = fetching ? placeholderData : rowData;
 
+  const defaultAutoGroupColumnDef: ColDef = autoGroupColumnDef || {
+    minWidth: 200,
+    flex: 1,
+    cellRenderer: "agGroupCellRenderer",
+  };
+
   return (
     <div
       suppressHydrationWarning
@@ -127,8 +146,13 @@ export function DataTable<T>(props: DataTableProps<T>) {
     >
       <AgGridReact
         rowData={displayData}
-        columnDefs={enhancedColumnDefs as ColDef<unknown>[]}
-        defaultColDef={defaultColDef}
+        columnDefs={
+          (gridConfig?.columnDefs || enhancedColumnDefs) as ColDef<unknown>[]
+        }
+        defaultColDef={{
+          ...defaultColDef,
+          ...(gridConfig?.defaultColDef || {}),
+        }}
         rowSelection={rowSelection}
         cellSelection={true}
         allowDragFromColumnsToolPanel={allowDragFromColumnsToolPanel}
@@ -141,6 +165,12 @@ export function DataTable<T>(props: DataTableProps<T>) {
         tooltipInteraction={tooltipInteraction}
         tooltipHideDelay={tooltipHideDelay}
         tooltipShowDelay={tooltipShowDelay}
+        pivotMode={pivotMode}
+        autoGroupColumnDef={defaultAutoGroupColumnDef}
+        suppressAggFuncInHeader={true}
+        suppressColumnVirtualisation={true}
+        suppressRowVirtualisation={true}
+        groupDefaultExpanded={groupDefaultExpanded}
       />
     </div>
   );

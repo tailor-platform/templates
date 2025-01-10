@@ -1,5 +1,6 @@
 "use client";
 
+import { format } from "date-fns";
 import { SalesOrder } from "@/app/lib/IMS/types.generated";
 import { useSidebarContext } from "@/app/(leftpanel)/sidebar-context";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -19,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import UPDATE_SALES_ORDER from "@/app/lib/IMS/updateSalesOrder.gql";
 import { SalesOrderSummary } from "./summary";
 import { ActivityLog } from "./activity-log";
-import { format } from "date-fns";
 import GET_SALES_ORDER_LINE_ITEMS_COUNT from "@/app/lib/IMS/getSalesOrdersLineItemsCount.gql";
 import GET_SALES_ORDER_SHIPMENTS_COUNT from "@/app/lib/IMS/getSalesOrderShipmentsCount.gql";
 import { Badge } from "@/components/ui/badge";
@@ -333,20 +333,22 @@ export const Table = ({ salesOrders, fetching }: Props) => {
       field: "shipStationOrderStatus",
       headerName: "Order Status",
       flex: 1,
-      cellRenderer: (params: ICellRendererParams<SalesOrder>) => {
-        return SalesOrderStatusEnumRenderer(params);
-      },
-      rowGroup:
-        gridConfig?.groupBy?.includes("shipStationOrderStatus") || false,
-      hide: gridConfig?.groupBy?.includes("shipStationOrderStatus") || false,
+      cellRenderer: SalesOrderStatusEnumRenderer,
+      rowGroup: gridConfig?.groupBy?.includes("shipStationOrderStatus"),
+      pivot: gridConfig?.pivot?.includes("shipStationOrderStatus"),
+      hide:
+        gridConfig?.groupBy?.includes("shipStationOrderStatus") ||
+        gridConfig?.pivot?.includes("shipStationOrderStatus"),
     },
     {
       field: "customerName",
       headerName: "Customer Name",
       flex: 1,
-      rowGroup: gridConfig?.groupBy?.includes("customerName") || false,
-      hide: gridConfig?.groupBy?.includes("customerName") || false,
-      aggFunc: "count",
+      rowGroup: gridConfig?.groupBy?.includes("customerName"),
+      pivot: gridConfig?.pivot?.includes("customerName"),
+      hide:
+        gridConfig?.groupBy?.includes("customerName") ||
+        gridConfig?.pivot?.includes("customerName"),
     },
     {
       field: "customerEmail",
@@ -401,13 +403,7 @@ export const Table = ({ salesOrders, fetching }: Props) => {
           </>
         );
       },
-      aggFunc: (params) => {
-        let sum = 0;
-        params.values.forEach((value) => {
-          sum += Number(value) || 0;
-        });
-        return sum;
-      },
+      aggFunc: gridConfig?.pivotMode ? "sum" : undefined,
       enableValue: true,
       allowedAggFuncs: ["sum"],
       valueFormatter: (params) => {
@@ -433,9 +429,40 @@ export const Table = ({ salesOrders, fetching }: Props) => {
       field: "shopifyCreatedAt",
       headerName: "Created At",
       flex: 1,
+      pivot: gridConfig?.pivot?.includes("shopifyCreatedAt"),
+      rowGroup: gridConfig?.groupBy?.includes("shopifyCreatedAt"),
+      hide:
+        gridConfig?.pivot?.includes("shopifyCreatedAt") ||
+        gridConfig?.groupBy?.includes("shopifyCreatedAt"),
+
+      keyCreator: (params) => {
+        if (!params.value) return "";
+        try {
+          const date = new Date(params.value);
+          // Check if date is valid
+          if (isNaN(date.getTime())) {
+            return "";
+          }
+          return format(date, "yyyy-MM-dd");
+        } catch (error) {
+          console.error("Invalid date in keyCreator:", error);
+          return "";
+        }
+      },
+
       cellRenderer: (params: ICellRendererParams<SalesOrder>) => {
         if (!params.value) return "";
-        return format(new Date(params.value), "PPp");
+        try {
+          const date = new Date(params.value);
+          // Check if date is valid
+          if (isNaN(date.getTime())) {
+            return "";
+          }
+          return format(date, "PPp");
+        } catch (error) {
+          console.error("Invalid date in cellRenderer:", error);
+          return "";
+        }
       },
     },
     {
@@ -507,6 +534,11 @@ export const Table = ({ salesOrders, fetching }: Props) => {
     previousCancelledOrders: yesterdayMetrics.cancelledOrders,
   };
 
+  const baseDefaultColDef = {
+    flex: 1,
+    minWidth: 130,
+  };
+
   return (
     <div className="flex flex-col gap-2">
       <SalesOrderSummary metrics={metrics} />
@@ -516,6 +548,14 @@ export const Table = ({ salesOrders, fetching }: Props) => {
         columnDefs={colDefs}
         fetching={fetching}
         tooltipInteraction
+        pivotMode={gridConfig?.pivotMode}
+        defaultColDef={{
+          ...baseDefaultColDef,
+          enablePivot: true,
+          enableRowGroup: true,
+          enableValue: true,
+          ...(gridConfig?.defaultColDef || {}),
+        }}
         sideBar={{
           toolPanels: [
             {
@@ -533,9 +573,13 @@ export const Table = ({ salesOrders, fetching }: Props) => {
               toolPanel: "agFiltersToolPanel",
             },
           ],
+          ...(gridConfig?.sideBar || {}),
           defaultToolPanel: sidebarPanel || undefined,
           hiddenByDefault: !sidebarPanel,
         }}
+        rowGroupPanelShow={gridConfig?.rowGroupPanelShow || "always"}
+        pivotPanelShow={gridConfig?.pivotPanelShow || "always"}
+        groupDefaultExpanded={gridConfig?.groupDefaultExpanded ?? 0}
       />
 
       <SidePanel

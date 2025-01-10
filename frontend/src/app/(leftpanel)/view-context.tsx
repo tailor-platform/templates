@@ -7,12 +7,27 @@ import React, {
   useState,
   ReactNode,
 } from "react";
+import { ColDef, SideBarDef } from "ag-grid-enterprise";
 
 export type ViewType = "table" | "kanban" | "calendar" | "timeline";
 
 export type GridConfig = {
   groupBy?: string[];
   groupIncludeTotalFooter?: boolean;
+  pivotMode?: boolean;
+  rowGroup?: string[];
+  pivot?: string[];
+  values?: string[];
+  aggFunc?: string;
+  valueFormatter?: (params: {
+    value: unknown;
+    data?: Record<string, unknown>;
+  }) => string;
+  defaultColDef?: ColDef;
+  sideBar?: SideBarDef;
+  rowGroupPanelShow?: "always" | "onlyWhenGrouping";
+  pivotPanelShow?: "always" | "onlyWhenPivoting";
+  groupDefaultExpanded?: number;
 };
 
 export type ViewContextType = {
