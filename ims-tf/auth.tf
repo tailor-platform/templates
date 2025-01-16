@@ -13,6 +13,20 @@ resource "tailor_auth_idp_config" "idp_config" {
   }
 }
 
+resource "tailor_auth_user_profile_config" "character" {
+  workspace_id = tailor_workspace.ims.id
+  namespace    = tailor_auth.ims_auth.namespace
+
+  tailordb_config = {
+    namespace      = tailor_tailordb.ims.namespace
+    type           = tailor_tailordb_type.character.name
+    username_field = "email"
+    attribute_fields = [
+      "roles"
+    ]
+  }
+}
+
 resource "tailor_auth_machine_user" "r2d2" {
   workspace_id = tailor_workspace.ims.id
   namespace    = tailor_auth.ims_auth.namespace
