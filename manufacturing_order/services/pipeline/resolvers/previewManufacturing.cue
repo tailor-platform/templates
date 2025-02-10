@@ -23,7 +23,6 @@ previewManufacturingOutput: {
 					{Name: "description", Type: pipeline.String},
 					{Name: "name", Type: pipeline.String},
 					{Name: "isActive", Type: pipeline.Boolean},
-					{Name: "workCenterId", Type: pipeline.ID},
 					{Name: "workCenter", Type: pipeline.String},
 				]
 			}

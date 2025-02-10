@@ -63,21 +63,23 @@ simulateWorkOperation: pipeline.#Resolver & {
 							operations(
 								query: {bomId: {eq:$bomId}, isActive: {eq: true}}
 							) {
-								collection {
-									id
-									duration
-									workCenterId
-									documentUrl
-									description
-									name
-									order
-									isActive
-									workCenter {
+								edges {
+      								node {
+										id
+										duration
+										workCenterId
+										documentUrl
+										description
 										name
-										timeEfficiency
-										parallelProcessingLimit
-										setupTime
-										cleanupTime
+										order
+										isActive
+										workCenter {
+											name
+											timeEfficiency
+											parallelProcessingLimit
+											setupTime
+											cleanupTime
+										}
 									}
 								}
 							}
@@ -88,17 +90,17 @@ simulateWorkOperation: pipeline.#Resolver & {
 					(() => {
 						const operations = args.operations;
 						const outputQuantity = context.args.input.outputQuantity;
-						const result = args.operations.collection.length == 0 ? [] : args.operations.collection.map(e=> ({
-							"id": e.id,
-							"duration": e.duration,
-							"order": e.order,
-							"documentUrl": e.documentUrl,
-							"description": e.description,
-							"name": e.name,
-							"isActive": e.isActive,
-							"workCenterId": e.workCenterId,
-							"workCenter": e.workCenter.name,
-							"calculatedDuration": Math.floor(e.workCenter.setupTime + e.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.workCenter.parallelProcessingLimit) + (outputQuantity % e.workCenter.parallelProcessingLimit)) * e.duration * 100 / (e.workCenter.timeEfficiency * 100)))
+						const result = args.operations.edges.length == 0 ? [] : args.operations.edges.map(e=> ({
+							"id": e.node.id,
+							"duration": e.node.duration,
+							"order": e.node.order,
+							"documentUrl": e.node.documentUrl,
+							"description": e.node.description,
+							"name": e.node.name,
+							"isActive": e.node.isActive,
+							"workCenterId": e.node.workCenterId,
+							"workCenter": e.node.workCenter.name,
+							"calculatedDuration": Math.floor(e.node.workCenter.setupTime + e.node.workCenter.cleanupTime + ((Math.floor(outputQuantity / e.node.workCenter.parallelProcessingLimit) + (outputQuantity % e.node.workCenter.parallelProcessingLimit)) * e.node.duration * 100 / (e.node.workCenter.timeEfficiency * 100)))
 						}));
 
 						return {
@@ -110,7 +112,7 @@ simulateWorkOperation: pipeline.#Resolver & {
 				"""
 			}
 			PostValidation: """
-					size(context.pipeline.fetchOperations.operations.collection) == 0 ?
+					size(context.pipeline.fetchOperations.operations.edges) == 0 ?
 					['No operations found for ',context.args.input.bomId].join(''):
 					''
 				"""

@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -36,6 +37,7 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query  ( $salesOrderID: ID!) {
 					                    salesOrder(id: $salesOrderID) {
@@ -44,34 +46,38 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 					                        customerID
 					                    }
 					                    salesOrderLineItems(query: {salesOrderID: {eq: $salesOrderID}}) {
-					                        collection {
-					                            id
-					                            variantID
-					                            quantity
-					                            unitPrice
-					                            taxable
-					                        }
+					                        edges{
+												node {
+													id
+													variantID
+													quantity
+													unitPrice
+													taxable
+												}
+											}
 					                    }
 					                    stockSummaries{
-					                        collection{
-					                            id
-					                            variantID
-					                            averageCost
-					                        }
+					                        edges {
+												node{
+													id
+													variantID
+													averageCost
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
 				                "salesOrder": args.salesOrder,
-				                "salesOrderLineItems": args.salesOrderLineItems.collection.map(item, {
+				                "salesOrderLineItems": args.salesOrderLineItems.edges.map(edge, edge.node).map(item, {
 				                    "id": item.id,
 				                    "variantID": item.variantID,
 				                    "quantity": item.quantity,
 				                    "taxable": item.taxable,
 				                    "unitPrice": item.unitPrice,
-				                    "unitCost": size(args.stockSummaries.collection.filter(ss, ss.variantID == item.variantID)) > 0 ? 
-				                        decimal(args.stockSummaries.collection.filter(ss, ss.variantID == item.variantID)[0].averageCost) : 
+				                    "unitCost": size(args.stockSummaries.edges.map(edge, edge.node).filter(ss, ss.variantID == item.variantID)) > 0 ? 
+				                        decimal(args.stockSummaries.edges.map(edge, edge.node).filter(ss, ss.variantID == item.variantID)[0].averageCost) : 
 				                        decimal(0.0)
 				                }),
 				            }"""
@@ -95,6 +101,7 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($input: ShipmentCreateInput!) {
 					    createShipment(input: $input) {
@@ -124,6 +131,7 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($input: [ShipmentLineItemCreateInput]) {
 					    bulkUpsertShipmentLineItems(input: $input)
@@ -143,17 +151,20 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					query ($shipmentID: ID!) {
 					    shipmentLineItems(query: {shipmentID: {eq: $shipmentID}}) {
-					        collection {
-					            id
-					        }
+					        edges{
+								node {
+									id
+								}
+							}
 					    }
 					}
 					"""
 			}
-			PostScript: "args.shipmentLineItems.collection"
+			PostScript: "args.shipmentLineItems.edges.map(edge, edge.node)"
 		},
 		{
 			Name:        "holdShipment"
@@ -166,6 +177,7 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($shipmentItemIDs: [ID]!) {
 					    createStockEventsFromShipmentLineItems(
@@ -189,6 +201,7 @@ createShipmentFromSalesOrder: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($shipmentItemIDs: [ID]!) {
 					    createStockEventsFromShipmentLineItems(

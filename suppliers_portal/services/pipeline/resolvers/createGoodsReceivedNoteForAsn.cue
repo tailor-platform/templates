@@ -60,23 +60,25 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 				Query: """
 															  query fetchAdvanceShipmentNoticeLineItems($advanceShipmentNoticeID: ID!) {
 															    advanceShipmentNoticeLineItems(query: {advanceShipmentNoticeID: { eq: $advanceShipmentNoticeID}}) {
-															      collection {
-															        id
-															        displayOrder
-															        product {
-															          id
-															          name
-															          description
-															          price
-															        }
-										                  invoiceLineItemID
-															        productID
-															        quantity
+															      edges {
+																			node {
+																				id
+																				displayOrder
+																				product {
+																					id
+																					name
+																					description
+																					price
+																				}
+																				invoiceLineItemID
+																				productID
+																				quantity
+																			}
 															      }
 															    }
 															  }"""
 			}
-			PostScript: "args.advanceShipmentNoticeLineItems.collection"
+			PostScript: "args.advanceShipmentNoticeLineItems.edges"
 		},
 		{
 			Name:        "createGoodsReceivedNote"
@@ -107,12 +109,12 @@ createGoodsReceivedNoteForAsn: pipeline.#Resolver & {
 			PreScript: """
 																{
 																  "input": {
-																    "displayOrder": each.displayOrder,
+																    "displayOrder": each.node.displayOrder,
 																    "goodsReceivedNoteID": context.pipeline.createGoodsReceivedNote.id,
-																    "advanceShipmentNoteLineItemID": each.id,
-												            "invoiceLineItemID": each.invoiceLineItemID,
-																    "productID": each.productID,
-																    "quantity": each.quantity,
+																    "advanceShipmentNoteLineItemID": each.node.id,
+												            "invoiceLineItemID": each.node.invoiceLineItemID,
+																    "productID": each.node.productID,
+																    "quantity": each.node.quantity,
 																  }
 																}"""
 			Operation: pipeline.#GraphqlOperation & {

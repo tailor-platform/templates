@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -22,17 +23,20 @@ allocateCostForOpenCostPools: pipeline.#Resolver & {
 			Description: "Fetch all the open cost pools"
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					query  {
 					    costPools(query: { isClosed: { eq: false } }) {
-					        collection{
-					            id
+					        edges{
+					            node {
+									id
+								}
 					        }
 					    }
 					}
 					"""
 			}
-			PostScript: "args.costPools.collection"
+			PostScript: "args.costPools.edges.map(edge, edge.node)"
 		},
 		{
 			Name:        "getReceipts"
@@ -43,17 +47,20 @@ allocateCostForOpenCostPools: pipeline.#Resolver & {
 				                "costPoolIDs": context.pipeline.getOpenCostPools.map(e, e.id),
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					query  ( $costPoolIDs: [ID]!) {
 					    receiptLineItems(query: { costPools: { costPoolID: {in: $costPoolIDs } } }) {
-					        collection {
-					            id
+					        edges {
+					            node {
+									id
+								}
 					        }
 					    }
 					}
 					"""
 			}
-			PostScript: "isNull(args.receiptLineItems.collection)? [] : args.receiptLineItems.collection"
+			PostScript: "isNull(args.receiptLineItems.edges)? [] : args.receiptLineItems.edges.map(edge, edge.node)"
 		},
 		{
 			Name:        "setReceiptLineItemsToZero"
@@ -68,6 +75,7 @@ allocateCostForOpenCostPools: pipeline.#Resolver & {
 				                })
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($id: ID!, $input: ReceiptLineItemUpdateInput!) {
 					    updateReceiptLineItem(id: $id, input: $input) {
@@ -87,6 +95,7 @@ allocateCostForOpenCostPools: pipeline.#Resolver & {
 				                "costPoolID": each.id,
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation($costPoolID: ID!){
 					    allocateCost(

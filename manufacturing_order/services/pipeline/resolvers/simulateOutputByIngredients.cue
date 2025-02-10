@@ -73,12 +73,14 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                             id
                         }
                         bomLineItems(query: {bomId: {eq: $bomId}}) {
-                            collection {
+                            edges {
+                                node {
                                     id
                                     bomId
                                     itemId
                                     inputQuantity
                                     uomId
+                                }
                             }
                         }
                     }"""
@@ -92,7 +94,7 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                                 error: `No BOM found with id ${context.args.input.bomId}`
                             }
                         }
-                        const { collection: lineItems } = args.bomLineItems;
+                        const lineItems  = args.bomLineItems.edges.map(e => e.node);
                         const { outputQuantity } = args.bom;
                         const { inputQuantities } = context.args.input;
 
@@ -115,7 +117,7 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                         const bomLineItemsForEachQuantity = lineItems.map(e => ({
                             id: e.id,
                             itemId: e.itemId,
-                            uomId: e.uomId,
+                            uomId: e?.uomId,
                             outputQuantity: e.inputQuantity / outputQuantity
                         }))
 
@@ -123,7 +125,7 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                             const item = bomLineItemsForEachQuantity.find(i => i.itemId === e.itemId)
                             return {
                                 itemId: e.itemId,
-                                inputUOMId: e.uomId,
+                                inputUOMId: e?.uomId,
                                 itemUomId:item.uomId,
                                 inputQuantity: e.inputQuantity,
                                 itemOutputQuantity: item ? item.outputQuantity : 0,

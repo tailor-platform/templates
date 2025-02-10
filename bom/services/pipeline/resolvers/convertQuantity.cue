@@ -34,8 +34,8 @@ convertQuantity: pipeline.#Resolver & {
 	PostScript: """
 	{
 		'convertedQuantity': context.args.input.fromUOMId == context.args.input.toUOMId ?
-			context.args.input.quantity :
-			context.pipeline.fetchConversionFactor.convertedQuantity
+		context.args.input.quantity :
+		context.pipeline.fetchConversionFactor.convertedQuantity
 	}
 	"""
 	Pipelines: [
@@ -50,30 +50,34 @@ convertQuantity: pipeline.#Resolver & {
 				                }"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-					                   query fetchConversionFactor($fromUomId: ID!, $toUomId: ID!) {
-											uomConversions(query: {fromUomId: {eq: $fromUomId}, toUomId: {eq: $toUomId}}) {
-												collection {
-												conversionFactor
-												}
-											}
-											from: uom(id: $fromUomId) {
-												name
-											}
-											to: uom(id: $toUomId) {
-												name
-											}
-										}"""
+					query fetchConversionFactor($fromUomId: ID!, $toUomId: ID!) {
+						uomConversions(query: {fromUomId: {eq: $fromUomId}, toUomId: {eq: $toUomId}}) {
+							edges {
+								node {
+									conversionFactor
+								}
+							}
+						}
+						from: uom(id: $fromUomId) {
+							name
+						}
+						to: uom(id: $toUomId) {
+							name
+						}
+					}"""
 			}
 			PostScript: """
 				                {
-				                    "convertedQuantity": size(args.uomConversions.collection)== 0 ? 0 : context.args.input.quantity * args.uomConversions.collection[0].conversionFactor,
+				                    "convertedQuantity": size(args.uomConversions.edges) == 0 ? 
+				                        0 : 
+				                        context.args.input.quantity * args.uomConversions.edges[0].node.conversionFactor,
 									"uomConversions": args.uomConversions,
-									"from":isNull(args.from) ? "Invalid fromId": args.from.name,
-									"to":isNull(args.to) ? "Invalid toId": args.to.name
+									"from": isNull(args.from) ? "Invalid fromId" : args.from.name,
+									"to": isNull(args.to) ? "Invalid toId" : args.to.name
 								}"""
 			PostValidation: """
-					size(context.pipeline.fetchConversionFactor.uomConversions.collection) == 0 ?
-					['No conversion factor found from ',context.pipeline.fetchConversionFactor.from,' to ',context.pipeline.fetchConversionFactor.to].join(''):
+					size(context.pipeline.fetchConversionFactor.uomConversions.edges) == 0 ?
+					['No conversion factor found from ', context.pipeline.fetchConversionFactor.from, ' to ', context.pipeline.fetchConversionFactor.to].join('') :
 					''
 				"""
 		},

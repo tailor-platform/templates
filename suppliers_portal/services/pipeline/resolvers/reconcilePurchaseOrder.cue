@@ -45,16 +45,18 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 				Query: """
 				query ($id: ID!) {
 					purchaseOrderLineItems (query: { purchaseOrderID: { eq: $id }}) {
-						collection {
-							id
-							productID
-							quantity
-							price
+						edges {
+							node {
+								id
+								productID
+								quantity
+								price
+							}
 						}
 					}
 				}"""
 			}
-			PostScript: "args.purchaseOrderLineItems.collection"
+			PostScript: "args.purchaseOrderLineItems.edges"
 		},
 		{
 			Name:        "aggregateInvoiceItemsForPOItem"
@@ -63,7 +65,7 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 			ForEach:     "context.pipeline.fetchPurchaseOrderLineItems"
 			PreScript: """
 				{
-					"purchaseOrderLineItemID": each.id
+					"purchaseOrderLineItemID": each.node.id
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
@@ -79,13 +81,13 @@ reconcilePurchaseOrder: pipeline.#Resolver & {
 			PostScript: """
 				{
 				  "purchaseOrderID": context.args.id,
-				  "purchaseOrderLineItemID": each.id,
-				  "productID": each.productID,
-				  "purchaseOrderQuantity": each.quantity,
+				  "purchaseOrderLineItemID": each.node.id,
+				  "productID": each.node.productID,
+				  "purchaseOrderQuantity": each.node.quantity,
 				  "invoiceQuantity": args.aggregateInvoiceLineItems[0].sum.quantity,
 				  "price": each.price,
-				  "quantityDifference": args.aggregateInvoiceLineItems[0].sum.quantity - each.quantity,
-				  "valueDifference": (args.aggregateInvoiceLineItems[0].sum.quantity - each.quantity) * each.price
+				  "quantityDifference": args.aggregateInvoiceLineItems[0].sum.quantity - each.node.quantity,
+				  "valueDifference": (args.aggregateInvoiceLineItems[0].sum.quantity - each.node.quantity) * each.node.price
 				}
 				"""
 		},

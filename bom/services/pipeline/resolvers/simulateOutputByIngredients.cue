@@ -73,12 +73,14 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                             id
                         }
                         bomLineItems(query: {bomId: {eq: $bomId}}) {
-                            collection {
+                            edges {
+                                node {
                                     id
                                     bomId
                                     itemId
                                     inputQuantity
                                     uomId
+                                }
                             }
                         }
                     }"""
@@ -92,7 +94,8 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                                 error: `No BOM found with id ${context.args.input.bomId}`
                             }
                         }
-                        const { collection: lineItems } = args.bomLineItems;
+                        const edges = args.bomLineItems?.edges || [];
+                        const lineItems = edges.map(edge => edge.node); // Extract nodes from edges
                         const { outputQuantity } = args.bom;
                         const { inputQuantities } = context.args.input;
 
@@ -124,7 +127,7 @@ simulateOutputByIngredients: pipeline.#Resolver & {
                             return {
                                 itemId: e.itemId,
                                 inputUOMId: e.uomId,
-                                itemUomId:item.uomId,
+                                itemUomId:item?.uomId,
                                 inputQuantity: e.inputQuantity,
                                 itemOutputQuantity: item ? item.outputQuantity : 0,
                             }

@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -27,31 +28,34 @@ recalculateStockEventAndSummary: pipeline.#Resolver & {
 			Description: "Get the oldest operational stock event with an open cost pool."
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query OperationalStockEvents {
 					                    operationalStockEvents(
 					                        query: {
 					                            copiedToFinancialLedger: { eq: false }
 					                        }
-					                        size: 100000
+					                        first: 1000
 					                        order: { field: sequence, direction: Asc }
 					                    ) {
-					                        collection {
-					                            sequence
-					                            receiptLineItem {
-					                                costPools{
-					                                    costPool{
-					                                        isClosed
-					                                    }
-					                                }
-					                            }
-					                        }
+					                        edges{
+												node {
+													sequence
+													receiptLineItem {
+														costPools{
+															costPool{
+																isClosed
+															}
+														}
+													}
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
-				                "result": args.operationalStockEvents.collection.filter(event, 
+				                "result": args.operationalStockEvents.edges.map(edge, edge.node).filter(event, 
 				                    event.receiptLineItem != null && 
 				                    event.receiptLineItem.costPools != null &&
 				                    size(
@@ -76,22 +80,25 @@ recalculateStockEventAndSummary: pipeline.#Resolver & {
 				                    99999,
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query operationalStockEvents ($fromSequence: Int!) {
 										operationalStockEvents (query: {sequence: {gte: $fromSequence}}){
-											collection{
-												id
-												unitCost
-					                            receiptLineItem {
-					                                totalUnitCost
-					                            }
+											edges {
+												node {
+													id
+													unitCost
+													receiptLineItem {
+														totalUnitCost
+													}
+												}
 											}
 										}
 									}"""
 			}
 			PostScript: """
 							{
-								"result": args.operationalStockEvents.collection
+								"result": args.operationalStockEvents.edges.map(edge, edge.node)
 							}"""
 		},
 		// 4. update averageCost, transactionTotalCost, totalCost as null of each StockEvent record in step 3
@@ -111,6 +118,7 @@ recalculateStockEventAndSummary: pipeline.#Resolver & {
 								"totalCost": null
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation updateOperationalStockEvent(
 											$stockEventID: ID!, 
@@ -148,6 +156,7 @@ recalculateStockEventAndSummary: pipeline.#Resolver & {
 								"stockEventID": each.id
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation calculateStockEventAndUpdateStockSummary($stockEventID: ID!) {
 										calculateStockEventAndUpdateStockSummary(input: { stockEventID: $stockEventID })

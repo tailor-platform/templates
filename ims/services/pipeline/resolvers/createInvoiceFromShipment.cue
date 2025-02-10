@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -35,6 +36,7 @@ createInvoiceFromShipment: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query  ( $shipmentID: ID!) {
 					                    shipment(id: $shipmentID) {
@@ -42,20 +44,22 @@ createInvoiceFromShipment: pipeline.#Resolver & {
 					                        customerID
 					                    }
 					                    shipmentLineItems(query: {shipmentID: {eq: $shipmentID}}) {
-					                        collection {
-					                            id
-					                            variantID
-					                            quantity
-					                            unitPrice
-					                            taxable
-					                        }
+					                        edges {
+												node {
+													id
+													variantID
+													quantity
+													unitPrice
+													taxable
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
 				                "shipment": args.shipment,
-				                "shipmentLineItems": args.shipmentLineItems.collection
+				                "shipmentLineItems": args.shipmentLineItems.edges.map(edge, edge.node)
 				            }"""
 			PostValidation: """
 				isNull(context.pipeline.fetchShipment.shipment) ? 
@@ -76,6 +80,7 @@ createInvoiceFromShipment: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($input: InvoiceCreateInput!) {
 					    createInvoice(input: $input) {
@@ -103,6 +108,7 @@ createInvoiceFromShipment: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($input: [InvoiceLineItemCreateInput]) {
 					    bulkUpsertInvoiceLineItems(input: $input)

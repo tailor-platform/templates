@@ -37,28 +37,33 @@ createQuoteForRequestForQuote: pipeline.#Resolver & {
 			Name:        "fetchRequestForQuoteLineItems"
 			Description: "Get line items from RFQ"
 			Invoker:     settings.adminInvoker
-			PreScript:   "context.args.input"
+			PreScript:   """
+			{
+				"requestForQuoteID": context.args.input.requestForQuoteID
+			}"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					query fetchRequestForQuoteLineItems($requestForQuoteID: ID!) {
 					  requestForQuoteLineItems(query: {requestForQuoteID: { eq: $requestForQuoteID}}) {
-					    collection {
-					      id
-					      displayOrder
-					      product {
-					        id
-					        name
-					        description
-					        price
-					      }
-					      productID
-					      quantity
+					    edges {
+								node {
+									id
+									displayOrder
+									product {
+										id
+										name
+										description
+										price
+									}
+									productID
+									quantity
+								}
 					    }
 					  }
 					}
 					"""
 			}
-			PostScript: "args.requestForQuoteLineItems.collection"
+			PostScript: "args.requestForQuoteLineItems.edges"
 		},
 		{
 			Name:        "createQuote"
@@ -90,12 +95,12 @@ createQuoteForRequestForQuote: pipeline.#Resolver & {
 			PreScript: """
 				{
 				  "input": {
-				    "displayOrder": each.displayOrder,
+				    "displayOrder": each.node.displayOrder,
 				    "quoteID": context.pipeline.createQuote.id,
-				    "requestForQuoteLineItemID": each.id,
-				    "productID": each.productID,
+				    "requestForQuoteLineItemID": each.node.id,
+				    "productID": each.node.productID,
 				    "price": 0,
-				    "quantity": each.quantity
+				    "quantity": each.node.quantity
 				  }
 				}
 				"""

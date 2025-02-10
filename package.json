@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@apollo/client": "^3.9.4",
-    "@tailor-platform/api-test-library": "0.1.3-preview.5",
+    "@tailor-platform/api-test-library": "0.1.3-preview.7",
     "@tailor-platform/dev-cli": "^0.3.0",
     "cli-progress": "^3.12.0",
     "graphql": "^16.8.1",
