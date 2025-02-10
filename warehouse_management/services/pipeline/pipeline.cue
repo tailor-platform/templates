@@ -10,9 +10,14 @@ pipeline.#Spec & {
 	Namespace:   environment.#app.namespace
 	Description: "Pipeline resolvers for warehouse management"
 	Resolvers: [
+		resolvers.createGrnFromPurchaseOrder,
+		resolvers.createPickingListFromSalesOrder,
 		resolvers.deleteAllTailorDBRecords,
-		resolvers.createShipOutFromBinStock,
-		resolvers.transferBinStock,
-		resolvers.listPicking,
+		resolvers.deleteGrnById,
+		resolvers.executeGrn,
+		resolvers.executePickingList,
+		resolvers.deletePurchaseOrderById,
+		resolvers.deleteSalesOrderById,
+		resolvers.setBinAsDefault
 	]
 }
