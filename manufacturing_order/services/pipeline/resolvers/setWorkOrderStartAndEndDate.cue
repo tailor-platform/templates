@@ -91,17 +91,21 @@ setWorkOrderStartAndEndDate: pipeline.#Resolver & {
 				Query: """
 					query getAllExistingOperationBelongsToWorkcenter($workCenterId: ID!, $workingHourId: ID!) {
 						operations(query: {workCenterId: {eq: $workCenterId}}) {
-							collection {
-								id
+							edges {
+      							node {
+									id
+								}
 							}
 						}
 
 						dailySchedules(query: {workingHoursId: {eq: $workingHourId}}) {
-							collection {
-								workFrom
-								workTo
-								id
-								dayOfWeek
+							edges {
+      							node {
+									workFrom
+									workTo
+									id
+									dayOfWeek
+								}
 							}
 						}
 
@@ -119,7 +123,7 @@ setWorkOrderStartAndEndDate: pipeline.#Resolver & {
 					"aggregateDailySchedules": args.aggregateDailySchedules,
 				}"""
 			PostValidation: """
-					size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.collection) <= 0 ?
+					size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.edges) <= 0 ?
 					['No work operations found for ',context.args.input.workOrderId].join(''):
 					''
 				"""
@@ -127,23 +131,25 @@ setWorkOrderStartAndEndDate: pipeline.#Resolver & {
 		{
 			Name:        "getExistingWorkOrdersByOperations"
 			Description: "Retrieves all work orders associated with specified operations and identifies available scheduling slots based on the provided schedule date and duration."
-			Test: 		 "size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.collection) > 0"
+			Test: 		 "size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.edges) > 0"
 			PreScript: """
 				{
-					'operationsId': size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.collection) > 0? context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.collection.map(e, e.id):[],
+					'operationsId': size(context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.edges) > 0? context.pipeline.getAllExistingOperationBelongsToWorkcenter.operations.edges.map(e, e.node.id):[],
 					'scheduleDateTime': context.args.input.scheduleDateTime,
 				}"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
 					query getExistingWorkOrdersByOperations($operationsId: [ID],$scheduleDateTime:DateTime) {
 						workOrders(query: {operationId: {in: $operationsId}, isDeleted: {eq: false}, startDate: {gte: $scheduleDateTime}}) {
-							collection {
-								id
-								startDate
-								endDate
-								operation {
-									workCenter {
-										id
+							edges {
+								node {		
+									id
+									startDate
+									endDate
+									operation {
+										workCenter {
+											id
+										}
 									}
 								}
 							}
@@ -153,8 +159,8 @@ setWorkOrderStartAndEndDate: pipeline.#Resolver & {
 			PostHook: common.#Script & {
 				Expr: """
 				(() => {
-					const { collection: orders } = args.workOrders;
-					const { collection: dailySchedules } = context.pipeline.getAllExistingOperationBelongsToWorkcenter.dailySchedules;
+					const orders  = args.workOrders.edges.map(({ node }) => node);
+					const dailySchedules = context.pipeline.getAllExistingOperationBelongsToWorkcenter.dailySchedules.edges.map(({ node }) => node);
 					const { scheduleDateTime,bookDuration } = context.args.input;
 					const workCenterId = context.pipeline.getWorkOrder.workOrder.operation.workCenter.id;
 
@@ -269,7 +275,8 @@ setWorkOrderStartAndEndDate: pipeline.#Resolver & {
 					"workOrderId": context.args.input.workOrderId,
 					"input": {
 						"startDate": get(context.pipeline.getExistingWorkOrdersByOperations.startDate),
-						"endDate": get(context.pipeline.getExistingWorkOrdersByOperations.endDate)
+						"endDate": get(context.pipeline.getExistingWorkOrdersByOperations.endDate),
+						"status":"Waiting_for_components"
 					}
 				}"""
 			Operation: pipeline.#GraphqlOperation & {

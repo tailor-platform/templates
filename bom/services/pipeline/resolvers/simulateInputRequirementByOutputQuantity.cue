@@ -59,7 +59,8 @@ simulateInputRequirementByOutputQuantity: pipeline.#Resolver & {
 								id
 							}
 							bomLineItems(query: {bomId: {eq: $bomId}}) {
-								collection {
+								edges {
+									node {
 										id
 										bomId
 										itemId
@@ -69,6 +70,7 @@ simulateInputRequirementByOutputQuantity: pipeline.#Resolver & {
 										}
 										inputQuantity
 										uomId
+									}
 								}
 							}
 						}"""
@@ -77,16 +79,16 @@ simulateInputRequirementByOutputQuantity: pipeline.#Resolver & {
 					{
 						"bomLineItems": args.bomLineItems,
 						"outputQuantity":context.args.input.outputQuantity,
-						"result": size(args.bomLineItems.collection)== 0 ? [] : args.bomLineItems.collection.map(e, {
-							"id": e.id,
-							"itemId": e.itemId,
-							"uomId": e.uomId,
-							"outputQuantity": (context.args.input.outputQuantity/args.bom.outputQuantity) * e.inputQuantity 
+						"result": size(args.bomLineItems.edges)== 0 ? [] : args.bomLineItems.edges.map(e, {
+							"id": e.node.id,
+							"itemId": e.node.itemId,
+							"uomId": e.node.uomId,
+							"outputQuantity": (context.args.input.outputQuantity/args.bom.outputQuantity) * e.node.inputQuantity 
 						})
 					}"""
 			PostValidation: """
-					size(context.pipeline.fetchBOMLineItems.bomLineItems.collection) == 0 ?
-					['No items found for ',context.args.input.bomId].join(''):
+					size(context.pipeline.fetchBOMLineItems.bomLineItems.edges) == 0 ?
+					['No items found for ', context.args.input.bomId].join('') :
 					''
 				"""
 		},

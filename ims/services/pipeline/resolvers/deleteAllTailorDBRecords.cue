@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -49,18 +50,21 @@ deleteAllTailorDBRecords: pipeline.#Resolver & {
 				Description: "Get all the \(table) records."
 				Invoker:     settings.adminInvoker
 				Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 					Query: """
                     query {
-                        \(plural)(size: 100000){
-                            collection{
-                                id
+                        \(plural)(first: 1000){
+                            edges{
+								node {
+                                	id
+								}
                             }
                         }
                     }"""
 				}
 				PostScript: """
                 {
-                    "items": args.\(plural).collection
+                    "items": args.\(plural).edges.map(edge, edge.node)
                 }"""
 			}
 		},
@@ -77,6 +81,7 @@ deleteAllTailorDBRecords: pipeline.#Resolver & {
 					}
 					"""
 				Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 					Query: """
                     mutation delete\(table)($id: ID!) {
                         delete\(table)(id: $id)

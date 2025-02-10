@@ -41,24 +41,26 @@ createPurchaseOrderForQuote: pipeline.#Resolver & {
 				Query: """
 					  query fetchQuoteLineItems($quoteID: ID!) {
 					    quoteLineItems(query: {quoteID: { eq: $quoteID}}) {
-					      collection {
-					        id
-					        displayOrder
-					        product {
-					          id
-					          name
-					          description
-					          price
-					        }
-					        productID
-					        price
-					        quantity
+					      edges {
+									node {
+										id
+										displayOrder
+										product {
+											id
+											name
+											description
+											price
+										}
+										productID
+										price
+										quantity
+									}
 					      }
 					    }
 					  }
 					"""
 			}
-			PostScript: "args.quoteLineItems.collection"
+			PostScript: "args.quoteLineItems.edges"
 		},
 		{
 			Name:        "createPurchaseOrder"
@@ -88,12 +90,12 @@ createPurchaseOrderForQuote: pipeline.#Resolver & {
 			PreScript: """
 				{
 				  "input": {
-				    "displayOrder": each.displayOrder,
+				    "displayOrder": each.node.displayOrder,
 				    "purchaseOrderID": context.pipeline.createPurchaseOrder.id,
-				    "quoteLineItemID": each.id,
-				    "productID": each.productID,
-				    "price": each.price,
-				    "quantity": each.quantity,
+				    "quoteLineItemID": each.node.id,
+				    "productID": each.node.productID,
+				    "price": each.node.price,
+				    "quantity": each.node.quantity,
 				  }
 				}
 				"""

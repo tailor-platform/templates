@@ -2,6 +2,7 @@ package resolvers
 
 import (
     "github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"github.com/tailor-platform/tailorctl/schema/v2/common"
 )
 
 unPlanManufacturingOrder: pipeline.#Resolver & {
@@ -48,14 +49,15 @@ unPlanManufacturingOrder: pipeline.#Resolver & {
 				}"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-					query getAllWorkOrdersOfMO($manufacturingOrderId: ID!) {
-						manufacturingOrder(id: $manufacturingOrderId) {
-							quantity
-							id
-						}
-						
-						workOrders(query: {moId: {eq: $manufacturingOrderId}, isDeleted: {eq: false}}) {
-							collection {
+				query getAllWorkOrdersOfMO($manufacturingOrderId: ID!) {
+					manufacturingOrder(id: $manufacturingOrderId) {
+						quantity
+						id
+					}
+				
+					workOrders(query: { moId: { eq: $manufacturingOrderId }, isDeleted: { eq: false } }) {
+						edges {
+							node {
 								id
 								expectedDuration
 								endDate
@@ -67,28 +69,59 @@ unPlanManufacturingOrder: pipeline.#Resolver & {
 								isDeleted
 							}
 						}
-					}"""
-			}
-			PostScript: """
-				{
-					"workOrders": args.workOrders,
-					"manufacturingOrder": args.manufacturingOrder,
-				}"""
-			PostValidation: """
-					isNull(context.pipeline.getAllWorkOrdersOfMO.manufacturingOrder) ?
-					['No manufacturing order found for the given ID: ', context.args.input.manufacturingOrderId].join('') :
-					size(context.pipeline.getAllWorkOrdersOfMO.workOrders) == 0 ?
-					['No work orders found for given ID: ', context.args.input.manufacturingOrderId].join('') :
-					''
+					}
+				}
 				"""
+			}
+			PostHook: common.#Script & {
+				Expr: """
+				(() => {
+					const manufacturingOrder = args?.manufacturingOrder;
+					const workOrders = args?.workOrders?.edges?.map(edge => edge.node);
+
+					if (!manufacturingOrder) {
+						return {
+							success: false,
+							message: 'No manufacturing order found for the given ID: ' + context.args.input.manufacturingOrderId
+						};
+					}
+
+					if (!workOrders || workOrders.length === 0) {
+						return {
+							success: false,
+							message: 'No work orders found for the given manufacturing order'
+						};
+					}
+
+					if (workOrders.some(wo => wo.status === 'In_Progress')) {
+						return {
+							success: false,
+							message: "You can't unplan this because some of the work orders are in progress"
+						};
+					}
+
+					return {
+						success: true,
+						message: 'Success',
+						workOrders,
+						manufacturingOrder
+					};
+				})();
+			"""
+			},
+			PostValidation: """
+				!context.pipeline.getAllWorkOrdersOfMO.success ?
+				context.pipeline.getAllWorkOrdersOfMO.message :
+				''
+			"""
 		},
 		{
 			Name:        "workOrder"
 			Description: "Sets or updates work order details."
-			Test: 		 "size(context.pipeline.getAllWorkOrdersOfMO.workOrders.collection) > 0"
+			Test: 		 "size(context.pipeline.getAllWorkOrdersOfMO.workOrders) > 0"
 			PreScript:   """
 				{
-					"input": size(context.pipeline.getAllWorkOrdersOfMO.workOrders.collection)== 0 ? [] : context.pipeline.getAllWorkOrdersOfMO.workOrders.collection.map(e, {
+					"input": size(context.pipeline.getAllWorkOrdersOfMO.workOrders)== 0 ? [] : context.pipeline.getAllWorkOrdersOfMO.workOrders.map(e, {
 							'id': e.id,
 							'isDeleted':e.isDeleted,
 							'expectedDuration': e.expectedDuration,
@@ -119,13 +152,14 @@ unPlanManufacturingOrder: pipeline.#Resolver & {
 					'input': {
 						'isPlanCreated':false,
 						'startDateTime':null,
-						'endDateTime':null
+						'endDateTime':null,
+						'status':'Draft'
 					}
 				}
 			"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-				mutation markMODeleted (
+				mutation updateMOPlanFlag (
 						$input: ManufacturingOrderUpdateInput!,
 						$id:ID!
 					) {

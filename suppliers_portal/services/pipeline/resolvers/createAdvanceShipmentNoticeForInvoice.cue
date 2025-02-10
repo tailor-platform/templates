@@ -56,24 +56,26 @@ createAdvanceShipmentNoticeForInvoice: pipeline.#Resolver & {
 				Query: """
 					  query fetchInvoiceLineItems($invoiceID: ID!) {
 					    invoiceLineItems(query: {invoiceID: { eq: $invoiceID}}) {
-					      collection {
-					        id
-					        displayOrder
-					        product {
-					          id
-					          name
-					          description
-					          price
-					        }
-					        productID
-					        price
-					        quantity
+					      edges {
+									node {
+										id
+										displayOrder
+										product {
+											id
+											name
+											description
+											price
+										}
+										productID
+										price
+										quantity
+									}
 					      }
 					    }
 					  }
 					"""
 			}
-			PostScript: "args.invoiceLineItems.collection"
+			PostScript: "args.invoiceLineItems.edges"
 		},
 		{
 			Name:        "createAdvanceShipmentNotice"
@@ -104,11 +106,11 @@ createAdvanceShipmentNoticeForInvoice: pipeline.#Resolver & {
 			PreScript: """
 				{
 				  "input": {
-				    "displayOrder": each.displayOrder,
+				    "displayOrder": each.node.displayOrder,
 				    "advanceShipmentNoticeID": context.pipeline.createAdvanceShipmentNotice.id,
-				    "invoiceLineItemID": each.id,
-				    "productID": each.productID,
-				    "quantity": each.quantity,
+				    "invoiceLineItemID": each.node.id,
+				    "productID": each.node.productID,
+				    "quantity": each.node.quantity,
 				  }
 				}
 				"""

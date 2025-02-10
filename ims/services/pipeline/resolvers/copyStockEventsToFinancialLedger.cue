@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -26,6 +27,7 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 			Description: "Recalculate the cost for all the cost pools"
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation {
 					    recalculateStockEventAndSummary
@@ -39,34 +41,37 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 			Description: "Get the last created stock event with an open cost pool or an open Receipt."
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query OperationalStockEvents {
 					                    operationalStockEvents(
 					                        query: {
 					                            copiedToFinancialLedger: { eq: false }
 					                        }
-					                        size: 100000
+					                        first: 1000
 					                        order: { field: sequence, direction: Asc }
 					                    ) {
-					                        collection {
-					                            sequence
-					                            receiptLineItem {
-					                                costPools{
-					                                    costPool{
-					                                        isClosed
-					                                    }
-					                                }
-					                                receipt {
-					                                    receiptStatus
-					                                }
-					                            }
-					                        }
+					                        edges{
+											node {
+													sequence
+													receiptLineItem {
+														costPools{
+															costPool{
+																isClosed
+															}
+														}
+														receipt {
+															receiptStatus
+														}
+													}
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
-				                "result": args.operationalStockEvents.collection.filter(event, 
+				                "result": args.operationalStockEvents.edges.map(edge, edge.node).filter(event, 
 				                    (
 				                        event.receiptLineItem != null 
 				                        && event.receiptLineItem.costPools != null 
@@ -93,6 +98,7 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 				                    999999999,
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query OperationalStockEvents ($toSequence: Int!){
 					                    operationalStockEvents(
@@ -102,34 +108,36 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 					                                sequence: { lt: $toSequence }
 					                            }
 					                        }
-					                        size: 100000
+					                        first: 1000
 					                    ) {
-					                        collection {
-					                            id
-					                            variantID
-					                            incrementalQuantity
-					                            unitCost
-					                            isOnHold
-					                            onHoldQuantity
-					                            availableQuantity
-					                            totalCost
-					                            receiptLineItemID
-					                            shipmentLineItemID
-					                            createdAt
-					                            receiptLineItem {
-					                                costPools{
-					                                    costPool{
-					                                        isClosed
-					                                    }
-					                                }
-					                            }
-					                        }
+					                        edges {
+												node {
+													id
+													variantID
+													incrementalQuantity
+													unitCost
+													isOnHold
+													onHoldQuantity
+													availableQuantity
+													totalCost
+													receiptLineItemID
+													shipmentLineItemID
+													createdAt
+													receiptLineItem {
+														costPools{
+															costPool{
+																isClosed
+															}
+														}
+													}
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
-				                "result": args.operationalStockEvents.collection
+				                "result": args.operationalStockEvents.edges.map(edge, edge.node)
 				            }"""
 		},
 		{
@@ -153,6 +161,7 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 				                })
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                mutation CreateFinancialStockEvent ($input: FinancialStockEventCreateInput){
 					                    createFinancialStockEvent(input: $input){
@@ -178,6 +187,7 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 				                })
 				            }"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                mutation UpdateOperationalStockEvent($id: ID!, $input: OperationalStockEventUpdateInput!){
 					                    updateOperationalStockEvent(id: $id, input: $input){
@@ -191,19 +201,22 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 			Description: "Get the current financial stock summary."
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					                query FinancialStockSummary {
 					                    financialStockSummaries {
-					                        collection {
-					                            id
-					                            variantID
-					                        }
+					                        edges {
+												node {
+													id
+													variantID
+												}
+											}
 					                    }
 					                }"""
 			}
 			PostScript: """
 				            {
-				                "result": args.financialStockSummaries.collection
+				                "result": args.financialStockSummaries.edges.map(edge, edge.node)
 				            }"""
 		},
 		{
@@ -222,6 +235,7 @@ copyStockEventsToFinancialLedger: pipeline.#Resolver & {
 								})
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation bulkUpsertFinancialStockSummary($input: [FinancialStockSummaryCreateInput]!) {
 										bulkUpsertFinancialStockSummaries(input: $input)

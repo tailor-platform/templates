@@ -55,26 +55,43 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 							}
 
 							workOrders(query: { moId: {eq: $moId}}) {
-								collection {
-									id
-									expectedDuration
-									endDate
-									moId
-									operationId
-									realDuration
-									startDate
-									status
+								edges {
+                            		node {
+										id
+										expectedDuration
+										endDate
+										moId
+										operationId
+										realDuration
+										startDate
+										status
+									}
 								}
 							}
 
 							mOLineItems(query: {moId: {eq: $moId}}) {
-								collection {
-									id
-									moId
-									bomLineItemId
-									itemMoId
-									totalCost
-									requiredQuantity
+								edges {
+                            		node {
+										id
+										moId
+										bomLineItemId
+										itemMoId
+										totalCost
+										requiredQuantity
+									}
+								}
+							}
+							workOrderLineItems(query: {moId: {eq: $moId}}) {
+								edges {
+                            		node {
+										moId
+										moLineItemId
+										quantity
+										scrapAction
+										returnAsNewSkuItemId
+										workOrderId
+										id
+									}
 								}
 							}				
 						}"""
@@ -82,8 +99,9 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 			PostScript: """
 					{
 						"manufacturingOrder": args.manufacturingOrder,
-						"workOrders": args.workOrders,
-						"mOLineItems": args.mOLineItems
+						"workOrders": args.workOrders.edges.map(each, each.node),
+						"mOLineItems": args.mOLineItems,
+						"workOrderLineItems": args.workOrderLineItems,
 					}"""
 			PostValidation: """
 				isNull(context.pipeline.fetchWorkOrders.manufacturingOrder) ?
@@ -92,73 +110,49 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 				"""
 		},
 		{
-			Name:        "markWorkOrderDeleted"
-			Description: "Marks Work Orders as deleted by updating their status in the system. This operation retrieves existing Work Orders, sets them as deleted, and then performs a bulk update to apply the changes."
-			Test: 		 "size(context.pipeline.fetchWorkOrders.workOrders.collection) > 0"
-			PreScript:   """
-				{
-					"input": size(context.pipeline.fetchWorkOrders.workOrders.collection)== 0 ? [] : context.pipeline.fetchWorkOrders.workOrders.collection.map(e, {
-							'id': e.id,
-							'isDeleted':true,
-							'expectedDuration': e.expectedDuration,
-							'endDate': e.endDate,
-							'moId': e.moId,
-							'operationId': e.operationId,
-							'realDuration': e.realDuration,
-							'startDate': e.startDate,
-							'status': e.status,
-					}),
-				}"""
+			Name:        "cancelWorkOrders",
+			Description: "Cancels each work order by calling the cancelWorkOrder mutation.",
+			ForEach:     "context.pipeline.fetchWorkOrders.workOrders",
+			Test:        "size(context.pipeline.fetchWorkOrders.workOrders) > 0",
+			PreScript: """
+			{
+				"input": {
+					"workOrderId": each.id
+				}
+			}
+			""",
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-					mutation markWorkOrderDeleted (
-						$input: [WorkOrderCreateInput]
-					) {
-						bulkUpsertWorkOrders(input: $input)
+					mutation cancelWorkOrder($input: cancelWorkOrderInput!) {
+						cancelWorkOrder(input: $input) {
+							success
+						}
 					}
 				"""
-			}
+			},
+			PostValidation: """
+				!args.cancelWorkOrder.success ?
+				'Failed to cancel work order: ' + each.id :
+				''
+			"""
 		},
 		{
-			Name:        "markMoLineItemDeleted"
-			Description: "Marks Manufacturing Order (MO) Line Items as deleted by updating their status in the system. This operation retrieves the existing MO Line Items, flags them as deleted, and then performs a bulk update to apply the changes."
-			Test: 		 "size(context.pipeline.fetchWorkOrders.mOLineItems.collection) > 0"
-			PreScript:   """
-				{
-					"input": size(context.pipeline.fetchWorkOrders.mOLineItems.collection)== 0 ? [] : context.pipeline.fetchWorkOrders.mOLineItems.collection.map(e, {
-							'id': e.id,
-							'isDeleted':true,
-							'moId': e.moId,
-							'bomLineItemId': e.bomLineItemId,
-							'itemMoId': e.itemMoId,
-							'totalCost': e.totalCost,
-							'requiredQuantity': e.requiredQuantity,
-					}),
-				}"""
-			Operation: pipeline.#GraphqlOperation & {
-				Query: """
-					mutation markMOLineItemDeleted (
-						$input: [MOLineItemCreateInput]
-					) {
-						bulkUpsertMOLineItems(input: $input)
-					}
-				"""
-			}
-		},
-		{
-			Name:        "markMODeleted"
-			Description: "Marks a Manufacturing Order (MO) as deleted by updating its status in the system. This operation sets the `isDeleted` flag to true for the specified MO and confirms the successful deletion."
+			Name:        "markMoCanceled"
+			Description: "mark mo as canceled"
 			PreScript: """
 			{
 					'id': context.args.input.moId,
 					'input': {
-						'isDeleted':true
+						'status':'Canceled',
+						'isPlanCreated':false,
+						'startDateTime':null,
+						'endDateTime':null,
 					}
 				}
 			"""
 			Operation: pipeline.#GraphqlOperation & {
 				Query: """
-				mutation markMODeleted (
+				mutation markMoCanceled (
 						$input: ManufacturingOrderUpdateInput!,
 						$id:ID!
 					) {
@@ -174,6 +168,5 @@ cancelManufacturingOrder: pipeline.#Resolver & {
 						"success": true,
 					}"""
 		},
-		
 	]
 }

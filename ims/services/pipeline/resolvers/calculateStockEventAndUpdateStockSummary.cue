@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -39,16 +40,19 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			Description: "Get all the products with type INVENTORY"
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query productVariants {
-										productVariants(query: { inventoryType: { eq: INVENTORY } }, size: 1000000) {
-											collection {
-												id
+										productVariants(query: { inventoryType: { eq: INVENTORY } }, first: 1000) {
+											edges{
+												node {
+													id
+												}
 											}
 										}
 									}"""
 			}
-			PostScript: "args.productVariants.collection.map(e, e.id)"
+			PostScript: "args.productVariants.edges.map(edge, edge.node).map(e, e.id)"
 			PostValidation: """
 					size(context.pipeline.getInventoryProductVariantIDs) == 0 ?
 					'No inventory products found':
@@ -67,27 +71,30 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 								"variantIDs": context.pipeline.getInventoryProductVariantIDs
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query operationalStockEvents($stockEventID: ID!, $variantIDs: [ID]) {
 										operationalStockEvents(query: {id: {eq: $stockEventID}, variantID: {in: $variantIDs}} ) {
-											collection {
-												id
-												unitCost
-												incrementalQuantity
-												variantID
-												onHoldQuantity
-												availableQuantity
-												inStockQuantity
-												isOnHold
-												createdAt
-												sequence
+											edges{
+												node {
+													id
+													unitCost
+													incrementalQuantity
+													variantID
+													onHoldQuantity
+													availableQuantity
+													inStockQuantity
+													isOnHold
+													createdAt
+													sequence
+												}
 											}
 										}
 									}"""
 			}
 			PostScript: """
 							{
-								"result": size(args.operationalStockEvents.collection) > 0 ? args.operationalStockEvents.collection[0]: null,
+								"result": size(args.operationalStockEvents.edges) > 0 ? args.operationalStockEvents.edges.map(edge, edge.node)[0]: null,
 								"canBeRecalculated": isNull(args.operationalStockEvents.inStockQuantity)
 							}"""
 			PostValidation: """
@@ -105,6 +112,7 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			Test:        "isNull(context.pipeline.getStockEvent.result.sequence)"
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query operationalStockEvents {
 										operationalStockEvents (
@@ -115,19 +123,21 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 					                            field: sequence
 					                            direction: Desc
 					                        }
-					                        size: 1
+					                        first: 1
 					                    ) {
-											collection {
-												id
-					                            sequence
+											edges{
+												node {
+													id
+													sequence
+												}
 											}
 										}
 									}"""
 			}
 			PostScript: """
 							{
-								"sequence": size(args.operationalStockEvents.collection) > 0 ?
-									decimal(args.operationalStockEvents.collection[0].sequence) + decimal(1) :
+								"sequence": size(args.operationalStockEvents.edges) > 0 ?
+									decimal(args.operationalStockEvents.edges.map(edge, edge.node)[0].sequence) + decimal(1) :
 									1
 							}"""
 		},
@@ -143,6 +153,7 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 								"variantID": context.pipeline.getStockEvent.result.variantID
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query operationalStockEvents (
 										$sequence: Int,
@@ -159,23 +170,25 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 												field: sequence
 												direction: Desc
 											}
-											size: 1
+											first: 1
 										) {
-											collection {
-												id
-												variantID
-												onHoldQuantity
-												availableQuantity
-												inStockQuantity
-												totalCost
-												averageCost
+											edges{
+												node {
+													id
+													variantID
+													onHoldQuantity
+													availableQuantity
+													inStockQuantity
+													totalCost
+													averageCost
+												}
 											}
 										}
 									}"""
 			}
 			PostScript: """
-							size(args.operationalStockEvents.collection) > 0 ?
-							args.operationalStockEvents.collection[0] :
+							size(args.operationalStockEvents.edges.map(edge, edge.node)) > 0 ?
+							args.operationalStockEvents.edges.map(edge, edge.node)[0] :
 							{
 								"onHoldQuantity": decimal(0),
 								"availableQuantity": decimal(0),
@@ -213,6 +226,7 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 									})
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation updateOperationalStockEvent($id: ID!, $input: OperationalStockEventUpdateInput!) {
 										updateOperationalStockEvent(id: $id, input: $input) {
@@ -239,22 +253,25 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 								"stockEventVariantID": context.pipeline.getStockEvent.result.variantID
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query stockSummaries($stockEventVariantID: ID!) {
 										stockSummaries(query: {variantID: {eq: $stockEventVariantID}}) {
-											collection{
-												id
-												variantID
-												onHoldQuantity
-												availableQuantity
-												inStockQuantity
-												totalCost
-												averageCost
+											edges{
+												node{
+													id
+													variantID
+													onHoldQuantity
+													availableQuantity
+													inStockQuantity
+													totalCost
+													averageCost
+												}
 											}
 										}
 									}"""
 			}
-			PostScript: "args.stockSummaries.collection"
+			PostScript: "args.stockSummaries.edges.map(edge, edge.node)"
 		},
 		{
 			Name:        "deleteStockSummary"
@@ -266,6 +283,7 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 								"id": each.id
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation deleteStockSummary($id: ID!) {
 										deleteStockSummary(id: $id)
@@ -291,6 +309,7 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 								})
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation createStockSummary($input: StockSummaryCreateInput!) {
 										createStockSummary(input: $input) {
@@ -302,21 +321,6 @@ calculateStockEventAndUpdateStockSummary: pipeline.#Resolver & {
 							{
 								"result": args.createStockSummary.id
 							}"""
-		},
-		// 6.Trigger sync with shopify
-		{
-			Name:        "syncShopify"
-			Description: "Trigger sync with shopify"
-			Invoker:     settings.adminInvoker
-			PreScript: """
-				{
-					"variantID": context.pipeline.getStockEvent.result.variantID
-				}
-				"""
-			Operation: pipeline.#GraphqlOperation & {
-				Query: "syncShopify"
-				Url:   "https://eo4e79eejrc0gy3.m.pipedream.net"
-			}
-		},
+		}
 	]
 }

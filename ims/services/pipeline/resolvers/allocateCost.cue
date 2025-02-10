@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -36,22 +37,25 @@ allocateCost: pipeline.#Resolver & {
 			Invoker:     settings.adminInvoker
 			PreScript:   "context.args.input"
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					query  ( $costPoolID: ID!) {
 					    receiptLineItems(query: { costPools: { costPoolID: {eq: $costPoolID } } }) {
-					        collection {
-					            id
-					            subtotalCost
-					            totalCostPoolAllocation
-					            cubicMeters
-					            variantID
-					            quantity
-					            subtotalUnitCost
-					            receiptID
-					            costPools {
-					                costPoolID
-					            }
-					        }
+							edges {
+								node {
+									id
+									subtotalCost
+									totalCostPoolAllocation
+									cubicMeters
+									variantID
+									quantity
+									subtotalUnitCost
+									receiptID
+									costPools {
+										costPoolID
+									}
+								}
+							}
 					    }
 					    costPool(id: $costPoolID) {
 					        isClosed
@@ -91,7 +95,7 @@ allocateCost: pipeline.#Resolver & {
 				            {
 				                "availableAmount": isNull(args.aggregateReceiptLineItems[0].sum.subtotalCost) ? 0.0 : decimal(args.aggregateReceiptLineItems[0].sum.subtotalCost),
 				                "availableCubicMeters": isNull(args.aggregateReceiptLineItems[0].sum.cubicMeters) ? 0.0 : decimal(args.aggregateReceiptLineItems[0].sum.cubicMeters),
-				                "receiptLineItems": args.receiptLineItems.collection.map(rli, {
+				                "receiptLineItems": args.receiptLineItems.edges.map(edge, edge.node).map(rli, {
 				                    "id": rli.id,
 				                    "subtotalCost": rli.subtotalCost,
 				                    "cubicMeters": isNull(rli.cubicMeters) ? 0.0 : decimal(rli.cubicMeters),
@@ -146,6 +150,7 @@ allocateCost: pipeline.#Resolver & {
 				}
 				"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 					mutation ($input: [ReceiptLineItemCreateInput]) {
 					    bulkUpsertReceiptLineItems(input: $input)

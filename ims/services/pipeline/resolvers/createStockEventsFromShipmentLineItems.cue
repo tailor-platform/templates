@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"github.com/tailor-platform/tailorctl/schema/v2/pipeline"
+	"tailor.build/template/environment"
 	"tailor.build/template/services/pipeline:settings"
 )
 
@@ -79,6 +80,7 @@ createStockEventsFromShipmentLineItems: pipeline.#Resolver & {
 								"shipmentID": each
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query ($shipmentID: ID!) {
 										shipmentLineItem(id: $shipmentID) {
@@ -118,27 +120,30 @@ createStockEventsFromShipmentLineItems: pipeline.#Resolver & {
 			Description: "Get the stock summary records"
 			Invoker:     settings.adminInvoker
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									query {
 										stockSummaries {
-											collection{
-												id
-												variantID
-												availableQuantity
+											edges {
+												node {
+													id
+													variantID
+													availableQuantity
+												}
 											}
 										}
 									}"""
 			}
 			PostScript: """
 							{
-								"stockSummaries": args.stockSummaries.collection,
+								"stockSummaries": args.stockSummaries.edges.map(edge, edge.node),
 								"shipmentLineItemsWithoutEnoughStock": context.pipeline.filteredShipmentLineItems
 								.map(sli, {
 									"variantID": sli.variantID,
 									"displayName": sli.variant.displayName,
 									"quantity": sli.quantity,
-									"availableQuantity": size(args.stockSummaries.collection.filter(ss, ss.variantID == sli.variantID)) > 0 ?
-										args.stockSummaries.collection.filter(ss, ss.variantID == sli.variantID)[0].availableQuantity : 0
+									"availableQuantity": size(args.stockSummaries.edges.map(edge, edge.node).filter(ss, ss.variantID == sli.variantID)) > 0 ?
+										args.stockSummaries.edges.map(edge, edge.node).filter(ss, ss.variantID == sli.variantID)[0].availableQuantity : 0
 								})
 								.filter(sli, sli.quantity > sli.availableQuantity)
 							}"""
@@ -206,6 +211,7 @@ createStockEventsFromShipmentLineItems: pipeline.#Resolver & {
 								"input": each
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation ($input: OperationalStockEventCreateInput!) {
 										createOperationalStockEvent(input: $input){
@@ -225,6 +231,7 @@ createStockEventsFromShipmentLineItems: pipeline.#Resolver & {
 								"stockEventID": each
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation ($stockEventID: ID!) {
 										calculateStockEventAndUpdateStockSummary(input: {stockEventID: $stockEventID})
@@ -247,6 +254,7 @@ createStockEventsFromShipmentLineItems: pipeline.#Resolver & {
 									"DRAFT"
 							}"""
 			Operation: pipeline.#GraphqlOperation & {
+				AppName: environment.#app.namespace
 				Query: """
 									mutation ($shipmentLineItemID: ID!, $status: ShipmentLineItemShipmentStatus!) {
 										updateShipmentLineItem(id: $shipmentLineItemID, input: {shipmentStatus: $status}) {

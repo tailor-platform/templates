@@ -87,8 +87,10 @@ computeManufacturingOrderCost: pipeline.#Resolver & {
 						}
 
 						workOrders(query: {moId: {eq: $manufacturingOrderId}, isDeleted: {eq: false}}) {
-							collection {
-								id
+							edges {
+								node {
+									id
+								}
 							}
 						}
 
@@ -103,7 +105,7 @@ computeManufacturingOrderCost: pipeline.#Resolver & {
 				{
 					"manufacturingOrder": args.manufacturingOrder,
 				    "moLineItemsTotalCost": isNull(args.aggregateMOLineItems[0].sum.totalCost) ? 0.0 : decimal(args.aggregateMOLineItems[0].sum.totalCost),
-					"workOrders": args.workOrders,
+					"workOrders": args.workOrders.edges.map(edge, edge.node),
 					"quantity": get(args.manufacturingOrder.quantity, 0),
 				}"""
 			PostValidation: """
@@ -115,8 +117,8 @@ computeManufacturingOrderCost: pipeline.#Resolver & {
 		{
 			Name:        "calculateCostForWorkOrder"
 			Description: "Calculates the total cost and duration for each Work Order associated with a Manufacturing Order. Iterates through the collection of Work Orders to perform individual cost calculations.",
-			ForEach:	 "context.pipeline.fetchMOLineItemsAndWorkOrders.workOrders.collection"
-			Test: 		 "size(context.pipeline.fetchMOLineItemsAndWorkOrders.workOrders.collection) > 0"
+			ForEach:	 "context.pipeline.fetchMOLineItemsAndWorkOrders.workOrders"
+			Test: 		 "size(context.pipeline.fetchMOLineItemsAndWorkOrders.workOrders) > 0"
 			PreScript: """
 			{
 				"workOrderId": each.id,

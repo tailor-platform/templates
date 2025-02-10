@@ -60,24 +60,26 @@ createInvoiceForPurchaseOrder: pipeline.#Resolver & {
 				Query: """
 					  query fetchPurchaseOrderLineItems($purchaseOrderID: ID!) {
 					    purchaseOrderLineItems(query: {purchaseOrderID: { eq: $purchaseOrderID}}) {
-					      collection {
-					        id
-					        displayOrder
-					        product {
-					          id
-					          name
-					          description
-					          price
-					        }
-					        productID
-					        price
-					        quantity
+					      edges {
+									node {
+										id
+										displayOrder
+										product {
+											id
+											name
+											description
+											price
+										}
+										productID
+										price
+										quantity
+									}
 					      }
 					    }
 					  }
 					"""
 			}
-			PostScript: "args.purchaseOrderLineItems.collection"
+			PostScript: "args.purchaseOrderLineItems.edges"
 		},
 		{
 			Name:        "createInvoice"
@@ -109,12 +111,12 @@ createInvoiceForPurchaseOrder: pipeline.#Resolver & {
 			PreScript: """
 				{
 				  "input": {
-				    "displayOrder": each.displayOrder,
+				    "displayOrder": each.node.displayOrder,
 				    "invoiceID": context.pipeline.createInvoice.id,
-				    "purchaseOrderLineItemID": each.id,
-				    "productID": each.productID,
-				    "price": each.price,
-				    "quantity": each.quantity,
+				    "purchaseOrderLineItemID": each.node.id,
+				    "productID": each.node.productID,
+				    "price": each.node.price,
+				    "quantity": each.node.quantity,
 				  }
 				}
 				"""
