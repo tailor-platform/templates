@@ -5,7 +5,3 @@ variable "client_id" {
 variable "provider_url" {
   type = string
 }
-
-variable "pat" {
-  type = string
-}
