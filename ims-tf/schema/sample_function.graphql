@@ -1,0 +1,10 @@
+input functionSampleHelloInput {
+    message: String!
+}
+type functionSampleResponse {
+    message: String
+}
+
+extend type Mutation {
+    functionSampleHello(input: functionSampleHelloInput!): functionSampleResponse!
+}

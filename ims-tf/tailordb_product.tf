@@ -13,6 +13,7 @@ resource "tailor_tailordb_type" "product" {
       type        = "string"
       description = "Title of the product"
       index       = true
+      unique       = true
       required    = true
     }
     description = {

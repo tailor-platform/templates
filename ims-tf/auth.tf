@@ -31,7 +31,7 @@ resource "tailor_auth_machine_user" "r2d2" {
   workspace_id = tailor_workspace.ims.id
   namespace    = tailor_auth.ims_auth.namespace
 
-  name = "r2d2"
+  name = "admin-machine-user"
   attributes = [
     uuid(),
   ]

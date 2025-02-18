@@ -1,0 +1,18 @@
+{
+  "name": "ims-tf",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "node esbuild.config.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "kysely-codegen": "^0.17.0",
+    "typescript": "5.7.2"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

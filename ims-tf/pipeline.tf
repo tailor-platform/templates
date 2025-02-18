@@ -7,5 +7,8 @@ resource "tailor_pipeline" "ims" {
 type Mutation {
   dummy: Boolean
 }
+type Query {
+  dummy: Boolean
+}
 EOF
 }
