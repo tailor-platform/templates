@@ -1,0 +1,9 @@
+input insertDataInput {
+  title: String!
+}
+type insertDataResponse {
+  success: Boolean
+}
+extend type Mutation {
+  insertData(input: insertDataInput!): insertDataResponse
+}
