@@ -1,6 +1,6 @@
 import { Kysely } from "kysely";
 import { PostgresDialect, Serializer, transform } from "kysely-codegen";
-import { TailordbDialect } from "./adapter";
+import { TailordbDialect } from "@tailor-platform/function-kysely-tailordb";
 
 export default async (args: { namespace: string }) => {
   const client = new tailordb.Client({

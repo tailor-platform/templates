@@ -15,6 +15,12 @@ importers:
         specifier: ^0.17.0
         version: 0.17.0(kysely@0.27.5)
     devDependencies:
+      '@tailor-platform/function-kysely-tailordb':
+        specifier: ^0.1.0
+        version: 0.1.0(kysely@0.27.5)
+      '@tailor-platform/function-types':
+        specifier: ^0.1.4
+        version: 0.1.4
       '@tsconfig/recommended':
         specifier: ^1.0.8
         version: 1.0.8
@@ -179,6 +185,15 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@tailor-platform/function-kysely-tailordb@0.1.0':
+    resolution: {integrity: sha512-nRYzoeo6ZqEmb02mAZRAEpitx4XZ2b48z1l75k0eM9HhCZ4GBR800c8ctq2am+rv9Djd0xhEUQbJvxXprTpouQ==}
+    engines: {node: 22.x}
+    peerDependencies:
+      kysely: 0.27.5
+
+  '@tailor-platform/function-types@0.1.4':
+    resolution: {integrity: sha512-UUNhLermTPd6ngji3LQ+Nv+G1fuvGRqnKktgAGcU4KaLAw9/QLmXW2PQZNb4vjWkL7x2QcFxyKBxnADn/CRk3A==}
 
   '@tsconfig/recommended@1.0.8':
     resolution: {integrity: sha512-TotjFaaXveVUdsrXCdalyF6E5RyG6+7hHHQVZonQtdlk1rJZ1myDIvPUUKPhoYv+JAzThb2lQJh9+9ZfF46hsA==}
@@ -504,6 +519,12 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.0':
     optional: true
+
+  '@tailor-platform/function-kysely-tailordb@0.1.0(kysely@0.27.5)':
+    dependencies:
+      kysely: 0.27.5
+
+  '@tailor-platform/function-types@0.1.4': {}
 
   '@tsconfig/recommended@1.0.8': {}
 
