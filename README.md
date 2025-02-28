@@ -1,6 +1,6 @@
 # Deploy the app template
 
-To deploy our app templates, you need tailorctl and a Tailor account.  
+To deploy our app templates, you need tailorctl and a Tailor account.
 If you don’t have a Tailor account,
 please [contact us](https://form.typeform.com/to/QONhVIuj?typeform-source=www.tailor.tech).
 
@@ -24,7 +24,6 @@ To get started with our app templates follow the steps below:
 ```bash
 git clone git@github.com:tailor-platform/templates.git
 cd templates
-pnpm i
 ```
 
 ### 2. Choose an app template
