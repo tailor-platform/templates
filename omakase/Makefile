@@ -14,6 +14,7 @@ machine-token:
 init:
 	tailorctl manifest tidy
 	ex +'sil! %s/{{UUID}}/'${UUID}'/g' -cwq environment/env.cue
+	pnpm i
 
 .PHONY: app
 app:
@@ -40,7 +41,6 @@ demo:
 
 .PHONY: setup
 setup:
-	pnpm i
 	$(call _install_deps)
 
 .PHONY: vet
