@@ -12,7 +12,9 @@ resource "tailor_executor" "slack_notification" {
 
   operation = {
 	webhook = {
-	  url = "https://hooks.slack.com/services/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"
+	  url = <<EOF
+    "https://hooks.slack.com/services/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"
+    EOF
       headers = [
         {
           key       = "Content-Type"
