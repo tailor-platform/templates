@@ -13,7 +13,7 @@ resource "tailor_executor" "slack_notification" {
   operation = {
 	webhook = {
 	  url = <<EOF
-    "https://hooks.slack.com/services/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"
+    "https://hooks.slack.com/services/yourServiceName"
     EOF
       headers = [
         {
@@ -23,7 +23,7 @@ resource "tailor_executor" "slack_notification" {
       ]
       body = <<EOF
         ({
-            "text": "New Product Registration :tada:"
+            "text": "New Product Registration :tada: " + args.newRecord.title
         })
       EOF
 	}
@@ -69,13 +69,13 @@ resource "tailor_executor" "event_based_executor" {
 resource "tailor_executor" "eventbased_executor_2" {
   workspace_id = tailor_workspace.ims.id
   name         = "eventbased-executor-2"
-  description  = "Create new product based on the event"
+  description  = "Create new product based on a successful event"
 
   trigger = {
     event = {
       type   = "pipeline.resolver.executed"
       condition = <<EOF
-        args.namespaceName == "ims" && args.resolverName == "createShipmentFromSalesOrder" && args.succeeded != null
+        args.namespaceName == "ims" && args.resolverName == "createCategoryForProduct" && args.succeeded != null
       EOF
     }
   }
@@ -95,8 +95,44 @@ resource "tailor_executor" "eventbased_executor_2" {
     EOF
     variables = <<EOF
       ({
-		  "title": args.succeeded.result.pipelines.createShipment.id,
+		  "title": args.succeeded.result.pipelines.createProduct.id,
 		  "description": "Created with a trigger"
+	  })
+    EOF
+    }
+  }
+}
+
+resource "tailor_executor" "eventbased_executor_4" {
+  workspace_id = tailor_workspace.ims.id
+  name         = "eventbased-executor-4"
+  description  = "Create new product based on a failed pipeline"
+
+  trigger = {
+    event = {
+      type   = "pipeline.resolver.executed"
+      condition = <<EOF
+        args.namespaceName == "ims" && args.resolverName == "createCategoryForProduct" && args.failed != null
+      EOF
+    }
+  }
+
+  operation = {
+    tailor_graphql = {
+      app_name = tailor_application.ims.name
+      invoker = {
+        event_user = true
+      }
+    query     = <<EOF
+      mutation createProduct($title: String!) {
+		createProduct(input: {title: $title}) {
+		  id
+		}
+	  }
+    EOF
+    variables = <<EOF
+      ({
+		  "title": args.failed.error
 	  })
     EOF
     }

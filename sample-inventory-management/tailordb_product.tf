@@ -53,6 +53,10 @@ resource "tailor_tailordb_type" "product" {
       }
       ]
     }
+    categoryID = {
+      type        = "uuid"
+      description = "Category of the product"
+    }
   }
 
   type_permission = local.permission_everyone
