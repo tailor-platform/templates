@@ -12,8 +12,8 @@ resource "tailor_pipeline_resolver" "add_user" {
 
   steps = [
   {
-    name     = "addUserStep"
-    pre_hook = <<EOF
+    name     = "createUserInfo"
+    pre_script = <<EOF
     ({
       "name": context.args.input.name,
       "email": context.args.input.email
@@ -37,11 +37,8 @@ resource "tailor_pipeline_resolver" "add_user" {
         EOF
       }
     }
-    post_hook = <<EOF
-    ({
-      "id": args.addUser.id,
-      "name": args.addUser.name,
-    })
+    post_script = <<EOF
+      args.createUser
     EOF
   }]
 }

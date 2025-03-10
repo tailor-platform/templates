@@ -3,7 +3,7 @@ input addUserInput {
   email: String!
 }
 type addUserResponse {
-  id: UUID!
+  id: ID!
   name: String!
 }
 extend type Mutation {
