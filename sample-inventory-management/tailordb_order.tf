@@ -21,33 +21,33 @@ resource "tailor_tailordb_type" "order" {
       type        = "enum"
       description = "Order type. Either purchase or sales"
       allowed_values = [
-		{
+		    {
           value       = "PURCHASE"
           description = "PURCHASE type"
-		},
-		{
+		    },
+		    {
           value       = "SALES"
           description = "SALES type"
-		}
-	  ]
+		    }
+	    ]
     }
     orderType = {
       type        = "enum"
       description = "Order status"
       allowed_values = [
-		{
+		    {
           value       = "PENDING"
           description = "PENDING type"
-		},
-		{
+		    },
+		    {
           value       = "COMPLETED"
           description = "COMPLETED type"
-		},
+		    },
         {
           value       = "SALES"
           description = "SALES type"
-		}
-	  ]
+		    }
+	    ]
     }
     contactId = {
       type        = "uuid"

@@ -37,11 +37,28 @@ resource "tailor_tailordb_type" "order_item" {
       type     = "integer"
       description = "quantity"
     }
-    unitPrice = {
+    price = {
       type     = "float"
       description = "unit price"
     }
+    totalPrice = {
+      type        = "integer"
+      description = "Total price of a certain product"
+      hooks = {
+        create = "_data.price * _data.quantity"
+        update = "_data.price * _data.quantity"
+      }
+      validate = [
+        {
+          expr   = "_value < 100"
+          action = "deny"
+        },
+        {
+          expr   = "_value.price < 10"
+          action = "deny"
+        },
+      ]
+    }
   }
-
   type_permission = local.permission_everyone
 }
