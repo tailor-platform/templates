@@ -37,12 +37,12 @@ resource "tailor_executor" "event_based_executor" {
 
   trigger = {
     event = {
-      type   = "tailordb.type_record.deleted"
+      type      = "tailordb.type_record.created"
       condition = <<EOF
-        args.namespaceName == "ims" && args.typeName == "Order"
-      EOF
+        args.namespaceName == "ims" && args.typeName == "Category"
+        EOF
+        }
     }
-  }
 
   operation = {
     tailor_graphql = {
@@ -51,24 +51,28 @@ resource "tailor_executor" "event_based_executor" {
         event_user = true
       }
       query     = <<EOF
-        mutation createOrderItem($quantity: integer!) {
-          createOrderItem( quantity: $quantity)
+        mutation createProduct($categoryID: ID!, $title: String!) {
+        createProduct(input: {
+            categoryID: $categoryID
+            title: $title
+        }) {
+            id
         }
-      EOF
+        }
+        EOF
       variables = <<EOF
         ({
-            input: {
-  			"quantity": args.newRecord.quantity
-  		  }
+        "categoryID": args.newRecord.id,
+        "title": args.newRecord.name + "Product"
         })
-      EOF
+        EOF
     }
   }
 }
 
-resource "tailor_executor" "eventbased_executor_2" {
+resource "tailor_executor" "eventbased_executor_pipeline_1" {
   workspace_id = tailor_workspace.ims.id
-  name         = "eventbased-executor-2"
+  name         = "eventbased-executor-pipeline-1"
   description  = "Create new product based on a successful event"
 
   trigger = {
@@ -103,9 +107,9 @@ resource "tailor_executor" "eventbased_executor_2" {
   }
 }
 
-resource "tailor_executor" "eventbased_executor_4" {
+resource "tailor_executor" "eventbased_executor_pipeline_2" {
   workspace_id = tailor_workspace.ims.id
-  name         = "eventbased-executor-4"
+  name         = "eventbased-executor-pipeline-2"
   description  = "Create new product based on a failed pipeline"
 
   trigger = {
@@ -149,31 +153,23 @@ resource "tailor_executor" "incoming_webhook_based_executor" {
   }
 
   operation = {
-	webhook = {
-	  url = "http://localhost"
-	}
-  }
-}
-
-resource "tailor_executor" "scheduled_event_executor" {
-  workspace_id = tailor_workspace.ims.id
-  name         = "scheduled-event-executor"
-  description  = "execute query after an event"
-
-  trigger = {
-    schedule = {
-	  frequency = "* * * * *"
-	  timezone = "UTC"
-	}
-  }
-
-  operation = {
-    webhook = {
-      url = "http://localhost"
-	  secret = {
-		secret_name = "key"
-		vault_name = "vault"
-	  } 
+	tailor_graphql = {
+      app_name = tailor_application.ims.name
+      invoker = {
+        event_user = true
+      }
+    query     = <<EOF
+      mutation createProduct($title: String!) {
+		createProduct(input: {title: $title}) {
+		  id
+		}
+	  }
+    EOF
+    variables = <<EOF
+      ({
+		  "title": args.title
+	  })
+    EOF
     }
   }
 }

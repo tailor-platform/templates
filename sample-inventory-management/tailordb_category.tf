@@ -6,17 +6,25 @@ resource "tailor_tailordb_type" "category" {
 
   settings = {
     bulk_upsert = true
+    publish_record_events = true
   }
 
   fields = {
     name = {
       type        = "string"
       description = "Name of the category."
-	}
+	  }
     description = {
       type        = "string"
       description = "Description of the category."
-	}
+	  }
+    createdAt = {
+      type        = "datetime"
+      description = "Creation date of the category"
+      hooks = {
+        create = "(new Date()).toISOString()"
+      }
+    }
   }
 
   type_permission = local.permission_everyone
