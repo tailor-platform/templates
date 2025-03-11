@@ -57,6 +57,14 @@ resource "tailor_tailordb_type" "product" {
       type        = "uuid"
       description = "Category of the product"
     }
+    itemCode = {
+      type     = "string"
+      validate = [{
+        script        =  "((value, data) => { return !user.attributes.includes(\"your-editor-id\") })(_value, _data)"
+        action        = "deny"
+        error_message =  "To create an item, you must have editor role"
+      }]
+    }
   }
 
   type_permission = local.permission_everyone
