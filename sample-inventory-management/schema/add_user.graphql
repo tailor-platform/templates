@@ -1,0 +1,11 @@
+input addUserInput {
+  name: String!
+  email: String!
+}
+type addUserResponse {
+  id: ID!
+  name: String!
+}
+extend type Mutation {
+  addUser(input: addUserInput!): addUserResponse
+}
