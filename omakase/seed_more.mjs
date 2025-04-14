@@ -51,21 +51,21 @@ async function configureEnvironment() {
     }
   } while (!workspace);
 
-  if (workspace[0].name) {
+  if (workspace.name) {
     if (!skipPrompts) {
       const continuePrompt = await prompts({
         type: "confirm",
         name: "value",
-        message: `Do you want to use the workspace ${workspace[0].name}?`,
+        message: `Do you want to use the workspace ${workspace.name}?`,
         initial: true,
       });
       if (!continuePrompt.value) {
         await selectWorkspace();
       } else {
-        selectedWorkspace = workspace[0];
+        selectedWorkspace = workspace;
       }
     } else {
-      selectedWorkspace = workspace[0]; // Auto-select the first workspace
+      selectedWorkspace = workspace; // Auto-select the first workspace
     }
   }
   const appsJsonString = await $$({
