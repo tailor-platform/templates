@@ -20,4 +20,3 @@ export interface User {
 export interface DB {
   User: User;
 }
-
