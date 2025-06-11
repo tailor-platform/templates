@@ -9,7 +9,7 @@ provider "tailor" {}
 
 resource "tailor_workspace" "demo" {
   name   = "demo"
-  region = "local"
+  region = "asia-northeast"
 }
 resource "tailor_application" "demo" {
   workspace_id = tailor_workspace.demo.id
