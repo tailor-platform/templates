@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test-run": "pnpm run build && tailorctl workspace function test-run -a demo -m admin -s ./dist/insert-default-value.js",
+    "test-run": "pnpm run build && tailorctl workspace function test-run -a demo -m admin -s ./dist/vector-search.js",
     "build": "node ./build.mjs",
     "kysely-codegen": "kysely-tailordb-codegen -a demo -n demo -m admin -o ./types/tailordb.ts"
   },
