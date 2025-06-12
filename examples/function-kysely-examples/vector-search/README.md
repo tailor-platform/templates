@@ -1,4 +1,4 @@
-# function-kysely-examples/insert-default-value
+# function-kysely-examples/vector-search
 
 ## Usage
 
@@ -9,7 +9,7 @@ terraform init
 terraform apply
 ```
 
-2. Run [the example function](./function/src/insert-default-value.ts)
+2. Run [the example function](./function/src/vector-search.ts)
 
 ```sh
 cd ./funciton

@@ -22,10 +22,10 @@ resource "tailor_application" "demo" {
     {
       type      = "tailordb"
       namespace = tailor_tailordb.demo.namespace
-    },
+    }
   ]
   depends_on = [
-    tailor_tailordb_type.user,
+    tailor_tailordb_type.product,
   ]
 }
 
