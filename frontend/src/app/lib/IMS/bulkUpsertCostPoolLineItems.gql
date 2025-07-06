@@ -1,3 +1,0 @@
-mutation BulkUpsertCostPoolLineItems ($input: [CostPoolLineItemCreateInput]) {
-    bulkUpsertCostPoolLineItems(input: $input)
-}

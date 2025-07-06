@@ -4,6 +4,7 @@ import (
 	"github.com/tailor-platform/tailorctl/schema/v2/application"
 	"github.com/tailor-platform/tailorctl/schema/v2/common"
 	"tailor.build/template/services/auth"
+	"tailor.build/template/services/stateflow"
 	"tailor.build/template/services/tailordb"
 	"tailor.build/template/services/pipeline"
 	"tailor.build/template/environment"
@@ -23,5 +24,7 @@ application.#Spec & {
 	Subgraphs: [
 		{Type: common.#TailorDB, Name: tailordb.Namespace},
 		{Type: common.#Pipeline, Name: pipeline.Namespace},
+		{Type: common.#StateFlow, Name:  stateflow.Namespace},
+		{Type: common.#Auth, Name: auth.Namespace},
 	]
 }

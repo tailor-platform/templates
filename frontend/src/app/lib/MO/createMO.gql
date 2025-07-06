@@ -1,8 +1,0 @@
-
-mutation ($input: createManufacturingInput!) {
-  createManufacturingOrderAndWorkOrders(
-    input:$input
-  ) {
-    manufacturingOrderId
-  }
-}

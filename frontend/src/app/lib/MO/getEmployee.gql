@@ -1,9 +1,0 @@
-query MyQuery {
-  employees (query: {isActive: {eq: true}}) {
-    collection {
-      id
-      name
-      role
-    }
-  }
-}

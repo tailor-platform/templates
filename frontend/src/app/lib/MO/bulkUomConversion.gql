@@ -1,3 +1,0 @@
-mutation ($input: [UomConversionCreateInput]) {
-    bulkUpsertUomConversions (input: $input)
-}

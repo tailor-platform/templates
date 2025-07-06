@@ -1,3 +1,0 @@
-mutation ($input: [EmployeeCreateInput]!) {
-  bulkUpsertEmployees( input:  $input)
-}

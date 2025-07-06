@@ -2,7 +2,8 @@ input functionGetPokemonInput {
     pokemon: String!
 }
 type functionGetPokemonResponse {
-    species: String
+    species: String,
+    userId: String,
 }
 
 extend type Query {

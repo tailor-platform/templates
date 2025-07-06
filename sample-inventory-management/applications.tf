@@ -11,7 +11,7 @@ resource "tailor_application" "ims" {
   ]
   auth = {
     namespace       = tailor_auth.ims_auth.namespace
-    idp_config_name = tailor_auth_idp_config.idp_config.name
+    idp_config_name = tailor_auth_idp_config.saml.name
   }
   subgraphs = [
     {
@@ -25,6 +25,10 @@ resource "tailor_application" "ims" {
     {
       type      = "auth"
       namespace = tailor_auth.ims_auth.namespace
+    },
+    {
+      type      = "stateflow"
+      namespace = tailor_stateflow.ims.namespace
     }
   ]
 }

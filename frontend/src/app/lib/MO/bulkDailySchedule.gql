@@ -1,5 +1,0 @@
-mutation MyMutation($input:[DailyScheduleCreateInput]) {
-  bulkUpsertDailySchedules(
-    input: $input
-  )
-}

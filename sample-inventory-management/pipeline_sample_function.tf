@@ -17,7 +17,7 @@ resource "tailor_pipeline_resolver" "sample_function" {
         function = {
           name      = "functionSampleHello"
           script = file("${path.module}/scripts/sample_function.js")
-          variables = "({ message: context.args.input.message })"
+          variables = "({ message: user.id })"
         }
       }
       post_script = <<EOF

@@ -1,7 +1,0 @@
-mutation ($input: ReceiptCreateInput!) {
-  createReceipt(
-    input: $input
-  ){
-    id
-  }
-}

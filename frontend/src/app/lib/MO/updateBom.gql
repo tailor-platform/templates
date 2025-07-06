@@ -1,6 +1,0 @@
-mutation ($id: ID!, $input: BomUpdateInput!) {
-  updateBom(id: $id, input: $input) {
-    id
-    name
-  }
-}

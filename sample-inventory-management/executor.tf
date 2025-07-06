@@ -40,9 +40,9 @@ resource "tailor_executor" "event_based_executor" {
       type      = "tailordb.type_record.created"
       condition = <<EOF
         args.namespaceName == "ims" && args.typeName == "Category"
-        EOF
-        }
+      EOF
     }
+  }
 
   operation = {
     tailor_graphql = {
@@ -136,7 +136,7 @@ resource "tailor_executor" "eventbased_executor_pipeline_2" {
     EOF
     variables = <<EOF
       ({
-		  "title": args.failed.error
+		  "title": args.actor.workspaceId
 	  })
     EOF
     }

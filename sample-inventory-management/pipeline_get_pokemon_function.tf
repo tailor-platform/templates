@@ -16,7 +16,7 @@ resource "tailor_pipeline_resolver" "pipeline_get_pokemon_function" {
         function = {
           name = "getPokemon"
           script = file("${path.module}/scripts/dist/get_pokemon_function.js")
-          variables = "({ pokemon: context.args.input.pokemon })"
+          variables = "({ pokemon: context.args.input.pokemon, userId: context.args.user.id })"
         }
       }
       post_script = <<EOF

@@ -1,6 +1,0 @@
-mutation MyMutation($input: addBatchMoInput!) {  
-addBatchMo(input: $input
-){    
-batchManufacturingOrderId  
-}
-} 

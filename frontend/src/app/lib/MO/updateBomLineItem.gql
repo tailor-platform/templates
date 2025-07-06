@@ -1,6 +1,0 @@
-mutation ($id: ID!, $input: BomLineItemUpdateInput!) {
-  updateBomLineItem(id: $id, input: $input) {
-    id
-  }
-}
-

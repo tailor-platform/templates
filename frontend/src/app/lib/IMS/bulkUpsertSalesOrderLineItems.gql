@@ -1,3 +1,0 @@
-mutation BulkUpsertSalesOrderLineItems ($input: [SalesOrderLineItemCreateInput]) {
-    bulkUpsertSalesOrderLineItems(input: $input)
-}

@@ -1,3 +1,0 @@
-mutation ($input: [UomCreateInput]) {
-    bulkUpsertUoms (input: $input)
-}

@@ -19,6 +19,12 @@ resource "tailor_tailordb_type" "product" {
     description = {
       type        = "string"
       description = "Description of the product"
+      vector      = "true"
+      validate    = [{
+        script        = "((value, data) => { return !(value.length < 10)})(_value, _data)"
+        action        = "deny"
+        error_message = "Description length should be less than 10 characters."
+      }]
     }
     shopifyID = {
 			type        = "string"
@@ -47,7 +53,13 @@ resource "tailor_tailordb_type" "product" {
       validate      = [
       // reportNumber value must be less than 100 or over 103
       {
-        script        = "((value, data) => { return value >=100 && value <=103})(_value, _data)"
+        script        = <<EOF
+        ((value, data) => { 
+          console.log(value)
+          console.log(data)
+          return value >=100 && value <=103
+          })(_value, _data)
+        EOF
         action        = "deny"
         error_message = "inStock value must be less than 100 or over 103"
       }

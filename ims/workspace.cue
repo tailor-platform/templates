@@ -6,11 +6,13 @@ import (
 	"tailor.build/template/services/tailordb"
 	"tailor.build/template/services/pipeline"
 	"tailor.build/template/services/auth"
+	"tailor.build/template/services/executor"
+	"tailor.build/template/services/stateflow"
 )
 
 v2.#Workspace & {
 	Apps: [
 		application,
 	]
-	Services: [tailordb, pipeline, auth]
+	Services: [tailordb, pipeline, auth, executor, stateflow]
 }

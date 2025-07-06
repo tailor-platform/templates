@@ -75,7 +75,7 @@ resource "tailor_pipeline_resolver" "pipeline_create_category_for_product" {
           EOF
         }
       }
-      post_script: "args.createProduct"
+    post_script: "args.createProduct"
     },
   ]
 }

@@ -3,13 +3,13 @@ resource "tailor_pipeline" "ims" {
   namespace    = "ims"
 
   common_sdl = <<EOF
-# here we define common types used in the pipeline
-type Query {
-  dummy: Boolean
-}
+  # here we define common types used in the pipeline
+  type Query {
+    dummy: Boolean
+  }
 
-type Mutation {
-  dummy: Boolean
-}
-EOF
+  type Mutation {
+    dummy: Boolean
+  }
+  EOF
 }

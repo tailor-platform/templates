@@ -9,7 +9,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "esbuild": "^0.25.0",
     "graphql-request": "^7.1.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
   }
 }
