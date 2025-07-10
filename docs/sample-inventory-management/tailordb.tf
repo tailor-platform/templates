@@ -34,7 +34,7 @@ locals {
       {
         attributes = [
           "everyone",
-          tailor_auth_machine_user.r2d2.attributes[0],
+          tailor_auth_machine_user.admin_machine_user.attributes[0],
         ]
         permit = "allow"
       }
