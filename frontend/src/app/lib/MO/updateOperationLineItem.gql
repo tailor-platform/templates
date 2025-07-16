@@ -1,5 +1,0 @@
-mutation MyMutation($id: ID! , $input: OperationLineItemUpdateInput!) {
-  updateOperationLineItem(id: $id, input: $input) {
-    id
-  }
-}

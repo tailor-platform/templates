@@ -1,9 +1,0 @@
-mutation MyMutation($id: ID!,$input:WorkOrderUpdateInput) {
-  updateWorkOrder(
-    id: $id
-    input: $input
-  ){
-    id
-    isDeleted
-  }
-}

@@ -1,5 +1,0 @@
-mutation MyMutation($input:[WorkingHourCreateInput]) {
-  bulkUpsertWorkingHours(
-    input: $input
-  )
-}

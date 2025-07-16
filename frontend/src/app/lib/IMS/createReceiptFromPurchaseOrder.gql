@@ -1,7 +1,0 @@
-mutation ($purchaseOrderID: ID!) {
-  createReceiptFromPurchaseOrder(
-    input: {
-      purchaseOrderID: $purchaseOrderID
-    }
-  )
-}

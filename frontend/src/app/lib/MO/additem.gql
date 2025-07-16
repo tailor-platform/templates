@@ -1,6 +1,0 @@
-mutation ($input: ItemCreateInput!) {
-    createItem (input: $input) {
-        id
-		name
-	}
-}

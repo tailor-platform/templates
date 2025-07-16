@@ -1,5 +1,0 @@
-mutation ($id: ID!, $input: UomConversionUpdateInput!) {
-  updateUomConversion(id: $id, input: $input) {
-    id
-  }
-}

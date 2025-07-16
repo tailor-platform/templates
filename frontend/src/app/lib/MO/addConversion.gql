@@ -1,8 +1,0 @@
-mutation ($input: UomConversionCreateInput!) {
-    createUomConversion (input: $input) {
-        id
-        toUomId
-        fromUomId
-        conversionFactor
-	}
-}

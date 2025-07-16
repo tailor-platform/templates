@@ -1,7 +1,0 @@
-mutation ($shipmentID: ID!) {
-  createInvoiceFromShipment(
-    input: {
-      shipmentID: $shipmentID
-    }
-  )
-}
