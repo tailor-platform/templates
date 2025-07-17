@@ -1,7 +1,0 @@
-mutation ($input:cancelWorkOrderInput!) {
-  cancelWorkOrder(
-    input: $input
-  ){
-   success
-  }
-}

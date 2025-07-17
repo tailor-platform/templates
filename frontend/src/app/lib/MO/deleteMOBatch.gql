@@ -1,5 +1,0 @@
-mutation MyMutation($input: removeBatchManufacturingOrderInput! ) {
-  removeBatchManufacturingOrder(input: $input) {
-    success
-  }
-}

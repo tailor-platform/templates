@@ -1,3 +1,0 @@
-mutation MyMutation($id: ID!) {
-  deleteOperationLineItem(id: $id)
-}

@@ -1,8 +1,0 @@
-mutation ($id: ID!, $input: ReceiptUpdateInput!) {
-  updateReceipt(
-    id: $id,
-    input: $input
-  ){
-    id
-  }
-}

@@ -1,8 +1,0 @@
-mutation ($id: ID!, $input: ProductUpdateInput!) {
-  updateProduct(
-    id: $id,
-    input: $input
-  ){
-    id
-  }
-}

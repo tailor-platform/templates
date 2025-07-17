@@ -1,8 +1,0 @@
-mutation ($input:cancelManufacturingOrderInput!) {
-  cancelManufacturingOrder(
-    input: $input
-  ){
-    manufacturingOrderId
-    success
-  }
-}

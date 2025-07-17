@@ -1,9 +1,0 @@
-mutation ($receiptLineItemIDs: [ID]!) {
-  createStockEventsFromReceiptLineItems(
-    input: {
-      receiptLineItemIDs: $receiptLineItemIDs
-    }
-  ){
-    stockEventIDs
-  }
-}

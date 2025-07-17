@@ -1,7 +1,0 @@
-mutation ($id: ID!, $input: UomUpdateInput!) {
-  updateUom(id: $id, input: $input) {
-    id
-    name
-    description
-  }
-}

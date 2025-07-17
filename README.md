@@ -10,41 +10,33 @@ To install tailorctl and other dependencies, you can use homebrew.
 
 ```
 brew install tailor-platform/tap/tailorctl
-brew install coreutils yq cue gh
+brew install hashicorp/tap/terraform
 ```
 
-For more details, please visit our [documentation](https://docs.tailor.tech/getting-started/quickstart).
+For more details, please visit our [documentation](https://docs.tailor.tech/getting-started/quickstart/terraform).
 
 To get started with our app templates follow the steps below:
 
 ## Quick Start
 
-### 1. Clone our app templates and install dependencies
+### 1. Clone our app template
 
 ```bash
 git clone git@github.com:tailor-platform/templates.git
-cd templates
+cd templates/docs/sample-inventory-management
 ```
 
-### 2. Choose an app template
+### 2. Run the following commands to deploy the app
 
 ```bash
-cd ${app_template}
+terraform init
+terraform apply
 ```
 
-### 3. Run the following commands to deploy the app
+### 3. Get the access token to use the GraphQL API in the playground
 
 ```bash
-tailorctl workspace create -i # follow the interactive prompt
-make init
-make apply
-make seed
-```
-
-### 4. Get the access token to use the GraphQL API in the playground
-
-```bash
-make machine-token
+tailorctl workspace machineuser token -a ims -m admin-machine-user
 ```
 
 Please set the token in the Headers section of the playground as follows:
@@ -57,5 +49,5 @@ Please set the token in the Headers section of the playground as follows:
 ### 5. Finally, open the GraphQL playground to run queries
 
 ```
-make app
+tailorctl workspace app open -n ims
 ```

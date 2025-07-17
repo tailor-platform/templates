@@ -1,7 +1,0 @@
-mutation MyMutation($input:updateManufacturingOrderStatusInput!) {
-  updateManufacturingOrderStatus(
-    input: $input
-  ){
-    success
-  }
-}

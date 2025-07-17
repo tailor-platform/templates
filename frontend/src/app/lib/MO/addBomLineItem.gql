@@ -1,5 +1,0 @@
-mutation ($input: BomLineItemCreateInput!) {
-  createBomLineItem(input: $input){
-    id
-  }
-}

@@ -1,5 +1,0 @@
-mutation MyMutation($input:[OperationLineItemCreateInput]) {
-  bulkUpsertOperationLineItems(
-    input: $input
-  )
-}

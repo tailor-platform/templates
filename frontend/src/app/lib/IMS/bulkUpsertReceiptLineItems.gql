@@ -1,3 +1,0 @@
-mutation BulkUpsertReceiptLineItems ($input: [ReceiptLineItemCreateInput]) {
-    bulkUpsertReceiptLineItems(input: $input)
-}

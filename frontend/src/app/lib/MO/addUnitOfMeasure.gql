@@ -1,7 +1,0 @@
-mutation ($input: UomCreateInput!) {
-  createUom(input: $input) {
-    id
-    name
-    isActive
-  }
-}

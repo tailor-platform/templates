@@ -1,5 +1,0 @@
-mutation MyMutation($input:[WorkCenterCreateInput]) {
-  bulkUpsertWorkCenters(
-    input: $input
-  )
-}

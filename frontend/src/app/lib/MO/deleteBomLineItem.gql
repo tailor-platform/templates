@@ -1,4 +1,0 @@
-mutation ($id: ID!) {
-    deleteBomLineItem (id: $id)
-}
-
