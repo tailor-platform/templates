@@ -1,7 +1,7 @@
 resource "tailor_tailordb_gql_permission" "product" {
-  workspace_id = tailor_workspace.demo.id
-  namespace    = tailor_tailordb.demo.namespace
-  type         = tailor_tailordb_type.example.name
+  workspace_id = tailor_workspace.ims.id
+  namespace    = tailor_tailordb.ims.namespace
+  type         = tailor_tailordb_type.product.name
 
   policies = [
     {
