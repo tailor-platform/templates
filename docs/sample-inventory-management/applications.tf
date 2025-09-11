@@ -1,5 +1,5 @@
 resource "tailor_application" "ims" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
 
   name = "ims"
   cors = [

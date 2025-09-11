@@ -1,5 +1,5 @@
 resource "tailor_workspace" "ims" {
-  name   = "ims"
+  name   = var.workspace_id
   region = "us-west"
 }
 

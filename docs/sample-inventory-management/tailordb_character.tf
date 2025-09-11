@@ -1,5 +1,5 @@
 resource "tailor_tailordb_type" "character" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   namespace    = tailor_tailordb.ims.namespace
   name         = "Character"
   description  = "Character data schema"
