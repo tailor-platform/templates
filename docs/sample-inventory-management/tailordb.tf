@@ -1,5 +1,5 @@
 resource "tailor_tailordb" "ims" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = "ims"
 }
 

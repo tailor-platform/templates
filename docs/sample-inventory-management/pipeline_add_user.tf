@@ -1,5 +1,5 @@
 resource "tailor_pipeline_resolver" "add_user" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = tailor_pipeline.ims.namespace
 
   name        = "addUser"

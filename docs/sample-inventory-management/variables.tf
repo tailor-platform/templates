@@ -8,6 +8,6 @@ variable "provider_url" {
 
 variable "workspace_id" {
   type        = string
-  description = "The workspace ID to use for all resources"
-  default     = "ims"
+  description = "The workspace ID to use for all resources. If empty, will use the default workspace resource."
+  default     = ""
 }

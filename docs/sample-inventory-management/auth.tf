@@ -1,10 +1,10 @@
 resource "tailor_auth" "ims_auth" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = "ims-auth"
 }
 
 resource "tailor_auth_idp_config" "idp_config" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = tailor_auth.ims_auth.namespace
   name         = "idp"
   id_token_config = {
@@ -14,7 +14,7 @@ resource "tailor_auth_idp_config" "idp_config" {
 }
 
 resource "tailor_auth_user_profile_config" "character" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = tailor_auth.ims_auth.namespace
 
   tailordb_config = {
@@ -28,7 +28,7 @@ resource "tailor_auth_user_profile_config" "character" {
 }
 
 resource "tailor_auth_machine_user" "admin_machine_user" {
-  workspace_id = var.workspace_id
+  workspace_id = local.workspace_id
   namespace    = tailor_auth.ims_auth.namespace
 
   name = "admin-machine-user"
