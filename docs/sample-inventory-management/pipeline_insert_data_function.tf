@@ -1,5 +1,5 @@
 resource "tailor_pipeline_resolver" "pipeline_insert_data_function" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace    = tailor_pipeline.ims.namespace
   name         = "insertData"
   description  = "sample mutation resolver"

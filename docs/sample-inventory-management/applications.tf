@@ -1,5 +1,5 @@
 resource "tailor_application" "ims" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
 
   name = "ims"
   cors = [

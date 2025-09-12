@@ -1,5 +1,5 @@
 resource "tailor_tailordb_type" "product_image" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace    = tailor_tailordb.ims.namespace
   name         = "ProductImage"
   description  = "Product Image"

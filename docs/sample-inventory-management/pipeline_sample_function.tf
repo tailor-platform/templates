@@ -1,5 +1,5 @@
 resource "tailor_pipeline_resolver" "sample_function" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace    = tailor_pipeline.ims.namespace
 
   name        = "functionSampleHello"

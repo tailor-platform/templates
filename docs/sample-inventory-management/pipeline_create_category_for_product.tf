@@ -1,5 +1,5 @@
 resource "tailor_pipeline_resolver" "pipeline_create_category_for_product" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace = tailor_pipeline.ims.namespace
   name = "createCategoryForProduct"
   description = "This API is an alternative to createCategory. It creates a Category record and then creates Product record. Use this API if you want to create a Category record and Product record in one API call."

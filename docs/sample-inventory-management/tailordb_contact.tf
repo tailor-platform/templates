@@ -1,5 +1,5 @@
 resource "tailor_tailordb_type" "contact" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace    = tailor_tailordb.ims.namespace
   name         = "Contact"
   description  = "Contains information about suppliers and customers."

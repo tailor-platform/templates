@@ -1,5 +1,5 @@
 resource "tailor_pipeline" "ims" {
-  workspace_id = local.workspace_id
+  workspace_id = var.workspace_id
   namespace    = "ims"
 
   common_sdl = <<EOF
