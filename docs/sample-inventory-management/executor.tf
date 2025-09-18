@@ -1,5 +1,5 @@
 resource "tailor_executor" "slack_notification" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   name         = "slack-notification"
   description  = "notify slack when a new product is created"
 
@@ -31,7 +31,7 @@ resource "tailor_executor" "slack_notification" {
 }
 
 resource "tailor_executor" "event_based_executor" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   name         = "event-based-executor"
   description  = "Execute query based on an event"
 
@@ -71,7 +71,7 @@ resource "tailor_executor" "event_based_executor" {
 }
 
 resource "tailor_executor" "eventbased_executor_pipeline_1" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   name         = "eventbased-executor-pipeline-1"
   description  = "Create new product based on a successful event"
 
@@ -108,7 +108,7 @@ resource "tailor_executor" "eventbased_executor_pipeline_1" {
 }
 
 resource "tailor_executor" "eventbased_executor_pipeline_2" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   name         = "eventbased-executor-pipeline-2"
   description  = "Create new product based on a failed pipeline"
 
@@ -144,7 +144,7 @@ resource "tailor_executor" "eventbased_executor_pipeline_2" {
 }
 
 resource "tailor_executor" "incoming_webhook_based_executor" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   name         = "incoming-webhook-based-executor"
   description  = "exposes an endpoint"
 

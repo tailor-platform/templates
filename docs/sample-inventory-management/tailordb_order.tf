@@ -1,5 +1,5 @@
 resource "tailor_tailordb_type" "order" {
-  workspace_id = tailor_workspace.ims.id
+  workspace_id = var.workspace_id
   namespace    = tailor_tailordb.ims.namespace
   name         = "Order"
   description  = "Contains information about product orders."
