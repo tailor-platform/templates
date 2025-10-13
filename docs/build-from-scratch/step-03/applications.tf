@@ -13,10 +13,6 @@ resource "tailor_application" "project_management" {
     {
       type      = "tailordb"
       namespace = tailor_tailordb.prj_mgmt_db.namespace
-    },
-    {
-      type      = "auth"
-      namespace = tailor_auth.prj_mgmt_auth.namespace
     }
   ]
 }
