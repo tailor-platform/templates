@@ -1,0 +1,32 @@
+{
+   "description": "TypeORM example for Tailor Functions",
+   "scripts": {
+      "build": "node ./build.mjs",
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-tailordb-codegen"
+   },
+   "dependencies": {
+      "@tailor-platform/function-typeorm-tailordb": "link:../../../function/packages/typeorm-tailordb",
+      "@tailor-platform/function-typeorm-tailordb-codegen": "link:../../../function/packages/typeorm-tailordb-codegen",
+      "reflect-metadata": "^0.2.2",
+      "typeorm": "0.3.27"
+   },
+   "devDependencies": {
+      "@tailor-platform/function-types": "^0.6.0",
+      "@tsconfig/recommended": "1.0.10",
+      "@types/node": "^22.13.10",
+      "esbuild": "^0.25.10",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.9.3"
+   },
+   "packageManager": "pnpm@10.2.1",
+   "pnpm": {
+      "overrides": {
+         "function-typeorm-tailordb": "link:../../../../Library/pnpm/global/5/node_modules/@tailor-platform/function-typeorm-tailordb",
+         "function-typeorm-tailordb-codegen": "link:../../../../Library/pnpm/global/5/node_modules/@tailor-platform/function-typeorm-tailordb-codegen",
+         "@tailor-platform/function-typeorm-tailordb-codegen": "link:../../../function/packages/typeorm-tailordb-codegen",
+         "@tailor-platform/function-typeorm-tailordb": "link:../../../function/packages/typeorm-tailordb",
+         "typeorm-tailordb": "link:../../../../../../path/to/repo/packages/typeorm-tailordb"
+      }
+   }
+}
