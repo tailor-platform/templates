@@ -19,6 +19,17 @@ resource "tailor_tailordb_type" "role" {
   }
 }
 
+resource "tailor_tailordb_gql_permission" "role" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.role.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
+}
+
 resource "tailor_tailordb_type" "user" {
   workspace_id = var.workspace_id
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
@@ -43,6 +54,17 @@ resource "tailor_tailordb_type" "user" {
       array       = true
 	  }
   }
+}
+
+resource "tailor_tailordb_gql_permission" "user" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.user.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
 }
 
 resource "tailor_tailordb_type" "project" {
@@ -91,14 +113,22 @@ resource "tailor_tailordb_type" "project" {
   
 }
 
+resource "tailor_tailordb_gql_permission" "project" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.project.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
+}
+
 resource "tailor_tailordb_type" "task" {
   workspace_id = var.workspace_id
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
   name         = "Task"
   description  = "Task Description"
-  settings = {
-    publish_record_events = true
-  }
   fields = {
     name = {
       type        = "string"
@@ -157,4 +187,15 @@ resource "tailor_tailordb_type" "task" {
     }
   }
 
+}
+
+resource "tailor_tailordb_gql_permission" "task" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.task.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
 }

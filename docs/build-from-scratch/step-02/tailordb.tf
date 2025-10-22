@@ -96,9 +96,6 @@ resource "tailor_tailordb_type" "task" {
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
   name         = "Task"
   description  = "Task Description"
-  settings = {
-    publish_record_events = true
-  }
   fields = {
     name = {
       type        = "string"
