@@ -1,8 +1,8 @@
-resource "tailor_pipeline_resolver" "get_project_status" {
+resource "tailor_pipeline_resolver" "close_project" {
   workspace_id = var.workspace_id
   namespace    = tailor_pipeline.pipeline.namespace
-  name         = "getProjectStatus"
-  description  = "List all the tasks for a project"
+  name         = "closeProject"
+  description  = "Close a project and mark all incomplete tasks as canceled."
   authorization = {
     expr = "true"
   }
@@ -31,6 +31,7 @@ resource "tailor_pipeline_resolver" "get_project_status" {
     {
       name = "getProjectInfo"
       operation = {
+        // TODO: use function operation
         tailor_graphql = {
           invoker = {
             machine_user = {

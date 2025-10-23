@@ -61,6 +61,7 @@ resource "tailor_tailordb_type" "project" {
       type        = "string"
       description = "Description of the project"
     }
+    // TODO: use enum type for status
     status = {
       type        = "string"
       description = "Status of the project"
@@ -89,6 +90,8 @@ resource "tailor_tailordb_type" "project" {
     }
   }
 
+  // TODO: add relationship to child Tasks
+
 }
 
 resource "tailor_tailordb_type" "task" {
@@ -107,6 +110,7 @@ resource "tailor_tailordb_type" "task" {
       type        = "string"
       description = "Description of the task"
     }
+    // TODO: use enum type for status
     status = {
       type        = "string"
       description = "Status of the task"
