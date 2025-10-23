@@ -17,6 +17,10 @@ resource "tailor_application" "project_management" {
     {
       type      = "auth"
       namespace = tailor_auth.prj_mgmt_auth.namespace
+    },
+    {
+      type      = "pipeline"
+      namespace = tailor_pipeline.pipeline.namespace
     }
   ]
 }
