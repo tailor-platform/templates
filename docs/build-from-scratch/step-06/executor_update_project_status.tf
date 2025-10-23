@@ -19,7 +19,7 @@ resource "tailor_executor" "update_project_status" {
           name           = "admin-machine-user"
         }
       }
-      query = <<EOF
+      query     = <<EOF
         mutation ($input: UpdateProjectStatusInput!) {
           updateProjectStatus(input: $input) {
             status

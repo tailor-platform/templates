@@ -15,7 +15,7 @@ resource "tailor_tailordb_type" "role" {
       description = "Name of the Role."
       index       = true
       required    = true
-	  }
+    }
   }
 }
 
@@ -31,17 +31,17 @@ resource "tailor_tailordb_type" "user" {
       description = "Name of the user."
       index       = true
       required    = true
-	  }
+    }
     email = {
       type        = "string"
       description = "Email of the user."
       required    = true
-	  }
+    }
     roles = {
       type        = "uuid"
       description = "Role IDs of the user."
       array       = true
-	  }
+    }
   }
 }
 
@@ -58,37 +58,37 @@ resource "tailor_tailordb_type" "project" {
       required    = true
     }
     description = {
-        type        = "string"
-        description = "Description of the project"
+      type        = "string"
+      description = "Description of the project"
     }
     status = {
-        type        = "string"
-        description = "Status of the project"
+      type        = "string"
+      description = "Status of the project"
     }
     startDate = {
-        type        = "datetime"
-        description = "Start date"
+      type        = "datetime"
+      description = "Start date"
     }
     endDate = {
-        type        = "datetime"
-        description = "End date"
+      type        = "datetime"
+      description = "End date"
     }
     createdAt = {
-        type        = "datetime"
-        description = "Creation date"
-        hooks = {
+      type        = "datetime"
+      description = "Creation date"
+      hooks = {
         create = "(new Date()).toISOString()"
-        }
+      }
     }
     updatedAt = {
-        type        = "datetime"
-        description = "Last updated date"
-        hooks = {
+      type        = "datetime"
+      description = "Last updated date"
+      hooks = {
         update = "(new Date()).toISOString()"
-        }
+      }
     }
   }
-  
+
 }
 
 resource "tailor_tailordb_type" "task" {

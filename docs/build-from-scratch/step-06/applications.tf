@@ -10,7 +10,7 @@ resource "tailor_application" "project_management" {
     "0.0.0.0/0",
   ]
   auth = {
-    namespace       = tailor_auth.prj_mgmt_auth.namespace
+    namespace = tailor_auth.prj_mgmt_auth.namespace
   }
   subgraphs = [
     {

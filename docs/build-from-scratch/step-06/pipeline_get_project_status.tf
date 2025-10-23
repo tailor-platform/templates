@@ -60,7 +60,7 @@ resource "tailor_pipeline_resolver" "get_project_status" {
           EOF
         }
       }
-      pre_hook = <<EOF
+      pre_hook  = <<EOF
         ({
           "projectId": context.args.input.projectId
         })
@@ -79,6 +79,6 @@ resource "tailor_pipeline_resolver" "get_project_status" {
           }))
         })
       EOF
-    }  
+    }
   ]
 }

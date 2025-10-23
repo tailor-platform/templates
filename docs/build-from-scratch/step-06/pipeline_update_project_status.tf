@@ -44,7 +44,7 @@ resource "tailor_pipeline_resolver" "update_project_status" {
           EOF
         }
       }
-      pre_hook = <<EOF
+      pre_hook  = <<EOF
         ({
           "projectId": context.args.input.projectId
         })
@@ -75,7 +75,7 @@ resource "tailor_pipeline_resolver" "update_project_status" {
           EOF
         }
       }
-      pre_hook = <<EOF
+      pre_hook  = <<EOF
         (() => {
         // Check if all tasks are completed
         const allTasksCompleted = context.pipeline.getTaskInfo.tasks.every(task => 
