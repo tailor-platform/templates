@@ -1,6 +1,10 @@
 resource "tailor_application" "project_management" {
   workspace_id = var.workspace_id
 
+  auth = {
+    namespace = tailor_auth.prj_mgmt_auth.namespace
+  }
+
   name = "project-management"
   cors = [
     "http://localhost:8080",
