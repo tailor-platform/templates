@@ -20,7 +20,7 @@ resource "tailor_pipeline_resolver" "close_project" {
       operation = {
         function = {
           name      = "closeProject"
-          script = file("${path.module}/scripts/close_project_function.js")
+          script    = file("${path.module}/scripts/close_project_function.js")
           variables = "({ projectId: context.args.input.projectId })"
         }
       }

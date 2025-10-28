@@ -88,31 +88,31 @@ resource "tailor_tailordb_type" "project" {
       type        = "enum"
       description = "Status of the project"
       allowed_values = [
-		    {
+        {
           value       = "PLANNING"
           description = "PLANNING type"
-		    },
-		    {
+        },
+        {
           value       = "IN_PROGRESS"
           description = "IN_PROGRESS type"
-		    },
+        },
         {
           value       = "ON_HOLD"
           description = "ON_HOLD type"
-		    },
+        },
         {
           value       = "COMPLETED"
           description = "COMPLETED type"
-		    },
+        },
         {
           value       = "CANCELED"
           description = "CANCELED type"
-		    },
+        },
         {
           value       = "CLOSED"
           description = "CLOSED type"
-		    }
-	    ]
+        }
+      ]
     }
     startDate = {
       type        = "datetime"
@@ -143,7 +143,7 @@ resource "tailor_tailordb_type" "project" {
       ref_type    = "Task"
       ref_field   = "projectId"
       src_field   = "id"
-      array = true
+      array       = true
       description = "Link to the Task"
     }
   }
@@ -166,6 +166,9 @@ resource "tailor_tailordb_type" "task" {
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
   name         = "Task"
   description  = "Task Description"
+  settings = {
+    publish_record_events = true
+  }
   fields = {
     name = {
       type        = "string"
@@ -181,27 +184,27 @@ resource "tailor_tailordb_type" "task" {
       type        = "enum"
       description = "Status of the task"
       allowed_values = [
-		    {
+        {
           value       = "TODO"
           description = "TODO type"
-		    },
-		    {
+        },
+        {
           value       = "IN_PROGRESS"
           description = "IN_PROGRESS type"
-		    },
+        },
         {
           value       = "IN_REVIEW"
           description = "IN_REVIEW type"
-		    },
+        },
         {
           value       = "DONE"
           description = "DONE type"
-		    },
+        },
         {
           value       = "CANCELED"
           description = "CANCELED type"
-		    }
-	    ]
+        }
+      ]
     }
     dueDate = {
       type        = "datetime"
