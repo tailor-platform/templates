@@ -84,8 +84,34 @@ resource "tailor_tailordb_type" "project" {
       description = "Description of the project"
     }
     status = {
-      type        = "string"
+      type        = "enum"
       description = "Status of the project"
+      allowed_values = [
+        {
+          value       = "PLANNING"
+          description = "PLANNING type"
+        },
+        {
+          value       = "IN_PROGRESS"
+          description = "IN_PROGRESS type"
+        },
+        {
+          value       = "ON_HOLD"
+          description = "ON_HOLD type"
+        },
+        {
+          value       = "COMPLETED"
+          description = "COMPLETED type"
+        },
+        {
+          value       = "CANCELED"
+          description = "CANCELED type"
+        },
+        {
+          value       = "CLOSED"
+          description = "CLOSED type"
+        }
+      ]
     }
     startDate = {
       type        = "datetime"
@@ -108,6 +134,16 @@ resource "tailor_tailordb_type" "project" {
       hooks = {
         update = "(new Date()).toISOString()"
       }
+    }
+  }
+
+  relationships = {
+    task = {
+      ref_type    = "Task"
+      ref_field   = "projectId"
+      src_field   = "id"
+      array       = true
+      description = "Link to the Task"
     }
   }
 
@@ -141,8 +177,30 @@ resource "tailor_tailordb_type" "task" {
       description = "Description of the task"
     }
     status = {
-      type        = "string"
+      type        = "enum"
       description = "Status of the task"
+      allowed_values = [
+        {
+          value       = "TODO"
+          description = "TODO type"
+        },
+        {
+          value       = "IN_PROGRESS"
+          description = "IN_PROGRESS type"
+        },
+        {
+          value       = "IN_REVIEW"
+          description = "IN_REVIEW type"
+        },
+        {
+          value       = "DONE"
+          description = "DONE type"
+        },
+        {
+          value       = "CANCELED"
+          description = "CANCELED type"
+        }
+      ]
     }
     dueDate = {
       type        = "datetime"
@@ -156,6 +214,7 @@ resource "tailor_tailordb_type" "task" {
     projectId = {
       type        = "uuid"
       description = "ID of the Project"
+      index       = true
     }
     createdAt = {
       type        = "datetime"

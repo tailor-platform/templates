@@ -19,6 +19,17 @@ resource "tailor_tailordb_type" "role" {
   }
 }
 
+resource "tailor_tailordb_gql_permission" "role" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.role.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
+}
+
 resource "tailor_tailordb_type" "user" {
   workspace_id = var.workspace_id
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
@@ -45,6 +56,18 @@ resource "tailor_tailordb_type" "user" {
   }
 }
 
+resource "tailor_tailordb_gql_permission" "user" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.user.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
+}
+
+
 resource "tailor_tailordb_type" "project" {
   workspace_id = var.workspace_id
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
@@ -62,8 +85,34 @@ resource "tailor_tailordb_type" "project" {
       description = "Description of the project"
     }
     status = {
-      type        = "string"
+      type        = "enum"
       description = "Status of the project"
+      allowed_values = [
+        {
+          value       = "PLANNING"
+          description = "PLANNING type"
+        },
+        {
+          value       = "IN_PROGRESS"
+          description = "IN_PROGRESS type"
+        },
+        {
+          value       = "ON_HOLD"
+          description = "ON_HOLD type"
+        },
+        {
+          value       = "COMPLETED"
+          description = "COMPLETED type"
+        },
+        {
+          value       = "CANCELED"
+          description = "CANCELED type"
+        },
+        {
+          value       = "CLOSED"
+          description = "CLOSED type"
+        }
+      ]
     }
     startDate = {
       type        = "datetime"
@@ -89,6 +138,27 @@ resource "tailor_tailordb_type" "project" {
     }
   }
 
+  relationships = {
+    task = {
+      ref_type    = "Task"
+      ref_field   = "projectId"
+      src_field   = "id"
+      array       = true
+      description = "Link to the Task"
+    }
+  }
+
+}
+
+resource "tailor_tailordb_gql_permission" "project" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.project.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
 }
 
 resource "tailor_tailordb_type" "task" {
@@ -96,9 +166,6 @@ resource "tailor_tailordb_type" "task" {
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
   name         = "Task"
   description  = "Task Description"
-  settings = {
-    publish_record_events = true
-  }
   fields = {
     name = {
       type        = "string"
@@ -111,8 +178,30 @@ resource "tailor_tailordb_type" "task" {
       description = "Description of the task"
     }
     status = {
-      type        = "string"
+      type        = "enum"
       description = "Status of the task"
+      allowed_values = [
+        {
+          value       = "TODO"
+          description = "TODO type"
+        },
+        {
+          value       = "IN_PROGRESS"
+          description = "IN_PROGRESS type"
+        },
+        {
+          value       = "IN_REVIEW"
+          description = "IN_REVIEW type"
+        },
+        {
+          value       = "DONE"
+          description = "DONE type"
+        },
+        {
+          value       = "CANCELED"
+          description = "CANCELED type"
+        }
+      ]
     }
     dueDate = {
       type        = "datetime"
@@ -126,6 +215,7 @@ resource "tailor_tailordb_type" "task" {
     projectId = {
       type        = "uuid"
       description = "ID of the Project"
+      index       = true
     }
     createdAt = {
       type        = "datetime"
@@ -157,4 +247,15 @@ resource "tailor_tailordb_type" "task" {
     }
   }
 
+}
+
+resource "tailor_tailordb_gql_permission" "task" {
+  workspace_id = var.workspace_id
+  namespace    = tailor_tailordb.prj_mgmt_db.namespace
+  type         = tailor_tailordb_type.task.name
+  policies = [{
+    actions     = ["all"]
+    permit      = "allow"
+    description = "allow all actions for everyone"
+  }]
 }
