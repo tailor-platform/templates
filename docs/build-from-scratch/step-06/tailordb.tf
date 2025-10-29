@@ -3,22 +3,6 @@ resource "tailor_tailordb" "prj_mgmt_db" {
   namespace    = "project-management-db"
 }
 
-resource "tailor_tailordb_type" "role" {
-  workspace_id = var.workspace_id
-  namespace    = tailor_tailordb.prj_mgmt_db.namespace
-  name         = "Role"
-  description  = "User roles."
-
-  fields = {
-    name = {
-      type        = "string"
-      description = "Name of the Role."
-      index       = true
-      required    = true
-    }
-  }
-}
-
 resource "tailor_tailordb_type" "user" {
   workspace_id = var.workspace_id
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
@@ -154,6 +138,9 @@ resource "tailor_tailordb_type" "task" {
   namespace    = tailor_tailordb.prj_mgmt_db.namespace
   name         = "Task"
   description  = "Task Description"
+  settings = {
+    publish_record_events = true
+  }
   fields = {
     name = {
       type        = "string"
