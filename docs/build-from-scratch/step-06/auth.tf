@@ -11,9 +11,9 @@ resource "tailor_auth_user_profile_config" "user" {
     namespace      = tailor_tailordb.prj_mgmt_db.namespace
     type           = tailor_tailordb_type.user.name
     username_field = "email"
-    attribute_fields = [
-      "roles"
-    ]
+    attribute_map = {
+      roles = "roles"
+    }
   }
 }
 
@@ -22,13 +22,7 @@ resource "tailor_auth_machine_user" "admin_machine_user" {
   namespace    = tailor_auth.prj_mgmt_auth.namespace
 
   name = "admin-machine-user"
-  attributes = [
-    uuid(),
-  ]
-
-  lifecycle {
-    ignore_changes = [
-      attributes,
-    ]
+  attribute_map = {
+    roles = { string_array = ["admin"] }
   }
 }
