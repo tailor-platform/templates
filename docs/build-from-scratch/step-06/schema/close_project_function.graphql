@@ -1,0 +1,9 @@
+input closeProjectInput {
+    projectId: ID!
+}
+type closeProjectResponse {
+    message: String!
+}
+extend type Mutation {
+    closeProject(input: closeProjectInput!): closeProjectResponse!
+}
