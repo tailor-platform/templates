@@ -1,5 +1,5 @@
 import { db } from "@tailor-platform/tailor-sdk";
-import { gqlPermissionManager, permissionManager } from "../common/permission";
+import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
 
 
 export const project = db
@@ -24,5 +24,5 @@ export const project = db
       .description("End date of the project"),
     ...db.fields.timestamps(),
   })
-  .permission(permissionManager)
-  .gqlPermission(gqlPermissionManager);
+  .permission(permissionLoggedIn)
+  .gqlPermission(gqlPermissionLoggedIn);

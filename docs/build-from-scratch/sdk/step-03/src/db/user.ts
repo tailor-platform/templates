@@ -1,5 +1,5 @@
 import { db } from "@tailor-platform/tailor-sdk";
-import { gqlPermissionManager, permissionManager } from "../common/permission";
+import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
 
 export const user = db
   .type("User", {
@@ -8,5 +8,5 @@ export const user = db
     role: db.enum("MANAGER", "STAFF", "ADMIN"),
     ...db.fields.timestamps(),
   })
-  .permission(permissionManager)
-  .gqlPermission(gqlPermissionManager);
+  .permission(permissionLoggedIn)
+  .gqlPermission(gqlPermissionLoggedIn);

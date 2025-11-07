@@ -1,7 +1,7 @@
 import { db } from "@tailor-platform/tailor-sdk";
 import { project } from "./project";
 import { user } from "./user";
-import { gqlPermissionManager, permissionManager } from "../common/permission";
+import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
 
 export const task = db
   .type("Task", {
@@ -29,5 +29,5 @@ export const task = db
       .description("Due date of the task"),
     ...db.fields.timestamps(),
   })
-  .permission(permissionManager)
-  .gqlPermission(gqlPermissionManager);
+  .permission(permissionLoggedIn)
+  .gqlPermission(gqlPermissionLoggedIn);

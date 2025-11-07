@@ -24,6 +24,9 @@ export default defineConfig({
       staff: {
         attributes: { role: "STAFF" },
       },
+      admin: {
+        attributes: { role: "ADMIN" },
+      },
     },
   }),
 });
