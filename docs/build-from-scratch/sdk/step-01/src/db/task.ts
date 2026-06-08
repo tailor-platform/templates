@@ -1,4 +1,4 @@
-import { db } from "@tailor-platform/tailor-sdk";
+import { db } from "@tailor-platform/sdk";
 import { project } from "./project";
 import { user } from "./user";
 
@@ -16,13 +16,13 @@ export const task = db
       .uuid({ optional: true })
       .description("ID of the user assigned to the task")
       .relation({ type: "n-1", toward: { type: user } }),
-    status: db.enum(
+    status: db.enum([
       { value: "TODO", description: "To Do status" },
       { value: "IN_PROGRESS", description: "In Progress status" },
       { value: "IN_REVIEW", description: "In Review status" },
       { value: "DONE", description: "Done status" },
-      { value: "CANCELED", description: "Canceled status" }
-    ),
+      { value: "CANCELED", description: "Canceled status" },
+    ]),
     dueDate: db
       .date()
       .description("Due date of the task"),
