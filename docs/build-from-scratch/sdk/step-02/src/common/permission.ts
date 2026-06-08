@@ -2,7 +2,7 @@ import type {
   PermissionCondition,
   TailorTypeGqlPermission,
   TailorTypePermission,
-} from "@tailor-platform/tailor-sdk";
+} from "@tailor-platform/sdk";
 
 export interface User {
   role: string;

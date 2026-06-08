@@ -1,12 +1,12 @@
-import { createResolver, t } from "@tailor-platform/tailor-sdk";
+import { createResolver, t } from "@tailor-platform/sdk";
 import { getDB } from "../generated/tailordb";
 
 export default createResolver({
   name: "closeProject",
   operation: "mutation",
-  input: t.type({
+  input: {
     id: t.string(),
-  }),
+  },
   body: async (context) => {
 
     const db = getDB("main-db");
@@ -53,7 +53,7 @@ export default createResolver({
     });
     return {  result: `${context.input.id} project has been closed. All incomplete tasks are marked as canceled.`, };
   },
-  output: t.type({
+  output: t.object({
     result: t.string({ optional: true }),
   }),
 });

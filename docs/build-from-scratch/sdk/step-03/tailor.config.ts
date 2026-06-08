@@ -1,12 +1,7 @@
-import { defineAuth, defineConfig, defineGenerators, } from "@tailor-platform/tailor-sdk";
+import { defineAuth, defineConfig, defineGenerators, } from "@tailor-platform/sdk";
 import { user } from "./src/db/user";
 
-if (!process.env.WORKSPACE_ID) {
-  throw new Error("WORKSPACE_ID environment variable is not set");
-}
-
 export default defineConfig({
-  workspaceId: process.env.WORKSPACE_ID,
   name: "project-management",
   db: { "main-db": { files: [`./src/db/*.ts`] } },
   auth: defineAuth("main-auth", {
@@ -29,9 +24,9 @@ export default defineConfig({
       },
     },
   }),
-  pipeline: { "main-pipeline": { files: [`./src/pipeline/*.ts`] } },
+  resolver: { "main-resolver": { files: [`./src/resolver/*.ts`] } },
 });
 
 export const generators = defineGenerators(
-  ["@tailor/kysely-type", { distPath: `./src/generated/tailordb.ts` },]
+  ["@tailor-platform/kysely-type", { distPath: `./src/generated/tailordb.ts` },]
 );
