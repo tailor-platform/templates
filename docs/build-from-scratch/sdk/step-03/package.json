@@ -15,10 +15,10 @@
     "kysely": "0.28.7"
   },
   "devDependencies": {
-    "@eslint/js": "9.38.0",
+    "@eslint/js": "9.39.5",
     "@tailor-platform/sdk": "1.56.0",
     "@types/node": "22.20.2",
-    "eslint": "9.38.0",
+    "eslint": "9.39.5",
     "prettier": "3.9.6",
     "typescript": "5.9.3",
     "typescript-eslint": "8.70.0"
