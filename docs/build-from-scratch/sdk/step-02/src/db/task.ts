@@ -4,7 +4,7 @@ import { user } from "./user";
 import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
 
 export const task = db
-  .type("Task", {
+  .table("Task", {
     name: db.string().description("Name of the Task"),
     description: db
       .string({ optional: true })

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "deploy": "tailor-sdk apply",
+    "deploy": "tailor deploy",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint --cache .",

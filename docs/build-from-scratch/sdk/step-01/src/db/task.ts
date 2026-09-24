@@ -3,7 +3,7 @@ import { project } from "./project";
 import { user } from "./user";
 
 export const task = db
-  .type("Task", {
+  .table("Task", {
     name: db.string().description("Name of the Task"),
     description: db
       .string({ optional: true })

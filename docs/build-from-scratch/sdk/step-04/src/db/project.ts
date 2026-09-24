@@ -3,7 +3,7 @@ import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission"
 
 
 export const project = db
-  .type("Project", {
+  .table("Project", {
     name: db.string().description("Name of the Project"),
     description: db
       .string({ optional: true })
