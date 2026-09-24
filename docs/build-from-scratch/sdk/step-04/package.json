@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "deploy": "tailor deploy",
+    "generate": "tailor generate",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint --cache .",
