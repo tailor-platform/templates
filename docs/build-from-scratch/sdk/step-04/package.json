@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "deploy": "tailor-sdk apply",
+    "deploy": "tailor deploy",
+    "generate": "tailor generate",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint --cache .",
@@ -16,7 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",
-    "@tailor-platform/sdk": "1.85.1",
+    "@tailor-platform/sdk": "2.20.0",
     "@types/node": "22.20.4",
     "eslint": "9.39.5",
     "prettier": "3.9.9",

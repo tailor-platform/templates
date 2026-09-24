@@ -1,7 +1,11 @@
-import { db } from "@tailor-platform/sdk";
+import {
+  db,
+  unsafeAllowAllGqlPermission,
+  unsafeAllowAllTypePermission,
+} from "@tailor-platform/sdk";
 
 export const project = db
-  .type("Project", {
+  .table("Project", {
     name: db.string().description("Name of the Project"),
     description: db
       .string({ optional: true })
@@ -14,11 +18,9 @@ export const project = db
       { value: "CANCELED", description: "Canceled status" },
       { value: "CLOSED", description: "Closed status" },
     ]),
-    startDate: db
-      .date()
-      .description("Start date of the project"),
-    endDate: db
-      .date({ optional: true })
-      .description("End date of the project"),
+    startDate: db.date().description("Start date of the project"),
+    endDate: db.date({ optional: true }).description("End date of the project"),
     ...db.fields.timestamps(),
   })
+  .permission(unsafeAllowAllTypePermission)
+  .gqlPermission(unsafeAllowAllGqlPermission);

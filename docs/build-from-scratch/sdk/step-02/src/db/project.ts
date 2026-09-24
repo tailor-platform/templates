@@ -1,8 +1,11 @@
 import { db } from "@tailor-platform/sdk";
-import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
+import {
+  gqlPermissionLoggedIn,
+  permissionLoggedIn,
+} from "../common/permission";
 
 export const project = db
-  .type("Project", {
+  .table("Project", {
     name: db.string().description("Name of the Project"),
     description: db
       .string({ optional: true })
@@ -15,12 +18,8 @@ export const project = db
       { value: "CANCELED", description: "Canceled status" },
       { value: "CLOSED", description: "Closed status" },
     ]),
-    startDate: db
-      .date()
-      .description("Start date of the project"),
-    endDate: db
-      .date({ optional: true })
-      .description("End date of the project"),
+    startDate: db.date().description("Start date of the project"),
+    endDate: db.date({ optional: true }).description("End date of the project"),
     ...db.fields.timestamps(),
   })
   .permission(permissionLoggedIn)

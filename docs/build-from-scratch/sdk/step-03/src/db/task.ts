@@ -1,10 +1,13 @@
 import { db } from "@tailor-platform/sdk";
 import { project } from "./project";
 import { user } from "./user";
-import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
+import {
+  gqlPermissionLoggedIn,
+  permissionLoggedIn,
+} from "../common/permission";
 
 export const task = db
-  .type("Task", {
+  .table("Task", {
     name: db.string().description("Name of the Task"),
     description: db
       .string({ optional: true })
@@ -24,9 +27,7 @@ export const task = db
       { value: "DONE", description: "Done status" },
       { value: "CANCELED", description: "Canceled status" },
     ]),
-    dueDate: db
-      .date()
-      .description("Due date of the task"),
+    dueDate: db.date().description("Due date of the task"),
     ...db.fields.timestamps(),
   })
   .permission(permissionLoggedIn)
