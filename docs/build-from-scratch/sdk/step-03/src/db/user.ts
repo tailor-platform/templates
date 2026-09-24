@@ -1,5 +1,8 @@
 import { db } from "@tailor-platform/sdk";
-import { gqlPermissionLoggedIn, permissionLoggedIn } from "../common/permission";
+import {
+  gqlPermissionLoggedIn,
+  permissionLoggedIn,
+} from "../common/permission";
 
 export const user = db
   .table("User", {

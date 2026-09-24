@@ -27,9 +27,7 @@ export const task = db
       { value: "DONE", description: "Done status" },
       { value: "CANCELED", description: "Canceled status" },
     ]),
-    dueDate: db
-      .date()
-      .description("Due date of the task"),
+    dueDate: db.date().description("Due date of the task"),
     ...db.fields.timestamps(),
   })
   .permission(unsafeAllowAllTypePermission)

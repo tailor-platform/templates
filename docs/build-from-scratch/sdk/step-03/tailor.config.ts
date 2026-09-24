@@ -1,4 +1,4 @@
-import { defineAuth, defineConfig, definePlugins, } from "@tailor-platform/sdk";
+import { defineAuth, defineConfig, definePlugins } from "@tailor-platform/sdk";
 import { kyselyTypePlugin } from "@tailor-platform/sdk/plugin/kysely-type";
 import { user } from "./src/db/user";
 
@@ -29,5 +29,5 @@ export default defineConfig({
 });
 
 export const plugins = definePlugins(
-  kyselyTypePlugin({ distPath: `./src/generated/tailordb.ts` })
+  kyselyTypePlugin({ distPath: `./src/generated/tailordb.ts` }),
 );
