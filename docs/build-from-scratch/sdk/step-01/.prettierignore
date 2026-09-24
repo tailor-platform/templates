@@ -1,0 +1,5 @@
+src/generated/
+tailor.d.ts
+.tailor/
+node_modules/
+package-lock.json
