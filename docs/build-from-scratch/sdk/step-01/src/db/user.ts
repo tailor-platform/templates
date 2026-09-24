@@ -1,4 +1,8 @@
-import { db } from "@tailor-platform/sdk";
+import {
+  db,
+  unsafeAllowAllGqlPermission,
+  unsafeAllowAllTypePermission,
+} from "@tailor-platform/sdk";
 
 export const user = db
   .table("User", {
@@ -7,3 +11,5 @@ export const user = db
     role: db.enum(["MANAGER", "STAFF"]),
     ...db.fields.timestamps(),
   })
+  .permission(unsafeAllowAllTypePermission)
+  .gqlPermission(unsafeAllowAllGqlPermission);

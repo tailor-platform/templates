@@ -1,4 +1,8 @@
-import { db } from "@tailor-platform/sdk";
+import {
+  db,
+  unsafeAllowAllGqlPermission,
+  unsafeAllowAllTypePermission,
+} from "@tailor-platform/sdk";
 
 export const project = db
   .table("Project", {
@@ -22,3 +26,5 @@ export const project = db
       .description("End date of the project"),
     ...db.fields.timestamps(),
   })
+  .permission(unsafeAllowAllTypePermission)
+  .gqlPermission(unsafeAllowAllGqlPermission);

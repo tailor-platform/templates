@@ -1,4 +1,8 @@
-import { db } from "@tailor-platform/sdk";
+import {
+  db,
+  unsafeAllowAllGqlPermission,
+  unsafeAllowAllTypePermission,
+} from "@tailor-platform/sdk";
 import { project } from "./project";
 import { user } from "./user";
 
@@ -28,3 +32,5 @@ export const task = db
       .description("Due date of the task"),
     ...db.fields.timestamps(),
   })
+  .permission(unsafeAllowAllTypePermission)
+  .gqlPermission(unsafeAllowAllGqlPermission);
