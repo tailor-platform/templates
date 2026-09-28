@@ -67,5 +67,42 @@ resource "tailor_tailordb_type" "product" {
     }
   }
 
-  type_permission = local.permission_everyone
+  permission = {
+    create = [
+      {
+        conditions = [
+          { left = { user = "role" }, operator = "eq", right = { value = { string = "ADMIN" } } }
+        ]
+        permit      = "allow"
+        description = "Administrators can create any task"
+      },
+    ]
+    read = [
+      {
+        conditions = [
+          { left = { user = "role" }, operator = "eq", right = { value = { string = "ADMIN" } } }
+        ]
+        permit      = "allow"
+        description = "Administrators can read all tasks"
+      },
+    ]
+    update = [
+      {
+        conditions = [
+          { left = { user = "role" }, operator = "eq", right = { value = { string = "ADMIN" } } }
+        ]
+        permit      = "allow"
+        description = "Administrators can update any task"
+      },
+    ]
+    delete = [
+      {
+        conditions = [
+          { left = { user = "role" }, operator = "eq", right = { value = { string = "ADMIN" } } }
+        ]
+        permit      = "allow"
+        description = "Administrators can delete any task"
+      }
+    ]
+  }  
 }
