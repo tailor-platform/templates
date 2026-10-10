@@ -16,7 +16,7 @@
     "@tailor-platform/sdk": "2.22.0",
     "@types/node": "24.19.0",
     "eslint": "10.11.0",
-    "prettier": "3.9.9",
+    "prettier": "3.9.10",
     "typescript": "5.9.3",
     "typescript-eslint": "8.71.0"
   }
