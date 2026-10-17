@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@tailor-platform/function-kysely-tailordb": "0.1.3",
-    "kysely": "0.29.6"
+    "kysely": "0.29.7"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
