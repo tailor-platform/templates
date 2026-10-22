@@ -1,9 +1,11 @@
 import { createResolver, t } from "@tailor-platform/sdk";
+import { resolverPermissionLoggedIn } from "../common/permission";
 import { getDB } from "../generated/tailordb";
 
 export default createResolver({
   name: "closeProject",
   operation: "mutation",
+  permission: resolverPermissionLoggedIn,
   input: {
     id: t.string(),
   },
@@ -21,7 +23,7 @@ export default createResolver({
       throw new Error(`Project not found, expected:1 got:0`);
     }
 
-    if (project.status === "CANCELED") {
+    if (project.status === "CLOSED") {
       return { result: "Project is already closed." };
     }
 
