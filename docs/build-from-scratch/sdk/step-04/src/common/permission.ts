@@ -1,5 +1,6 @@
 import type {
   PermissionCondition,
+  ResolverPermission,
   TailorTypeGqlPermission,
   TailorTypePermission,
 } from "@tailor-platform/sdk";
@@ -30,3 +31,11 @@ export const gqlPermissionLoggedIn = [
     permit: true,
   },
 ] as const satisfies TailorTypeGqlPermission;
+
+// Any logged-in user can call the resolver.
+export const resolverPermissionLoggedIn = [
+  {
+    conditions: [loggedIn],
+    permit: true,
+  },
+] as const satisfies ResolverPermission;
