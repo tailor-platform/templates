@@ -15,11 +15,11 @@ export const task = db
     projectId: db
       .uuid()
       .description("ID of the project the task belongs to")
-      .relation({ type: "n-1", toward: { type: project } }),
+      .relation({ type: "n-1", toward: { table: project } }),
     assigneeId: db
       .uuid({ optional: true })
       .description("ID of the user assigned to the task")
-      .relation({ type: "n-1", toward: { type: user } }),
+      .relation({ type: "n-1", toward: { table: user } }),
     status: db.enum([
       { value: "TODO", description: "To Do status" },
       { value: "IN_PROGRESS", description: "In Progress status" },
