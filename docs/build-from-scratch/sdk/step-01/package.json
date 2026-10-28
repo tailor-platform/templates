@@ -14,7 +14,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@tailor-platform/sdk": "2.33.0",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "eslint": "10.13.0",
     "prettier": "3.9.10",
     "typescript": "5.9.3",
